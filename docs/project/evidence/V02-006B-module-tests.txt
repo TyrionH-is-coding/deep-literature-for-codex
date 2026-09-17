@@ -1,0 +1,33 @@
+
+> deep-literature-for-codex@0.1.0-rc.6 modules
+> node scripts/modules.mjs test tooling
+
+Modules: tooling
+✔ core.mjs preserves the rc.6 public API and module object identity (20.6039ms)
+✔ platform.mjs preserves the rc.6 public API and module object identity (1.5682ms)
+✔ bridge.mjs preserves the rc.6 public API and module object identity (6.5804ms)
+✔ bridge-services.mjs preserves the rc.6 public API and module object identity (1.446ms)
+✔ handoff.mjs preserves the rc.6 public API and module object identity (1.6021ms)
+✔ workspace.mjs preserves the rc.6 public API and module object identity (1.1213ms)
+✔ control.mjs preserves the rc.6 public API and module object identity (5.2912ms)
+✔ local-socket.mjs preserves the rc.6 public API and module object identity (1.0394ms)
+✔ releases.mjs preserves the rc.6 public API and module object identity (5.1981ms)
+✔ library-transfer.mjs preserves the rc.6 public API and module object identity (1.3351ms)
+✔ the stable bridge entrypoint retains the DSH plugin registration contract (0.8245ms)
+✔ relocated public APIs import from an unrelated cwd without loading the supervisor (517.9699ms)
+✔ the actual source graph has declared public boundaries and pinned module identities (338.558ms)
+✔ syntax parsing ignores example imports but detects export-from and computed imports (1.9837ms)
+✔ a consumer cannot import private implementations or unregistered dependencies (1.5547ms)
+✔ CommonJS bridges require review and literal require calls participate in dependency checks (0.4644ms)
+✔ unknown module requests fail and impact includes transitive consumers and runtime wiring (0.4918ms)
+✔ ambiguous ownership is rejected rather than silently choosing a module (0.2985ms)
+✔ a source cycle is rejected before traversing files (0.8239ms)
+✔ module fingerprints change only for modules that own changed bytes (33.147ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 752.5492

@@ -1,0 +1,29 @@
+{
+  "unit": {
+    "name": "workspace",
+    "version": 2
+  },
+  "global": {
+    "initialized": true,
+    "workspaceIds": [
+      "c296c84a-cf13-47c8-a13a-05e0988f6a85"
+    ],
+    "archivedSessionIds": [
+      "v02-006b-child"
+    ]
+  },
+  "tables": {
+    "workspaces": {
+      "c296c84a-cf13-47c8-a13a-05e0988f6a85": {
+        "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-FQSN5r\\source\\workspace",
+        "title": "合成分类",
+        "sessionIds": [
+          "v02-006b-child",
+          "v02-006b-parent"
+        ],
+        "createdAt": "2023-11-14T22:13:20.001Z",
+        "updatedAt": "2026-09-17T06:34:46.938Z"
+      }
+    }
+  }
+}
