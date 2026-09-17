@@ -21,7 +21,10 @@ jobs:
         with:
           node-version: "22"
       - name: Workbench unit tests
-        run: npm test
+        run: |
+          npm ci --ignore-scripts
+          npm run check:modules
+          npm test
 
   oauth:
     strategy:

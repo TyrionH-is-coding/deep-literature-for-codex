@@ -1,0 +1,372 @@
+{
+  "schema": 1,
+  "baseline": "v0.1.0-rc.6",
+  "modules": [
+    {
+      "id": "foundation",
+      "version": "0.1.0",
+      "purpose": "实例身份、隔离环境、JSON、校验和与平台路径",
+      "ownedPaths": [
+        "src/modules/foundation/",
+        "src/platform.mjs",
+        "tests/core.test.mjs",
+        "tests/platform.test.mjs",
+        "docs/modules/foundation.md",
+        "docs/modules/changes/foundation.md"
+      ],
+      "dependencies": [],
+      "runtimeDependencies": [],
+      "publicEntries": [
+        "src/modules/foundation/index.mjs"
+      ],
+      "context": "docs/modules/foundation.md",
+      "changelog": "docs/modules/changes/foundation.md",
+      "tests": [
+        "tests/core.test.mjs",
+        "tests/platform.test.mjs"
+      ]
+    },
+    {
+      "id": "skill",
+      "version": "0.1.0",
+      "purpose": "托管 Skill 安装与用户定制保护",
+      "ownedPaths": [
+        "src/modules/skill/",
+        "skills/",
+        "docs/modules/skill.md",
+        "docs/modules/changes/skill.md"
+      ],
+      "dependencies": [
+        "foundation"
+      ],
+      "runtimeDependencies": [],
+      "publicEntries": [
+        "src/modules/skill/index.mjs"
+      ],
+      "context": "docs/modules/skill.md",
+      "changelog": "docs/modules/changes/skill.md",
+      "tests": [
+        "tests/core.test.mjs",
+        "tests/install.test.mjs"
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "version": "0.1.0",
+      "purpose": "宿主进程启动、控制、身份验证与停止",
+      "ownedPaths": [
+        "src/modules/lifecycle/",
+        "src/control.mjs",
+        "src/supervisor.mjs",
+        "src/local-socket.mjs",
+        "tests/lifecycle.test.mjs",
+        "tests/fixture-host.mjs",
+        "tests/fixture-failed.mjs",
+        "docs/modules/lifecycle.md",
+        "docs/modules/changes/lifecycle.md"
+      ],
+      "dependencies": [
+        "foundation"
+      ],
+      "runtimeDependencies": [
+        "bridge"
+      ],
+      "publicEntries": [
+        "src/modules/lifecycle/index.mjs"
+      ],
+      "context": "docs/modules/lifecycle.md",
+      "changelog": "docs/modules/changes/lifecycle.md",
+      "tests": [
+        "tests/lifecycle.test.mjs",
+        "tests/platform.test.mjs"
+      ]
+    },
+    {
+      "id": "releases",
+      "version": "0.1.0",
+      "purpose": "安装代激活、回退、恢复与文献备份",
+      "ownedPaths": [
+        "src/modules/releases/",
+        "src/releases.mjs",
+        "src/library-transfer.mjs",
+        "tests/releases.test.mjs",
+        "docs/modules/releases.md",
+        "docs/modules/changes/releases.md"
+      ],
+      "dependencies": [
+        "foundation",
+        "skill",
+        "lifecycle"
+      ],
+      "runtimeDependencies": [],
+      "publicEntries": [
+        "src/modules/releases/index.mjs"
+      ],
+      "context": "docs/modules/releases.md",
+      "changelog": "docs/modules/changes/releases.md",
+      "tests": [
+        "tests/releases.test.mjs",
+        "tests/install.test.mjs"
+      ]
+    },
+    {
+      "id": "workflow",
+      "version": "0.1.0",
+      "purpose": "分类会话绑定、任务幂等、交接与恢复",
+      "ownedPaths": [
+        "src/modules/workflow/",
+        "src/handoff.mjs",
+        "src/workspace.mjs",
+        "tests/handoff.test.mjs",
+        "docs/modules/workflow.md",
+        "docs/modules/changes/workflow.md"
+      ],
+      "dependencies": [
+        "foundation"
+      ],
+      "runtimeDependencies": [],
+      "publicEntries": [
+        "src/modules/workflow/index.mjs"
+      ],
+      "context": "docs/modules/workflow.md",
+      "changelog": "docs/modules/changes/workflow.md",
+      "tests": [
+        "tests/handoff.test.mjs"
+      ]
+    },
+    {
+      "id": "bridge",
+      "version": "0.1.0",
+      "purpose": "DSH 工具和 HTTP 与任务/文献引擎适配",
+      "ownedPaths": [
+        "src/modules/bridge/",
+        "src/bridge.mjs",
+        "src/bridge-services.mjs",
+        "tests/bridge.test.mjs",
+        "docs/modules/bridge.md",
+        "docs/modules/changes/bridge.md"
+      ],
+      "dependencies": [
+        "foundation",
+        "workflow"
+      ],
+      "runtimeDependencies": [
+        "engine",
+        "oauth"
+      ],
+      "publicEntries": [
+        "src/modules/bridge/index.mjs"
+      ],
+      "context": "docs/modules/bridge.md",
+      "changelog": "docs/modules/changes/bridge.md",
+      "tests": [
+        "tests/bridge.test.mjs"
+      ],
+      "externalPackages": [
+        "@dsh-external/dsh-scientific-reading"
+      ]
+    },
+    {
+      "id": "oauth",
+      "version": "0.1.0-rc.3",
+      "purpose": "订阅认证、模型适配与对话续接",
+      "ownedPaths": [
+        "oauth/",
+        "docs/modules/oauth.md",
+        "docs/modules/changes/oauth.md"
+      ],
+      "dependencies": [],
+      "runtimeDependencies": [],
+      "publicEntries": [
+        "oauth/index.mjs",
+        "oauth/control.mjs"
+      ],
+      "context": "docs/modules/oauth.md",
+      "changelog": "docs/modules/changes/oauth.md",
+      "tests": [
+        "oauth/tests/continuity.test.mjs",
+        "oauth/tests/control.test.mjs",
+        "oauth/tests/executable.test.mjs",
+        "oauth/tests/http.test.mjs",
+        "oauth/tests/local-model-fixture.test.mjs",
+        "oauth/tests/provider.test.mjs",
+        "oauth/tests/transport.test.mjs",
+        "oauth/tests/upstream-adapter.test.mjs"
+      ],
+      "externalPackages": [
+        "@deepseek-ai/dsh-llm"
+      ]
+    },
+    {
+      "id": "engine",
+      "version": "0.1.0-rc.5",
+      "purpose": "外部文献引擎，业务代码不在本仓库",
+      "ownedPaths": [
+        "runtime/pins.json",
+        "inputs/",
+        "docs/modules/engine.md",
+        "docs/modules/changes/engine.md"
+      ],
+      "dependencies": [],
+      "runtimeDependencies": [],
+      "publicEntries": [
+        "runtime/pins.json"
+      ],
+      "context": "docs/modules/engine.md",
+      "changelog": "docs/modules/changes/engine.md",
+      "tests": []
+    },
+    {
+      "id": "application",
+      "version": "0.1.0",
+      "purpose": "安装与 CLI 入口组合",
+      "ownedPaths": [
+        "src/cli.mjs",
+        "src/install.mjs",
+        "src/bootstrap-posix.mjs",
+        "src/launcher.mjs",
+        "src/client.mjs",
+        "src/identity.mjs",
+        "src/onboarding.mjs",
+        "src/core.mjs",
+        "install.ps1",
+        "workbench.ps1",
+        "uninstall.ps1",
+        "install.sh",
+        "workbench.sh",
+        "uninstall.sh",
+        "runtime/package.json",
+        "runtime/package-lock.json",
+        "runtime/requirements.in",
+        "runtime/requirements.lock",
+        "runtime/posix-node.tsv",
+        "tests/install.test.mjs",
+        "docs/modules/application.md",
+        "docs/modules/changes/application.md"
+      ],
+      "dependencies": [
+        "foundation",
+        "skill",
+        "lifecycle",
+        "releases"
+      ],
+      "runtimeDependencies": [
+        "bridge",
+        "oauth",
+        "engine"
+      ],
+      "publicEntries": [
+        "src/cli.mjs",
+        "src/install.mjs",
+        "src/launcher.mjs",
+        "src/identity.mjs"
+      ],
+      "context": "docs/modules/application.md",
+      "changelog": "docs/modules/changes/application.md",
+      "tests": [
+        "tests/install.test.mjs",
+        "tests/lifecycle.test.mjs"
+      ]
+    },
+    {
+      "id": "tooling",
+      "version": "0.1.0",
+      "purpose": "模块检查、测试、上下文与发布证据",
+      "ownedPaths": [
+        "scripts/",
+        ".github/",
+        "package.json",
+        "package-lock.json",
+        "src/modules/catalog.json",
+        "AGENTS.md",
+        "README.md",
+        "START_HERE.md",
+        "tests/modules.test.mjs",
+        "tests/module-compatibility.test.mjs",
+        "docs/acceptance.md",
+        "docs/excel-library.md",
+        "docs/handoff-contract.md",
+        "docs/issue-6.md",
+        "docs/lifecycle.md",
+        "docs/mineru-api-key.md",
+        "docs/model-tests.md",
+        "docs/oauth.md",
+        "docs/phase-1.md",
+        "docs/platforms.md",
+        "docs/release-notes.md",
+        "docs/superpowers/plans/2026-09-05-isolated-workbench.md",
+        "docs/superpowers/plans/2026-09-05-release-candidate.md",
+        "docs/modules/README.md",
+        "docs/modules/tooling.md",
+        "docs/modules/changes/tooling.md"
+      ],
+      "dependencies": [],
+      "runtimeDependencies": [
+        "foundation",
+        "skill",
+        "lifecycle",
+        "releases",
+        "workflow",
+        "bridge",
+        "oauth",
+        "engine",
+        "application"
+      ],
+      "publicEntries": [
+        "scripts/modules.mjs"
+      ],
+      "context": "docs/modules/tooling.md",
+      "changelog": "docs/modules/changes/tooling.md",
+      "tests": [
+        "tests/modules.test.mjs",
+        "tests/module-compatibility.test.mjs"
+      ]
+    }
+  ],
+  "compatibilityFiles": [
+    "src/core.mjs",
+    "src/platform.mjs",
+    "src/control.mjs",
+    "src/supervisor.mjs",
+    "src/local-socket.mjs",
+    "src/releases.mjs",
+    "src/library-transfer.mjs",
+    "src/handoff.mjs",
+    "src/workspace.mjs",
+    "src/bridge.mjs",
+    "src/bridge-services.mjs"
+  ],
+  "dynamicImports": [
+    {
+      "file": "src/modules/bridge/plugin.mjs",
+      "expression": "import(pathToFileURL(require.resolve('@dsh-external/dsh-scientific-reading')).href)",
+      "reason": "Load the pinned engine from the selected isolated DSH installation; engine metadata is locked in runtime/pins.json."
+    },
+    {
+      "file": "src/launcher.mjs",
+      "expression": "import(pathToFileURL(path.join(app, 'src', 'releases.mjs')))",
+      "reason": "Self-contained installed launcher selects the validated release slot; stable compatibility path."
+    },
+    {
+      "file": "src/launcher.mjs",
+      "expression": "import(pathToFileURL(process.argv[1]))",
+      "reason": "Self-contained installed launcher selects validated app/src/cli.mjs."
+    },
+    {
+      "file": "src/modules/bridge/plugin.mjs",
+      "expression": "createRequire(installed.dsh)",
+      "reason": "Resolve only the pinned engine from isolated DSH installation."
+    },
+    {
+      "file": "oauth/app-server.mjs",
+      "expression": "createRequire(import.meta.url)",
+      "reason": "Locate the pinned native Codex CLI package, preserving the existing OAuth loader."
+    }
+  ],
+  "externalEngine": {
+    "name": "@dsh-external/dsh-scientific-reading",
+    "version": "0.1.0-rc.5",
+    "sourceCommit": "8e00b334389cd90721b7d404013a07687753aa5c",
+    "sha256": "318814ec542de94a47cd2855b21d0f7af9778b22b283d3995d0c499a3465e2fd"
+  }
+}

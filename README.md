@@ -262,3 +262,6 @@ rc.6 适配 Windows x64、macOS Intel/Apple Silicon、Linux x64/ARM64；平台�
 当前使用固定 Reader 模板和 Excel 字段；自定义模板、自定义字段、文献雷达尚未提供。Excel 桌面程序中的编辑、占用与回写流程尚未完成真实桌面端到端验收，兼容性问题欢迎反馈。
 
 [详细验收记录](docs/acceptance.md) · [版本说明](docs/release-notes.md) · [订阅接入技术说明](docs/oauth.md) · [第三方许可](THIRD_PARTY_NOTICES.md)
+# 开发入口
+
+模块化开发从[模块地图与协作流程](docs/modules/README.md)进入。先运行 `npm ci --ignore-scripts`，再用 `npm run modules -- context <模块名>` 获取本轮需要的接口、上下文与测试范围。本分支基于 rc.6 整理结构，尚未作为新的产品版本发布。
