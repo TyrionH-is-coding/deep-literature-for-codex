@@ -1,0 +1,59 @@
+
+> deep-literature-for-codex@0.1.0-rc.6 modules
+> node scripts/modules.mjs test lifecycle
+
+Modules: lifecycle, releases, application, tooling
+✔ 改名后迁移未修改的旧 Skill，保留同一实例与安装根 (646.3406ms)
+✔ 改名保留定制或非本实例所有的旧 Skill (727.2429ms)
+✔ 新名称被定制 Skill 占用时，不删除旧入口或改写其收据 (807.1663ms)
+✔ 新版源码的 install-skill 可为旧安装单独更新入口 (1472.8736ms)
+✔ 发布已升级后，定制 Skill 冲突作为保留结果返回，不误报安装失败 (550.7923ms)
+✔ 未被本实例管理的同名 Skill 保留且不创建所有权收据 (158.5918ms)
+✔ Skill 收据损坏等真实错误仍拒绝，不当成可忽略冲突 (221.9692ms)
+✔ 错误插件校验在创建安装根或发起下载前失败 (1764.2955ms)
+✔ 发行源文件被破坏时在引导安装前拒绝，安装根保持不存在 (1937.9334ms)
+✔ Windows 卸载处理超长路径且不遍历文库 junction (1359.4695ms)
+✔ 并发启动复用一个真实子进程，停止后状态准确，旁边的服务继续可用 (4041.5274ms)
+✔ 不按陈旧磁盘 PID 停止其他进程 (116.0214ms)
+✔ 宿主失败后返回具体状态，不能把进程存在当成就绪 (2618.7065ms)
+✔ 拒绝控制通道返回的其他实例，即使其 HTTP 身份自洽 (256.7215ms)
+✔ 控制管道按解析后的安装根命名，联接路径仍拒绝伪造实例 (342.4021ms)
+✔ 升级日志未恢复时禁止普通启动，不猜测切换已经完成 (168.5608ms)
+✔ core.mjs preserves the rc.6 public API and module object identity (41.2746ms)
+✔ platform.mjs preserves the rc.6 public API and module object identity (1.9398ms)
+✔ bridge.mjs preserves the rc.6 public API and module object identity (12.7521ms)
+✔ bridge-services.mjs preserves the rc.6 public API and module object identity (2.1369ms)
+✔ handoff.mjs preserves the rc.6 public API and module object identity (2.9413ms)
+✔ workspace.mjs preserves the rc.6 public API and module object identity (1.6494ms)
+✔ control.mjs preserves the rc.6 public API and module object identity (14.8751ms)
+✔ local-socket.mjs preserves the rc.6 public API and module object identity (1.7538ms)
+✔ releases.mjs preserves the rc.6 public API and module object identity (8.2752ms)
+✔ library-transfer.mjs preserves the rc.6 public API and module object identity (1.7977ms)
+✔ the stable bridge entrypoint retains the DSH plugin registration contract (0.7303ms)
+✔ relocated public APIs import from an unrelated cwd without loading the supervisor (1886.5705ms)
+✔ the actual source graph has declared public boundaries and pinned module identities (685.2392ms)
+✔ syntax parsing ignores example imports but detects export-from and computed imports (1.9462ms)
+✔ a consumer cannot import private implementations or unregistered dependencies (4.7512ms)
+✔ CommonJS bridges require review and literal require calls participate in dependency checks (0.5792ms)
+✔ unknown module requests fail and impact includes transitive consumers and runtime wiring (0.6638ms)
+✔ ambiguous ownership is rejected rather than silently choosing a module (0.5033ms)
+✔ a source cycle is rejected before traversing files (0.6815ms)
+✔ module fingerprints change only for modules that own changed bytes (40.3099ms)
+✔ every supported architecture selects pinned runtime assets and executable paths (34.7611ms)
+✔ Unix host retains desktop keyring access and system commands without inheriting model settings (1.6583ms)
+﹣ POSIX socket survives long install paths and recovers a crashed owner without deleting live sockets (1.5591ms) # SKIP
+✔ 未解析临时路径或联接到达同一安装根时，发行槽位仍有效 (558.4177ms)
+✔ 发行槽位若联接到实例外目录则拒绝 (99.4136ms)
+✔ 升级和回退保留新旧文献、配置和实例身份 (2264.8583ms)
+✔ 候选启动失败自动恢复旧版本，既有 PDF 字节不变 (441.4787ms)
+✔ 中断切换可恢复旧描述符，不恢复旧数据库覆盖新文献 (441.9708ms)
+✔ 拒绝跨数据格式回退与实例外目录，卸载只退役代码描述符 (368.9912ms)
+✔ 有活动写入导致一致快照失败时，不切换候选版本 (676.9858ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 45
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 10000.8158

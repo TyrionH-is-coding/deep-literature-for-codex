@@ -1,0 +1,208 @@
+{
+  "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe",
+  "instance": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "516471c9-7bc4-4136-8598-4d0b23071327",
+    "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe"
+  },
+  "appSha256": "b64d5695114b7d2e84e8c5d9ada4ab62dc5d88d1b987515032880b66b978f725",
+  "pins": {
+    "schema": 1,
+    "channel": "release-candidate",
+    "platform": "win32-x64",
+    "node": {
+      "version": "22.22.2",
+      "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-win-x64.zip",
+      "sha256": "7c93e9d92bf68c07182b471aa187e35ee6cd08ef0f24ab060dfff605fcc1c57c"
+    },
+    "python": {
+      "version": "3.11.16",
+      "build": "20260901",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
+    },
+    "dsh": "0.1.0-rc.7",
+    "plugin": {
+      "name": "@dsh-external/dsh-scientific-reading",
+      "version": "0.1.0-rc.5",
+      "sha256": "318814ec542de94a47cd2855b21d0f7af9778b22b283d3995d0c499a3465e2fd",
+      "source": "MinerU empty visual fix; bundled with this release",
+      "sourceCommit": "8e00b334389cd90721b7d404013a07687753aa5c",
+      "url": "https://github.com/TyrionH-is-coding/dsh-scientific-reading/releases/download/v0.1.0-rc.5/dsh-external-dsh-scientific-reading-0.1.0-rc.5.tgz"
+    },
+    "platforms": {
+      "darwin-arm64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-arm64.tar.gz",
+          "sha256": "db4b275b83736df67533529a18cc55de2549a8329ace6c7bcc68f8d22d3c9000"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "768f05cf200273bbdda9a5955a5a6892a4b22f2a0b1e4b0a9160f5c7fce86816"
+        }
+      },
+      "darwin-x64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-x64.tar.gz",
+          "sha256": "12a6abb9c2902cf48a21120da13f87fde1ed1b71a13330712949e8db818708ba"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "908b381433f78b832c8d64960ced0f85871893cc8779f413f963e0c9e293c258"
+        }
+      },
+      "linux-arm64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-arm64.tar.gz",
+          "sha256": "b2f3a96f31486bfc365192ad65ced14833ad2a3c2e1bcefec4846902f264fa28"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "f9308ed57184fae73941c712ed847be420ce36d31ba73ce53f0508a1ee752f68"
+        }
+      },
+      "linux-x64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-x64.tar.gz",
+          "sha256": "978978a635eef872fa68beae09f0aad0bbbae6757e444da80b570964a97e62a3"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "64427febea27864d136db46c8efe968eb6fa5ca2813ce1dca4bb95aec31cb2e4"
+        }
+      }
+    }
+  },
+  "startedAt": "2026-09-17T02:41:14.790Z",
+  "commands": [
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+      "args": [
+        "--version"
+      ],
+      "code": 0,
+      "stdout": "v22.22.2\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "--version"
+      ],
+      "code": 0,
+      "stdout": "Python 3.11.16\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-001\\scripts\\fixtures\\v02-001\\engine-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe",
+        "seed"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\r\n  File \"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-001\\scripts\\fixtures\\v02-001\\engine-probe.py\", line 65, in <module>\r\n    lib = LibraryService(data); lib.record_pdf_attachment(paper, sha(ws.source_pdf), len(pdf)); lib.publish_reader(paper, reader.relative_to(ws.root).as_posix()); lib.close()\r\n                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\data_guard.py\", line 127, in guarded\r\n    return method(self, *args, **kwargs)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\scope.py\", line 137, in wrapped\r\n    return function(self, paper_id, *args, **kwargs)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\library_service.py\", line 1115, in publish_reader\r\n    self.validate_reader(paper_id, rel_path)\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\library_service.py\", line 1110, in validate_reader\r\n    validate_files()\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\library_service.py\", line 1108, in validate_files\r\n    raise ValueError(\"reader_publication_invalid\")\r\nValueError: reader_publication_invalid\r\n"
+    }
+  ],
+  "checks": [
+    {
+      "name": "runtime versions",
+      "status": "passed",
+      "value": {
+        "node": "v22.22.2\r\n",
+        "python": "Python 3.11.16\r\n"
+      }
+    },
+    {
+      "name": "local PDF + parser fixture + translation fixture → real Reader; Excel save",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Traceback (most recent call last):\r\n  File \"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-001\\scripts\\fixtures\\v02-001\\engine-probe.py\", line 65, in <module>\r\n    lib = LibraryService(data); lib.record_pdf_attachment(paper, sha(ws.source_pdf), len(pdf)); lib.publish_reader(paper, reader.relative_to(ws.root).as_posix()); lib.close()\r\n                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\data_guard.py\", line 127, in guarded\r\n    return method(self, *args, **kwargs)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\scope.py\", line 137, in wrapped\r\n    return function(self, paper_id, *args, **kwargs)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\library_service.py\", line 1115, in publish_reader\r\n    self.validate_reader(paper_id, rel_path)\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\library_service.py\", line 1110, in validate_reader\r\n    validate_files()\r\n  File \"C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\releases\\b64d5695114b7d2e\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\library_service.py\", line 1108, in validate_files\r\n    raise ValueError(\"reader_publication_invalid\")\r\nValueError: reader_publication_invalid\r\n\n\n1 !== 0\n\n    at run (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:36:67)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async probe (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:38:40)\n    at async check (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:27:21)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:49:8"
+    },
+    {
+      "name": "real host start and identity",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "516471c9-7bc4-4136-8598-4d0b23071327",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe",
+        "version": "0.1.0-rc.6",
+        "candidate": true,
+        "status": "running",
+        "launchId": "f3edead2-96b0-4dc5-b6da-2f153a572bd2",
+        "supervisorPid": 23804,
+        "startedAt": 1789612876770,
+        "pid": 26904,
+        "url": "http://127.0.0.1:55866"
+      }
+    },
+    {
+      "name": "repeated start reuses launch",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "516471c9-7bc4-4136-8598-4d0b23071327",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe",
+        "version": "0.1.0-rc.6",
+        "candidate": true,
+        "status": "running",
+        "launchId": "f3edead2-96b0-4dc5-b6da-2f153a572bd2",
+        "supervisorPid": 23804,
+        "startedAt": 1789612876770,
+        "pid": 26904,
+        "url": "http://127.0.0.1:55866"
+      }
+    },
+    {
+      "name": "engine library HTTP route",
+      "status": "passed",
+      "value": {
+        "status": 200
+      }
+    },
+    {
+      "name": "local model executes native tool; native session and handoff persisted",
+      "status": "passed",
+      "value": {
+        "binding": {
+          "folderId": "folder_c54f024990654d5ab34d3cdee6821cda",
+          "sessionId": "session-55f7d35b-f260-4ad3-a4c6-aae414f37134",
+          "active": true,
+          "name": "V02 synthetic category 1789612881355"
+        },
+        "events": 28
+      }
+    },
+    {
+      "name": "restart 1: identity, notes, Reader, native history",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: seed failed; records and Reader are unverified\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:71:14\n    at check (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:27:27)\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:70:45\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+    },
+    {
+      "name": "restart 2: identity, notes, Reader, native history",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: seed failed; records and Reader are unverified\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:71:14\n    at check (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:27:27)\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001/scripts/acceptance-v02-001.mjs:70:45\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+    },
+    {
+      "name": "final stop leaves owned sentinel alive",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "516471c9-7bc4-4136-8598-4d0b23071327",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe",
+        "status": "stopped",
+        "startedAt": 1789612876770
+      }
+    }
+  ],
+  "sessionId": "session-55f7d35b-f260-4ad3-a4c6-aae414f37134",
+  "completedAt": "2026-09-17T02:41:24.260Z"
+}

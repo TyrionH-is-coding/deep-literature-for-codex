@@ -1,0 +1,18 @@
+{
+  "zipSha256": "cdc0fac08a1b374af8f00f8a27a002b52516339730b0733d27180e7397a31d04",
+  "verifiedFiles": 163,
+  "extractedRoot": "C:\\Users\\15694\\AppData\\Local\\Temp\\dl-release-70tKSl\\candidate\\verified-extraction\\deep-literature-for-codex-0.1.0-rc.6-win-x64",
+  "verification": "Every extracted file SHA matches the source inventory; no extra files.",
+  "passed": true,
+  "sourceCommit": "ac5248c8797138409aadd23ec846361ef300d67c",
+  "artifacts": [
+    {
+      "file": "deep-literature-for-codex-0.1.0-rc.6-win-x64.zip",
+      "sha256": "cdc0fac08a1b374af8f00f8a27a002b52516339730b0733d27180e7397a31d04"
+    },
+    {
+      "file": "dsh-external-dsh-scientific-reading-0.1.0-rc.5.tgz",
+      "sha256": "318814ec542de94a47cd2855b21d0f7af9778b22b283d3995d0c499a3465e2fd"
+    }
+  ]
+}
