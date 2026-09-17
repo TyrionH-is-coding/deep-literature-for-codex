@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-17T08:01:07.106139+00:00",
+    "lastReviewAt": "2026-09-17T08:30:01.538943+00:00",
     "lastHeartbeatCompletedAt": "2026-09-17T08:15:31.220230+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -186,9 +186,11 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "先固定阶段/恢复合同并补真实进程证据；只有明确耦合或可复现缺陷才开结构调整或修复卡。",
+      "notes": "诊断发现中断恢复缺陷和取消验收缺口，004B/004C有界并行；005保持未就绪。",
       "children": [
-        "V02-004A"
+        "V02-004A",
+        "V02-004B",
+        "V02-004C"
       ]
     },
     {
@@ -670,7 +672,7 @@
       "id": "V02-004A",
       "title": "固定精读阶段与恢复合同",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "workflow"
@@ -692,37 +694,126 @@
         "tests/v02-pipeline-contract.mjs"
       ],
       "receipt": "docs/codex-v02/V02-004A-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T08:01:07.106139+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "固定工作树回执和新探针/测试日志已确认开工。仍未提交最终报告，等待开发者归因与交付；不合入、不解除005依赖。",
+      "commits": [
+        "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004A-control-review.md",
+        "docs/project/evidence/V02-004A-control-reproduction.txt"
+      ],
+      "notes": "诊断通过；真实解析提交前中断失败由总控独立复现。004尚未通过，分别派发004B修复与004C取消合同诊断。",
       "contextCommit": "23449d685b9fef92143d39034cc320af0bc64f96",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:95d6bf74-5302-4f6c-bc17-1cb5f6f020aa",
       "dispatchRequestedAt": "2026-09-17T08:02:44.426189+00:00",
       "lastDispatchCheckAt": "2026-09-17T08:03:45.012959+00:00",
       "startedAt": "2026-09-17T08:03:31.8376084Z",
-      "receiptPhase": "development",
+      "receiptPhase": "review",
       "startConfirmedBy": "fixed-worktree-receipt-and-test-evidence",
       "progressSnapshot": {
-        "checkedAt": "2026-09-17T08:15:31.220230+00:00",
-        "head": "6283c02a690ff42585f064c1f764b999baa97d7e",
-        "deliveryReady": false,
-        "observations": [
-          "Existing Python subset 49 pass; five Node contract commands exit 0 (developer logs, not acceptance).",
-          "Draft new Python suite 7 pass / 1 fail: parse-kill-before reports generation_workspace_conflict. Root cause and final scope are pending developer report.",
-          "Other five process scenarios report completed; protected asset summaries true. Evidence remains uncommitted; no final acceptance inferred."
-        ]
-      }
+        "checkedAt": "2026-09-17T08:30:01.538943+00:00",
+        "head": "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea",
+        "deliveryReady": true
+      },
+      "integrationCommit": "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea",
+      "acceptance": "diagnostic-delivery-accepted-with-open-findings",
+      "findings": [
+        {
+          "id": "004A-F1",
+          "status": "open",
+          "title": "解析提交前进程中断导致generation_workspace_conflict，无法续接",
+          "followup": "V02-004B",
+          "blocksV02Release": true
+        },
+        {
+          "id": "004A-G1",
+          "status": "open",
+          "title": "宿主取消与独立引擎worker取消职责未闭合",
+          "followup": "V02-004C",
+          "blocksV02Release": true
+        }
+      ]
+    },
+    {
+      "id": "V02-004B",
+      "title": "修复解析提交前中断后的安全续接",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-004A"
+      ],
+      "parent": "V02-004",
+      "card": "docs/project/tasks/V02-004B.md",
+      "ownerSession": null,
+      "baseCommit": "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004b",
+      "branch": "codex/v02-004b-parse-recovery",
+      "writePaths": [
+        "engine/src/scientific_reading/reading_pipeline.py#same-source-incomplete-parse",
+        "engine/src/scientific_reading/mineru_service.py#parse-checkpoint",
+        "engine/tests/test_v02_parse_recovery.py",
+        "engine/tests/test_reading_pipeline_integrity.py",
+        "engine/tests/test_mineru_parse_gate.py",
+        "engine/tests/test_v02_pipeline_contract.py",
+        "scripts/v02-004a-probe.py#compatible-evidence-support-only",
+        "scripts/v02-004b-*",
+        "scripts/fixtures/v02-004b/",
+        "docs/codex-v02/V02-004B*"
+      ],
+      "receipt": "docs/codex-v02/V02-004B-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T08:30:01.538943+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "与另一任务文件、接口、实例和输出独立；集成串行，004/005依赖未解除。"
+    },
+    {
+      "id": "V02-004C",
+      "title": "核实取消职责并设计最小合同",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "workflow",
+        "bridge"
+      ],
+      "dependsOn": [
+        "V02-004A"
+      ],
+      "parent": "V02-004",
+      "card": "docs/project/tasks/V02-004C.md",
+      "ownerSession": null,
+      "baseCommit": "93bbe23c2b35da3ff5073da47fe229f32d7d367a",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004c",
+      "branch": "codex/v02-004c-cancel-contract",
+      "writePaths": [
+        "docs/project/design/cancellation-contract.md",
+        "docs/project/evidence/V02-004C*",
+        "scripts/v02-004c-*",
+        "scripts/fixtures/v02-004c/",
+        "tests/v02-cancel-contract.test.mjs"
+      ],
+      "receipt": "docs/project/evidence/V02-004C-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T08:30:01.538943+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "与另一任务文件、接口、实例和输出独立；集成串行，004/005依赖未解除。"
     }
   ],
   "developmentBaseline": {
-    "engine": "6283c02a690ff42585f064c1f764b999baa97d7e",
+    "engine": "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea",
     "engineBranch": "codex/v02-engine-baseline",
     "workbench": "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30",
     "workbenchBranch": "codex/v02-control",
-    "candidate": "0.2.0-dev.2"
+    "candidate": "0.2.0-dev.2",
+    "engineAcceptance": "diagnostic baseline with known failing recovery test; candidate production pins unchanged"
   }
 }
