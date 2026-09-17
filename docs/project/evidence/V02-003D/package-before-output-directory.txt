@@ -1,0 +1,14 @@
+node:internal/fs/promises:858
+  return await PromisePrototypeThen(
+         ^
+
+Error: ENOENT: no such file or directory, mkdir 'C:\Users\15694\Documents\ChatGPT\deep-literature-v02-003d\outputs\v02-003d-candidate'
+    at async Object.mkdir (node:internal/fs/promises:858:10)
+    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003d/scripts/package-release.mjs:20:1 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d\\outputs\\v02-003d-candidate'
+}
+
+Node.js v22.22.2

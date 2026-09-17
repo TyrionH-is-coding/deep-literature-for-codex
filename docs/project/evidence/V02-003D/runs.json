@@ -46,5 +46,21 @@
     "finishedAt": "2026-09-17T07:17:26.154Z",
     "exitCode": 0,
     "error": null
+  },
+  {
+    "id": "package",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/package-release.mjs",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d\\outputs\\v02-003d-candidate",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d\\inputs\\scientific-reading.tgz"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d",
+    "sourceCommit": "7138e364f82cc5b70081a830366babb5bf4d3584",
+    "trackedStatus": "",
+    "startedAt": "2026-09-17T07:18:29.479Z",
+    "finishedAt": "2026-09-17T07:18:32.582Z",
+    "exitCode": 1,
+    "error": null
   }
 ]
