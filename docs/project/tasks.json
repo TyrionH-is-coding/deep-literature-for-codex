@@ -4,7 +4,17 @@
   "coordinator": {
     "taskTitle": "Deep Literature 项目总控",
     "taskId": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
-    "writingTaskLimit": 1
+    "writingTaskLimit": 2,
+    "integrationLimit": 1,
+    "autoAdvance": true,
+    "authorization": "用户明确授权自动循环：002 验收通过后自动开启 003，互不影响的任务可并行。",
+    "automation": {
+      "kind": "heartbeat",
+      "name": "Deep Literature v0.2 自动总控",
+      "intervalMinutes": 10,
+      "id": null,
+      "state": "configuring"
+    }
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -20,7 +30,12 @@
       "title": "验收模块化基线，建立失败样例",
       "kind": "task",
       "status": "integrated",
-      "modules": ["application", "lifecycle", "releases", "tooling"],
+      "modules": [
+        "application",
+        "lifecycle",
+        "releases",
+        "tooling"
+      ],
       "dependsOn": [],
       "card": "docs/project/tasks/V02-001.md",
       "ownerSession": null,
@@ -29,15 +44,34 @@
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001",
       "branch": "codex/v02-001-baseline",
       "dispatchRequestedAt": "2026-09-17T02:34:49Z",
-      "commits": ["86d7833cbc22bfaaa8f4694318f59bb3706acab7"],
+      "commits": [
+        "86d7833cbc22bfaaa8f4694318f59bb3706acab7"
+      ],
       "integrationBranch": "codex/v02-control",
       "integrationCommit": "9a8485380ce231074b1447ae4b86f3a9c56d7fb2",
       "acceptance": "diagnostic-delivery-accepted-with-findings",
       "productAcceptance": "known-failures-remain",
-      "evidence": ["docs/project/evidence/V02-001.md", "docs/project/evidence/V02-001-review.md"],
+      "evidence": [
+        "docs/project/evidence/V02-001.md",
+        "docs/project/evidence/V02-001-review.md"
+      ],
       "findings": [
-        {"id": "F1", "status": "open", "title": "旧 Excel 覆盖较新 SQLite 个人记录", "followup": "V02-003", "blocksV02Release": true, "blocksV02002Audit": false},
-        {"id": "F2", "status": "open", "title": "库备份不覆盖原生会话及 handoff 的整实例恢复", "followup": "V02-006", "blocksV02Release": true, "blocksV02002Audit": false}
+        {
+          "id": "F1",
+          "status": "open",
+          "title": "旧 Excel 覆盖较新 SQLite 个人记录",
+          "followup": "V02-003",
+          "blocksV02Release": true,
+          "blocksV02002Audit": false
+        },
+        {
+          "id": "F2",
+          "status": "open",
+          "title": "库备份不覆盖原生会话及 handoff 的整实例恢复",
+          "followup": "V02-006",
+          "blocksV02Release": true,
+          "blocksV02002Audit": false
+        }
       ],
       "userConfirmed": true,
       "approvedScope": "仅隔离验收与问题定位；可补验收脚本和测试样例；产品代码修复另立任务",
@@ -48,26 +82,41 @@
       "title": "固定引擎源码、接口和测试基线",
       "kind": "task",
       "status": "ready",
-      "modules": ["engine"],
-      "dependsOn": ["V02-001"],
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-001"
+      ],
       "card": "docs/project/tasks/V02-002.md",
       "ownerSession": null,
       "baseCommit": "8e00b334389cd90721b7d404013a07687753aa5c",
-      "contextCommit": "9a8485380ce231074b1447ae4b86f3a9c56d7fb2",
+      "contextCommit": null,
       "contextRepository": "https://github.com/TyrionH-is-coding/deep-literature-for-codex.git",
-      "worktree": null,
-      "branch": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-002",
+      "branch": "codex/v02-002-engine-baseline",
       "commits": [],
       "evidence": [],
-      "notes": "001 的诊断交付已接收，F1/F2 不阻断本项审计。仅固定接口、构建来源和实际测试基线，不改产品代码、不修复 F1/F2；尚未启动。"
+      "notes": "用户持续授权已生效，正在准备独立任务；仅审计和测试，不改产品代码。与只写恢复方案的 006A 独立。",
+      "dispatchState": "reserved",
+      "userConfirmed": true,
+      "writePaths": [
+        "docs/codex-v02/",
+        "scripts/v02-audit-*"
+      ],
+      "receipt": "docs/codex-v02/V02-002-receipt.json"
     },
     {
       "id": "V02-003",
       "title": "记录与存储合同",
       "kind": "workstream",
       "status": "planned",
-      "modules": ["engine"],
-      "dependsOn": ["V02-002"],
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-002"
+      ],
       "card": null,
       "ownerSession": null,
       "worktree": null,
@@ -81,8 +130,13 @@
       "title": "精读阶段边界与续接",
       "kind": "workstream",
       "status": "planned",
-      "modules": ["engine", "workflow"],
-      "dependsOn": ["V02-003"],
+      "modules": [
+        "engine",
+        "workflow"
+      ],
+      "dependsOn": [
+        "V02-003"
+      ],
       "card": null,
       "ownerSession": null,
       "worktree": null,
@@ -96,8 +150,13 @@
       "title": "Reader 与资产合同",
       "kind": "workstream",
       "status": "planned",
-      "modules": ["engine", "bridge"],
-      "dependsOn": ["V02-004"],
+      "modules": [
+        "engine",
+        "bridge"
+      ],
+      "dependsOn": [
+        "V02-004"
+      ],
       "card": null,
       "ownerSession": null,
       "worktree": null,
@@ -111,8 +170,16 @@
       "title": "完整恢复与升级验收",
       "kind": "workstream",
       "status": "planned",
-      "modules": ["releases", "lifecycle", "workflow", "engine"],
-      "dependsOn": ["V02-005"],
+      "modules": [
+        "releases",
+        "lifecycle",
+        "workflow",
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-005",
+        "V02-006A"
+      ],
       "card": null,
       "ownerSession": null,
       "worktree": null,
@@ -126,8 +193,12 @@
       "title": "主流程使用验收",
       "kind": "milestone",
       "status": "planned",
-      "modules": ["application"],
-      "dependsOn": ["V02-006"],
+      "modules": [
+        "application"
+      ],
+      "dependsOn": [
+        "V02-006"
+      ],
       "card": null,
       "ownerSession": null,
       "worktree": null,
@@ -141,8 +212,14 @@
       "title": "v0.2 制品与发布",
       "kind": "milestone",
       "status": "planned",
-      "modules": ["tooling", "application", "engine"],
-      "dependsOn": ["V02-007"],
+      "modules": [
+        "tooling",
+        "application",
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-007"
+      ],
       "card": null,
       "ownerSession": null,
       "worktree": null,
@@ -150,6 +227,38 @@
       "commits": [],
       "evidence": [],
       "notes": "当前没有 v0.2 发布；最终验收须绑定同一制品与来源提交。"
+    },
+    {
+      "id": "V02-006A",
+      "title": "完整实例恢复的最小方案",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "releases",
+        "workflow",
+        "lifecycle"
+      ],
+      "dependsOn": [
+        "V02-001"
+      ],
+      "parent": "V02-006",
+      "card": "docs/project/tasks/V02-006A.md",
+      "ownerSession": null,
+      "baseCommit": null,
+      "contextCommit": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006a",
+      "branch": "codex/v02-006a-recovery-design",
+      "writePaths": [
+        "docs/project/design/instance-recovery.md",
+        "docs/project/evidence/V02-006A.md",
+        "docs/project/evidence/V02-006A-receipt.json"
+      ],
+      "receipt": "docs/project/evidence/V02-006A-receipt.json",
+      "dispatchState": "reserved",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "仅做方案文档，与 002 引擎审计独立；不实现恢复，也不提前放行最终恢复验收。"
     }
   ]
 }
