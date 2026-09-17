@@ -1,0 +1,11 @@
+{
+  "taskId": "V02-006A",
+  "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006a",
+  "branch": "codex/v02-006a-recovery-design",
+  "baseCommit": "d4d0cf3af2b5da3bd0e1ade7bfc6645d52cb026c",
+  "contextCommit": "d4d0cf3af2b5da3bd0e1ade7bfc6645d52cb026c",
+  "startedAt": "2026-09-17T13:44:15.7644282+08:00",
+  "phase": "review",
+  "ownerSession": null,
+  "updatedAt": "2026-09-17T13:47:25.4633901+08:00"
+}
