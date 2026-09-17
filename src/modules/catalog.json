@@ -298,7 +298,8 @@
         "docs/superpowers/plans/2026-09-05-release-candidate.md",
         "docs/modules/README.md",
         "docs/modules/tooling.md",
-        "docs/modules/changes/tooling.md"
+        "docs/modules/changes/tooling.md",
+        "docs/modules/acceptance-2026-09-17.md"
       ],
       "dependencies": [],
       "runtimeDependencies": [
