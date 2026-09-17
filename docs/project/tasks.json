@@ -12,8 +12,8 @@
       "kind": "heartbeat",
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
-      "id": null,
-      "state": "configuring"
+      "id": "deep-literature-v0-2",
+      "state": "ACTIVE"
     }
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -91,20 +91,23 @@
       "card": "docs/project/tasks/V02-002.md",
       "ownerSession": null,
       "baseCommit": "8e00b334389cd90721b7d404013a07687753aa5c",
-      "contextCommit": null,
+      "contextCommit": "d4d0cf3af2b5da3bd0e1ade7bfc6645d52cb026c",
       "contextRepository": "https://github.com/TyrionH-is-coding/deep-literature-for-codex.git",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-002",
       "branch": "codex/v02-002-engine-baseline",
       "commits": [],
       "evidence": [],
-      "notes": "用户持续授权已生效，正在准备独立任务；仅审计和测试，不改产品代码。与只写恢复方案的 006A 独立。",
-      "dispatchState": "reserved",
+      "notes": "创建请求已提交；真实源码 worktree 已固定。等待应用 session ID 或本工作树开工回执，不能重复创建。仅审计和测试，不改产品代码。",
+      "dispatchState": "queued",
       "userConfirmed": true,
       "writePaths": [
         "docs/codex-v02/",
         "scripts/v02-audit-*"
       ],
-      "receipt": "docs/codex-v02/V02-002-receipt.json"
+      "receipt": "docs/codex-v02/V02-002-receipt.json",
+      "dispatchReservedAt": "2026-09-17T05:43:14.437Z",
+      "clientThreadId": "client-new-thread:24cab2e9-08bb-4f14-9e3b-c6eb7be44c32",
+      "dispatchRequestedAt": "2026-09-17T05:44:22.039Z"
     },
     {
       "id": "V02-003",
@@ -244,8 +247,8 @@
       "parent": "V02-006",
       "card": "docs/project/tasks/V02-006A.md",
       "ownerSession": null,
-      "baseCommit": null,
-      "contextCommit": null,
+      "baseCommit": "d4d0cf3af2b5da3bd0e1ade7bfc6645d52cb026c",
+      "contextCommit": "d4d0cf3af2b5da3bd0e1ade7bfc6645d52cb026c",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006a",
       "branch": "codex/v02-006a-recovery-design",
       "writePaths": [
@@ -254,11 +257,14 @@
         "docs/project/evidence/V02-006A-receipt.json"
       ],
       "receipt": "docs/project/evidence/V02-006A-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "仅做方案文档，与 002 引擎审计独立；不实现恢复，也不提前放行最终恢复验收。"
+      "notes": "创建请求已提交；只写恢复设计文档，与 002 独立。等待应用 session ID 或本工作树开工回执，不重复创建、不实施恢复功能。",
+      "dispatchReservedAt": "2026-09-17T05:43:14.438Z",
+      "clientThreadId": "client-new-thread:b693194c-492c-4eb9-aecd-9681a2f42c87",
+      "dispatchRequestedAt": "2026-09-17T05:44:22.041Z"
     }
   ]
 }
