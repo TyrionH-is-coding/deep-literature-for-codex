@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
     "lastReviewAt": "2026-09-17T06:46:02.714256+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T06:29:00.379796+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-17T06:48:20.148306+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -510,7 +510,7 @@
       "id": "V02-003C",
       "title": "同步候选模块身份并完成安装验收",
       "kind": "task",
-      "status": "reserved",
+      "status": "queued",
       "modules": [
         "engine",
         "tooling",
@@ -537,12 +537,14 @@
         "docs/project/evidence/V02-003C*"
       ],
       "receipt": "docs/project/evidence/V02-003C-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-17T06:46:55.001567+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "003B 已终止交回；此新卡专门修复范围遗漏并完成未执行的安装门槛，不重复 A 全量测试。"
+      "notes": "003B 已终止交回；此新卡专门修复范围遗漏并完成未执行的安装门槛，不重复 A 全量测试。",
+      "clientThreadId": "client-new-thread:98dffb4a-8310-4542-a2c3-ce233a86eb98",
+      "dispatchRequestedAt": "2026-09-17T06:47:19.321545+00:00"
     }
   ],
   "developmentBaseline": {
