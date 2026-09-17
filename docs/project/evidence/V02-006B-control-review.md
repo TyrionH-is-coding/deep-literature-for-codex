@@ -11,3 +11,5 @@
 观察窗为每次挂载后 2 秒，且显式 prompt 阳性对照确实唤醒执行，因此它不是产品级持续禁重放门禁。媒体、spill、自定义 preset、活跃 subagent 描述、schedule/goal/approval 唤醒、多 workspace 与坏文件尚未覆盖。已知凭据 canary 拒绝不能保证识别自由文本中任意秘密。
 
 可接收并集成取证交付；F2、R2-R4、产品三域恢复与最终 S5 仍开放。本轮不提前启动 R2 实现；先推进 003 安装门槛，后续恢复实现须按这些已知限制拆卡。回退仅撤销探针和证据提交，无用户数据迁移。
+
+合入后总控实际执行 `npm run modules -- check`（10 模块、47 源文件、152 imports）和 `npm run modules -- test tooling`（20 passed / 0 skipped），均通过。

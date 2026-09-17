@@ -155,7 +155,8 @@
       "notes": "先实施 003A 最小修复；后续仍须候选制品集成和原场景复验后关闭 F1，不将整个工作域当作单任务。",
       "children": [
         "V02-003A",
-        "V02-003B"
+        "V02-003B",
+        "V02-003C"
       ]
     },
     {
@@ -504,6 +505,44 @@
       "integrationCommit": "ec630612853ca4c6239fab2018038da76456817b",
       "integrationBranch": "codex/v02-control",
       "acceptance": "bounded-R1-feasibility-evidence-accepted"
+    },
+    {
+      "id": "V02-003C",
+      "title": "同步候选模块身份并完成安装验收",
+      "kind": "task",
+      "status": "reserved",
+      "modules": [
+        "engine",
+        "tooling",
+        "application",
+        "releases"
+      ],
+      "dependsOn": [
+        "V02-003A",
+        "V02-002B"
+      ],
+      "continues": "V02-003B",
+      "inputAcceptance": "A candidate reviewed and integrated; B partial delivery retained without acceptance",
+      "parent": "V02-003",
+      "card": "docs/project/tasks/V02-003C.md",
+      "ownerSession": null,
+      "baseCommit": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+      "contextCommit": "e13a4bc468217e78fe872c82e28d753af23148ee",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003c",
+      "branch": "codex/v02-003c-candidate-acceptance",
+      "writePaths": [
+        "src/modules/catalog.json#four-engine-identity-fields",
+        "scripts/acceptance-v02-003c*",
+        "scripts/fixtures/v02-003c/",
+        "docs/project/evidence/V02-003C*"
+      ],
+      "receipt": "docs/project/evidence/V02-003C-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T06:46:55.001567+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "003B 已终止交回；此新卡专门修复范围遗漏并完成未执行的安装门槛，不重复 A 全量测试。"
     }
   ],
   "developmentBaseline": {
