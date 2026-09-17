@@ -1,0 +1,59 @@
+{
+  "base": "c7757c49d509bcec28464120a82cd87d7360458f",
+  "files": [
+    "docs/modules/changes/engine.md",
+    "docs/modules/engine.md",
+    "package-lock.json",
+    "package.json",
+    "runtime/package-lock.json",
+    "runtime/pins.json",
+    "src/modules/catalog.json",
+    "src/modules/foundation/constants.mjs",
+    "docs/project/evidence/V02-003D-receipt.json",
+    "docs/project/evidence/V02-003D.md",
+    "docs/project/evidence/V02-003D/check.txt",
+    "docs/project/evidence/V02-003D/runs.json",
+    "docs/project/evidence/V02-003D/test.txt",
+    "scripts/acceptance-v02-003d-artifact.mjs",
+    "scripts/acceptance-v02-003d-conflict.mjs",
+    "scripts/acceptance-v02-003d-installed-app.mjs",
+    "scripts/acceptance-v02-003d-prepare.mjs",
+    "scripts/acceptance-v02-003d-smoke.mjs",
+    "scripts/acceptance-v02-003d-ui-api.mjs",
+    "scripts/acceptance-v02-003d-ui-control.mjs",
+    "scripts/acceptance-v02-003d.mjs",
+    "scripts/fixtures/v02-003d/conflict-probe.py",
+    "scripts/fixtures/v02-003d/engine-probe.py",
+    "scripts/fixtures/v02-003d/formula-outline.json",
+    "scripts/fixtures/v02-003d/locate-probe.py",
+    "scripts/fixtures/v02-003d/pdf-gate.py",
+    "scripts/fixtures/v02-003d/provenance.py"
+  ],
+  "changed": [
+    "engine",
+    "tooling",
+    "application",
+    "foundation"
+  ],
+  "affected": [
+    "foundation",
+    "skill",
+    "lifecycle",
+    "releases",
+    "workflow",
+    "bridge",
+    "engine",
+    "application",
+    "tooling"
+  ],
+  "unowned": [],
+  "note": "Includes transitive consumers and declared runtime dependencies."
+}
+warning: in the working copy of 'docs/modules/changes/engine.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/modules/engine.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'package-lock.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'package.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'runtime/package-lock.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'runtime/pins.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/modules/catalog.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/modules/foundation/constants.mjs', CRLF will be replaced by LF the next time Git touches it

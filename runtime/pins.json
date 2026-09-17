@@ -16,10 +16,10 @@
   "dsh": "0.1.0-rc.7",
   "plugin": {
     "name": "@dsh-external/dsh-scientific-reading",
-    "version": "0.2.0-dev.1",
-    "sha256": "fdce0ada390e2f27615c6b6050dbf7ef83c871d6a6304c4235e4414f667c8930",
-    "source": "V02-003B internal candidate; local archive inputs/scientific-reading.tgz",
-    "sourceCommit": "ca02db6beb2cf45ad0fd69618313971d0a346c55"
+    "version": "0.2.0-dev.2",
+    "sha256": "2e1ec6ebbc9ca37d33060d978f5d1f855455bb4423cc5b481957b3da0259bc09",
+    "source": "V02-003D internal candidate; local archive inputs/scientific-reading.tgz",
+    "sourceCommit": "26abee5f8c8e4f92f26a9b7fba4ddd236e523b05"
   },
   "platforms": {
     "darwin-arm64": {

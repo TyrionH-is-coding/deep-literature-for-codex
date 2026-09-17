@@ -7,3 +7,12 @@
 - 本轮：建立模块边界、接口和追溯记录；业务及持久数据格式不变。
 - 实现保持独立包/外部固定制品，未改动其业务代码。
 - 验证：见[本轮验收记录](../acceptance-2026-09-17.md)；版本号不表示已完成发布验收。
+
+## V02-003D 内部候选（未发布）
+
+引擎 npm `0.2.0-dev.2`，Python wheel `0.2.0.dev1`；仅客户端 Excel 暂停冲突提示变更，Python 源码无差异。
+
+- 来源：`26abee5f8c8e4f92f26a9b7fba4ddd236e523b05`（独立 A 003D 工作树）。
+- 本地制品：`inputs/scientific-reading.tgz`，SHA256 `2e1ec6ebbc9ca37d33060d978f5d1f855455bb4423cc5b481957b3da0259bc09`。
+- wheel SHA256 `b5d6439b1e3e895e0127dac27ec2b12b9f0bdd46d813896a6a90fd990e2b66d3`。
+- 无远程发布 URL；固定 DSH rc.7、Node 22.22.2、Python 3.11.16。新候选安装结果见 V02-003D 证据，不沿用 dev.1 的安装结论。

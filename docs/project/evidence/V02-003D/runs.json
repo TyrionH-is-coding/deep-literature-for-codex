@@ -1,0 +1,50 @@
+[
+  {
+    "id": "check",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "check"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d",
+    "sourceCommit": "c7757c49d509bcec28464120a82cd87d7360458f",
+    "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-17T07:16:29.400Z",
+    "finishedAt": "2026-09-17T07:16:34.722Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "test",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "test",
+      "engine"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d",
+    "sourceCommit": "c7757c49d509bcec28464120a82cd87d7360458f",
+    "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-17T07:16:35.449Z",
+    "finishedAt": "2026-09-17T07:17:18.255Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "impact",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "impact",
+      "--base",
+      "c7757c49d509bcec28464120a82cd87d7360458f"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d",
+    "sourceCommit": "c7757c49d509bcec28464120a82cd87d7360458f",
+    "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-17T07:17:19.237Z",
+    "finishedAt": "2026-09-17T07:17:26.154Z",
+    "exitCode": 0,
+    "error": null
+  }
+]
