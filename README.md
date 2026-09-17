@@ -264,4 +264,6 @@ rc.6 适配 Windows x64、macOS Intel/Apple Silicon、Linux x64/ARM64；平台�
 [详细验收记录](docs/acceptance.md) · [版本说明](docs/release-notes.md) · [订阅接入技术说明](docs/oauth.md) · [第三方许可](THIRD_PARTY_NOTICES.md)
 # 开发入口
 
+开发状态从[项目总控入口](PROJECT.md)恢复；[v0.2 路线](docs/project/v0.2-plan.md)以稳定现有主流程为目标。总控维护任务台账，开发 session 每次领取一张任务卡。
+
 模块化开发从[模块地图与协作流程](docs/modules/README.md)进入。先运行 `npm ci --ignore-scripts`，再用 `npm run modules -- context <模块名>` 获取本轮需要的接口、上下文与测试范围。本分支基于 rc.6 整理结构，尚未作为新的产品版本发布。

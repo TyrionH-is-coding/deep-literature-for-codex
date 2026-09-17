@@ -279,6 +279,7 @@
         "package-lock.json",
         "src/modules/catalog.json",
         "AGENTS.md",
+        "PROJECT.md",
         "README.md",
         "START_HERE.md",
         "tests/modules.test.mjs",
@@ -299,7 +300,8 @@
         "docs/modules/README.md",
         "docs/modules/tooling.md",
         "docs/modules/changes/tooling.md",
-        "docs/modules/acceptance-2026-09-17.md"
+        "docs/modules/acceptance-2026-09-17.md",
+        "docs/project/"
       ],
       "dependencies": [],
       "runtimeDependencies": [
