@@ -1,0 +1,17 @@
+{
+  "BReportCommit": "c7757c49d509bcec28464120a82cd87d7360458f",
+  "BSourceCommit": "5a3506aa8429af6ea1db27ecf096f85823fc914d",
+  "ASourceCommit": "ca02db6beb2cf45ad0fd69618313971d0a346c55",
+  "zipSHA256": "964a772f5242ec0beb1e5f2e9c1a7cfddf3ba3c44b54a61f00da7ab4539fb4d0",
+  "manifestFilesRehashed": 220,
+  "installedAppSourceRehashed": 41,
+  "installedPythonFilesComparedToWheel": 49,
+  "conflictChecksPassed": 14,
+  "smokePassed": 12,
+  "knownGaps": 1,
+  "runtimeNode": "22.22.2",
+  "runtimePython": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+  "detailedConflictHTTPVerified": true,
+  "UIFinding": "drawer only handles pdf_required; xlsx conflict reason/fields absent; browser observation corroborated by current source",
+  "noNewHostStartedByCoordinator": true
+}

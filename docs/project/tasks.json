@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
-    "lastReviewAt": "2026-09-17T06:46:02.714256+00:00",
+    "lastReviewAt": "2026-09-17T07:03:12.676023+00:00",
     "lastHeartbeatCompletedAt": "2026-09-17T06:48:20.148306+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -65,7 +65,9 @@
           "title": "旧 Excel 覆盖较新 SQLite 个人记录",
           "followup": "V02-003",
           "blocksV02Release": true,
-          "blocksV02002Audit": false
+          "blocksV02002Audit": false,
+          "dataSafetyAcceptance": "installed candidate dev.1 verified; UI completion pending F4",
+          "evidence": "docs/project/evidence/V02-003C-control-review.md"
         },
         {
           "id": "F2",
@@ -152,7 +154,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "先实施 003A 最小修复；后续仍须候选制品集成和原场景复验后关闭 F1，不将整个工作域当作单任务。",
+      "notes": "源码与安装数据保护已经验证；仍待003D修复真实冲突反馈并复验新候选，不能解除004依赖。",
       "children": [
         "V02-003A",
         "V02-003B",
@@ -510,7 +512,7 @@
       "id": "V02-003C",
       "title": "同步候选模块身份并完成安装验收",
       "kind": "task",
-      "status": "in_progress",
+      "status": "needs_followup",
       "modules": [
         "engine",
         "tooling",
@@ -537,16 +539,33 @@
         "docs/project/evidence/V02-003C*"
       ],
       "receipt": "docs/project/evidence/V02-003C-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T06:46:55.001567+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "003B 已终止交回；此新卡专门修复范围遗漏并完成未执行的安装门槛，不重复 A 全量测试。",
+      "commits": [
+        "5a3506aa8429af6ea1db27ecf096f85823fc914d",
+        "c7757c49d509bcec28464120a82cd87d7360458f"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-003C-control-review.md",
+        "docs/project/evidence/V02-003C-control-verification.json"
+      ],
+      "notes": "安装数据保护、来源与14项conflict/12项smoke通过；详情页缺少冲突提示，F4另卡最小修复。B候选保持独立分支未合入，003整体未通过。",
       "clientThreadId": "client-new-thread:98dffb4a-8310-4542-a2c3-ce233a86eb98",
       "dispatchRequestedAt": "2026-09-17T06:47:19.321545+00:00",
       "startedAt": "2026-09-17T06:47:49.5028399Z",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "acceptance": "installed-data-safety-passed; UI feedback incomplete",
+      "followup": "V02-003D",
+      "findings": [
+        {
+          "id": "F4",
+          "status": "open",
+          "title": "Excel 冲突详情已达 HTTP API，但文献详情页未显示原因及字段",
+          "followup": "V02-003D",
+          "blocksV02Release": true
+        }
+      ]
     }
   ],
   "developmentBaseline": {
