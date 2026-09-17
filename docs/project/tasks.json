@@ -24,14 +24,16 @@
       "dependsOn": [],
       "card": "docs/project/tasks/V02-001.md",
       "ownerSession": null,
-      "baseCommit": null,
-      "worktree": null,
-      "branch": null,
+      "clientThreadId": "client-new-thread:82f38035-f7c4-43e1-a332-1008c492aa8e",
+      "baseCommit": "ac5248c8797138409aadd23ec846361ef300d67c",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001",
+      "branch": "codex/v02-001-baseline",
+      "dispatchRequestedAt": "2026-09-17T02:34:49Z",
       "commits": [],
       "evidence": [],
       "userConfirmed": true,
       "approvedScope": "仅隔离验收与问题定位；可补验收脚本和测试样例；产品代码修复另立任务",
-      "notes": "用户已确认启动，正在准备独立开发任务；分派时冻结包含任务卡的总控 commit 到 baseCommit。ready 不代表已执行或通过。"
+      "notes": "用户已确认；实际工作台 worktree 已准备，应用开发任务已提交创建，等待真实 session ID 与启动确认。应用任务挂在已登记的 dsh reader 项目下，但仅在本条指定的工作台 worktree 验收。"
     },
     {
       "id": "V02-002",
