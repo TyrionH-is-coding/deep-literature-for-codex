@@ -1,0 +1,73 @@
+{
+  "url": "http://127.0.0.1:60669/sr/api/paper/title_d8b339a0356f",
+  "status": 200,
+  "value": {
+    "paper_id": "title_d8b339a0356f",
+    "item": {
+      "title": "A Compact Review Fixture for Structured Equations",
+      "authors": [
+        "Ada Example",
+        "Lin Test"
+      ],
+      "doi": null,
+      "pmid": null,
+      "year": 2026,
+      "journal": "Offline Engineering Fixtures",
+      "library_key": "lib_6d53ac624836",
+      "abstract_en": null,
+      "abstract_zh": null,
+      "source_url": null,
+      "paper_id": "title_d8b339a0356f",
+      "status": "full_read_ready",
+      "created_at": "2026-09-17T06:52:11.530570+00:00",
+      "updated_at": "2026-09-17T06:55:14.265638+00:00",
+      "folder_id": "folder_6f9cc8bea001461c87e1dd1c90e5432f",
+      "active_job_id": "job_2c6a4b79794e7f4b",
+      "last_error": "",
+      "folder_name": "V02 synthetic category 1789627938438",
+      "tags": [],
+      "display_title": "A Compact Review Fixture for Structured Equations",
+      "abstract_status": null,
+      "full_read_status": "精读完成",
+      "xlsx_sync_state": null,
+      "xlsx_error": null
+    },
+    "job": {
+      "paper_id": "title_d8b339a0356f",
+      "status": "waiting_user",
+      "job_id": "job_2c6a4b79794e7f4b",
+      "foreground_elapsed_ms": 3,
+      "agent_required": false,
+      "next_action": "user",
+      "detail": {
+        "job_id": "job_2c6a4b79794e7f4b",
+        "state": "waiting_user",
+        "created_at": "2026-09-17T06:55:13.263090+00:00",
+        "updated_at": "2026-09-17T06:55:14.270678+00:00",
+        "pid": null,
+        "heartbeat_at": null,
+        "reason_code": "xlsx_user_fields_conflict",
+        "required_input": {
+          "status": "pending",
+          "updated": 0,
+          "conflicts": 1,
+          "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+          "error": {
+            "code": "xlsx_user_fields_conflict",
+            "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+          },
+          "conflict_details": [
+            {
+              "paper_id": "title_d8b339a0356f",
+              "field": "user_notes",
+              "code": "user_field_conflict"
+            }
+          ]
+        },
+        "result": {},
+        "error": null,
+        "scope": null
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "base": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+  "files": [
+    "src/modules/catalog.json",
+    "docs/project/evidence/V02-003C-receipt.json",
+    "docs/project/evidence/V02-003C/check.txt",
+    "docs/project/evidence/V02-003C/impact.txt",
+    "docs/project/evidence/V02-003C/runs.json",
+    "docs/project/evidence/V02-003C/test-engine.txt",
+    "docs/project/evidence/V02-003C/test.txt",
+    "scripts/acceptance-v02-003c-smoke.mjs",
+    "scripts/acceptance-v02-003c.mjs",
+    "scripts/fixtures/v02-003c/engine-probe.py",
+    "scripts/fixtures/v02-003c/formula-outline.json"
+  ],
+  "changed": [
+    "tooling"
+  ],
+  "affected": [
+    "tooling"
+  ],
+  "unowned": [],
+  "note": "Includes transitive consumers and declared runtime dependencies."
+}

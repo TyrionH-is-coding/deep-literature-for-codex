@@ -1,0 +1,51 @@
+{
+  "base": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+  "files": [
+    "docs/project/evidence/V02-003C-receipt.json",
+    "scripts/acceptance-v02-003c-smoke.mjs",
+    "scripts/acceptance-v02-003c.mjs",
+    "scripts/fixtures/v02-003c/engine-probe.py",
+    "scripts/fixtures/v02-003c/formula-outline.json",
+    "src/modules/catalog.json",
+    "docs/project/evidence/V02-003C.md",
+    "docs/project/evidence/V02-003C/artifact.json",
+    "docs/project/evidence/V02-003C/cache-copy.json",
+    "docs/project/evidence/V02-003C/check.txt",
+    "docs/project/evidence/V02-003C/conflict.json",
+    "docs/project/evidence/V02-003C/conflict.txt",
+    "docs/project/evidence/V02-003C/final-check.txt",
+    "docs/project/evidence/V02-003C/final-impact.txt",
+    "docs/project/evidence/V02-003C/final-stop.json",
+    "docs/project/evidence/V02-003C/impact.txt",
+    "docs/project/evidence/V02-003C/install.txt",
+    "docs/project/evidence/V02-003C/installed-app.json",
+    "docs/project/evidence/V02-003C/installed-wheel.json",
+    "docs/project/evidence/V02-003C/locate.json",
+    "docs/project/evidence/V02-003C/package.txt",
+    "docs/project/evidence/V02-003C/process-cleanup.json",
+    "docs/project/evidence/V02-003C/runs.json",
+    "docs/project/evidence/V02-003C/smoke.json",
+    "docs/project/evidence/V02-003C/smoke.txt",
+    "docs/project/evidence/V02-003C/test-engine.txt",
+    "docs/project/evidence/V02-003C/test.txt",
+    "docs/project/evidence/V02-003C/ui-observation.txt",
+    "docs/project/evidence/V02-003C/ui-paper-api.json",
+    "docs/project/evidence/V02-003C/ui-start.json",
+    "scripts/acceptance-v02-003c-artifact.mjs",
+    "scripts/acceptance-v02-003c-conflict.mjs",
+    "scripts/acceptance-v02-003c-installed-app.mjs",
+    "scripts/acceptance-v02-003c-prepare.mjs",
+    "scripts/acceptance-v02-003c-ui-api.mjs",
+    "scripts/fixtures/v02-003c/conflict-probe.py",
+    "scripts/fixtures/v02-003c/locate-probe.py",
+    "scripts/fixtures/v02-003c/provenance.py"
+  ],
+  "changed": [
+    "tooling"
+  ],
+  "affected": [
+    "tooling"
+  ],
+  "unowned": [],
+  "note": "Includes transitive consumers and declared runtime dependencies."
+}

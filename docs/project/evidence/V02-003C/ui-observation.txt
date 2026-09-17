@@ -1,0 +1,36 @@
+V02-003C UI observation, 2026-09-17T06:55Z
+Browser: Codex in-app browser, http://127.0.0.1:60669/
+Instance: 4f8cbd14-7706-4db5-98f9-9b67c0acd6cd
+Read via cua_repl AX tree and dialog innerText, after selecting persisted synthetic literature session. Browser screenshot visually corroborated settings card. tab.content.export is unsupported by this browser; no screenshot file was exported.
+
+Settings visible text (verbatim excerpts):
+本地文献库
+可用
+SQLite 文献 2 篇 · Excel 待同步 2 篇。
+资产位置
+可用
+C:\Users\15694\AppData\Local\Temp\v3c\library
+
+List visible entries: V02-003C unrelated row; A Compact Review Fixture for Structured Equations. Each has a 定位 Excel button. Reader link: /sr/reader/title_d8b339a0356f.
+
+After a real installed derived_pipeline=true xlsx worker produced waiting_user, refreshed page and reopened affected paper. ui-paper-api.json verifies the same active job and conflict detail reached the paper API. Complete dialog innerText follows verbatim:
+关闭
+A Compact Review Fixture for Structured Equations
+
+Ada Example、Lin Test · 2026 · Offline Engineering Fixtures
+
+归类：V02 synthetic category 1789627938438｜标签：无
+
+Abstract
+
+待补摘要
+
+浅读：待补摘要｜精读：精读完成
+
+PDF
+阅读 HTML
+查看资产目录
+整理文章图表
+
+Observed limitation: no waiting_user, conflict reason, conflicting field, or workbook conflict-detail text in this dialog. Settings shows pending count only. Detailed paper_id/field/reason remain available via worker/HTTP API. Do not count detailed conflict UI as passed. No production change is authorized here.
+Native Office was not launched; installed locate() resolves correct row/path using an explicit recording opener fixture (locate.json).

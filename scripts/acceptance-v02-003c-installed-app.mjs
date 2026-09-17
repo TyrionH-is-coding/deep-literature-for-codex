@@ -1,0 +1,5 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
+const root='C:/Users/15694/AppData/Local/Temp/v3c';const read=async f=>JSON.parse(await fs.readFile(f,'utf8'));const i=await read(path.join(root,'installation.json'));const p=await read('docs/project/evidence/V02-003C/package.txt');const m=await read(path.join(p.extractedRoot,'BUILD-MANIFEST.json'));
+const records=[];for(const [name,hash] of Object.entries(m.files)){if(!name.startsWith('src/'))continue;const actual=createHash('sha256').update(await fs.readFile(path.join(i.app,name))).digest('hex');assert.equal(actual,hash);records.push({name,sha256:actual});}
+assert.equal(i.pins.plugin.sourceCommit,m.pluginSourceCommit);assert.equal(i.pins.plugin.sha256,m.pins.plugin.sha256);assert.equal(i.pins.node.version,'22.22.2');assert.equal(i.pins.python.version,'3.11.16');
+await fs.writeFile('docs/project/evidence/V02-003C/installed-app.json',JSON.stringify({root,app:i.app,appSha256:i.appSha256,sourceCommit:m.sourceCommit,pins:i.pins,sourceFiles:records},null,2));

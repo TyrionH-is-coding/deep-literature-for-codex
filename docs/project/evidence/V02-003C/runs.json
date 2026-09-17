@@ -1,0 +1,66 @@
+[
+  {
+    "id": "check",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "check"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c",
+    "sourceCommit": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+    "trackedStatus": "M src/modules/catalog.json",
+    "startedAt": "2026-09-17T06:48:41.622Z",
+    "finishedAt": "2026-09-17T06:48:42.114Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "test",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "test",
+      "engine"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c",
+    "sourceCommit": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+    "trackedStatus": "M src/modules/catalog.json",
+    "startedAt": "2026-09-17T06:48:42.229Z",
+    "finishedAt": "2026-09-17T06:48:46.208Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "impact",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "impact",
+      "--base",
+      "8c37fb13d7c6816c1de067d72ef8fef091097ac3"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c",
+    "sourceCommit": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+    "trackedStatus": "M src/modules/catalog.json",
+    "startedAt": "2026-09-17T06:48:46.401Z",
+    "finishedAt": "2026-09-17T06:48:47.073Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "package",
+    "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\node\\22.22.2\\node.exe",
+    "args": [
+      "scripts/package-release.mjs",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\outputs\\v02-003c-candidate",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\inputs\\scientific-reading.tgz"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c",
+    "sourceCommit": "5a3506aa8429af6ea1db27ecf096f85823fc914d",
+    "trackedStatus": "",
+    "startedAt": "2026-09-17T06:48:47.610Z",
+    "finishedAt": "2026-09-17T06:48:49.826Z",
+    "exitCode": 0,
+    "error": null
+  }
+]
