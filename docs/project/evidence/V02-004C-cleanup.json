@@ -1,0 +1,63 @@
+{
+  "time": "2026-09-17T08:40:52.6850490Z",
+  "processes": [
+    {
+      "report": "V02-004C-native-prior-pass.json",
+      "pid": 40784,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native-prior-pass.json",
+      "pid": 40372,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native-trial1.json",
+      "pid": 25100,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native-trial2.json",
+      "pid": 4748,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native-trial3.json",
+      "pid": 25472,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native-trial3.json",
+      "pid": 38512,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native.json",
+      "pid": 38408,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    },
+    {
+      "report": "V02-004C-native.json",
+      "pid": 40896,
+      "recordedClosed": true,
+      "pidCurrentlyPresent": false,
+      "processName": null
+    }
+  ],
+  "action": "read-only scan; no process killed by scan",
+  "instances": "synthetic temp roots retained as evidence; dependency cache task-local"
+}

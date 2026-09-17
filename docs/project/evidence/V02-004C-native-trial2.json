@@ -1,0 +1,384 @@
+{
+  "startedAt": "2026-09-17T08:35:01.755Z",
+  "run": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4c-host-rk5Um8",
+  "node": "v24.18.0",
+  "boots": [
+    {
+      "pid": 4748,
+      "log": "dsh web: http://127.0.0.1:58076\n",
+      "url": "http://127.0.0.1:58076",
+      "cleanup": {
+        "pid": 4748,
+        "exitCode": null,
+        "signalCode": "SIGTERM",
+        "closed": true,
+        "purpose": "probe host cleanup only, not user cancellation"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "name": "queued removal while other owns active turn",
+      "value": {
+        "result": {
+          "turn": "not_targeted",
+          "removedQueued": 1
+        },
+        "calls": 1,
+        "aborted": 0,
+        "status": "running",
+        "evidence": "canceled",
+        "queue": [
+          "queued-other"
+        ],
+        "events": [
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 3,
+            "time": 1789634104749,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC one"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "one"
+                  },
+                  "role": "user",
+                  "id": "0365dc6f-2206-471a-a2c6-8edeae69823d"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 4,
+            "time": 1789634104750,
+            "data": {
+              "turn": 1
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 5,
+            "time": 1789634104752,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 7,
+            "time": 1789634104857,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC one"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "one"
+              },
+              "role": "user",
+              "id": "0365dc6f-2206-471a-a2c6-8edeae69823d"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "user/message",
+            "seq": 8,
+            "time": 1789634104859,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\n\nCurrent DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v4c-host-rk5Um8\\\\workspace\". Some platform temporary areas may also be writable.\n\nApproval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt",
+                "form": "snapshot",
+                "sections": [
+                  {
+                    "name": "sandbox:policy",
+                    "text": "Current DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v4c-host-rk5Um8\\\\workspace\". Some platform temporary areas may also be writable."
+                  },
+                  {
+                    "name": "approval:policy",
+                    "text": "Approval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                  }
+                ]
+              },
+              "role": "user",
+              "id": "48a921a2-1169-422f-a3d7-bfee7395a5fb"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 12,
+            "time": 1789634104912,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC queued-owned"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "queued-owned"
+                  },
+                  "role": "user",
+                  "id": "58a37b63-d5cb-4565-9721-6f741810f4d2"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 13,
+            "time": 1789634104917,
+            "data": {
+              "target": "next-turn",
+              "start": 1,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC queued-other"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "queued-other"
+                  },
+                  "role": "user",
+                  "id": "73805d18-3cb4-4f2c-b5a6-aeb3f47be052"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 14,
+            "time": 1789634104926,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": [],
+              "outcome": "canceled"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "exclusive turn abort keeps unrelated inbox",
+      "value": {
+        "result": {
+          "turn": "cancel_requested",
+          "removedQueued": 0
+        },
+        "calls": 1,
+        "aborted": 1,
+        "status": "running",
+        "evidence": "delivered",
+        "queue": [
+          "queued-other"
+        ],
+        "events": [
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 3,
+            "time": 1789634104749,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC one"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "one"
+                  },
+                  "role": "user",
+                  "id": "0365dc6f-2206-471a-a2c6-8edeae69823d"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 4,
+            "time": 1789634104750,
+            "data": {
+              "turn": 1
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 5,
+            "time": 1789634104752,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 7,
+            "time": 1789634104857,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC one"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "one"
+              },
+              "role": "user",
+              "id": "0365dc6f-2206-471a-a2c6-8edeae69823d"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "user/message",
+            "seq": 8,
+            "time": 1789634104859,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\n\nCurrent DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v4c-host-rk5Um8\\\\workspace\". Some platform temporary areas may also be writable.\n\nApproval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt",
+                "form": "snapshot",
+                "sections": [
+                  {
+                    "name": "sandbox:policy",
+                    "text": "Current DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v4c-host-rk5Um8\\\\workspace\". Some platform temporary areas may also be writable."
+                  },
+                  {
+                    "name": "approval:policy",
+                    "text": "Approval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                  }
+                ]
+              },
+              "role": "user",
+              "id": "48a921a2-1169-422f-a3d7-bfee7395a5fb"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 12,
+            "time": 1789634104912,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC queued-owned"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "queued-owned"
+                  },
+                  "role": "user",
+                  "id": "58a37b63-d5cb-4565-9721-6f741810f4d2"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 13,
+            "time": 1789634104917,
+            "data": {
+              "target": "next-turn",
+              "start": 1,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC queued-other"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "queued-other"
+                  },
+                  "role": "user",
+                  "id": "73805d18-3cb4-4f2c-b5a6-aeb3f47be052"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 14,
+            "time": 1789634104926,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": [],
+              "outcome": "canceled"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    "owned queue removed; unrelated queue preserved; exclusive stream abort observed"
+  ],
+  "layer": "native DSH rc.7 + production B cancel helper + synthetic local LLM; no A worker",
+  "dsh": "0.1.0-rc.7",
+  "hashes": {
+    "runtime/package-lock.json": "5dd3cbf2edabc3f63d4d4b57350ee0f21b28af541238f106ec2a700feab1d98b",
+    "scripts/fixtures/v02-004c/host-probe.mjs": "335e4a5c5f6e0a561b8b0c2be4e66bcdcf70e5a4013d92e9b6906bfb9ea19816",
+    "src/modules/bridge/services.mjs": "0eca486bf8103e0bd662fbfb591e4f06c4d5286b8181d7275d2b97b5c98b572a"
+  },
+  "status": "failed",
+  "error": "Error: state timeout v4c-mixed {\"calls\":3,\"aborted\":1,\"status\":\"running\",\"evidence\":null,\"queue\":[\"mixed-other\"],\"events\":[{\"type\":\"agent/inbox/spliced\",\"seq\":3,\"time\":1789634105050,\"data\":{\"target\":\"next-turn\",\"start\":0,\"inserted\":[{\"content\":[{\"type\":\"text\",\"text\":\"SYNTHETIC blocker\"}],\"source\":{\"kind\":\"user\",\"rpcId\":\"blocker\"},\"role\":\"user\",\"id\":\"43ec4477-9d79-4606-8f7e-99ff8cb2079d\"}]}},{\"type\":\"turn/start\",\"seq\":4,\"time\":1789634105050,\"data\":{\"turn\":1}},{\"type\":\"agent/inbox/spliced\",\"seq\":5,\"time\":1789634105051,\"data\":{\"target\":\"next-turn\",\"start\":0,\"removedCount\":1,\"inserted\":[]}},{\"type\":\"user/message\",\"seq\":7,\"time\":1789634105099,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"SYNTHETIC blocker\"}],\"source\":{\"kind\":\"user\",\"rpcId\":\"blocker\"},\"role\":\"user\",\"id\":\"43ec4477-9d79-4606-8f7e-99ff8cb2079d\"},\"surfaceOp\":\"append\"},{\"type\":\"user/message\",\"seq\":8,\"time\":1789634105100,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\\n\\nCurrent DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v4c-host-rk5Um8\\\\\\\\workspace\\\". Some platform temporary areas may also be writable.\\n\\nApproval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed.\"}],\"source\":{\"kind\":\"plugin\",\"plugin\":\"@deepseek-ai/dsh-system-prompt\",\"form\":\"snapshot\",\"sections\":[{\"name\":\"sandbox:policy\",\"text\":\"Current DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v4c-host-rk5Um8\\\\\\\\workspace\\\". Some platform temporary areas may also be writable.\"},{\"name\":\"approval:policy\",\"text\":\"Approval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed.\"}]},\"role\":\"user\",\"id\":\"88a286a4-4f77-48bb-90f0-cef122a5e7b6\"},\"surfaceOp\":\"append\"},{\"type\":\"agent/inbox/spliced\",\"seq\":12,\"time\":1789634105203,\"data\":{\"target\":\"next-turn\",\"start\":0,\"inserted\":[{\"content\":[{\"type\":\"text\",\"text\":\"SYNTHETIC mixed-ours\"}],\"source\":{\"kind\":\"user\",\"rpcId\":\"mixed-ours\"},\"role\":\"user\",\"id\":\"b2a4b574-6862-4475-af25-2bb4f381ad9e\"}]}},{\"type\":\"agent/inbox/spliced\",\"seq\":13,\"time\":1789634105207,\"data\":{\"target\":\"next-turn\",\"start\":1,\"inserted\":[{\"content\":[{\"type\":\"text\",\"text\":\"SYNTHETIC mixed-other\"}],\"source\":{\"kind\":\"user\",\"rpcId\":\"mixed-other\"},\"role\":\"user\",\"id\":\"f5597b9d-5ffa-427b-9c48-37bd523f176e\"}]}},{\"type\":\"turn/end\",\"seq\":20,\"time\":1789634105220,\"data\":{\"turn\":1,\"reason\":{\"kind\":\"completed\"}}},{\"type\":\"turn/start\",\"seq\":21,\"time\":1789634105221,\"data\":{\"turn\":2}},{\"type\":\"agent/inbox/spliced\",\"seq\":22,\"time\":1789634105221,\"data\":{\"target\":\"next-turn\",\"start\":0,\"removedCount\":1,\"inserted\":[]}},{\"type\":\"user/message\",\"seq\":24,\"time\":1789634105262,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"SYNTHETIC mixed-ours\"}],\"source\":{\"kind\":\"user\",\"rpcId\":\"mixed-ours\"},\"role\":\"user\",\"id\":\"b2a4b574-6862-4475-af25-2bb4f381ad9e\"},\"surfaceOp\":\"append\"}]}\n    at waitFor (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004c/scripts/v02-004c-native.mjs:13:156)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004c/scripts/v02-004c-native.mjs:23:302",
+  "finishedAt": "2026-09-17T08:35:17.420Z"
+}

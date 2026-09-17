@@ -1,0 +1,8 @@
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+added 530 packages in 34s
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice

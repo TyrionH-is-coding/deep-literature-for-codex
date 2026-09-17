@@ -1,0 +1,33 @@
+
+> deep-literature-for-codex@0.2.0-dev.2 modules
+> node scripts/modules.mjs impact --base 93bbe23c2b35da3ff5073da47fe229f32d7d367a
+
+{
+  "base": "93bbe23c2b35da3ff5073da47fe229f32d7d367a",
+  "files": [
+    "docs/project/evidence/V02-004C-impact.txt",
+    "docs/project/evidence/V02-004C-native.exit.txt",
+    "docs/project/evidence/V02-004C-native.json",
+    "docs/project/evidence/V02-004C-native.txt",
+    "docs/project/evidence/V02-004C-prepare.txt",
+    "docs/project/evidence/V02-004C-receipt.json",
+    "docs/project/evidence/V02-004C-targeted.exit.txt",
+    "docs/project/evidence/V02-004C-targeted.txt",
+    "docs/project/evidence/V02-004C-workflow.exit.txt",
+    "docs/project/evidence/V02-004C-workflow.txt",
+    "scripts/fixtures/v02-004c/host-probe.mjs",
+    "scripts/v02-004c-native.mjs",
+    "scripts/v02-004c-prepare.mjs",
+    "tests/v02-cancel-contract.test.mjs"
+  ],
+  "changed": [
+    "tooling"
+  ],
+  "affected": [
+    "tooling"
+  ],
+  "unowned": [
+    "tests/v02-cancel-contract.test.mjs"
+  ],
+  "note": "Unowned changes require manual review; do not infer that tests can be skipped."
+}
