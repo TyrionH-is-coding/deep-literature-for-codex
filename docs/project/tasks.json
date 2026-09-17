@@ -14,10 +14,10 @@
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
       "state": "ACTIVE",
-      "lastVerifiedAt": "2026-09-17T05:45:40.190Z"
+      "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
     "lastReviewAt": "2026-09-17T06:26:28.384502+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T06:07:14.779Z"
+    "lastHeartbeatCompletedAt": "2026-09-17T06:29:00.379796+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -399,7 +399,7 @@
       "id": "V02-003B",
       "title": "候选制品安装与 F1 原场景复验",
       "kind": "task",
-      "status": "queued",
+      "status": "in_progress",
       "modules": [
         "engine",
         "application",
@@ -427,12 +427,12 @@
         "docs/project/evidence/V02-003B*"
       ],
       "receipt": "docs/project/evidence/V02-003B-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "已创建；等待固定 worktree 回执确认开工，clientThreadId 不作真实 task ID 使用，不重复派发。",
+      "notes": "双任务固定目录和基线已验证，回执确认开工；不重复派发，等待提交与证据复核。",
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b",
       "engineBranch": "codex/v02-003b-engine-candidate",
       "engineBaseCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
@@ -444,13 +444,15 @@
         "scripts/v02-003b-*"
       ],
       "clientThreadId": "client-new-thread:0a34d81c-d4c2-48b4-8700-a981be8c430e",
-      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00"
+      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00",
+      "startedAt": "2026-09-17T06:28:35.6940147Z",
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
     },
     {
       "id": "V02-006B",
       "title": "固定 DSH 会话恢复能力取证",
       "kind": "task",
-      "status": "queued",
+      "status": "in_progress",
       "modules": [
         "workflow",
         "releases",
@@ -473,14 +475,16 @@
         "docs/project/evidence/V02-006B*"
       ],
       "receipt": "docs/project/evidence/V02-006B-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "已创建；等待固定 worktree 回执确认开工，clientThreadId 不作真实 task ID 使用，不重复派发。",
+      "notes": "双任务固定目录和基线已验证，回执确认开工；不重复派发，等待提交与证据复核。",
       "clientThreadId": "client-new-thread:dcc114ad-77a0-41db-b89f-d3c194e56334",
-      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00"
+      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00",
+      "startedAt": "2026-09-17T06:28:32.6491475Z",
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
     }
   ],
   "developmentBaseline": {
