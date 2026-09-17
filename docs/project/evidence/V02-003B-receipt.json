@@ -1,18 +1,29 @@
 {
   "task": "V02-003B",
   "ownerSession": null,
-  "phase": "in_progress",
+  "phase": "review",
   "startedAt": "2026-09-17T06:28:35.6940147Z",
   "B": {
     "branch": "codex/v02-003b-installed-candidate",
     "contextCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
     "baseCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
-    "worktree": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b"
+    "worktree": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b",
+    "sourceCommit": "7a04cf1287f0f4200e736e91618a6b7956949ff2",
+    "reportCommit": "self: commit containing this review receipt"
   },
   "A": {
     "branch": "codex/v02-003b-engine-candidate",
     "contextCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
     "baseCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
-    "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b"
-  }
+    "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b",
+    "sourceCommit": "ca02db6beb2cf45ad0fd69618313971d0a346c55",
+    "reportCommit": "e3f58d1710413b5c6340fe55974a227b97ee8373"
+  },
+  "updatedAt": "2026-09-17T06:34:31.203Z",
+  "completedAt": "2026-09-17T06:34:31.203Z",
+  "outcome": "blocked",
+  "blocker": "B catalog engine identity must follow candidate pins, but catalog is outside authorized writePaths; check/test/package fail engine_pin_mismatch",
+  "artifact": "docs/project/evidence/V02-003B/artifact.json",
+  "instanceCreated": false,
+  "installationAcceptance": "not run: packaging blocked"
 }
