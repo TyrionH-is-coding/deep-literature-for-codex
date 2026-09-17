@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
     "lastReviewAt": "2026-09-17T08:30:01.538943+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T08:15:31.220230+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-17T08:32:03.022934+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -741,7 +741,7 @@
       "id": "V02-004B",
       "title": "修复解析提交前中断后的安全续接",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine"
       ],
@@ -767,20 +767,26 @@
         "docs/codex-v02/V02-004B*"
       ],
       "receipt": "docs/codex-v02/V02-004B-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-17T08:30:01.538943+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "与另一任务文件、接口、实例和输出独立；集成串行，004/005依赖未解除。",
       "contextCommit": "ceea8aebc90f99e0daad9344e9a38d2cca4d7658",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:36f40b40-fd85-406a-b740-1f37278cae96",
+      "dispatchRequestedAt": "2026-09-17T08:31:26.019049+00:00",
+      "lastDispatchCheckAt": "2026-09-17T08:32:03.022934+00:00",
+      "receiptPhase": "in_progress",
+      "startedAt": "2026-09-17T08:31:54.4559692Z",
+      "startConfirmedBy": "fixed-worktree-receipt"
     },
     {
       "id": "V02-004C",
       "title": "核实取消职责并设计最小合同",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "workflow",
         "bridge"
@@ -802,14 +808,20 @@
         "tests/v02-cancel-contract.test.mjs"
       ],
       "receipt": "docs/project/evidence/V02-004C-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-17T08:30:01.538943+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "与另一任务文件、接口、实例和输出独立；集成串行，004/005依赖未解除。",
       "contextCommit": "ceea8aebc90f99e0daad9344e9a38d2cca4d7658",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:7c3311a9-110b-4e96-b19a-c584016c9b7d",
+      "dispatchRequestedAt": "2026-09-17T08:31:26.019049+00:00",
+      "lastDispatchCheckAt": "2026-09-17T08:32:03.022934+00:00",
+      "receiptPhase": "started",
+      "startedAt": "2026-09-17T08:31:43.5622298Z",
+      "startConfirmedBy": "fixed-worktree-receipt"
     }
   ],
   "developmentBaseline": {
