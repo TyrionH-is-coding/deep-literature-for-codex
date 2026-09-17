@@ -14,10 +14,10 @@
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
       "state": "ACTIVE",
-      "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
+      "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
     "lastReviewAt": "2026-09-17T08:01:07.106139+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T07:41:24.636772+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-17T08:03:45.012959+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -692,14 +692,17 @@
         "tests/v02-pipeline-contract.mjs"
       ],
       "receipt": "docs/codex-v02/V02-004A-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-17T08:01:07.106139+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "只读生产与新增合同/探针；缺陷另卡，不将诊断交付通过等同004整体通过。",
+      "notes": "只读生产与新增合同/探针；缺陷另卡，不将诊断交付通过等同004整体通过。 已创建应用任务并等待一次，当前无固定工作树回执，保持 queued，不重复派发。",
       "contextCommit": "23449d685b9fef92143d39034cc320af0bc64f96",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:95d6bf74-5302-4f6c-bc17-1cb5f6f020aa",
+      "dispatchRequestedAt": "2026-09-17T08:02:44.426189+00:00",
+      "lastDispatchCheckAt": "2026-09-17T08:03:45.012959+00:00"
     }
   ],
   "developmentBaseline": {
