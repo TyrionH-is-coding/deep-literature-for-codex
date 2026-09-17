@@ -1,0 +1,3 @@
+{"type":"session","version":0,"id":"v02-006b-child","createdAt":1700000000001,"cwd":"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-Yi8LiH\\source\\workspace","parentSession":"v02-006b-parent","origin":"subagent","delegationDepth":1}
+{"type":"session/end-seed","seq":0,"time":1789627016391,"data":{}}
+{"type":"user/message","seq":1,"time":1789627016391,"data":{"content":[{"type":"text","text":"CHILD_HISTORY"}],"source":{"kind":"user"},"role":"user","id":"3b314340-8ed3-4868-b1fa-e3e6b0fe5545"},"surfaceOp":"append"}

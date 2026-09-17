@@ -1,0 +1,125 @@
+{
+  "time": "2026-09-17T06:36:46.052Z",
+  "run": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-XVlLMC",
+  "node": "v22.22.2",
+  "baseCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+  "commands": [
+    {
+      "args": [
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\scripts\\fixtures\\v02-006b\\storage-worker.mjs",
+        "seed",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-XVlLMC\\source",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\docs\\project\\evidence\\V02-006B-raw\\v02-006b-XVlLMC\\source.json"
+      ],
+      "code": 0,
+      "output": ""
+    },
+    {
+      "method": "workspace.list",
+      "payload": {},
+      "response": {
+        "type": "server-response",
+        "rpcId": "2860efbc-bfde-4bfc-b671-73cde7fd0839",
+        "result": {
+          "ok": true,
+          "value": {
+            "items": [
+              {
+                "workspaceId": "b323def9-851c-4963-ab5d-f63e87a57b00",
+                "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-XVlLMC\\source\\workspace",
+                "title": "workspace",
+                "sessionIds": [
+                  "v02-006b-child",
+                  "v02-006b-parent"
+                ],
+                "createdAt": "2023-11-14T22:13:20.001Z",
+                "updatedAt": "2023-11-14T22:13:20.001Z"
+              }
+            ],
+            "archivedSessionIds": []
+          }
+        }
+      }
+    },
+    {
+      "method": "workspace.rename",
+      "payload": {
+        "workspaceId": "b323def9-851c-4963-ab5d-f63e87a57b00",
+        "title": "合成分类"
+      },
+      "response": {
+        "type": "server-response",
+        "rpcId": "fd95ab9c-af95-4915-9559-cb9292527e1c",
+        "result": {
+          "ok": true,
+          "value": {
+            "workspace": {
+              "workspaceId": "b323def9-851c-4963-ab5d-f63e87a57b00",
+              "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-XVlLMC\\source\\workspace",
+              "title": "合成分类",
+              "sessionIds": [
+                "v02-006b-child",
+                "v02-006b-parent"
+              ],
+              "createdAt": "2023-11-14T22:13:20.001Z",
+              "updatedAt": "2026-09-17T06:36:49.187Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "method": "workspace.archiveSession",
+      "payload": {
+        "sessionId": "v02-006b-child",
+        "archived": true
+      },
+      "response": {
+        "type": "server-response",
+        "rpcId": "c3473f3c-6ae7-4e82-b408-21f18fc574b5",
+        "result": {
+          "ok": true,
+          "value": {
+            "archivedSessionIds": [
+              "v02-006b-child"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "args": [
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\scripts\\fixtures\\v02-006b\\storage-worker.mjs",
+        "adapt",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-XVlLMC\\新 target",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\docs\\project\\evidence\\V02-006B-raw\\v02-006b-XVlLMC\\target-offline.json",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\docs\\project\\evidence\\V02-006B-raw\\v02-006b-XVlLMC\\source.json"
+      ],
+      "code": 0,
+      "output": ""
+    }
+  ],
+  "checks": [],
+  "boots": [
+    {
+      "root": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-006b\\.local\\v02-006b-XVlLMC\\source",
+      "pid": 32480,
+      "stopped": true,
+      "log": "dsh web: http://127.0.0.1:50707\n",
+      "url": "http://127.0.0.1:50707"
+    }
+  ],
+  "nativeExport": {
+    "sha256": "04fde224c023ed9f4eb5bc645d911bf2dde2fa65164729e7bccbe2048657f71e",
+    "entries": [
+      "session.jsonl",
+      "subagents/v02-006b-child/session.jsonl"
+    ]
+  },
+  "workspaceMapping": {
+    "sourceId": "b323def9-851c-4963-ab5d-f63e87a57b00",
+    "targetId": "aebc5519-aba3-45c2-ae32-819988cab8f0"
+  },
+  "status": "blocked",
+  "error": "TypeError: Cannot read properties of undefined (reading '0')\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006b/scripts/v02-006b-probe.mjs:53:94"
+}
