@@ -1,0 +1,5 @@
+Observed during the initial browser visit to http://127.0.0.1:55125/ (2026-09-17, before the initial-loaded record in ui-observation.json): after entering the synthetic literature session and selecting the 文献 tab, the AX/DOM exposed both literature entries and 设置与状态 content. A browser screenshot showed 设置与状态 covering the main area, with 文献 selected. Clicking the existing 进入文献库 button displayed the literature list; opening the paper then displayed the new conflict message. On page refresh and both later host starts, the literature tab loaded the list normally.
+
+This is a navigation observation, not a proven new regression or a blocker to conflict detail access. No navigation/settings production logic was changed in this task. It is handed back for control review rather than expanded here. The browser screenshots were displayed in the task tool transcript; durable evidence uses recorded AX/DOM and rendered text, not a claimed exported screenshot file.
+
+Browser APIs had a short locator deadline while the detail HTTP request was still loading; only loaded visible text was counted as a pass. The loading-only observation remains in ui-observation.json.

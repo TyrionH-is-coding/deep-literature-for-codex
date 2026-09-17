@@ -1,0 +1,13 @@
+import fs from 'node:fs';import {execFileSync} from 'node:child_process';import assert from 'node:assert/strict';
+const root=process.cwd(),a='C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003d';
+const ab='e3f58d1710413b5c6340fe55974a227b97ee8373',bb='c7757c49d509bcec28464120a82cd87d7360458f';
+const git=(cwd,args)=>execFileSync('git',args,{cwd,encoding:'utf8'}).trim();
+const files=(cwd,base)=>git(cwd,['diff','--name-only',base]).split('\n').filter(Boolean);
+const af=files(a,ab),bf=files(root,bb);
+for(const f of af)assert.ok(['client/client.js','lib/client.js','package.json','package-lock.json','tests/client-xlsx-conflicts.mjs'].includes(f)||f.startsWith('scripts/v02-003d-')||f.startsWith('docs/codex-v02/V02-003D'),f);
+for(const f of bf)assert.ok(['package.json','package-lock.json','runtime/pins.json','runtime/package-lock.json','src/modules/catalog.json','src/modules/foundation/constants.mjs','docs/modules/engine.md','docs/modules/changes/engine.md'].includes(f)||f.startsWith('scripts/acceptance-v02-003d')||f.startsWith('scripts/fixtures/v02-003d/')||f.startsWith('docs/project/evidence/V02-003D'),f);
+assert.equal(git(a,['diff',ab,'--','engine']),'');
+const old=JSON.parse(git(root,['show',bb+':runtime/package-lock.json'])),current=JSON.parse(fs.readFileSync('runtime/package-lock.json'));
+for(const k of Object.keys(old.packages))if(k!=='node_modules/@dsh-external/dsh-scientific-reading')assert.deepEqual(current.packages[k],old.packages[k],k);
+fs.writeFileSync('docs/project/evidence/V02-003D/scope-audit.json',JSON.stringify({time:new Date().toISOString(),A:{head:git(a,['rev-parse','HEAD']),base:ab,files:af,pythonUnchanged:true},B:{head:git(root,['rev-parse','HEAD']),base:bb,files:bf,otherRuntimeLockEntriesUnchanged:true},passed:true},null,2));
+console.log('scope audit passed');

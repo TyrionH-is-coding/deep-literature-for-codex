@@ -1,0 +1,44 @@
+{
+  "worker": {
+    "job_id": "job_387256f773a8f6f3",
+    "state": "waiting_user",
+    "created_at": "2026-09-17T07:27:18.688808+00:00",
+    "updated_at": "2026-09-17T07:27:23.601725+00:00",
+    "pid": null,
+    "heartbeat_at": null,
+    "reason_code": "xlsx_user_fields_conflict",
+    "required_input": {
+      "status": "pending",
+      "updated": 0,
+      "conflicts": 1,
+      "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\library\\library\\scientific-reading.xlsx",
+      "error": {
+        "code": "xlsx_user_fields_conflict",
+        "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+      },
+      "conflict_details": [
+        {
+          "paper_id": "title_d8b339a0356f",
+          "field": "user_notes",
+          "code": "user_field_conflict"
+        }
+      ]
+    },
+    "result": {},
+    "error": null,
+    "scope": null
+  },
+  "locate": {
+    "status": "opened",
+    "paper_id": "title_d8b339a0356f",
+    "row": 2,
+    "selected": true
+  },
+  "openerCalls": [
+    {
+      "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\library\\library\\scientific-reading.xlsx",
+      "row": 2
+    }
+  ],
+  "scope": "Installed locate resolves real workbook row; native Excel opener replaced with task-local recording fixture, Office launch not verified."
+}

@@ -1,0 +1,14 @@
+PASS installed CLI seven conflict/legacy/three-field cases
+PASS prepare live two-row conflict
+PASS worker retry 0: waiting_user, exact field and paper, atomic batch
+PASS host start 0
+PASS HTTP job details after restart 0
+PASS UI status API after restart 0
+PASS worker retry 1: waiting_user, exact field and paper, atomic batch
+PASS host start 1
+PASS HTTP job details after restart 1
+PASS UI status API after restart 1
+PASS worker retry 2: waiting_user, exact field and paper, atomic batch
+PASS host start 2
+PASS HTTP job details after restart 2
+PASS UI status API after restart 2

@@ -2,18 +2,28 @@
   "task": "V02-003D",
   "contextCommit": "7e0a3e4ffbddf21cf5471d0ef14e57411fd1565f",
   "ownerSession": null,
-  "time": "2026-09-17T07:05:19.9546706Z",
-  "phase": "received",
+  "time": "2026-09-17T07:42:38.309960+00:00",
+  "phase": "review",
   "A": {
     "base": "e3f58d1710413b5c6340fe55974a227b97ee8373",
     "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003d",
     "branch": "codex/v02-003d-conflict-feedback",
-    "clean": true
+    "clean": true,
+    "sourceCommit": "26abee5f8c8e4f92f26a9b7fba4ddd236e523b05",
+    "deliveryCommit": "6283c02a690ff42585f064c1f764b999baa97d7e"
   },
   "B": {
     "base": "c7757c49d509bcec28464120a82cd87d7360458f",
     "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003d",
     "branch": "codex/v02-003d-conflict-feedback",
-    "clean": true
-  }
+    "clean": true,
+    "sourceCommit": "890fba5cb47d7197f844fddf711414bc63694c86"
+  },
+  "receivedAt": "2026-09-17T07:05:19.9546706Z",
+  "outcome": "passed_with_known_limitations",
+  "report": "docs/project/evidence/V02-003D.md",
+  "knownOpen": [
+    "F2 whole-instance recovery",
+    "initial navigation observation; no attribution"
+  ]
 }
