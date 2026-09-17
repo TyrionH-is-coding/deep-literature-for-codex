@@ -15,7 +15,8 @@
       "id": "deep-literature-v0-2",
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T05:45:40.190Z"
-    }
+    },
+    "lastReviewAt": "2026-09-17T06:03:10.047Z"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -82,7 +83,7 @@
       "id": "V02-002",
       "title": "固定引擎源码、接口和测试基线",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine"
       ],
@@ -96,10 +97,14 @@
       "contextRepository": "https://github.com/TyrionH-is-coding/deep-literature-for-codex.git",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-002",
       "branch": "codex/v02-002-engine-baseline",
-      "commits": [],
-      "evidence": [],
-      "notes": "已通过固定 worktree 回执确认开工；只审计、实际测试和记录引擎基线。应用尚未提供可关联的真实 session ID，后续优先读取回执、提交与报告。",
-      "dispatchState": "running",
+      "commits": [
+        "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-002-review.md"
+      ],
+      "notes": "源码/制品对应与实际测试基线已核实；F1/F2/F3 保留，不宣称产品全部通过。",
+      "dispatchState": "completed",
       "userConfirmed": true,
       "writePaths": [
         "docs/codex-v02/",
@@ -110,13 +115,28 @@
       "clientThreadId": "client-new-thread:24cab2e9-08bb-4f14-9e3b-c6eb7be44c32",
       "dispatchRequestedAt": "2026-09-17T05:44:22.039Z",
       "startedAt": "2026-09-17T13:44:04.7654069+08:00",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "integrationCommit": "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83",
+      "integrationBranch": "codex/v02-engine-baseline",
+      "acceptance": "baseline-audit-accepted-with-findings",
+      "engineEvidence": {
+        "commit": "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83",
+        "path": "docs/codex-v02/V02-002.md"
+      },
+      "findings": [
+        {
+          "id": "F3",
+          "status": "open",
+          "title": "默认链外导航合同测试的期望落后，后续断言未运行",
+          "followup": "V02-002B"
+        }
+      ]
     },
     {
       "id": "V02-003",
       "title": "记录与存储合同",
       "kind": "workstream",
-      "status": "planned",
+      "status": "in_progress",
       "modules": [
         "engine"
       ],
@@ -129,7 +149,10 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "优先处理 001 已复现的 F1：旧 Excel 覆盖新记录。先定义冲突合同，再拆单目标修复；与结构抽离分开。"
+      "notes": "先实施 003A 最小修复；后续仍须候选制品集成和原场景复验后关闭 F1，不将整个工作域当作单任务。",
+      "children": [
+        "V02-003A"
+      ]
     },
     {
       "id": "V02-004",
@@ -238,7 +261,7 @@
       "id": "V02-006A",
       "title": "完整实例恢复的最小方案",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "releases",
         "workflow",
@@ -260,16 +283,92 @@
         "docs/project/evidence/V02-006A-receipt.json"
       ],
       "receipt": "docs/project/evidence/V02-006A-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "已通过固定 worktree 回执确认开工；仅写恢复方案，与 002 的引擎审计并行。正式恢复实现和验收另立任务。",
+      "commits": [
+        "6a8f491edf75d2c39f64c7ffffc5b3740ff2d59d"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-006A.md",
+        "docs/project/evidence/V02-006A-review.md"
+      ],
+      "notes": "仅设计文档验收通过。DSH 导入/禁重放及持续冻结待验证，最终恢复演练未执行，F2 保持开放。",
       "dispatchReservedAt": "2026-09-17T05:43:14.438Z",
       "clientThreadId": "client-new-thread:b693194c-492c-4eb9-aecd-9681a2f42c87",
       "dispatchRequestedAt": "2026-09-17T05:44:22.041Z",
       "startedAt": "2026-09-17T13:44:15.7644282+08:00",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "integrationCommit": "bf5adbc5c61a4f0303eb37c5b4a0dcf99f0af922",
+      "integrationBranch": "codex/v02-control"
+    },
+    {
+      "id": "V02-003A",
+      "title": "阻止旧 Excel 静默覆盖较新个人记录",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-002"
+      ],
+      "parent": "V02-003",
+      "card": "docs/project/tasks/V02-003A.md",
+      "ownerSession": null,
+      "baseCommit": "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83",
+      "contextCommit": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003a",
+      "branch": "codex/v02-003a-excel-conflicts",
+      "writePaths": [
+        "engine/src/scientific_reading/xlsx_snapshot.py",
+        "engine/src/scientific_reading/xlsx_user_fields.py",
+        "engine/tests/test_xlsx_snapshot.py",
+        "engine/tests/test_worker_xlsx_snapshot.py",
+        "engine/tests/test_pipeline_excel_end_to_end.py",
+        "scripts/v02-003a-*",
+        "docs/codex-v02/V02-003A*"
+      ],
+      "receipt": "docs/codex-v02/V02-003A-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T06:03:10.046Z",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "总控已完成前置验收和独立性检查，正在派发。"
+    },
+    {
+      "id": "V02-002B",
+      "title": "恢复导航合同测试的有效覆盖",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-002"
+      ],
+      "card": "docs/project/tasks/V02-002B.md",
+      "ownerSession": null,
+      "baseCommit": "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83",
+      "contextCommit": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-002b",
+      "branch": "codex/v02-002b-navigation-contract",
+      "writePaths": [
+        "tests/navigation-contract.mjs",
+        "package.json#scripts",
+        "docs/codex-v02/V02-002B*"
+      ],
+      "receipt": "docs/codex-v02/V02-002B-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T06:03:10.047Z",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "总控已完成前置验收和独立性检查，正在派发。"
     }
-  ]
+  ],
+  "developmentBaseline": {
+    "engine": "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83",
+    "engineBranch": "codex/v02-engine-baseline"
+  }
 }
