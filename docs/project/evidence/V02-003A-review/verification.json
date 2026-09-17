@@ -19,5 +19,14 @@
     "npm-ci.log": "6222419957c55b28e3fdfff42788871ac520debb4b1a6143b73321d5de18e865",
     "targeted-junit.xml": "af7b09269b6fb3d3ecfbf7a9c715cb0d006109de0b7f39d254984dc382c82cc5",
     "targeted.log": "7cb94c2ec3a95d00d7aef33c5d385fe75a2d39bf55805d84b9fd8f27c4866a4e"
+  },
+  "fileHashesMeaning": "files hashes are the raw working-tree evidence at review time; repositoryFiles hashes below match Git blobs after normal newline normalization.",
+  "repositoryFiles": {
+    "build.log": "1aac1425f2af4be06d99b6c9f4c1c345ae471cb4dee0c21eec39d2b23552e037",
+    "excel-actions.log": "db7323d3447db80465d68acab1f7f797e70027a63dc74483ac21f8bb2a6bf280",
+    "navigation.log": "e036df60a720d10bc0acc3fdf9ffc5c203e016b04de1ba5acc8138c7cbd7810e",
+    "npm-ci.log": "ee49f9d82e7eb07b1db6995cf7e4d72b1b8ef45d4d58597dc6011f2a535d7ec5",
+    "targeted-junit.xml": "af7b09269b6fb3d3ecfbf7a9c715cb0d006109de0b7f39d254984dc382c82cc5",
+    "targeted.log": "fc23096c417686ed9d22dee801f6b5f507d4d68dc4c1654e56e5d5d07eda4867"
   }
 }

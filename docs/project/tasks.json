@@ -399,7 +399,7 @@
       "id": "V02-003B",
       "title": "候选制品安装与 F1 原场景复验",
       "kind": "task",
-      "status": "reserved",
+      "status": "queued",
       "modules": [
         "engine",
         "application",
@@ -427,12 +427,12 @@
         "docs/project/evidence/V02-003B*"
       ],
       "receipt": "docs/project/evidence/V02-003B-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "独立工作树、实例与输出；派发名额已保留，不得重复创建。",
+      "notes": "已创建；等待固定 worktree 回执确认开工，clientThreadId 不作真实 task ID 使用，不重复派发。",
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b",
       "engineBranch": "codex/v02-003b-engine-candidate",
       "engineBaseCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
@@ -442,13 +442,15 @@
         "engine/pyproject.toml#version",
         "docs/codex-v02/V02-003B*",
         "scripts/v02-003b-*"
-      ]
+      ],
+      "clientThreadId": "client-new-thread:0a34d81c-d4c2-48b4-8700-a981be8c430e",
+      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00"
     },
     {
       "id": "V02-006B",
       "title": "固定 DSH 会话恢复能力取证",
       "kind": "task",
-      "status": "reserved",
+      "status": "queued",
       "modules": [
         "workflow",
         "releases",
@@ -471,12 +473,14 @@
         "docs/project/evidence/V02-006B*"
       ],
       "receipt": "docs/project/evidence/V02-006B-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "独立工作树、实例与输出；派发名额已保留，不得重复创建。"
+      "notes": "已创建；等待固定 worktree 回执确认开工，clientThreadId 不作真实 task ID 使用，不重复派发。",
+      "clientThreadId": "client-new-thread:dcc114ad-77a0-41db-b89f-d3c194e56334",
+      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00"
     }
   ],
   "developmentBaseline": {
