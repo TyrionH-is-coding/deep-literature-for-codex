@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
-    "lastReviewAt": "2026-09-17T06:26:28.384502+00:00",
+    "lastReviewAt": "2026-09-17T06:46:02.714256+00:00",
     "lastHeartbeatCompletedAt": "2026-09-17T06:29:00.379796+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -399,7 +399,7 @@
       "id": "V02-003B",
       "title": "候选制品安装与 F1 原场景复验",
       "kind": "task",
-      "status": "in_progress",
+      "status": "needs_followup",
       "modules": [
         "engine",
         "application",
@@ -427,12 +427,16 @@
         "docs/project/evidence/V02-003B*"
       ],
       "receipt": "docs/project/evidence/V02-003B-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "双任务固定目录和基线已验证，回执确认开工；不重复派发，等待提交与证据复核。",
+      "commits": [
+        "8c37fb13d7c6816c1de067d72ef8fef091097ac3"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-003B-control-review.md"
+      ],
+      "notes": "B catalog 四个身份字段遗漏于原任务允许范围，打包失败。任务已终止交回；A 制品经复核集成，B 未合入。003C 单独续接同步元数据与安装门槛，F1 不关闭。",
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b",
       "engineBranch": "codex/v02-003b-engine-candidate",
       "engineBaseCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
@@ -446,13 +450,20 @@
       "clientThreadId": "client-new-thread:0a34d81c-d4c2-48b4-8700-a981be8c430e",
       "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00",
       "startedAt": "2026-09-17T06:28:35.6940147Z",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "engineCommits": [
+        "ca02db6beb2cf45ad0fd69618313971d0a346c55",
+        "e3f58d1710413b5c6340fe55974a227b97ee8373"
+      ],
+      "engineIntegrationCommit": "e3f58d1710413b5c6340fe55974a227b97ee8373",
+      "acceptance": "engine-artifact-accepted; B installation blocked",
+      "followup": "V02-003C"
     },
     {
       "id": "V02-006B",
       "title": "固定 DSH 会话恢复能力取证",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "workflow",
         "releases",
@@ -475,20 +486,28 @@
         "docs/project/evidence/V02-006B*"
       ],
       "receipt": "docs/project/evidence/V02-006B-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "双任务固定目录和基线已验证，回执确认开工；不重复派发，等待提交与证据复核。",
+      "commits": [
+        "bde0554dfee627465de92e6ca43f5ba0bc17eaf0"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-006B.md",
+        "docs/project/evidence/V02-006B-control-review.md"
+      ],
+      "notes": "只证明固定 DSH 文本历史/队列的限定可行性；产品持久门禁、媒体/插件状态与三域演练未完成，F2 保持开放。",
       "clientThreadId": "client-new-thread:dcc114ad-77a0-41db-b89f-d3c194e56334",
       "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00",
       "startedAt": "2026-09-17T06:28:32.6491475Z",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "integrationCommit": "ec630612853ca4c6239fab2018038da76456817b",
+      "integrationBranch": "codex/v02-control",
+      "acceptance": "bounded-R1-feasibility-evidence-accepted"
     }
   ],
   "developmentBaseline": {
-    "engine": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
+    "engine": "e3f58d1710413b5c6340fe55974a227b97ee8373",
     "engineBranch": "codex/v02-engine-baseline"
   }
 }

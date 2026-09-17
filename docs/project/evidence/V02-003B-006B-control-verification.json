@@ -1,0 +1,34 @@
+{
+  "003B": {
+    "BCommit": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+    "ACommit": "e3f58d1710413b5c6340fe55974a227b97ee8373",
+    "artifactSha": "fdce0ada390e2f27615c6b6050dbf7ef83c871d6a6304c4235e4414f667c8930",
+    "sourceCommit": "ca02db6beb2cf45ad0fd69618313971d0a346c55",
+    "wheelPythonFilesVerifiedInPriorReadOnlyCheck": 51,
+    "python": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "3",
+      "tests": "518",
+      "time": "148.700",
+      "timestamp": "2026-09-17T14:29:57.232223+08:00",
+      "hostname": "DESKTOP-niuniu"
+    },
+    "unrelatedRuntimeLockUnchanged": true,
+    "installation": "blocked: catalog identity mismatch"
+  },
+  "006B": {
+    "commit": "bde0554dfee627465de92e6ca43f5ba0bc17eaf0",
+    "evidenceRun": "v02-006b-lJhAoM",
+    "node": "v22.22.2",
+    "sourceSessions": 2,
+    "checks": 7,
+    "stoppedBoots": 3,
+    "executedScriptHashesVerified": true,
+    "onlyTrailingWhitespaceAndNewlineNormalizationAtCommit": true,
+    "originalEventsAndQueuesPreserved": true,
+    "zeroReplayAndPositiveControlVerified": true,
+    "scope": "bounded text-only R1 feasibility; not a production gate"
+  }
+}
