@@ -22,6 +22,7 @@
 - [固定引擎审计](docs/project/engine-baseline.md)：已核实的接口、数据格式和恢复边界。
 - [首个开发任务 V02-001](docs/project/tasks/V02-001.md)：在隔离环境验收模块化基线并复现稳定性风险。
 - [模块地图](docs/modules/README.md)：当前代码职责与上下文边界。
+- [本轮检查记录](docs/project/planning-validation.md)：总控资料、定向测试与本地打包结果。
 
 ## 本轮已做与下一步
 
