@@ -6,9 +6,7 @@ class Server {
   current = null
   calls = []
   listeners = new Set()
-  lifecycle = new Set()
   onNotification(listener) { this.listeners.add(listener); return () => this.listeners.delete(listener) }
-  onLifecycle(listener) { this.lifecycle.add(listener); return () => this.lifecycle.delete(listener) }
   notify(method, params) { for (const listener of this.listeners) listener({ method, params }) }
   async account(refreshToken) { this.calls.push(['account', refreshToken]); return this.current }
   async models() { return [{ model: 'fixture-model', displayName: 'Fixture', hidden: false }, { model: 'hidden', hidden: true }] }
@@ -30,17 +28,6 @@ test('PB-08 unsigned account is explicit and does not fetch models or quota', as
   })
   assert.deepEqual(await control.usage(), { status: 'unavailable', reason: 'not_authenticated', scope: 'account', sharedAcrossClients: true, buckets: [] })
   assert.ok(server.calls.every(([method, refresh]) => method === 'account' && refresh === false))
-})
-
-test('认证途中进程退出后不残留永久 pending，允许本人重新发起登录', async () => {
-  const server = new Server()
-  const control = new OAuthControl(server)
-  await control.login()
-  for (const listener of server.lifecycle) listener({ event: 'failed' })
-  assert.equal((await control.status()).login.status, 'failed')
-  assert.equal((await control.login()).status, 'pending')
-  await control.close()
-  assert.equal(server.lifecycle.size, 0)
 })
 
 test('PB-08 managed login completion, cancel and logout use official methods', async () => {

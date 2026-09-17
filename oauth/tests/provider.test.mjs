@@ -21,11 +21,11 @@ test('PB-08 unavailable account leaves other providers usable and rejects genera
   assert.equal(server.starts, 0)
 })
 
-test('PB-08 provider 保留账号模型的输入能力，退出后清除账号目录', async () => {
+test('PB-08 provider advertises supported text input and does not retain account cache after logout', async () => {
   const server = new Server()
   const adapter = new SafeCodexAdapter(server)
   server.current = { type: 'chatgpt' }
-  assert.deepEqual((await adapter.listModels())[0].inputModalities, ['text', 'image'])
+  assert.deepEqual((await adapter.listModels())[0].inputModalities, ['text'])
   server.current = null
   assert.deepEqual(await adapter.listModels(), [])
 })

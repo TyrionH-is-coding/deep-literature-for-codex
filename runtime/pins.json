@@ -13,17 +13,14 @@
     "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
     "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
   },
-  "dsh": "0.1.5-rc.1",
+  "dsh": "0.1.0-rc.7",
   "plugin": {
     "name": "@dsh-external/dsh-scientific-reading",
-    "version": "0.2.0-rc.2",
-    "sha256": "09b5ec32aa96e88fb6d86b600eb3e23e8620cafe998a72ba44f2d1480f2fcb49",
-    "source": "Deep Literature for DSH v0.2.0-rc.2 公开预发布包",
-    "sourceCommit": "8f6292fa962fbb2719d10a221f74ff2927627900",
-    "url": "https://github.com/TyrionH-is-coding/deep-literature-for-dsh/releases/download/v0.2.0-rc.2/dsh-external-dsh-scientific-reading-0.2.0-rc.2.tgz",
-    "sourceState": "committed",
-    "packageAuditSha256": "dde777fe64a4fcd148c04bb065b3ef88b4472066675aa3f7cb4f8b66e2366ab8",
-    "published": true
+    "version": "0.1.0-rc.5",
+    "sha256": "318814ec542de94a47cd2855b21d0f7af9778b22b283d3995d0c499a3465e2fd",
+    "source": "MinerU empty visual fix; bundled with this release",
+    "sourceCommit": "8e00b334389cd90721b7d404013a07687753aa5c",
+    "url": "https://github.com/TyrionH-is-coding/dsh-scientific-reading/releases/download/v0.1.0-rc.5/dsh-external-dsh-scientific-reading-0.1.0-rc.5.tgz"
   },
   "platforms": {
     "darwin-arm64": {

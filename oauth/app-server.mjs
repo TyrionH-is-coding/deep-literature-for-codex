@@ -1,7 +1,7 @@
 // Derived from DGPisces/dsh-openai-oauth 0.4.0 (MIT), lib/app-server.js.
 // B changes: explicit isolated home, direct native child, safe errors and bounded lifecycle.
 import { spawn } from 'node:child_process'
-import { appendFile, mkdir, realpath, rename, stat } from 'node:fs/promises'
+import { mkdir, realpath } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { createInterface } from 'node:readline'
 import { dirname, isAbsolute, join } from 'node:path'
@@ -61,12 +61,8 @@ export class AppServer {
   queues = new Map()
   turnThreads = new Map()
   listeners = new Set()
-  lifecycleListeners = new Set()
   starting = null
   closed = false
-  failure = null
-  generation = 0
-  journal = Promise.resolve()
 
   constructor({ stateRoot, command, requestTimeoutMs = 20000 } = {}) {
     if (typeof stateRoot !== 'string' || !stateRoot) throw new Error('stateRoot is required')
@@ -78,38 +74,17 @@ export class AppServer {
   }
 
   onNotification(listener) { this.listeners.add(listener); return () => this.listeners.delete(listener) }
-  onLifecycle(listener) { this.lifecycleListeners.add(listener); return () => this.lifecycleListeners.delete(listener) }
-  lifecycle(event, detail = {}) {
-    const entry = { at: new Date().toISOString(), event, generation: this.generation, ...detail }
-    for (const listener of this.lifecycleListeners) listener(entry)
-    this.journal = this.journal.then(async () => {
-      await mkdir(this.stateRoot, { recursive: true, mode: 0o700 })
-      const file = join(this.stateRoot, 'app-server-events.jsonl')
-      const size = await stat(file).then(info => info.size).catch(error => { if (error.code !== 'ENOENT') throw error; return 0 })
-      if (size >= 65536) await rename(file, file + '.1')
-      await appendFile(file, JSON.stringify(entry) + '\n', { mode: 0o600 })
-    }).catch(() => {}) // Diagnostic IO must not break model requests; no raw RPC/stderr is logged.
-  }
 
   async start() {
     if (this.closed) throw new Error('Codex app-server is closed')
-    if (!this.starting) {
-      const attempt = this.startInner()
-      this.starting = attempt
-      attempt.catch(() => { if (this.starting === attempt) this.starting = null })
-    }
+    this.starting ??= this.startInner()
     return this.starting
   }
 
   async startInner() {
-    // A failed request is never replayed. The next caller can start one new
-    // transport, after the previous owned child has fully exited.
-    if (this.child) await this.exited
     await mkdir(this.home, { recursive: true, mode: 0o700 })
     if ((await realpath(this.home)).toLowerCase() !== join(await realpath(this.stateRoot), 'codex-home').toLowerCase()) throw new Error('Codex home must remain inside instance state')
     if (this.closed) throw new Error('Codex app-server is closed')
-    this.failure = null
-    this.generation++
     const [executable, ...prefix] = this.command ?? [codexExecutable()]
     const disabled = ['shell_tool', 'goals', 'apps', 'browser_use', 'computer_use', 'hooks', 'image_generation', 'in_app_browser', 'multi_agent', 'plugins', 'skill_search', 'tool_suggest', 'unified_exec', 'workspace_dependencies']
     const args = [
@@ -124,42 +99,29 @@ export class AppServer {
     })
     this.exited = new Promise(resolve => child.once('close', resolve))
     createInterface({ input: child.stdout }).on('line', line => {
-      if (child !== this.child || this.failure || this.closed) return
-      try { this.receive(JSON.parse(line)) } catch { this.fail(new Error('Codex app-server protocol error'), child, true, 'protocol_error') }
+      try { this.receive(JSON.parse(line)) } catch { this.fail(new Error('Codex app-server protocol error')); child.kill() }
     })
     // Drain without logging: upstream stderr and RPC errors may contain authentication data.
     child.stderr.resume()
-    child.stdin.on('error', () => this.fail(new Error('Codex app-server input closed'), child, true, 'input_closed'))
-    child.on('error', () => this.fail(new Error('Codex app-server failed to start'), child, true, 'spawn_failed'))
-    child.on('close', code => {
-      if (child !== this.child) return
-      if (!this.closed) this.fail(new Error(`Codex app-server exited (${String(code)})`), child, true, 'process_exited')
-      this.child = null
-    })
+    child.stdin.on('error', () => this.fail(new Error('Codex app-server input closed')))
+    child.on('error', () => this.fail(new Error('Codex app-server failed to start')))
+    child.on('close', code => { this.fail(new Error(`Codex app-server exited (${String(code)})`)); this.child = null })
     await this.request('initialize', {
       clientInfo: { name: 'codex_scientific_reading', title: 'Deep Literature for Codex', version: '0.1.0' },
       capabilities: { experimentalApi: true },
     })
     this.send({ method: 'initialized', params: {} })
-    this.lifecycle('ready')
   }
 
-  fail(error, child = this.child, terminate = true, reason = 'transport_failed') {
-    if (child !== this.child || this.failure) return
-    this.failure = error
-    this.starting = null
+  fail(error) {
+    this.closed = true
     for (const request of this.pending.values()) request.reject(error)
     this.pending.clear()
     for (const queue of this.queues.values()) queue.fail(error)
-    this.queues.clear()
-    this.turnThreads.clear()
-    if (!this.closed) this.lifecycle('failed', { reason })
-    if (terminate) child?.kill()
   }
 
   send(message) {
     if (!this.child || this.closed) throw new Error('Codex app-server is closed')
-    if (this.failure) throw this.failure
     this.child.stdin.write(`${JSON.stringify(message)}\n`)
   }
 
@@ -189,11 +151,11 @@ export class AppServer {
 
   async request(method, params = {}) {
     if (method !== 'initialize') await this.start()
-    const child = this.child
     const id = this.nextId++
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
-        this.fail(new Error('Codex app-server request timed out'), child, true, 'request_timeout')
+        this.fail(new Error('Codex app-server request timed out'))
+        this.child?.kill()
       }, this.requestTimeoutMs)
       const pending = {
         resolve: value => { clearTimeout(timeout); resolve(value) },
@@ -205,18 +167,7 @@ export class AppServer {
   }
 
   async account(refreshToken = false) { return (await this.request('account/read', { refreshToken })).account ?? null }
-  async models() {
-    const models = [], seen = new Set()
-    let cursor
-    do {
-      const page = await this.request('model/list', { ...(cursor ? { cursor } : {}) })
-      models.push(...(page.data ?? []))
-      cursor = page.nextCursor
-      if (cursor && seen.has(cursor)) throw new Error('Codex model list cursor repeated')
-      if (cursor) seen.add(cursor)
-    } while (cursor)
-    return models
-  }
+  async models() { return (await this.request('model/list', {})).data ?? [] }
   async startThread(input) {
     const result = await this.request('thread/start', { ...input, cwd: this.home, allowProviderModelFallback: false })
     if (typeof result.thread?.id !== 'string') throw new Error('Codex returned no thread id')
@@ -237,7 +188,6 @@ export class AppServer {
   }
   nextEvent(threadId, signal) {
     if (this.closed) return Promise.reject(new Error('Codex app-server is closed'))
-    if (this.failure) return Promise.reject(this.failure)
     return this.queue(threadId).take(signal)
   }
   respond(id, result) { this.send({ id, result }) }
@@ -247,13 +197,10 @@ export class AppServer {
     if (queue) queue.values = queue.values.filter(event => (event?.params?.turnId ?? event?.params?.turn?.id) !== turnId)
   }
   async close() {
-    if (!this.closed && this.generation > 0) this.lifecycle('stopped')
-    this.closed = true
-    this.fail(new Error('Codex app-server is closed'), this.child, false)
-    if (!this.child) { await this.journal; return }
-    const child = this.child
-    child.stdin.end()
-    const force = setTimeout(() => child.kill(), 1500)
-    try { await this.exited } finally { clearTimeout(force); await this.journal }
+    this.fail(new Error('Codex app-server is closed'))
+    if (!this.child) return
+    this.child.stdin.end()
+    const force = setTimeout(() => this.child?.kill(), 1500)
+    try { await this.exited } finally { clearTimeout(force) }
   }
 }

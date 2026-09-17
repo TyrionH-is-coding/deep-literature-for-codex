@@ -3,7 +3,6 @@ import path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { readJson, writeJson } from './core.mjs';
 import { ensureInstanceWorkspace, ensureLiteratureDefault } from './workspace.mjs';
-import { acquire, acquireDownload, refreshAcquisition, attachedAcquisition } from './acquisition.mjs';
 
 function canonical(value) {
   if (Array.isArray(value)) return value.map(canonical);
@@ -23,27 +22,14 @@ export class Handoff {
     const service = new Handoff(root, dependencies);
     try { service.data = await readJson(service.file); }
     catch (error) { if (error.code !== 'ENOENT') throw error; }
-    if (service.data.instanceId !== dependencies.instance.instanceId || ![1, 2].includes(service.data.schema)) throw new Error('handoff_instance_mismatch');
-    if (service.data.schema === 1) {
-      const original = await fs.readFile(service.file);
-      const backup = path.join(root, 'state', 'handoff.v1.json');
-      try { await fs.writeFile(backup, original, { flag: 'wx' }); }
-      catch (error) {
-        if (error.code !== 'EEXIST') throw error;
-        if (!(await fs.readFile(backup)).equals(original)) throw new Error('handoff_backup_conflict');
-      }
-      await service.engine(['paper-chat'], { action: 'legacy_register', entries: Object.values(service.data.bindings)
-        .map(row => ({ session_id: row.sessionId, folder_id: row.folderId, label: '旧分类讨论 · ' + row.folderId })) });
-      service.data.schema = 2;
-      await service.save();
-    }
+    if (service.data.instanceId !== dependencies.instance.instanceId || service.data.schema !== 1) throw new Error('handoff_instance_mismatch');
     return service;
   }
   constructor(root, dependencies) {
     this.root = root;
     Object.assign(this, dependencies);
     this.file = path.join(root, 'state', 'handoff.json');
-    this.data = { schema: 2, instanceId: this.instance.instanceId, bindings: {}, children: {}, tasks: {} };
+    this.data = { schema: 1, instanceId: this.instance.instanceId, bindings: {}, children: {}, tasks: {} };
   }
   serial(action) {
     const result = this.pending.then(action, action);
@@ -51,14 +37,10 @@ export class Handoff {
     return result;
   }
   save() { return writeJson(this.file, this.data); }
-  acquire(request) { return this.serial(() => acquire(this, request)); }
-  acquireDownload(request) { return this.serial(() => acquireDownload(this, request)); }
-  async scopeFor(sessionId) {
+  scopeFor(sessionId) {
     const seen = new Set();
     while (sessionId && !seen.has(sessionId)) {
       seen.add(sessionId);
-      const paper = await this.engine(['paper-chat'], { action: 'scope', session_id: sessionId });
-      if (paper.paper_id) return { instanceId: this.instance.instanceId, scopeSessionId: sessionId, scopeFolderId: '__paper__', scopePaperId: paper.paper_id };
       const binding = Object.values(this.data.bindings).find(value => value.sessionId === sessionId);
       if (binding) return binding.active ? { instanceId: this.instance.instanceId, scopeSessionId: binding.sessionId, scopeFolderId: binding.folderId } : null;
       sessionId = this.data.children[sessionId];
@@ -70,22 +52,27 @@ export class Handoff {
     // Only the bridge's actual DSH creation event calls this, never HTTP input.
     Object.defineProperty(this.data.children, sessionId, { value: parentSessionId, writable: true, enumerable: true, configurable: true });
   }
-  bindPaper(paperId) { return this.serial(() => this._bindPaper(paperId)); }
-  async _bindPaper(paperId) {
-    const state = await this.engine(['paper-chat'], { action: 'ensure', paper_id: identifier(paperId) });
-    const binding = { paperId: state.paper_id, sessionId: state.session_id, folderId: state.paper.folder_id, active: true };
+  bind(folderId) { return this.serial(() => this._bind(folderId)); }
+  async _bind(folderId) {
+    identifier(folderId);
+    const folders = await this.engine(['folder-list']);
+    const folder = folders.find(value => value.folder_id === folderId);
+    if (!folder) throw new Error('folder_not_found');
+    const key = digest(folderId);
+    let binding = this.data.bindings[key];
+    if (!binding) {
+      binding = this.data.bindings[key] = { folderId, sessionId: 'session-' + randomUUID(), active: true };
+      await this.save();
+    }
+    if (!binding.active) throw new Error('folder_archived');
     await this.prepareHost();
-    const existing = (await this.rpc('session.list', {})).items.find(row => row.sessionId === binding.sessionId);
-    const workspaceId = existing?.cwd
-      ? (await this.rpc('workspace.create', { path: existing.cwd })).workspace.workspaceId
-      : this.data.workspace.workspaceId;
     await this.rpc('session.create', {
       sessionId: binding.sessionId,
-      workspaceId,
+      workspaceId: this.data.workspace.workspaceId,
       agentPreset: 'scientific-reading',
     });
-    await this.rpc('session.rename', { sessionId: binding.sessionId, title: '文献 · ' + state.paper.title });
-    return { ...binding, name: state.paper.title };
+    await this.rpc('session.rename', { sessionId: binding.sessionId, title: '文献 · ' + folder.name });
+    return { ...binding, name: folder.name };
   }
   async prepareHost() {
     const workspace = await ensureInstanceWorkspace(this.rpc, this.root);
@@ -97,22 +84,20 @@ export class Handoff {
   async checkedTask(taskId) {
     const task = Object.values(this.data.tasks).find(value => value.taskId === taskId);
     if (!task) throw new Error('task_not_found');
-    const scope = await this.scopeFor(task.sessionId);
+    const scope = this.scopeFor(task.sessionId);
     if (!scope) throw new Error('folder_archived');
     const item = await this.engine(['library-item-v2', '--paper-id', task.paperId], undefined, scope);
-    if (scope.scopeFolderId === '__paper__') task.folderId = item.folder_id;
-    else if (item.folder_id !== task.folderId) throw new Error('scope_changed');
+    if (item.folder_id !== task.folderId) throw new Error('scope_changed');
     return { task, scope };
   }
   submit(request) {
     return this.serial(async () => {
       const key = digest(identifier(request.idempotencyKey));
-      const normalized = { folderId: request.folderId ? identifier(request.folderId) : null, paperId: identifier(request.paperId) };
+      const normalized = { folderId: identifier(request.folderId), paperId: identifier(request.paperId) };
       let task = this.data.tasks[key];
       if (task && task.requestDigest !== digest(normalized)) throw new Error('idempotency_conflict');
       if (!task) {
-        const binding = await this._bindPaper(normalized.paperId);
-        if (normalized.folderId && normalized.folderId !== binding.folderId) throw new Error('scope_changed');
+        const binding = await this._bind(normalized.folderId);
         task = this.data.tasks[key] = { ...normalized, sessionId: binding.sessionId, taskId: 'task-' + randomUUID(),
           requestDigest: digest(normalized), status: 'accepted', jobId: null, dispatches: {}, operations: {}, createdAt: new Date().toISOString() };
         await this.save();
@@ -152,7 +137,6 @@ export class Handoff {
       if (task.cancelRequested && !['completed', 'failed'].includes(task.status)) task.status = 'cancel_requested';
     } catch (error) { task.status = 'failed'; task.error = error.message; }
     task.checkedAt = new Date().toISOString();
-    refreshAcquisition(task);
     await this.save();
     return task;
   }
@@ -193,7 +177,7 @@ export class Handoff {
     await this.save();
     try {
       const result = await this.rpc('session.prompt', { sessionId: task.sessionId, mode: 'queue', clientTimeZone: 'Asia/Shanghai',
-        content: [{ type: 'text', text: `请继续本 chat 绑定的论文 ${task.paperId}，现有任务 ${task.jobId}。先用 sr_paper_context 和 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。` }] }, dispatch.rpcId);
+        content: [{ type: 'text', text: `请继续本分类的论文 ${task.paperId}，现有任务 ${task.jobId}。先用 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。` }] }, dispatch.rpcId);
       if (result.accepted !== true) throw new Error('prompt_not_accepted');
       dispatch.status = 'accepted';
     } catch { dispatch.status = 'uncertain'; }
@@ -216,7 +200,6 @@ export class Handoff {
               await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-'], { pdf_attached: true }, scope);
             }
             previous.status = 'completed';
-            attachedAcquisition(task, previous.sha256, previous.sourceType);
             await this.save();
             return structuredClone(await this._refresh(task));
           }
@@ -236,7 +219,6 @@ export class Handoff {
         const bytes = await fs.readFile(pdf);
         if (!bytes.subarray(0, 5).equals(Buffer.from('%PDF-'))) throw new Error('invalid_pdf');
         sha256 = createHash('sha256').update(bytes).digest('hex');
-        if (task.acquisition?.pdf === pdf && task.acquisition.sha256 !== sha256) throw new Error('downloaded_pdf_changed');
       } else if (kind !== 'resume' || !payload.input || typeof payload.input !== 'object' || Array.isArray(payload.input)) throw new Error('invalid_operation');
       const operation = task.operations[key] = { fingerprint, kind, status: 'prepared', gateDigest: gateDigest(task.job),
         ...(kind === 'attach' ? { sha256, sourceType: payload.sourceType } : {}) };
@@ -244,7 +226,6 @@ export class Handoff {
       if (kind === 'resume') await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-'], payload.input, scope);
       else await this.engine(['full-read-pdf-attach-resume', '--paper-id', task.paperId, '--job-id', task.jobId, '--pdf', pdf], undefined, scope);
       operation.status = 'completed';
-      if (kind === 'attach') attachedAcquisition(task, sha256, payload.sourceType);
       task.cancelRequested = false;
       await this.save();
       return structuredClone(await this._refresh(task));

@@ -1,13 +1,25 @@
-# Excel 操作
+# Excel 刷新与备份
 
-通过实例 `call` 执行，不再手工寻找 Python 或写临时 SQL。
+从本 Skill 的 `installation.json` 读取真实实例根，再读取实例根的 `installation.json` 获取当前 Python。不要根据 cwd 或固定版本目录猜测。
 
-- 同步：`{"action":"excel_sync","payload":{}}`。用户先保存关闭表格。检查返回的 `status`；success 才表示已导出，报告 `updated`、`rows`、`exported_at`、`path`。
-- 打开并定位：`{"action":"excel_open","payload":{"paperId":"真实 ID"}}`。`selected=false` 时说明仅打开默认应用，按返回行号查找。
-- 查看同步状态：`{"action":"environment","payload":{}}`，读取 `library.xlsx_status`、`xlsx_pending` 和 `xlsx_last_export`。
-- 修改个人记录：先 `item` 读取值，随后 `personal_update` 携带 `fields` 与相同键集合的 `expected`。只提交用户要求改变的字段，空字符串表示清空。阅读进度只接受未读、在读、已读、待复读。
-- `list` 支持 `query`、`readingState`、`personalRecentDays`、`orderBy:"personal_updated_at"`，用于找回笔记和最近整理文献。
+Windows：
 
-个人字段为 `reading_state`、`project_relevance`、`next_action`、`understanding_level`、`personal_thoughts`、`user_notes`。生成 Reader 不改变人工阅读进度；Agent 不自动把建议写成用户立场。
+```powershell
+$readingRoot = '<实例根>'
+$readingInstall = Get-Content -LiteralPath (Join-Path $readingRoot 'installation.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+& $readingInstall.python -I -X utf8 -m scientific_reading --data-root (Join-Path $readingRoot 'library') xlsx-refresh
+```
 
-冲突时保留工作簿和双方内容，报告具体 `details`。依据用户的明确选择解决冲突，不改隐藏基线或直接写 SQL。旧表归档、备份和工作表用途见 [管理说明](../../../docs/excel-library.md)。
+macOS/Linux：
+
+```sh
+reading_root='<实例根>'
+reading_python=$("$(cat "$reading_root/.workbench-node")" -p 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8")).python' "$reading_root/installation.json")
+"$reading_python" -I -X utf8 -m scientific_reading --data-root "$reading_root/library" xlsx-refresh
+```
+
+先保存并关闭工作簿。返回 `success` 才表示完成；`pending` 按错误处理，原文件保持待同步。Excel/LibreOffice 占用标记存在时不会刷新；某些表格软件不生成此标记，仍必须保存关闭。不要自动删除占用标记。
+
+总表路径为 `<实例根>/library/library/scientific-reading.xlsx`。macOS 用 `open "<总表绝对路径>"`，Linux 桌面用 `xdg-open "<总表绝对路径>"`，没有关联软件或桌面时提供路径并说明无法打开。Windows 使用可用的文件打开工具。只有真实返回的选行结果才能证明已定位论文。
+
+完整备份：在同一条引擎命令中把 `xlsx-refresh` 替换成 `library-backup --output '<备份 ZIP 绝对路径>' --timeout 30`，先确认刷新成功，再确认备份返回 `completed`。备份不包含模型登录和 MinerU 密钥；换机后重新配置。

@@ -12,7 +12,7 @@
 
 rc.5 修复了旧启动器只解析 Windows x64 程序的问题；现在按 Windows x64、macOS x64/ARM64、Linux x64/ARM64 选择官方固定版本的原生包。CI 在五个平台使用全新隔离目录启动真实 app-server 并检查未登录状态，不继承外层凭据，不进行付费模型调用。本人浏览器授权另行验收。
 
-包名与版本为 `codex-scientific-reading-oauth@0.1.0-rc.3`。父安装器把本目录的发布文件复制到 npm 根下的 `oauth/`，由父 runtime 声明 `file:oauth` 依赖；无需运行上游全局安装器。依赖为官方 `@openai/codex@0.146.0`，宿主 peer 为 `@deepseek-ai/cordis@4.0.2` 与 `@deepseek-ai/dsh-llm@0.1.5-rc.1`。开发用的固定宿主依赖单独列在本包 devDependencies。
+包名与版本为 `codex-scientific-reading-oauth@0.1.0-rc.3`。父安装器把本目录的发布文件复制到 npm 根下的 `oauth/`，由父 runtime 声明 `file:oauth` 依赖；无需运行上游全局安装器。依赖为官方 `@openai/codex@0.146.0`，宿主 peer 为 `@deepseek-ai/cordis@4.0.1` 与 `@deepseek-ai/dsh-llm@0.1.0-rc.7`。开发用的原始 rc.7 依赖单独列在本包 devDependencies。
 
 包的 `cordis.patch.yml` 插入 `scientific-reading-codex` 行。父 profile 在该行指定：
 
@@ -24,11 +24,7 @@ rc.5 修复了旧启动器只解析 Windows x64 程序的问题；现在按 Wind
 
 `stateRoot` 必须为安装根下的稳定 state 目录，不应指向不可变 release 代目录。官方进程的工作目录和 `CODEX_HOME` 均为 `<stateRoot>/codex-home`。固定使用文件凭据存储和 ChatGPT 登录方式；环境变量采用系统/代理变量白名单，排除外层 API key、Codex 配置覆盖及会话标识。不会自动设置 `agent-default-model`。
 
-原生 provider id 为 `openai-codex`。登录成功后，模型清单来自官方 `model/list`；用户在 DSH 的普通模型选择器选择实际返回的模型，reasoning effort 和图片能力也来自动态元数据。桥接支持文本、图片和 DSH 动态工具；app-server 没有暴露的 `temperature`、`stop`、`maxTokens` 仍会明确返回不支持。
-
-图片来自 DSH 已接收的附件：适配器通过宿主 `attachments.readImage` 读取并校验字节，按实际媒体类型编码为 data URL。用户输入使用 `image.url`，工具结果使用 `inputImage.imageUrl`，不把图片转写成文字，也不接受任意路径或远程 URL 代替附件。接口格式经固定版本 Codex 0.146.0 的生成类型及[官方 app-server 文档](https://learn.chatgpt.com/docs/app-server)核对。插件注入 `llm` 和 `attachments`；独立构造适配器时也需提供附件服务。
-
-原生会话续聊和恢复只传本轮新增图片；原生历史丢失或切换 provider 后重建时，重新附上历史图片与对应附件身份。工具结果恢复也保留图片。读取失败时提示重新添加；取消读取会中断正在等待工具结果的原生回合。纯文本模型在 DSH 的新图片提交阶段被拒绝，历史图片的文字占位沿用 DSH 规则。
+原生 provider id 为 `openai-codex`。登录成功后，模型清单来自官方 `model/list`；用户在 DSH 的普通模型选择器选择实际返回的模型，reasoning effort 也来自动态元数据。当前桥接支持文本和 DSH 动态工具；图像以及 app-server 没有暴露的 `temperature`、`stop`、`maxTokens` 会明确返回不支持。
 
 ## 用户入口与 API
 
@@ -61,7 +57,7 @@ await oauth.stop()
 
 DSH 是对话记录的持久来源。每次模型结束返回标准 `replayState: {response: ...}`，其中保存版本 2、threadId、turnId、模型、工具 schema 摘要和待完成 callId。下一次启动从 `assistant.source.replayState.response` 取回指针，用官方 `thread/resume` 恢复；不会解析、复制原生会话文件。
 
-如果原生会话记录缺失，或中间使用了其他 provider，适配器把 DSH 已有文本、图片与工具对话作为历史上下文带入新的原生会话。中断工具流程有已确认结果时，先中断旧 turn，使用这些结果续跑。恢复期间出现相同工具与参数的重发时，直接向官方进程回复已保存结果，不再次交给 DSH 执行。缺少持久化结果的中断调用返回 `RECOVERY_REQUIRES_TOOL_RESULT`，必须先核实结果。
+如果原生会话记录缺失，或中间使用了其他 provider，适配器把 DSH 已有完整文本/工具对话作为历史上下文带入新的原生会话。中断工具流程有已确认结果时，先中断旧 turn，使用这些结果续跑。恢复期间出现相同工具与参数的重发时，直接向官方进程回复已保存结果，不再次交给 DSH 执行。缺少持久化结果的中断调用返回 `RECOVERY_REQUIRES_TOOL_RESULT`，必须先核实结果。
 
 ## 来源与验证
 
@@ -74,7 +70,3 @@ DSH 是对话记录的持久来源。每次模型结束返回标准 `replayState
 真实用户登录、有效账号额度、授权后模型响应、已完成 turn 的原生恢复和 token 刷新，必须在用户自行授权后验证；本阶段不会声称这些已通过。父任务负责候选包实际安装、原生模型选择器与内置浏览器的整体验收。
 
 发布包仅包含根下运行模块、package.json、cordis patch、README、provenance 和 vendor 许可证/适配源码，不包含 tests、test-results、node_modules、临时 schema 或任何 state。
-
-模型发现会读取 model/list 的全部分页。GPT-6 Astra 出现于实际账号模型列表且声明 image 能力时，可用于图片讨论。详情见 v0.2-guide.md。
-
-图片专项验收包含两层：`scripts/acceptance-codex-images.mjs` 使用真实 Codex 0.146.0、真实 DSH 附件服务及本地 Responses 模拟端点，校验用户图片、工具图片和进程重启后的图片字节；`scripts/acceptance-reader-codex-images.mjs` 使用已安装 A 插件、真实 DSH 与 JSONL 模拟进程，校验 Figure 入口、附件持久化、Astra/medium 路由和不支持图片时的拒绝行为。两者均不使用真实账号或外部模型，不证明识别效果。

@@ -45,9 +45,9 @@ test('PB-08 login subpage is discoverable and forbids framing and cached credent
   assert.equal(response.headers.get('cache-control'), 'no-store')
   assert.match(response.headers.get('content-security-policy'), /frame-ancestors 'none'/)
   const page = await response.text()
-  assert.match(page, /共享.*额度|额度.*共享/)
-  assert.match(page, /返回工作台选择 OpenAI Codex 模型/)
-  assert.match(page, /取消/)
+  assert.match(page, /同一账号额度/)
+  assert.match(page, /不会自动切换/)
+  assert.match(page, /取消登录/)
   assert.doesNotThrow(() => new Script(page.match(/<script nonce="[^"]+">([\s\S]*?)<\/script>/)[1]))
 })
 

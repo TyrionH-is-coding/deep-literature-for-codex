@@ -16,14 +16,14 @@ export async function createAcceptanceAdapter(config = {}) {
     throw new Error('acceptance-local requires an absolute config.dshEntry from installation.dsh')
   }
   const requireFromHost = createRequire(config.dshEntry)
-  const { LlmAdapter, LlmError, ToolCallId } = await import(pathToFileURL(requireFromHost.resolve('@deepseek-ai/dsh-llm')).href)
+  const { LlmAdapter, LlmError, CallId } = await import(pathToFileURL(requireFromHost.resolve('@deepseek-ai/dsh-llm')).href)
   const model = { provider: name, id: MODEL, name: '本地工具闭环验收（不连接模型）', inputModalities: ['text'] }
   return new class extends LlmAdapter {
     providerInfo() { return { id: name, name: '本地验收专用' } }
-    async listModels() { return [model, ...['gpt-5.6-luna','gpt-5.6-sol'].map(id => ({...model,id,name:id}))] }
+    async listModels() { return [model] }
     async resolveModel(provider, modelId) {
-      if (provider !== name || ![MODEL,'gpt-5.6-luna','gpt-5.6-sol'].includes(modelId)) throw new LlmError('Unknown acceptance model', 'UNKNOWN_MODEL')
-      return {...model,id:modelId,reasoning:{efforts:['low','medium','high'].map(id => ({id,name:id}))}}
+      if (provider !== name || modelId !== MODEL) throw new LlmError('Unknown acceptance model', 'UNKNOWN_MODEL')
+      return model
     }
     async *stream(options) {
       if (options.signal?.aborted) throw new LlmError('Acceptance aborted', 'ABORTED')
@@ -34,7 +34,7 @@ export async function createAcceptanceAdapter(config = {}) {
       const currentUser = options.messages.findLastIndex(message => message.role === 'user' && message.source.kind === 'user')
       if (currentUser < 0) throw new LlmError('Acceptance requires a user message', 'INVALID_REQUEST')
       const seed = JSON.stringify([options.sessionId, options.messages[currentUser].id])
-      const callId = ToolCallId(`acceptance-local-${createHash('sha256').update(seed).digest('hex').slice(0, 24)}`)
+      const callId = CallId(`acceptance-local-${createHash('sha256').update(seed).digest('hex').slice(0, 24)}`)
       const current = options.messages.slice(currentUser + 1)
       const callIndex = current.findIndex(message => message.role === 'assistant' && message.source.kind === 'model'
         && message.source.provider === name && message.content.some(block => block.type === 'tool-call' && block.id === callId && block.name === TOOL))

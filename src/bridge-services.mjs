@@ -2,9 +2,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 
-export const CATEGORY_TOOLS = new Set(['sr_model_step', 'sr_abstract_submit', 'sr_library_list', 'sr_start_full_read',
+export const CATEGORY_TOOLS = new Set(['sr_ingest', 'sr_abstract_submit', 'sr_library_list', 'sr_start_full_read',
   'sr_continue_full_read', 'sr_export_assets', 'sr_job_status', 'sr_evidence_locate', 'sr_review_context',
-  'sr_review_confirm', 'sr_paper_context', 'sr_read_job_input', 'sr_research_submit', 'csr_read_job_input']);
+  'sr_review_confirm', 'csr_read_job_input']);
 
 export function engineAdapter(api, config) {
   return (args, input, scope) => {
@@ -17,12 +17,11 @@ export function engineAdapter(api, config) {
     else result = await api.engineJson(config, args, input);
     const json = result.json;
     const foreground = ['queued', 'running', 'waiting_user', 'waiting_agent', 'interrupted', 'failed', 'completed'];
-    if (json && ((result.ok && json.status !== 'failed') || (args[0] === 'job-status' && json.job_id && foreground.includes(json.status))
+    if (json && (result.ok || (args[0] === 'job-status' && json.job_id && foreground.includes(json.status))
       || (args[0].startsWith('full-read-') && json.parent_job_id))) return json;
-    const code = json?.error?.code ?? json?.error ?? json?.reason_code ?? json?.detail?.reason_code ?? 'engine_request_failed';
+    const code = json?.error ?? json?.reason_code ?? json?.detail?.reason_code ?? 'engine_request_failed';
     throw new Error(typeof code === 'string' && /^[a-z0-9_]+$/i.test(code) ? code : 'engine_request_failed');
     };
-    if (args[0] === 'paper-chat' && input?.action === 'scope') return api.withoutEngineScope(run);
     return scope ? api.withEngineScope(scope, run) : run();
   };
 }
@@ -46,13 +45,10 @@ export async function verifyReader(engine, url, paperId, scope) {
   const readerUrl = `${url}/sr/reader/${encodeURIComponent(paperId)}`;
   const response = await fetch(readerUrl, { signal: AbortSignal.timeout(30000), redirect: 'error' });
   const bytes = Buffer.from(await response.arrayBuffer());
-  const baseSha = response.headers.get('x-sr-reader-base-sha256');
-  const displaySha = response.headers.get('x-sr-reader-display-sha256');
-  const receivedSha = createHash('sha256').update(bytes).digest('hex');
   if (!response.ok || !response.headers.get('content-type')?.startsWith('text/html')
-    || (baseSha ? baseSha !== sha256 || displaySha !== receivedSha : receivedSha !== sha256)) throw new Error('reader_http_mismatch');
+    || createHash('sha256').update(bytes).digest('hex') !== sha256) throw new Error('reader_http_mismatch');
   await engine(['library-item-v2', '--paper-id', paperId], undefined, scope);
-  return { readerUrl, sha256, displaySha256: receivedSha, sourcePdfSha256: artifact.manifest?.source_pdf_sha256 ?? null };
+  return { readerUrl, sha256, sourcePdfSha256: artifact.manifest?.source_pdf_sha256 ?? null };
 }
 
 export async function readJobInput(root, engine, scope, args) {
@@ -62,8 +58,7 @@ export async function readJobInput(root, engine, scope, args) {
   const offset = args.offset ?? 0, limit = args.limit ?? 20000;
   if (!Number.isInteger(offset) || offset < 0 || !Number.isInteger(limit) || limit < 1 || limit > 50000) throw new Error('invalid_page');
   const job = await engine(['job-status', '--job-id', args.job_id], undefined, scope);
-  const gate = job.detail?.required_input;
-  const requested = gate?.[args.field];
+  const requested = job.detail?.required_input?.[args.field];
   if (typeof requested !== 'string') throw new Error('job_input_unavailable');
   const papersRoot = await fs.realpath(path.join(root, 'library', 'papers'));
   const paperRoot = await fs.realpath(path.join(papersRoot, job.paper_id));
@@ -72,36 +67,23 @@ export async function readJobInput(root, engine, scope, args) {
   const file = await fs.realpath(requested);
   const relative = path.relative(paperRoot, file);
   if (!relative || relative.startsWith('..') || path.isAbsolute(relative) || path.extname(file) !== '.json') throw new Error('job_input_outside_paper');
-  const raw = await fs.readFile(file);
-  let text = raw.toString('utf8');
-  if (args.field === 'source_manifest_path' && gate.submission_contract_version === 'full-translation-v4') {
-    if (createHash('sha256').update(raw).digest('hex') !== gate.batch_sha256) throw new Error('job_input_changed');
-    const source = JSON.parse(text);
-    const remaining = gate.remaining_block_ids;
-    if (source.batch_id !== gate.batch_id || source.source_sha256 !== gate.source_sha256
-      || !Array.isArray(source.blocks) || !Array.isArray(remaining) || !remaining.length
-      || new Set(remaining).size !== remaining.length) throw new Error('job_input_invalid');
-    const blocks = source.blocks.filter(block => remaining.includes(block.block_id));
-    if (JSON.stringify(blocks.map(block => block.block_id)) !== JSON.stringify(remaining)) throw new Error('job_input_invalid');
-    // The fingerprint binds the immutable full source file, not this agent view.
-    text = JSON.stringify({ ...source, translation_contract_version: gate.submission_contract_version,
-      batch_sha256: gate.batch_sha256, accepted_blocks: gate.accepted_blocks, blocks }, null, 2);
-  }
+  const text = await fs.readFile(file, 'utf8');
   const current = await engine(['job-status', '--job-id', args.job_id], undefined, scope);
-  if (JSON.stringify(current.detail?.required_input) !== JSON.stringify(gate)) throw new Error('job_gate_changed');
+  if (current.detail?.required_input?.[args.field] !== requested) throw new Error('job_gate_changed');
   return { job_id: args.job_id, field: args.field, offset, total: text.length,
     text: text.slice(offset, offset + limit), nextOffset: offset + limit < text.length ? offset + limit : null };
 }
 
-export function categoryGuard(exec) {
-  if (exec.name === 'sr_ingest' || !CATEGORY_TOOLS.has(exec.name)) return '单篇 chat 仅可使用本论文的文献工具；此操作请交给 Codex 总管理员。';
+export function categoryGuard(service, exec) {
+  if (!service.scopeFor(exec.agent?.session?.id)) return '本会话尚未绑定有效文献分类，请由 Codex 总管理员绑定。';
+  if (!CATEGORY_TOOLS.has(exec.name)) return '分类管理员仅可使用本分类的文献工具；此操作请交给 Codex 总管理员。';
 }
 
 export function inspectDispatchEvidence(agent, rpcId) {
   if (!agent || !rpcId) return 'uncertain';
-  const matches = message => message?.source?.kind === 'user' && (message.source.requestId ?? message.source.rpcId) === rpcId;
+  const matches = message => message?.source?.kind === 'user' && message.source.rpcId === rpcId;
   if ([...agent.inbox.nextTurn, ...agent.inbox.nextStep].some(matches)) return 'pending';
-  const events = agent.session.snapshotEvents(agent.session.firstLiveSeq);
+  const events = agent.session.events.slice(agent.session.header?.seedLength ?? 0);
   if (events.some(event => event.type === 'user/message' && matches(event.data))) return 'delivered';
   const queues = { 'next-turn': [], 'next-step': [] };
   let canceled = false, claimed = false;
@@ -124,18 +106,18 @@ export function cancelOwnedDispatch(agent, task, claimed) {
   const ids = new Set(Object.values(task.dispatches).map(row => row.rpcId));
   let removedQueued = 0;
   for (const message of [...agent.inbox.nextTurn, ...agent.inbox.nextStep]) {
-    if (message.source?.kind === 'user' && ids.has(message.source.requestId ?? message.source.rpcId)) {
+    if (message.source?.kind === 'user' && ids.has(message.source.rpcId)) {
       agent.inbox.remove(message.id); removedQueued++;
     }
   }
   // Snapshot and cancellation run synchronously on DSH's event loop; do not
   // interrupt a different paper or a later manual prompt in the same category.
-  const events = agent.session.snapshotEvents();
+  const events = agent.session.events;
   const boundary = events.findLastIndex(event => event.type === 'turn/start' || event.type === 'turn/end');
   const turn = events[boundary]?.type === 'turn/start' ? events[boundary].data.turn : undefined;
   const activeIds = new Set(events.slice(boundary + 1)
     .filter(event => event.type === 'user/message' && event.data?.source?.kind === 'user')
-    .map(event => (event.data.source.requestId ?? event.data.source.rpcId)));
+    .map(event => event.data.source.rpcId));
   // DSH claims the inbox before awaiting prompt assembly and appending messages.
   if (turn !== undefined && claimed?.turn === turn) for (const id of claimed.rpcIds) activeIds.add(id);
   const ours = agent.status === 'running' && turn !== undefined && activeIds.size > 0

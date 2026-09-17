@@ -2,7 +2,7 @@
 
 [返回 README](../README.md)
 
-v0.2 提供 Windows、macOS 与 Linux 安装包，包含文献库、双语 Reader、阅读问答、随记和模型分工。安装器、运行时、密钥保存与文件打开方式按平台适配。已有用户请看[升级指南](upgrading.md)。
+rc.5 延续三个系统的文献库、OA 全文获取、MinerU 云解析、双语 Reader 和 Excel 总表流程，修正 OAuth 的 Windows 限制并更新 Skill 入口。平台相关的安装器、运行时、密钥保存与文件打开方式分别适配。
 
 ## 选择安装包
 
@@ -18,31 +18,9 @@ macOS/Linux 可在终端运行 `uname -m`：`arm64` 或 `aarch64` 对应 ARM64�
 
 每个包都包含文献引擎。安装器从官方来源下载固定版本的 Node/Python，核对 SHA256 后安装到自己的目录，不要求预装这两个运行时。
 
-## 从 main 源码测试
-
-当前版本为 **v0.2.0-rc.2 预发布版**，详见 [v0.2 指南](v0.2-guide.md)。日常使用优先下载 [Release 安装包](https://github.com/TyrionH-is-coding/deep-literature-for-codex/releases/tag/v0.2.0-rc.2)；下面的源码安装步骤用于开发测试。
-
-Mac/Linux 首次取得源码：
-
-```sh
-git clone https://github.com/TyrionH-is-coding/deep-literature-for-codex.git
-cd deep-literature-for-codex
-```
-
-已有源码仓库时，在该仓库目录运行 `git pull --ff-only origin main`。若本地也有修改或提交，先保留并整合自己的工作。
-
-源码已包含 `inputs/scientific-reading.tgz`，安装器会核对它与 `runtime/pins.json` 中的 SHA256。进入源码根目录执行：
-
-```sh
-sh ./install.sh --plugin-archive ./inputs/scientific-reading.tgz --root "$HOME/CodexScientificReading" --install-skill
-sh "$HOME/CodexScientificReading/workbench.sh" start
-```
-
-已有实例时，将 `--root` 指向原来的安装根；单独试装可使用新的空目录。仅拉取源码不会升级已安装的实例。固定引擎包校验失败时停止安装，不能改成使用不匹配的旧包。
-
 ## Windows
 
-按[使用指南中的 Windows 安装步骤](getting-started.md#也可以手动安装)下载、核对 SHA256、解压后执行：
+按 [README 的 Windows 安装步骤](../README.md#也可以手动安装) 下载、核对 SHA256、解压后执行：
 
 ```powershell
 powershell.exe -NoProfile -File .\install.ps1 -PluginArchive .\inputs\scientific-reading.tgz -InstallSkill
@@ -83,7 +61,7 @@ sh "$HOME/CodexScientificReading/workbench.sh" stop
 | macOS | 当前用户 Keychain，每个工作台实例使用独立条目 |
 | Linux | 当前桌面会话的 Secret Service，例如 GNOME Keyring 或提供该接口的钱包 |
 
-首次配置按 [MinerU Key 教程](mineru-api-key.md) 从右上角“文献设置”保存。系统可能要求本人解锁钥匙串。没有配置密钥的实例不会主动打开钥匙串。
+首次配置仍按 [MinerU Key 教程](mineru-api-key.md) 在“设置与状态”保存。系统可能要求本人解锁钥匙串。没有配置密钥的实例不会主动打开钥匙串。
 
 Linux 若保存时报 `secure_store_unavailable`，检查 Secret Service 是否已安装、运行和解锁，并从当前登录的桌面会话启动工作台。无桌面的 SSH/服务器环境需要自行提供可用的 D-Bus/Secret Service 会话；安装器不会自动改用明文文件保存 Token。不要用 `sudo` 启动个人工作台，否则会改变用户和凭据库归属。
 
@@ -111,7 +89,7 @@ reading_python=$("$(cat "$reading_root/.workbench-node")" -p 'JSON.parse(require
 
 ## 升级、回退、迁移与卸载
 
-升级时在新安装包目录运行同一安装命令，并指向原来的 `--root`。安装器先准备新版本、备份文献库，再验证启动；发生数据或会话格式迁移后，失败恢复会继续新版，不启动旧格式程序。完整步骤见[升级指南](upgrading.md)。
+升级时在新安装包目录运行同一安装命令，并指向原来的 `--root`。安装器先准备新版本、备份文献库，再验证启动；失败时恢复原程序。
 
 ```sh
 sh ./install.sh --plugin-archive ./inputs/scientific-reading.tgz --root "$HOME/CodexScientificReading" --install-skill
@@ -119,7 +97,7 @@ sh "$HOME/CodexScientificReading/workbench.sh" rollback
 sh "$HOME/CodexScientificReading/workbench.sh" recover
 ```
 
-`rollback` 只允许回到数据与会话格式兼容的上一程序版本，`recover` 处理被中断的版本切换。v0.1 升级至 v0.2 后不能直接回退；切换程序版本不会用旧文献数据覆盖新笔记。
+`rollback` 回到上一程序版本，`recover` 处理被中断的版本切换。切换程序版本不会用旧文献数据覆盖新笔记。
 
 将完整备份恢复到一个新的安装根：
 

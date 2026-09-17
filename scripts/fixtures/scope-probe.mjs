@@ -22,17 +22,16 @@ export function apply(ctx, config) {
       const child = await ctx.agents.create({ sessionId: 'session-' + randomUUID(),
         meta: { cwd: agent.session.header.cwd, parentSession: agent.session.id, origin: 'subagent', agentPreset: 'scientific-reading' },
         setup: async childCtx => { await ctx.agentPresets.mount(childCtx, 'scientific-reading'); } });
-      let childListing, childForeignJob, childContext;
+      let childListing, childForeignJob;
       try {
         const execute = (name, args) => ctx.tools.execute({ name, arguments: args, agent: child.agent,
           callId: 'child-acceptance-' + name, signal: new AbortController().signal });
         childListing = await execute('sr_library_list', {});
-        childContext = await execute('sr_paper_context', {});
         childForeignJob = await execute('sr_job_status', { job_id: config.foreignJobId });
       } finally { await child.dispose(); }
       res.setHeader('Content-Type', 'application/json');
       res.end(JSON.stringify({ listing, ownJob, foreignJob, foreignStart, escape, escapeBodyEntered,
-        childListing, childForeignJob, childContext, childSessionId: child.agent.session.id,
+        childListing, childForeignJob, childSessionId: child.agent.session.id,
         tools: assembly.tools.map(tool => tool.name) }));
     } catch (error) { res.writeHead(500, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: error.message })); }
   } });

@@ -11,31 +11,22 @@ async function fixture(t) {
   const instance = await initializeRoot(root);
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   const counters = { started: 0, prompted: 0 };
-  const state = { folder: 'f1', job: 'waiting_user', reader: false, messages: [], loseReceipt: false, chats: new Map(), archived: new Set() };
+  const state = { folder: 'f1', job: 'waiting_user', reader: false, messages: [], loseReceipt: false };
   const engine = async (args, _input, scope) => {
-    if (args[0] === 'paper-chat') {
-      if (_input.action === 'scope') return { paper_id: [...state.chats].find(([, id]) => id === _input.session_id)?.[0] ?? null };
-      if (_input.action === 'ensure') {
-        if (!state.chats.has(_input.paper_id)) state.chats.set(_input.paper_id, 'chat-' + _input.paper_id);
-        return { paper_id: _input.paper_id, session_id: state.chats.get(_input.paper_id), paper: { title: '论文', folder_id: state.folder } };
-      }
-      if (_input.action === 'legacy_register') { state.legacy = _input.entries; return { sessions: state.legacy }; }
-    }
     if (args[0] === 'folder-list') return [{ folder_id: 'f1', name: '分类一' }, { folder_id: 'f2', name: '分类二' }];
     if (args[0] === 'library-item-v2') {
-      if (scope && (state.archived.has(state.folder) || (scope.scopeFolderId !== '__paper__' && scope.scopeFolderId !== state.folder))) throw new Error('scope_changed');
+      if (scope && scope.scopeFolderId !== state.folder) throw new Error('scope_changed');
       return { paper_id: 'paper1', folder_id: state.folder };
     }
     if (args[0] === 'full-read-pipeline-start') { counters.started++; return { parent_job_id: 'job_1234567890abcdef' }; }
     if (args[0] === 'job-status') return { paper_id: 'paper1', status: state.job, job_id: 'job_1234567890abcdef',
       detail: { error: state.jobError, reason_code: state.job === 'waiting_agent' ? 'translate_full_read' : 'pdf_required', required_input: { batch_id: 'b1' } } };
-    if (args[0] === 'scope-folder-state') { state.archived.add(args[2]); return { archived: true }; }
+    if (args[0] === 'scope-folder-state') return { archived: true };
     throw new Error('unexpected engine action ' + args[0]);
   };
   const rpcCalls = [];
   const rpc = async (method, payload, rpcId) => {
     rpcCalls.push({ method, payload, rpcId });
-    if (method === 'session.list') return { items: state.nativeSessions || [] };
     if (method === 'session.prompt') {
       counters.prompted++;
       state.messages.push({ event: { type: 'user/message', data: { source: { kind: 'user', rpcId } } } });
@@ -89,16 +80,7 @@ test('并发重复交接只启动一个任务，重命名不改变绑定，重�
   await assert.rejects(service.submit({ ...request, paperId: 'different' }), /idempotency_conflict/);
   const restored = await Handoff.open(root, deps);
   assert.equal((await restored.task(a.taskId)).jobId, a.jobId);
-  assert.equal((await restored.bindPaper('paper1')).sessionId, a.sessionId);
-});
-
-test('Reader 已创建的单篇 chat 保留原工作区和稳定会话', async t => {
-  const { root, service, state, rpcCalls } = await fixture(t);
-  const priorCwd = path.join(root, 'library');
-  state.nativeSessions = [{ sessionId: 'chat-paper1', cwd: priorCwd }];
-  const binding = await service.bindPaper('paper1');
-  assert.equal(binding.sessionId, 'chat-paper1');
-  assert.equal(rpcCalls.filter(row => row.method === 'workspace.create').at(-1).payload.path, priorCwd);
+  assert.equal((await restored.bind('f1')).sessionId, a.sessionId);
 });
 
 test('聊天或任务说完成但没有正式 Reader 时，不能报精读完成', async t => {
@@ -122,18 +104,17 @@ test('投递回执丢失后从 DSH 历史调和，不重复提示导致重复执
   assert.equal(counters.prompted, 1);
 });
 
-test('单篇 chat 随论文移动继续，归档后停止写入；真实父子会话范围可继承', async t => {
+test('论文移出分类后旧任务拒绝继续；真实父子会话范围可继承', async t => {
   const { service, state } = await fixture(t);
   const task = await service.submit({ idempotencyKey: 'a', folderId: 'f1', paperId: 'paper1', runAgent: false });
   service.observeSession('child', task.sessionId);
-  assert.equal((await service.scopeFor('child')).scopePaperId, 'paper1');
-  assert.equal((await service.scopeFor('child')).scopeSessionId, task.sessionId);
-  assert.equal(await service.scopeFor('unknown'), null);
+  assert.equal(service.scopeFor('child').scopeFolderId, 'f1');
+  assert.equal(service.scopeFor('child').scopeSessionId, task.sessionId);
+  assert.equal(service.scopeFor('unknown'), null);
   state.folder = 'f2';
-  assert.equal((await service.task(task.taskId)).folderId, 'f2');
-  assert.equal((await service.bindPaper('paper1')).sessionId, task.sessionId);
-  await service.archive('f2', true);
   assert.equal((await service.task(task.taskId)).error, 'scope_changed');
+  await service.archive('f1', true);
+  assert.equal(service.scopeFor('child'), null);
 });
 
 test('失败后的显式重试另记回执，同一重试仍幂等', async t => {
@@ -185,9 +166,9 @@ test('已接收回执缺乏原生证据时持久化 uncertain，不把未知当�
   assert.equal(counters.prompted, 1);
 });
 
-test('绑定单篇 chat 时使用自有工作区；重复绑定不新建工作区身份', async t => {
+test('绑定分类时注册自有工作区并关联主管，不传 cwd；重复绑定不新建工作区身份', async t => {
   const { root, service, rpcCalls } = await fixture(t);
-  const first = await service.bindPaper('paper1');
+  const first = await service.bind('f1');
   const created = rpcCalls.filter(call => call.method === 'workspace.create');
   assert.equal(created.length, 1);
   assert.equal(created[0].payload.path, await fs.realpath(path.join(root, 'workspace')));
@@ -197,50 +178,22 @@ test('绑定单篇 chat 时使用自有工作区；重复绑定不新建工作�
   assert.equal(sessions[0].payload.workspaceId, 'ws-1');
   assert.equal(sessions[0].payload.agentPreset, 'scientific-reading');
   assert.equal(sessions[0].payload.cwd, undefined);
-  await service.bindPaper('paper1');
+  await service.bind('f1');
   assert.equal(rpcCalls.filter(call => call.method === 'workspace.create').length, 2);
   assert.equal(rpcCalls.filter(call => call.method === 'workspace.create')[1].payload.path, created[0].payload.path);
   assert.deepEqual(rpcCalls.filter(call => call.method === 'session.create').map(call => call.payload.sessionId), [first.sessionId, first.sessionId]);
 });
 
-test('同分类两篇文献使用不同 chat；重启后仍以 SQLite 绑定为准', async t => {
-  const { root, deps, service } = await fixture(t);
-  const a = await service.bindPaper('paper1'), b = await service.bindPaper('paper2');
-  assert.notEqual(a.sessionId, b.sessionId);
-  assert.equal(a.folderId, b.folderId);
-  const reopened = await Handoff.open(root, deps);
-  assert.equal((await reopened.bindPaper('paper1')).sessionId, a.sessionId);
-  assert.equal((await reopened.scopeFor(b.sessionId)).scopePaperId, 'paper2');
-});
-
-test('v0.1 分类会话升级保留原始备份和独立历史入口，不建立错误单篇归属', async t => {
-  const { root, deps, state } = await fixture(t);
-  const old = { schema: 1, instanceId: deps.instance.instanceId,
-    bindings: { legacy: { sessionId: 'old-category', folderId: 'f1', active: true } },
-    children: { review: 'old-category' }, tasks: {} };
-  const bytes = JSON.stringify(old);
-  await fs.mkdir(path.join(root, 'state'), { recursive: true });
-  await fs.writeFile(path.join(root, 'state', 'handoff.json'), bytes);
-  const service = await Handoff.open(root, deps);
-  assert.equal(service.data.schema, 2);
-  assert.equal(await fs.readFile(path.join(root, 'state', 'handoff.v1.json'), 'utf8'), bytes);
-  assert.equal(state.legacy[0].session_id, 'old-category');
-  assert.notEqual((await service.bindPaper('paper1')).sessionId, 'old-category');
-  assert.deepEqual(service.data.bindings, old.bindings);
-  assert.deepEqual(service.data.children, old.children);
-  assert.equal((await Handoff.open(root, deps)).data.schema, 2);
-});
-
 test('全新实例在用户未设置时把默认 Agent 设为文献模式，已有用户选择则保留', async t => {
   const { service, rpcCalls, state } = await fixture(t);
-  await service.bindPaper('paper1');
+  await service.bind('f1');
   const updates = rpcCalls.filter(call => call.method === 'settings.update');
   assert.equal(updates.length, 1);
   assert.deepEqual(updates[0].payload, { ns: 'agent-presets', patch: { default: 'scientific-reading' }, expectedRevision: 1 });
   rpcCalls.length = 0;
   state.presetUser = { default: 'standard' };
   state.presetRevision = 4;
-  await service.bindPaper('paper1');
+  await service.bind('f1');
   assert.equal(rpcCalls.filter(call => call.method === 'settings.update').length, 0);
 });
 

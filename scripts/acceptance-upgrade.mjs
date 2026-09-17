@@ -34,7 +34,7 @@ async function runShell(args, label) {
   // File handles avoid waiting for pipes inherited by a running Windows host.
   const stdout = await fs.readFile(stdoutFile, 'utf8'), stderr = await fs.readFile(stderrFile, 'utf8');
   await fs.writeFile(output + '.' + label + '.log', stdout + '\n' + stderr);
-  assert.equal(code, 0, label + ': ' + (stderr || stdout).slice(-1500));
+  assert.equal(code, 0, label + ': ' + stderr.slice(-1500));
   return stdout;
 }
 async function artifacts(directory, found = {}) {
@@ -67,23 +67,12 @@ try {
     && (await status(root)).instanceId === running.instanceId);
   check('upgrade preserves original artifact bytes and library identities', JSON.stringify(await artifacts(path.join(root, 'library'))) === JSON.stringify(before)
     && JSON.stringify(await paperIds()) === JSON.stringify(papers));
-  const migrating = original.dataFormat !== selected.dataFormat || (original.sessionFormat ?? 2) !== (selected.sessionFormat ?? 2);
-  if (migrating) {
-    const command = windows ? ['-File', path.join(root, 'workbench.ps1'), 'rollback'] : [path.join(root, 'workbench.sh'), 'rollback'];
-    await assert.rejects(runShell(command, 'rollback-blocked'), /incompatible_(?:data|session)_format/);
-    check('format migration refuses an old program without changing the selected release', (await readJson(path.join(root, 'installation.json'))).appSha256 === selected.appSha256);
-    const backups = await fs.readdir(path.join(root, 'state', 'library-backups'));
-    check('format migration preserves an upgrade library snapshot', backups.some(name => name.endsWith('.zip')));
-    check('refused downgrade preserves current artifact bytes and paper identities', JSON.stringify(await artifacts(path.join(root, 'library'))) === JSON.stringify(before)
-      && JSON.stringify(await paperIds()) === JSON.stringify(papers));
-  } else {
-    await runShell(windows ? ['-File', path.join(root, 'workbench.ps1'), 'rollback'] : [path.join(root, 'workbench.sh'), 'rollback'], 'rollback');
-    check('actual command rolls back to the exact previous good program', (await readJson(path.join(root, 'installation.json'))).appSha256 === original.appSha256);
-    check('rollback preserves current artifact bytes and library identities', JSON.stringify(await artifacts(path.join(root, 'library'))) === JSON.stringify(before)
-      && JSON.stringify(await paperIds()) === JSON.stringify(papers));
-  }
+  await runShell(windows ? ['-File', path.join(root, 'workbench.ps1'), 'rollback'] : [path.join(root, 'workbench.sh'), 'rollback'], 'rollback');
+  check('actual command rolls back to the exact previous good program', (await readJson(path.join(root, 'installation.json'))).appSha256 === original.appSha256);
+  check('rollback preserves current artifact bytes and library identities', JSON.stringify(await artifacts(path.join(root, 'library'))) === JSON.stringify(before)
+    && JSON.stringify(await paperIds()) === JSON.stringify(papers));
   await runShell(installArgs, 'reinstall');
-  check('reinstall keeps the selected candidate', (await readJson(path.join(root, 'installation.json'))).appSha256 === selected.appSha256);
+  check('same candidate can be selected again after rollback', (await readJson(path.join(root, 'installation.json'))).appSha256 === selected.appSha256);
   check('reselection retains all assets and customized Skill', JSON.stringify(await artifacts(path.join(root, 'library'))) === JSON.stringify(before)
     && (await fs.readFile(customFile)).equals(customBytes));
   report.artifactCount = Object.keys(before).length; report.paperCount = papers.length; report.passed = true;

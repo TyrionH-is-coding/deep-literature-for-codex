@@ -18,8 +18,6 @@ powershell.exe -NoProfile -File .\install.ps1 -PluginArchive .\inputs\scientific
 
 ## 使用与升级
 
-老用户优先阅读[升级指南](upgrading.md)：一句话交给 Codex，或使用新安装包更新原目录。
-
 ```powershell
 $readingRoot = Join-Path $env:USERPROFILE 'CodexScientificReading'
 & "$readingRoot\workbench.ps1" start
@@ -27,7 +25,7 @@ $readingRoot = Join-Path $env:USERPROFILE 'CodexScientificReading'
 & "$readingRoot\workbench.ps1" stop
 ```
 
-解压新候选后，用其 `install.ps1` 指向相同 `-Root` 即为升级。安装器先完成新依赖，再停止本实例，调用 A 的一致性备份，切换描述符并实际验证启动。备份会等待后台任务，忙或失败时保留旧版本，不根据 PID 强制终止解析。失败候选保留供诊断；未跨格式迁移时恢复旧程序，已开始迁移时按下面的说明恢复新版。
+解压新候选后，用其 `install.ps1` 指向相同 `-Root` 即为升级。安装器先完成新依赖，再停止本实例，调用 A 的一致性备份，切换描述符并实际验证启动。备份会等待后台任务，忙或失败时保留旧版本，不根据 PID 强制终止解析。失败候选仍保留供诊断，当前版本恢复为旧程序。
 
 原来在运行的实例升级后继续运行；原来停止的实例完成探针后仍停止。
 
@@ -36,9 +34,7 @@ $readingRoot = Join-Path $env:USERPROFILE 'CodexScientificReading'
 & "$readingRoot\workbench.ps1" recover
 ```
 
-`rollback` 仅能回到相同数据格式的旧程序，文献和笔记保持当前内容。不会用旧数据库覆盖升级后新增的成果。
-
-v0.2 将数据格式 4/5 升至 6，并使用 DSH V3 会话。先停止实例并保存一致文献快照，再启用新程序；A 引擎首次访问旧库时备份 SQLite 并迁移。已选择新版后若启动失败，保留恢复标记，通过 `recover` 继续启动新版，不自动启动旧格式程序。备份失败时不切换版本。跨数据或会话格式回退会被拒绝；确需查看升级前数据，请把旧快照恢复到另一个独立实例，勿覆盖现有库。文献备份不包含模型凭据或完整旧会话。
+`rollback` 回到最近的旧程序，文献和笔记保持当前内容。不会用旧数据库覆盖升级后新增的成果。首版仅支持相同数据格式的版本切换；跨格式须提供专用迁移，不自动猜测兼容性。
 
 `recover` 用于进程中断后残留的版本切换日志；也可重新执行发行包安装器恢复。普通启动发现未完成切换会停止并提示恢复，不把半安装状态当成功。
 

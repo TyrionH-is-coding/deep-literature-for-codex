@@ -1,10 +1,6 @@
 node_modules/
-inputs/*
-!inputs/scientific-reading.tgz
-!inputs/A-PACKAGE-AUDIT.json
+inputs/
 .local/
 outputs/
 *.log
 runtime/scientific-reading.tgz
-__pycache__/
-*.pyc

@@ -34,8 +34,6 @@ test('并发启动复用一个真实子进程，停止后状态准确，旁边�
   const root = await fixture(t);
   const [a, b] = await Promise.all([start(root), start(root)]);
   assert.equal(a.status, 'running');
-  assert.equal(new URL(a.entryUrl).searchParams.get('token'), 'synthetic-test-only');
-  assert.ok(!(await fs.readFile(path.join(root, 'state', 'last-run.json'), 'utf8')).includes('synthetic-test-only'));
   assert.equal(a.pid, b.pid);
   assert.equal(a.launchId, b.launchId);
   assert.notEqual(a.url, foreignUrl);

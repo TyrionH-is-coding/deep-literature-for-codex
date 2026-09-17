@@ -1,5 +1,5 @@
 // DGPisces/dsh-openai-oauth 0.4.0, MIT; B supplies its isolated server and plugin entry.
-import { ToolCallId, LlmAdapter, LlmError, ReasoningEffortId, } from '@deepseek-ai/dsh-llm';
+import { CallId, LlmAdapter, LlmError, ReasoningEffortId, } from '@deepseek-ai/dsh-llm';
 const PROVIDER = 'openai-codex';
 const REPLAY_KIND = 'codex-app-server';
 function textOf(blocks) {
@@ -132,24 +132,16 @@ export class CodexAppServerAdapter extends LlmAdapter {
     }
     async resumeTools(session, options) {
         const results = toolResults(options);
-        const responses = [];
         for (const call of session.pending) {
             const result = results.get(call.callId);
             if (result === undefined)
                 throw new LlmError(`Missing Harness result for Codex tool call "${call.callId}"`, 'INVALID_REQUEST');
-            responses.push([call.requestId, {
-                contentItems: await this.toolOutput(result.content, options),
+            this.server.respond(call.requestId, {
+                contentItems: [{ type: 'inputText', text: textOf(result.content) || '(no output)' }],
                 success: result.isError !== true,
-            }]);
+            });
         }
-        for (const [id, result] of responses) this.server.respond(id, result);
         session.pending = [];
-    }
-    async toolOutput(content, _options) {
-        return [{ type: 'inputText', text: textOf(content) || '(no output)' }];
-    }
-    async turnInput(session, options) {
-        return [{ type: 'text', text: session.recoveryInput ?? newUserText(options) }];
     }
     async nextEvent(session, signal) {
         return session.backlog.shift() ?? this.server.nextEvent(session.threadId, signal);
@@ -189,22 +181,24 @@ export class CodexAppServerAdapter extends LlmAdapter {
         if (options.stop !== undefined || options.temperature !== undefined || options.maxTokens !== undefined) {
             throw new LlmError('Codex app-server does not expose stop, temperature, or maxTokens per turn', 'UNSUPPORTED_OPTION');
         }
+        if (options.messages.some(message => message.content.some(block => block.type === 'image'))) {
+            throw new LlmError('Codex app-server image bridging is not implemented', 'UNSUPPORTED_CONTENT');
+        }
         const session = await this.session(options);
+        if (session.pending.length > 0) {
+            await this.resumeTools(session, options);
+        }
+        else {
+            session.turnId = await this.server.startTurn(session.threadId, {
+                model: options.model,
+                ...options.reasoningEffort === undefined ? {} : { effort: String(options.reasoningEffort) },
+                input: [{ type: 'text', text: session.recoveryInput ?? newUserText(options) }],
+            });
+            session.recoveryInput = undefined;
+        }
+        let nextIndex = 0;
+        const open = new Map();
         try {
-            if (session.pending.length > 0) {
-                await this.resumeTools(session, options);
-            }
-            else {
-                session.turnId = await this.server.startTurn(session.threadId, {
-                    model: options.model,
-                    ...options.reasoningEffort === undefined ? {} : { effort: String(options.reasoningEffort) },
-                    input: await this.turnInput(session, options),
-                });
-                session.recoveryInput = undefined;
-                session.recoveryImages = undefined;
-            }
-            let nextIndex = 0;
-            const open = new Map();
             while (true) {
                 const event = await this.nextEvent(session, options.signal);
                 const eventTurnId = event.params?.turnId ?? event.params?.turn?.id;
@@ -254,7 +248,7 @@ export class CodexAppServerAdapter extends LlmAdapter {
                     for (const call of calls) {
                         const index = nextIndex++;
                         const args = JSON.stringify(call.arguments ?? {});
-                        const id = ToolCallId(call.callId);
+                        const id = CallId(call.callId);
                         yield { type: 'block-start', index, blockType: 'tool-call' };
                         yield { type: 'tool-call-delta', index, id, name: call.name, argumentsDelta: args };
                         yield {
@@ -292,9 +286,8 @@ export class CodexAppServerAdapter extends LlmAdapter {
             }
         }
         catch (error) {
-            if (options.signal?.aborted) {
-                if (session.turnId !== undefined) await this.server.interrupt(session.threadId, session.turnId).catch(() => { });
-                this.sessions.delete(sessionKey(options));
+            if (options.signal?.aborted && session.turnId !== undefined) {
+                await this.server.interrupt(session.threadId, session.turnId).catch(() => { });
             }
             throw error;
         }

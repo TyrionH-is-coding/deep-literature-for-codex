@@ -1,8 +1,6 @@
-# 开始使用 DLC · Deep Literature for Codex
+# 开始使用 Deep Literature for Codex
 
-**已有工作台？** 按[升级指南](docs/upgrading.md)更新原安装目录与 Skill，保留已有文献和配置。
-
-先从 [README 项目首页](README.md)了解 DLC；首次使用按[完整使用指南](docs/getting-started.md)依次完成：
+首次使用请阅读 [README 使用指南](README.md)，按顺序完成：
 
 1. 按 [平台指南](docs/platforms.md) 下载对应安装包，运行 Windows 或 macOS/Linux 安装器。
 2. 在 Codex 对话中打开工作台。
@@ -11,4 +9,4 @@
 5. 等待正式 Reader 生成并打开阅读。
 6. 按 [Excel 长期管理教程](docs/excel-library.md) 打开总表、记录个人思考与笔记，保存关闭后同步回文献库。
 
-完整使用指南提供可直接复制到 Codex 的安装、配置、全文获取、精读与长期管理指令，以及手动安装命令和常见问题处理。Skill 入口为 `$deep-literature-for-codex`。
+README 提供可直接复制到 Codex 的安装、配置、全文获取、精读与长期管理指令，以及手动安装命令和常见问题处理。

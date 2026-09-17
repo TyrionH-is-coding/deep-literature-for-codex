@@ -88,7 +88,7 @@ test('discovers models from Codex instead of hardcoding GPT versions', async () 
 test('interrupts the Codex turn when Harness cancels', async () => {
   const server = new FakeServer()
   let interrupted = false
-  server.startTurn = async () => { controller.abort(); return 'turn-1' }
+  server.startTurn = async () => 'turn-1'
   server.interrupt = async () => { interrupted = true }
   const controller = new AbortController()
   const result = Array.fromAsync(new CodexAppServerAdapter(server).stream({
@@ -96,6 +96,7 @@ test('interrupts the Codex turn when Harness cancels', async () => {
     signal: controller.signal,
     messages: [{ id: 'u1', role: 'user', source: { kind: 'user' }, content: [{ type: 'text', text: 'wait' }] }],
   }))
+  controller.abort()
   await assert.rejects(result)
   assert.equal(interrupted, true)
 })

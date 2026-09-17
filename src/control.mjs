@@ -65,8 +65,7 @@ async function validate(state, instance) {
   if (!response.ok || ['product', 'instanceId', 'launchId', 'pid'].some(key => actual[key] !== state[key])) {
     throw new Error('instance_identity_mismatch');
   }
-  if (state.browserUrl && (new URL(state.browserUrl).origin !== state.url || new URL(state.browserUrl).pathname !== '/')) throw new Error('invalid_browser_url');
-  return { ...state, entryUrl: state.browserUrl || `${state.url}/__workbench` };
+  return state;
 }
 
 export async function status(root) {

@@ -22,11 +22,11 @@ async function fixture(t) {
     await assertManagedTemp(root, 'csr-release-');
     await fs.rm(root, { recursive: true, force: true, maxRetries: 10, retryDelay: 50 });
   });
-  const candidate = async (id, dataFormat = 4) => {
+  const candidate = async id => {
     const slot = path.join(root, 'releases', id.repeat(16));
     await fs.mkdir(path.join(slot, 'profile-modules'), { recursive: true });
     const release = { product: 'codex-scientific-reading', version: id, appSha256: id.repeat(64),
-      slot, app: path.join(slot, 'app'), profileModules: path.join(slot, 'profile-modules'), dataFormat };
+      slot, app: path.join(slot, 'app'), profileModules: path.join(slot, 'profile-modules'), dataFormat: 4 };
     await writeJson(path.join(slot, 'release.json'), release);
     return release;
   };
@@ -143,7 +143,7 @@ test('拒绝跨数据格式回退与实例外目录，卸载只退役代码描�
   const a = await candidate('a');
   await activateRelease(root, a, { lifecycle });
   const b = await candidate('b');
-  await assert.rejects(activateRelease(root, { ...b, dataFormat: 7 }, { lifecycle }), /data_format/);
+  await assert.rejects(activateRelease(root, { ...b, dataFormat: 5 }, { lifecycle }), /data_format/);
   await assert.rejects(activateRelease(root, { ...b, slot: path.dirname(root) }, { lifecycle }), /release_path/);
   const retired = await retireInstallation(root, { lifecycle });
   assert.equal(retired.status, 'uninstalled');
@@ -158,74 +158,4 @@ test('有活动写入导致一致快照失败时，不切换候选版本', async
   await activateRelease(root, a, { lifecycle });
   await assert.rejects(activateRelease(root, b, { lifecycle, snapshot: async () => { throw new Error('data_root_busy'); } }), /data_root_busy/);
   assert.equal((await readJson(path.join(root, 'installation.json'))).version, 'a');
-});
-
-test('格式 4 升级到 5 前先快照，升级后拒绝旧程序回退', async t => {
-  const { root, candidate, lifecycle } = await fixture(t);
-  const a = await candidate('a'), b = await candidate('b', 5);
-  await activateRelease(root, a, { lifecycle });
-  let backedUp = false;
-  const start = lifecycle.start;
-  lifecycle.start = async () => { assert.equal(backedUp, true); return start(); };
-  const result = await activateRelease(root, b, { lifecycle, snapshot: async () => {
-    assert.equal((await readJson(path.join(root, 'installation.json'))).dataFormat, 4);
-    backedUp = true;
-    return { status: 'completed', path: 'verified-fixture.zip' };
-  } });
-  assert.equal(result.status, 'upgraded');
-  await assert.rejects(rollbackRelease(root, { lifecycle }), /incompatible_data_format/);
-  assert.equal((await readJson(path.join(root, 'installation.json'))).dataFormat, 5);
-});
-
-test('迁移启动失败保留新程序与新记录，恢复继续新版本且失败不清除恢复标记', async t => {
-  const { root, candidate, lifecycle } = await fixture(t);
-  const a = await candidate('a'), b = await candidate('b', 5);
-  await activateRelease(root, a, { lifecycle });
-  const start = lifecycle.start;
-  lifecycle.start = async () => {
-    assert.equal((await readJson(path.join(root, 'installation.json'))).dataFormat, 5);
-    await fs.writeFile(path.join(root, 'library', 'new-note.txt'), '升级后新笔记');
-    throw new Error('host_start_failed');
-  };
-  await assert.rejects(activateRelease(root, b, { lifecycle }), /release_recovery_required/);
-  assert.equal((await readJson(path.join(root, 'installation.json'))).dataFormat, 5);
-  await assert.rejects(recoverRelease(root, { lifecycle }), /host_start_failed/);
-  assert.equal((await readJson(path.join(root, 'state', 'release-transition.json'))).candidateSelected, true);
-  lifecycle.start = start;
-  assert.equal((await recoverRelease(root, { lifecycle })).release.dataFormat, 5);
-  assert.equal(await fs.readFile(path.join(root, 'library', 'new-note.txt'), 'utf8'), '升级后新笔记');
-  await assert.rejects(fs.access(path.join(root, 'state', 'release-transition.json')), { code: 'ENOENT' });
-  await assert.rejects(rollbackRelease(root, { lifecycle }), /incompatible_data_format/);
-});
-
-test('迁移前快照失败仍能恢复旧程序，不触碰格式 4 的数据', async t => {
-  const { root, candidate, lifecycle } = await fixture(t);
-  const a = await candidate('a'), b = await candidate('b', 5);
-  await activateRelease(root, a, { lifecycle });
-  await assert.rejects(activateRelease(root, b, { lifecycle, snapshot: async () => { throw new Error('backup_failed'); } }), /backup_failed/);
-  assert.equal((await readJson(path.join(root, 'installation.json'))).dataFormat, 4);
-  await assert.rejects(fs.access(path.join(root, 'state', 'release-transition.json')), { code: 'ENOENT' });
-});
-
-for(const previousFormat of [4,5]) test(`格式 ${previousFormat} 升级至 v0.2 格式 6，拒绝用旧程序读取新数据`,async t=>{
-  const {root,candidate,lifecycle}=await fixture(t);
-  await activateRelease(root,await candidate('a',previousFormat),{lifecycle});
-  let backedUp=false;
-  const result=await activateRelease(root,await candidate('b',6),{lifecycle,snapshot:async()=>{backedUp=true;return {status:'completed',path:'pre-v02.zip'};}});
-  assert.equal(result.status,'upgraded');assert.equal(backedUp,true);
-  assert.equal((await readJson(path.join(root,'installation.json'))).dataFormat,6);
-  await assert.rejects(rollbackRelease(root,{lifecycle}),/incompatible_data_format/);
-});
-
-test('DSH V3 会话升级后不能回退到旧宿主，启动失败也保留可恢复的新版本', async t => {
-  const {root,candidate,lifecycle} = await fixture(t);
-  const a=await candidate('a',6), b={...await candidate('b',6),sessionFormat:3};
-  await writeJson(path.join(b.slot,'release.json'),b);
-  const snapshot=async()=>({status:'snapshot'});
-  await activateRelease(root,a,{lifecycle,snapshot});
-  const fail={...lifecycle,start:async()=>{throw new Error('startup_failed')}};
-  await assert.rejects(activateRelease(root,b,{lifecycle:fail,snapshot}),/startup_failed/);
-  assert.equal((await readJson(path.join(root,'installation.json'))).sessionFormat,3);
-  await recoverRelease(root,{lifecycle});
-  await assert.rejects(activateRelease(root,a,{lifecycle,snapshot}),/incompatible_session_format/);
 });

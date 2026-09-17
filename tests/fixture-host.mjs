@@ -6,7 +6,7 @@ const server = http.createServer((_request, response) => {
 });
 server.listen(0, '127.0.0.1', () => {
   process.send({ type: 'workbench-ready', ...identity, pid: process.pid,
-    url: `http://127.0.0.1:${server.address().port}`, browserUrl: `http://127.0.0.1:${server.address().port}/?token=synthetic-test-only` });
+    url: `http://127.0.0.1:${server.address().port}` });
 });
 process.on('message', message => {
   if (message?.type === 'workbench-stop') server.close(() => process.exit(0));

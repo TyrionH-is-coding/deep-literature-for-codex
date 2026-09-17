@@ -1,5 +1,4 @@
 import { createInterface } from 'node:readline'
-import { appendFileSync } from 'node:fs'
 const send = value => process.stdout.write(`${JSON.stringify(value)}\n`)
 for await (const line of createInterface({ input: process.stdin })) {
   const message = JSON.parse(line)
@@ -13,7 +12,6 @@ for await (const line of createInterface({ input: process.stdin })) {
     send({ id: message.id, result: {} })
   }
   if (message.method === 'fixture/crash') process.exit(7)
-  if (message.method === 'fixture/write-and-crash') { appendFileSync('calls.txt', 'once\n'); process.exit(7) }
   if (message.method === 'fixture/malformed') process.stdout.write('not-json\n')
   if (message.method === 'fixture/error') send({ id: message.id, error: { code: 123, message: 'SECRET-FIXTURE-SHOULD-NOT-LEAK' } })
   if (message.method === 'fixture/noise') { process.stderr.write('SECRET-FIXTURE-SHOULD-NOT-LEAK'); send({ id: message.id, result: {} }) }

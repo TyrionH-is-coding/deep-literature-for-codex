@@ -30,11 +30,6 @@ export class OAuthControl {
     this.server = server
     this.loginState = null
     this.onAccountChange = onAccountChange
-    this.unsubscribeLifecycle = server.onLifecycle?.(({ event }) => {
-      if (event === 'failed' && ['pending', 'starting'].includes(this.loginState?.status)) {
-        this.loginState = { status: 'failed' }
-      }
-    })
     this.unsubscribe = server.onNotification(({ method, params }) => {
       if (method === 'account/updated') this.onAccountChange()
       if (method === 'account/login/completed' && params.loginId === this.loginState?.loginId) {
@@ -67,7 +62,6 @@ export class OAuthControl {
       const result = await this.server.request('account/login/start', {
         type: 'chatgpt', useHostedLoginSuccessPage: true, appBrand: 'chatgpt',
       })
-      if (this.server.failure || this.server.closed) throw new Error('LOGIN_TRANSPORT_LOST')
       const url = new URL(result.authUrl)
       if (url.protocol !== 'https:' || !['auth.openai.com', 'chatgpt.com'].includes(url.hostname) || url.username || url.password || typeof result.loginId !== 'string') {
         if (typeof result.loginId === 'string') await this.server.request('account/login/cancel', { loginId: result.loginId })
@@ -104,6 +98,6 @@ export class OAuthControl {
   }
 
   async close() {
-    try { await this.cancelLogin() } finally { this.unsubscribe(); this.unsubscribeLifecycle?.(); await this.server.close() }
+    try { await this.cancelLogin() } finally { this.unsubscribe(); await this.server.close() }
   }
 }

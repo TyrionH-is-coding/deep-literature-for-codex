@@ -8,9 +8,7 @@ import { selectPlatformPins } from '../src/platform.mjs';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: source, encoding: 'utf8', windowsHide: true }).trim();
-const sourceDirty = !!execFileSync('git', ['status', '--porcelain', '--untracked-files=no'], { cwd: source, encoding: 'utf8', windowsHide: true }).trim();
-const candidateSnapshot = process.argv.includes('--candidate-snapshot');
-if (sourceDirty && !candidateSnapshot) throw new Error('release_requires_clean_tracked_source');
+if (execFileSync('git', ['status', '--porcelain', '--untracked-files=no'], { cwd: source, encoding: 'utf8', windowsHide: true }).trim()) throw new Error('release_requires_clean_tracked_source');
 const destination = path.resolve(process.argv[2]);
 const archive = path.resolve(process.argv[3] || path.join(source, 'inputs', 'scientific-reading.tgz'));
 const [targetPlatform, targetArch] = (process.argv[4] || `${process.platform}-${process.arch}`).split('-');
@@ -28,17 +26,15 @@ async function copy(relative, from = path.join(source, relative)) {
   await fs.copyFile(from, to);
 }
 for (const file of ['README.md', 'START_HERE.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'package.json', 'install.ps1', 'workbench.ps1', 'uninstall.ps1', 'install.sh', 'workbench.sh', 'uninstall.sh']) await copy(file);
-for (const folder of ['src', 'skills', 'scripts', 'tests', 'demos']) {
+for (const folder of ['src', 'skills', 'scripts', 'tests']) {
   await fs.cp(path.join(source, folder), path.join(packageRoot, folder), { recursive: true,
-    filter: file => !file.split(path.sep).some(part => ['node_modules', '.work', '.git', 'outputs', 'test-results', '__pycache__'].includes(part)) });
+    filter: file => !file.split(path.sep).some(part => ['node_modules', '.work', '.git', 'outputs', 'test-results'].includes(part)) });
 }
 for (const file of ['package.json', 'package-lock.json', 'pins.json', 'posix-node.tsv', 'requirements.in', 'requirements.lock']) await copy('runtime/' + file);
-for (const file of ['index.mjs', 'adapter.mjs', 'image-content.mjs', 'app-server.mjs', 'control.mjs', 'http.mjs', 'ui.mjs', 'cordis.patch.yml', 'LICENSE', 'README.md', 'package.json', 'package-lock.json', 'provenance.json']) await copy('oauth/' + file);
+for (const file of ['index.mjs', 'adapter.mjs', 'app-server.mjs', 'control.mjs', 'http.mjs', 'ui.mjs', 'cordis.patch.yml', 'LICENSE', 'README.md', 'package.json', 'package-lock.json', 'provenance.json']) await copy('oauth/' + file);
 for (const file of ['adapter.js', 'LICENSE']) await copy('oauth/vendor/dsh-openai-oauth/' + file);
-for (const file of ['lifecycle.md', 'oauth.md', 'handoff-contract.md', 'release-notes.md', 'acceptance.md', 'mineru-api-key.md', 'excel-library.md', 'platforms.md', 'model-tests.md', 'issue-6.md', 'excel-v0.1-redesign.md', 'excel-v0.1-acceptance.md', 'macos-first-run-followup.md', 'release-engineering-review.md', 'roadmap-v0.2.md', 'v0.2-guide.md', 'v0.2-acceptance.md']) await copy('docs/' + file);
-for (const file of ['getting-started.md', 'upgrading.md', 'media/dlc-banner.svg', 'media/excel-library-demo.png', 'media/attention-reader.png', 'media/wechat-community-qr.jpg', 'media/README.md']) await copy('docs/' + file);
+for (const file of ['lifecycle.md', 'oauth.md', 'handoff-contract.md', 'release-notes.md', 'acceptance.md', 'mineru-api-key.md', 'excel-library.md', 'platforms.md', 'model-tests.md', 'issue-6.md']) await copy('docs/' + file);
 await copy('inputs/scientific-reading.tgz', archive);
-await copy('inputs/A-PACKAGE-AUDIT.json');
 const files = {};
 async function inventory(directory) {
   for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
@@ -50,8 +46,7 @@ async function inventory(directory) {
 }
 await inventory(packageRoot);
 await writeJson(path.join(packageRoot, 'BUILD-MANIFEST.json'), { schema: 1, product: 'codex-scientific-reading', version: VERSION,
-  displayName: 'Deep Literature for Codex', channel: pins.channel, sourceCommit, sourceDirty, candidateSnapshot,
-  sourceState: sourceDirty ? 'working-tree snapshot; sourceCommit identifies the base only' : 'committed', pluginSourceCommit: pins.plugin.sourceCommit, pins, files });
+  displayName: 'Deep Literature for Codex', channel: pins.channel, sourceCommit, pluginSourceCommit: pins.plugin.sourceCommit, pins, files });
 const zip = path.join(destination, packageName + (targetPlatform === 'win32' ? '.zip' : '.tar.gz'));
 const tar = process.platform === 'win32' ? path.join(process.env.SYSTEMROOT, 'System32', 'tar.exe') : '/usr/bin/tar';
 const compress = targetPlatform === 'win32' ? ['-a', '-cf'] : ['-czf'];
@@ -93,7 +88,7 @@ await writeJson(path.join(destination, 'PACKAGE-VERIFY.json'), { zipSha256: zipS
   extractedRoot, verification: 'Every extracted file SHA matches the source inventory; no extra files.', passed: true });
 const manifest = { schema: 1, channel: pins.channel, version: VERSION, createdAt: new Date().toISOString(),
   artifacts: [{ file: path.basename(zip), sha256: zipSha }, { file: aName, sha256: pins.plugin.sha256 }],
-  sourceCommit, sourceDirty, candidateSnapshot, pluginSourceCommit: pins.plugin.sourceCommit, sourceSnapshot: 'BUILD-MANIFEST.json inside the B archive',
+  sourceCommit, pluginSourceCommit: pins.plugin.sourceCommit, sourceSnapshot: 'BUILD-MANIFEST.json inside the B archive',
   compatibility: { platform: pins.platform, windows: 'x64, PowerShell 5.1+', macos: '14+, x64 / arm64', linux: 'glibc 2.35+, x64 / arm64', node: pins.node.version, python: pins.python.version, dsh: pins.dsh, a: pins.plugin.version, codexCli: '0.146.0' },
   validation: 'See the accompanying acceptance record. Real account authorization and scientific content acceptance must be stated separately.' };
 await writeJson(path.join(destination, 'RELEASE-MANIFEST.json'), manifest);

@@ -28,10 +28,7 @@
     "App-server transport adapted for B-owned CODEX_HOME and sanitized bounded RPC",
     "HTTP boundary reused with cancellation, usage and local login subpage",
     "Provider replay envelope corrected to DSH rc.7 response format",
-    "Native thread resume and neutral transcript continuity with confirmed-result replay",
-    "DSH 0.1.5-alpha.1: CallId renamed to ToolCallId; upstream origin retained",
-    "Verified DSH attachments to Codex image/inputImage, dynamic image capabilities and image replay on transcript reconstruction",
-    "Image preparation included in cancellation handling; interrupted tool continuations resume from persisted results"
+    "Native thread resume and neutral transcript continuity with confirmed-result replay"
   ],
   "checkedAt": "2026-09-05T16:18:57.7989666Z"
 }

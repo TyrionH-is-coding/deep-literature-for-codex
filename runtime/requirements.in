@@ -2,7 +2,6 @@ beautifulsoup4<5,>=4.12
 latex2mathml<4,>=3.81
 Pillow<13,>=12
 openpyxl<4,>=3.1
-tinycss2<2,>=1.4
 # Only the fixed OA modules are loaded, not the full ScanSci CLI.
 scansci-pdf==1.9.0
 requests==2.34.2

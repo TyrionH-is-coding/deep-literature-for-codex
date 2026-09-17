@@ -97,7 +97,7 @@ if (!release) {
   if (wheels.length !== 1) throw new Error('one_bundled_wheel_required');
   await run(python, ['-I', '-X', 'utf8', '-m', 'pip', 'install', '--disable-pip-version-check', '--no-input', '--no-index', '--no-deps', '--force-reinstall',
     path.join(plugin, 'dist', 'python', wheels[0])], 'Install A bundled engine');
-  const probe = await run(python, ['-I', '-X', 'utf8', '-c', 'import scientific_reading, bs4, latex2mathml, PIL, openpyxl, tinycss2; print(scientific_reading.__file__)'], 'Verify engine imports');
+  const probe = await run(python, ['-I', '-X', 'utf8', '-c', 'import scientific_reading, bs4, latex2mathml, PIL, openpyxl; print(scientific_reading.__file__)'], 'Verify engine imports');
   if (!probe.toLowerCase().startsWith(path.join(runtime, 'venv').toLowerCase() + path.sep)) throw new Error('engine_outside_instance');
   for (const folder of ['src', 'skills']) await fs.cp(path.join(source, folder), path.join(app, folder), { recursive: true });
   await fs.cp(path.join(source, 'runtime'), path.join(app, 'runtime'), {
@@ -118,7 +118,7 @@ if (!release) {
   const oauthLink = path.join(profileModules, 'codex-scientific-reading-oauth');
   try { await fs.symlink(oauthPath, oauthLink, directoryLinkType()); }
   catch (error) { if (error.code !== 'EEXIST' || await fs.realpath(oauthLink) !== await fs.realpath(oauthPath)) throw error; }
-  release = { product: instance.product, version: VERSION, appSha256, slot, app, profileModules, profilePackage, dataFormat: 6, sessionFormat: 3, node, python,
+  release = { product: instance.product, version: VERSION, appSha256, slot, app, profileModules, profilePackage, dataFormat: 4, node, python,
     dsh: path.join(npmRoot, 'node_modules', '@deepseek-ai', 'dsh', 'lib', 'bin.js'),
     pins, candidate: pins.channel !== 'release', browserCapability: 'check_in_codex', installedAt: new Date().toISOString() };
   await writeJson(path.join(slot, 'release.json'), release);
