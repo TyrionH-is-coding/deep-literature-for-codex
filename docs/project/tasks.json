@@ -158,7 +158,8 @@
       "children": [
         "V02-003A",
         "V02-003B",
-        "V02-003C"
+        "V02-003C",
+        "V02-003D"
       ]
     },
     {
@@ -566,6 +567,64 @@
           "blocksV02Release": true
         }
       ]
+    },
+    {
+      "id": "V02-003D",
+      "title": "显示 Excel 同步冲突并复验安装候选",
+      "kind": "task",
+      "status": "reserved",
+      "modules": [
+        "engine",
+        "application",
+        "tooling"
+      ],
+      "dependsOn": [
+        "V02-003A",
+        "V02-002B"
+      ],
+      "continues": "V02-003C",
+      "parent": "V02-003",
+      "inputAcceptance": "003C installed data-safety and F4 evidence reviewed; full acceptance still pending",
+      "card": "docs/project/tasks/V02-003D.md",
+      "ownerSession": null,
+      "baseCommit": "c7757c49d509bcec28464120a82cd87d7360458f",
+      "contextCommit": "7e0a3e4ffbddf21cf5471d0ef14e57411fd1565f",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003d",
+      "branch": "codex/v02-003d-conflict-feedback",
+      "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003d",
+      "engineBranch": "codex/v02-003d-conflict-feedback",
+      "engineBaseCommit": "e3f58d1710413b5c6340fe55974a227b97ee8373",
+      "writePaths": [
+        "package.json#version",
+        "package-lock.json#version",
+        "src/modules/foundation/constants.mjs#VERSION",
+        "runtime/pins.json#plugin-and-channel",
+        "runtime/package-lock.json#local-plugin-only",
+        "src/modules/catalog.json#four-engine-identity-fields",
+        "docs/modules/engine.md",
+        "docs/modules/changes/engine.md",
+        "scripts/acceptance-v02-003d*",
+        "scripts/fixtures/v02-003d/",
+        "docs/project/evidence/V02-003D*"
+      ],
+      "engineWritePaths": [
+        "client/client.js",
+        "lib/client.js#generated",
+        "tests/client-ui-contract.mjs",
+        "tests/client-actions.mjs",
+        "tests/client-xlsx-conflicts.mjs",
+        "package.json#version-and-test-scripts",
+        "package-lock.json#version",
+        "scripts/v02-003d-*",
+        "docs/codex-v02/V02-003D*"
+      ],
+      "receipt": "docs/project/evidence/V02-003D-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T07:04:19.656909+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "仅客户端最小提示加完整制品身份与安装复验；不改Python/作业协议，不自动解决冲突。"
     }
   ],
   "developmentBaseline": {
