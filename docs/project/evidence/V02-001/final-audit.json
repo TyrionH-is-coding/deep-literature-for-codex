@@ -1,0 +1,42 @@
+[
+  {
+    "root": "C:/Users/15694/AppData/Local/Temp/v02-001-20260917-probe",
+    "status": {
+      "ok": true,
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "516471c9-7bc4-4136-8598-4d0b23071327",
+      "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe",
+      "status": "stopped",
+      "startedAt": 1789612941085
+    },
+    "restoredReader": "restored Reader publication validates",
+    "engineSha": "318814EC542DE94A47CD2855B21D0F7AF9778B22B283D3995D0C499A3465E2FD",
+    "handoffSha": "82D549443DB38DC1275B8A3C33D8281081054B972CE56BD61891D39DEFB4993E",
+    "nativeSessionFiles": [
+      "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\state\\dsh-home\\sessions\\--C-Users-15694-AppData-Local-Temp-v02-001-20260917-probe-workspace--\\session-55f7d35b-f260-4ad3-a4c6-aae414f37134\\session.jsonl.zstd",
+      "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\state\\dsh-home\\sessions\\--C-Users-15694-AppData-Local-Temp-v02-001-20260917-probe-workspace--\\session-a9806f41-5d9d-440f-9fe3-4c900578d7b5\\session.jsonl.zstd",
+      "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\state\\dsh-home\\sessions\\--C-Users-15694-AppData-Local-Temp-v02-001-20260917-probe-workspace--\\session-bef70280-6f8e-4abc-b849-f0979122a5cf\\session.jsonl.zstd"
+    ],
+    "profilePatch": "[]\n"
+  },
+  {
+    "root": "C:/Users/15694/AppData/Local/Temp/v02-001-20260917-rc6",
+    "status": {
+      "ok": true,
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "9f4053b5-2cea-4c51-849a-266d8d902868",
+      "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-rc6",
+      "status": "stopped",
+      "startedAt": 1789613146401
+    },
+    "restoredReader": "restored Reader publication validates",
+    "engineSha": "318814EC542DE94A47CD2855B21D0F7AF9778B22B283D3995D0C499A3465E2FD",
+    "handoffSha": "22E612534D2D03F00B2DCC8B2B8EEB910001DA9DFB86619DDE389C1113444AE7",
+    "nativeSessionFiles": [
+      "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-rc6\\state\\dsh-home\\sessions\\--C-Users-15694-AppData-Local-Temp-v02-001-20260917-rc6-workspace--\\session-d9f5aefa-d6b8-4d6a-b373-331d6d2d0119\\session.jsonl.zstd"
+    ],
+    "profilePatch": "[]\n"
+  }
+]

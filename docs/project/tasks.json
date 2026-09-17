@@ -19,7 +19,7 @@
       "id": "V02-001",
       "title": "验收模块化基线，建立失败样例",
       "kind": "task",
-      "status": "ready",
+      "status": "integrated",
       "modules": ["application", "lifecycle", "releases", "tooling"],
       "dependsOn": [],
       "card": "docs/project/tasks/V02-001.md",
@@ -29,26 +29,34 @@
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-001",
       "branch": "codex/v02-001-baseline",
       "dispatchRequestedAt": "2026-09-17T02:34:49Z",
-      "commits": [],
-      "evidence": [],
+      "commits": ["86d7833cbc22bfaaa8f4694318f59bb3706acab7"],
+      "integrationBranch": "codex/v02-control",
+      "acceptance": "diagnostic-delivery-accepted-with-findings",
+      "productAcceptance": "known-failures-remain",
+      "evidence": ["docs/project/evidence/V02-001.md", "docs/project/evidence/V02-001-review.md"],
+      "findings": [
+        {"id": "F1", "status": "open", "title": "旧 Excel 覆盖较新 SQLite 个人记录", "followup": "V02-003", "blocksV02Release": true, "blocksV02002Audit": false},
+        {"id": "F2", "status": "open", "title": "库备份不覆盖原生会话及 handoff 的整实例恢复", "followup": "V02-006", "blocksV02Release": true, "blocksV02002Audit": false}
+      ],
       "userConfirmed": true,
       "approvedScope": "仅隔离验收与问题定位；可补验收脚本和测试样例；产品代码修复另立任务",
-      "notes": "用户已确认；实际工作台 worktree 已准备，应用开发任务已提交创建，等待真实 session ID 与启动确认。应用任务挂在已登记的 dsh reader 项目下，但仅在本条指定的工作台 worktree 验收。"
+      "notes": "总控已复核并接收诊断交付，仅集成到总控分支；保留两项原有问题和未验证范围。应用列表暂未解析到真实 session ID，ownerSession 保留空值，不影响以固定 Git 提交和证据核验交付。"
     },
     {
       "id": "V02-002",
       "title": "固定引擎源码、接口和测试基线",
       "kind": "task",
-      "status": "planned",
+      "status": "ready",
       "modules": ["engine"],
       "dependsOn": ["V02-001"],
       "card": "docs/project/tasks/V02-002.md",
       "ownerSession": null,
+      "baseCommit": "8e00b334389cd90721b7d404013a07687753aa5c",
       "worktree": null,
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "精确源码已检出；源码测试、构建来源验证待本任务执行。"
+      "notes": "001 的诊断交付已接收，F1/F2 不阻断本项审计。仅固定接口、构建来源和实际测试基线，不改产品代码、不修复 F1/F2；尚未启动。"
     },
     {
       "id": "V02-003",
@@ -63,7 +71,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "按复现结果拆成单目标任务；结构抽离与 Excel 冲突修复分开。"
+      "notes": "优先处理 001 已复现的 F1：旧 Excel 覆盖新记录。先定义冲突合同，再拆单目标修复；与结构抽离分开。"
     },
     {
       "id": "V02-004",
@@ -108,7 +116,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "覆盖文献资产、原生会话、交接账本；文献 ZIP 不能替代整实例恢复证据。"
+      "notes": "承接 001 已确认的 F2 覆盖缺口：库/资产恢复通过，原生会话和 handoff 不在库备份内。单独定义完整实例恢复与身份重绑定，不将部分恢复计为全部通过。"
     },
     {
       "id": "V02-007",
