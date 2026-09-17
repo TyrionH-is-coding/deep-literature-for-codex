@@ -154,7 +154,8 @@
       "evidence": [],
       "notes": "先实施 003A 最小修复；后续仍须候选制品集成和原场景复验后关闭 F1，不将整个工作域当作单任务。",
       "children": [
-        "V02-003A"
+        "V02-003A",
+        "V02-003B"
       ]
     },
     {
@@ -218,7 +219,10 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "承接 001 已确认的 F2 覆盖缺口：库/资产恢复通过，原生会话和 handoff 不在库备份内。单独定义完整实例恢复与身份重绑定，不将部分恢复计为全部通过。"
+      "notes": "承接 001 已确认的 F2 覆盖缺口：库/资产恢复通过，原生会话和 handoff 不在库备份内。单独定义完整实例恢复与身份重绑定，不将部分恢复计为全部通过。",
+      "children": [
+        "V02-006B"
+      ]
     },
     {
       "id": "V02-007",
@@ -390,6 +394,89 @@
       "integrationCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
       "integrationBranch": "codex/v02-engine-baseline",
       "acceptance": "reviewed-and-combined-tests-passed"
+    },
+    {
+      "id": "V02-003B",
+      "title": "候选制品安装与 F1 原场景复验",
+      "kind": "task",
+      "status": "reserved",
+      "modules": [
+        "engine",
+        "application",
+        "releases"
+      ],
+      "dependsOn": [
+        "V02-003A",
+        "V02-002B"
+      ],
+      "parent": "V02-003",
+      "card": "docs/project/tasks/V02-003B.md",
+      "ownerSession": null,
+      "baseCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+      "contextCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003b",
+      "branch": "codex/v02-003b-installed-candidate",
+      "writePaths": [
+        "package.json#version",
+        "package-lock.json#version",
+        "src/modules/foundation/constants.mjs#VERSION",
+        "runtime/pins.json#plugin-and-channel",
+        "runtime/package-lock.json#local-plugin-only",
+        "scripts/acceptance-v02-003b*",
+        "scripts/fixtures/v02-003b/",
+        "docs/project/evidence/V02-003B*"
+      ],
+      "receipt": "docs/project/evidence/V02-003B-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "独立工作树、实例与输出；派发名额已保留，不得重复创建。",
+      "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b",
+      "engineBranch": "codex/v02-003b-engine-candidate",
+      "engineBaseCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
+      "engineWritePaths": [
+        "package.json#version",
+        "package-lock.json#version",
+        "engine/pyproject.toml#version",
+        "docs/codex-v02/V02-003B*",
+        "scripts/v02-003b-*"
+      ]
+    },
+    {
+      "id": "V02-006B",
+      "title": "固定 DSH 会话恢复能力取证",
+      "kind": "task",
+      "status": "reserved",
+      "modules": [
+        "workflow",
+        "releases",
+        "lifecycle"
+      ],
+      "dependsOn": [
+        "V02-006A",
+        "V02-002"
+      ],
+      "parent": "V02-006",
+      "card": "docs/project/tasks/V02-006B.md",
+      "ownerSession": null,
+      "baseCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+      "contextCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006b",
+      "branch": "codex/v02-006b-dsh-recovery-probe",
+      "writePaths": [
+        "scripts/v02-006b-*",
+        "scripts/fixtures/v02-006b/",
+        "docs/project/evidence/V02-006B*"
+      ],
+      "receipt": "docs/project/evidence/V02-006B-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "独立工作树、实例与输出；派发名额已保留，不得重复创建。"
     }
   ],
   "developmentBaseline": {
