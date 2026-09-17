@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
-    "lastReviewAt": "2026-09-17T07:03:12.676023+00:00",
+    "lastReviewAt": "2026-09-17T08:01:07.106139+00:00",
     "lastHeartbeatCompletedAt": "2026-09-17T07:41:24.636772+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -61,13 +61,14 @@
       "findings": [
         {
           "id": "F1",
-          "status": "open",
+          "status": "closed",
           "title": "旧 Excel 覆盖较新 SQLite 个人记录",
           "followup": "V02-003",
           "blocksV02Release": true,
           "blocksV02002Audit": false,
-          "dataSafetyAcceptance": "installed candidate dev.1 verified; UI completion pending F4",
-          "evidence": "docs/project/evidence/V02-003C-control-review.md"
+          "dataSafetyAcceptance": "installed dev.2 data protection and visible conflict feedback verified",
+          "evidence": "docs/project/evidence/V02-003D-control-review.md",
+          "closedBy": "V02-003D"
         },
         {
           "id": "F2",
@@ -141,7 +142,7 @@
       "id": "V02-003",
       "title": "记录与存储合同",
       "kind": "workstream",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine"
       ],
@@ -152,21 +153,26 @@
       "ownerSession": null,
       "worktree": null,
       "branch": null,
-      "commits": [],
-      "evidence": [],
-      "notes": "源码与安装数据保护已经验证；仍待003D修复真实冲突反馈并复验新候选，不能解除004依赖。",
+      "commits": [
+        "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-003D-control-review.md"
+      ],
+      "notes": "F1/F4 已由同一 dev.2 安装候选闭环，解除 004 依赖；不包括 F2 整实例恢复。",
       "children": [
         "V02-003A",
         "V02-003B",
         "V02-003C",
         "V02-003D"
-      ]
+      ],
+      "integrationCommit": "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30"
     },
     {
       "id": "V02-004",
       "title": "精读阶段边界与续接",
       "kind": "workstream",
-      "status": "planned",
+      "status": "in_progress",
       "modules": [
         "engine",
         "workflow"
@@ -180,7 +186,10 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "首个候选实现仅抽离默认阶段适配器；后续缺陷另立任务。"
+      "notes": "先固定阶段/恢复合同并补真实进程证据；只有明确耦合或可复现缺陷才开结构调整或修复卡。",
+      "children": [
+        "V02-004A"
+      ]
     },
     {
       "id": "V02-005",
@@ -200,7 +209,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "固定现有阅读页与样例，不引入新的主题或问答能力。"
+      "notes": "固定现有阅读页与样例，不引入新的主题或问答能力。 另核查003D初次导航观察，未归因为产品回归，不能据此预设修复。"
     },
     {
       "id": "V02-006",
@@ -403,7 +412,7 @@
       "id": "V02-003B",
       "title": "候选制品安装与 F1 原场景复验",
       "kind": "task",
-      "status": "needs_followup",
+      "status": "integrated",
       "modules": [
         "engine",
         "application",
@@ -440,7 +449,7 @@
       "evidence": [
         "docs/project/evidence/V02-003B-control-review.md"
       ],
-      "notes": "B catalog 四个身份字段遗漏于原任务允许范围，打包失败。任务已终止交回；A 制品经复核集成，B 未合入。003C 单独续接同步元数据与安装门槛，F1 不关闭。",
+      "notes": "B catalog 四个身份字段遗漏于原任务允许范围，打包失败。任务已终止交回；A 制品经复核集成，B 未合入。003C 单独续接同步元数据与安装门槛，F1 不关闭。 后续结案：003D 新候选完成缺失验收，整链合入；原 partial/失败记录保持。",
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-003b",
       "engineBranch": "codex/v02-003b-engine-candidate",
       "engineBaseCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
@@ -460,8 +469,11 @@
         "e3f58d1710413b5c6340fe55974a227b97ee8373"
       ],
       "engineIntegrationCommit": "e3f58d1710413b5c6340fe55974a227b97ee8373",
-      "acceptance": "engine-artifact-accepted; B installation blocked",
-      "followup": "V02-003C"
+      "acceptance": "followup-resolved-and-chain-integrated",
+      "followup": "V02-003C",
+      "resolvedBy": "V02-003D",
+      "integrationCommit": "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30",
+      "originalAcceptance": "engine-artifact-accepted; B installation blocked"
     },
     {
       "id": "V02-006B",
@@ -513,7 +525,7 @@
       "id": "V02-003C",
       "title": "同步候选模块身份并完成安装验收",
       "kind": "task",
-      "status": "needs_followup",
+      "status": "integrated",
       "modules": [
         "engine",
         "tooling",
@@ -551,28 +563,33 @@
         "docs/project/evidence/V02-003C-control-review.md",
         "docs/project/evidence/V02-003C-control-verification.json"
       ],
-      "notes": "安装数据保护、来源与14项conflict/12项smoke通过；详情页缺少冲突提示，F4另卡最小修复。B候选保持独立分支未合入，003整体未通过。",
+      "notes": "安装数据保护、来源与14项conflict/12项smoke通过；详情页缺少冲突提示，F4另卡最小修复。B候选保持独立分支未合入，003整体未通过。 后续结案：003D 新候选完成缺失验收，整链合入；原 partial/失败记录保持。",
       "clientThreadId": "client-new-thread:98dffb4a-8310-4542-a2c3-ce233a86eb98",
       "dispatchRequestedAt": "2026-09-17T06:47:19.321545+00:00",
       "startedAt": "2026-09-17T06:47:49.5028399Z",
       "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
-      "acceptance": "installed-data-safety-passed; UI feedback incomplete",
+      "acceptance": "followup-resolved-and-chain-integrated",
       "followup": "V02-003D",
       "findings": [
         {
           "id": "F4",
-          "status": "open",
+          "status": "closed",
           "title": "Excel 冲突详情已达 HTTP API，但文献详情页未显示原因及字段",
           "followup": "V02-003D",
-          "blocksV02Release": true
+          "blocksV02Release": true,
+          "closedBy": "V02-003D",
+          "evidence": "docs/project/evidence/V02-003D-control-review.md"
         }
-      ]
+      ],
+      "resolvedBy": "V02-003D",
+      "integrationCommit": "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30",
+      "originalAcceptance": "installed-data-safety-passed; UI feedback incomplete"
     },
     {
       "id": "V02-003D",
       "title": "显示 Excel 同步冲突并复验安装候选",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "application",
@@ -619,28 +636,75 @@
         "docs/codex-v02/V02-003D*"
       ],
       "receipt": "docs/project/evidence/V02-003D-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T07:04:19.656909+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "仅客户端最小提示加完整制品身份与安装复验；不改Python/作业协议，不自动解决冲突。",
+      "commits": [
+        "bf9f4edbd9e7fc5f80e5fe074d8fed35db163b59"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-003D.md",
+        "docs/project/evidence/V02-003D-control-review.md",
+        "docs/project/evidence/V02-003D-control-verification.json"
+      ],
+      "notes": "dev.2 来源、安装、F1 数据保护与真实浏览器冲突提示已复核；F1/F4 关闭，F2 保留。",
       "clientThreadId": "client-new-thread:0f3f2493-3ca0-4240-b2b1-456b185e82c2",
       "dispatchRequestedAt": "2026-09-17T07:04:51.549239+00:00",
       "startedAt": "2026-09-17T07:05:19.9546706Z",
-      "receiptPhase": "received",
+      "receiptPhase": "review",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-git-state",
       "progressSnapshot": {
-        "checkedAt": "2026-09-17T07:41:24.636772+00:00",
+        "checkedAt": "2026-09-17T08:01:07.106139+00:00",
+        "deliveryReady": true,
         "engineHead": "6283c02a690ff42585f064c1f764b999baa97d7e",
-        "workbenchHead": "890fba5cb47d7197f844fddf711414bc63694c86",
-        "deliveryReady": false,
-        "observation": "B安装与数据保护结果已写入草稿，新增两次重启后的HTTP/界面不变量证据；浏览器最终验证和停止记录尚未交回，回执仍received、工作树未提交。不重复派发，不合入、不解除004依赖。"
-      }
+        "workbenchHead": "bf9f4edbd9e7fc5f80e5fe074d8fed35db163b59"
+      },
+      "engineCommits": [
+        "6283c02a690ff42585f064c1f764b999baa97d7e"
+      ],
+      "integrationCommit": "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30",
+      "engineIntegrationCommit": "6283c02a690ff42585f064c1f764b999baa97d7e",
+      "acceptance": "installed-data-safety-and-visible-conflict-feedback-passed"
+    },
+    {
+      "id": "V02-004A",
+      "title": "固定精读阶段与恢复合同",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "engine",
+        "workflow"
+      ],
+      "dependsOn": [
+        "V02-003"
+      ],
+      "parent": "V02-004",
+      "card": "docs/project/tasks/V02-004A.md",
+      "ownerSession": null,
+      "baseCommit": "6283c02a690ff42585f064c1f764b999baa97d7e",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004a",
+      "branch": "codex/v02-004a-pipeline-contract",
+      "writePaths": [
+        "docs/codex-v02/V02-004A*",
+        "scripts/v02-004a-*",
+        "scripts/fixtures/v02-004a/",
+        "engine/tests/test_v02_pipeline_contract.py",
+        "tests/v02-pipeline-contract.mjs"
+      ],
+      "receipt": "docs/codex-v02/V02-004A-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-17T08:01:07.106139+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "只读生产与新增合同/探针；缺陷另卡，不将诊断交付通过等同004整体通过。"
     }
   ],
   "developmentBaseline": {
-    "engine": "e3f58d1710413b5c6340fe55974a227b97ee8373",
-    "engineBranch": "codex/v02-engine-baseline"
+    "engine": "6283c02a690ff42585f064c1f764b999baa97d7e",
+    "engineBranch": "codex/v02-engine-baseline",
+    "workbench": "c52ea36c8d57451dbddfceed6f6d0c5b8b380a30",
+    "workbenchBranch": "codex/v02-control",
+    "candidate": "0.2.0-dev.2"
   }
 }

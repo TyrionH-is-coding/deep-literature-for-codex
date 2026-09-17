@@ -1,0 +1,29 @@
+{
+  "reviewedAt": "2026-09-17T07:57:23.376812+00:00",
+  "engineHead": "6283c02a690ff42585f064c1f764b999baa97d7e",
+  "workbenchHead": "bf9f4edbd9e7fc5f80e5fe074d8fed35db163b59",
+  "artifactSource": "890fba5cb47d7197f844fddf711414bc63694c86",
+  "engineSource": "26abee5f8c8e4f92f26a9b7fba4ddd236e523b05",
+  "checks": {
+    "manifest": true,
+    "archive": true,
+    "wheel": true,
+    "zip": true,
+    "manifestFiles": true,
+    "noExtraFiles": true,
+    "installedApp": true,
+    "installedPython": true,
+    "installedClient": true,
+    "uiInvariant": true,
+    "fiveSameRenderedTexts": true,
+    "twoDistinctRestarts": true,
+    "stopped": true
+  },
+  "counts": {
+    "manifestFiles": 270,
+    "installedAppSourceFiles": 41,
+    "installedPythonFiles": 49
+  },
+  "browserEvidence": "Developer-recorded DOM evidence independently inspected; root did not repeat browser session",
+  "passed": true
+}
