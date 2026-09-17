@@ -1,4 +1,4 @@
-import { status } from './control.mjs';
+import { status } from './modules/lifecycle/index.mjs';
 
 export async function call(root, request) {
   const state = await status(root);

@@ -1,12 +1,13 @@
+import { installSkill } from './modules/skill/index.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { initializeRoot, isolatedEnvironment, prerequisitePaths, readJson, writeJson, verifyFile, installSkill, VERSION, SKILL_NAME } from './core.mjs';
-import { activateRelease, recoverRelease } from './releases.mjs';
-import { restoreNewLibrary } from './library-transfer.mjs';
-import { selectPlatformPins, venvPython, npmCli, directoryLinkType } from './platform.mjs';
+import { initializeRoot, isolatedEnvironment, runtimePaths, readJson, writeJson, verifyFile, VERSION, SKILL_NAME } from './modules/foundation/index.mjs';
+import { activateRelease, recoverRelease } from './modules/releases/index.mjs';
+import { restoreNewLibrary } from './modules/releases/index.mjs';
+import { selectPlatformPins, venvPython, npmCli, directoryLinkType } from './modules/foundation/index.mjs';
 import { setupSteps } from './onboarding.mjs';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -17,7 +18,7 @@ const pins = selectPlatformPins(await readJson(path.join(source, 'runtime', 'pin
 await verifyFile(archive, pins.plugin.sha256);
 const instance = await initializeRoot(requestedRoot);
 const root = instance.root;
-const { node, pythonBase } = prerequisitePaths(root, pins);
+const { node, pythonBase } = runtimePaths(root, pins);
 const sourceHash = createHash('sha256');
 sourceHash.update(pins.platform);
 async function hashTree(directory) {

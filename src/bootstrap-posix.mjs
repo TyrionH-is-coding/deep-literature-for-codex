@@ -4,10 +4,10 @@ import os from 'node:os';
 import net from 'node:net';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { initializeRoot, readJson, verifyFile, isolatedEnvironment } from './core.mjs';
-import { defaultRoot, selectPlatformPins, runtimePaths } from './platform.mjs';
-import { pipeName } from './control.mjs';
-import { prepareLocalSocket } from './local-socket.mjs';
+import { initializeRoot, readJson, verifyFile, isolatedEnvironment } from './modules/foundation/index.mjs';
+import { defaultRoot, selectPlatformPins, runtimePaths } from './modules/foundation/index.mjs';
+import { pipeName } from './modules/lifecycle/index.mjs';
+import { prepareLocalSocket } from './modules/lifecycle/index.mjs';
 
 const source = await fs.realpath(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'));
 const options = {};

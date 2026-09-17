@@ -1,9 +1,10 @@
+import { installSkill } from './modules/skill/index.mjs';
 import path from 'node:path';
-import { start, status, stop } from './control.mjs';
-import { readJson, installSkill, SKILL_NAME } from './core.mjs';
-import { rollbackRelease, recoverRelease, retireInstallation } from './releases.mjs';
+import { start, status, stop } from './modules/lifecycle/index.mjs';
+import { readJson, SKILL_NAME } from './modules/foundation/index.mjs';
+import { rollbackRelease, recoverRelease, retireInstallation } from './modules/releases/index.mjs';
 import { call } from './client.mjs';
-import { defaultRoot } from './platform.mjs';
+import { defaultRoot } from './modules/foundation/index.mjs';
 import { setupSteps } from './onboarding.mjs';
 
 try {

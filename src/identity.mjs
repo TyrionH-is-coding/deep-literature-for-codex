@@ -1,4 +1,4 @@
-import { DISPLAY_NAME } from './core.mjs';
+import { DISPLAY_NAME } from './modules/foundation/index.mjs';
 export const name = 'codex-scientific-reading-identity';
 export const inject = ['webServer'];
 
