@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
     "lastReviewAt": "2026-09-17T07:03:12.676023+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T07:17:03.407303+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-17T07:29:20.091840+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -631,11 +631,11 @@
       "receiptPhase": "received",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-git-state",
       "progressSnapshot": {
-        "checkedAt": "2026-09-17T07:17:03.407303+00:00",
-        "engineHead": "26abee5f8c8e4f92f26a9b7fba4ddd236e523b05",
-        "workbenchHead": "c7757c49d509bcec28464120a82cd87d7360458f",
+        "checkedAt": "2026-09-17T07:29:20.091840+00:00",
+        "engineHead": "6283c02a690ff42585f064c1f764b999baa97d7e",
+        "workbenchHead": "890fba5cb47d7197f844fddf711414bc63694c86",
         "deliveryReady": false,
-        "observation": "A客户端源码已提交，A证据与B候选元数据/验收脚本仍在写入，报告明确为未完成草稿；未验收、未合入，不重复派发。"
+        "observation": "A源码/制品报告完成；B安装证据正在写入、报告仍是草稿、回执未交回。总控已只读审查A最小客户端差异，Node24.18上重跑10组DOM与客户端生成一致性检查通过；Python目录无差异。尚未接受整体任务或进入004。"
       }
     }
   ],
