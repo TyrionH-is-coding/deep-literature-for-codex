@@ -510,7 +510,7 @@
       "id": "V02-003C",
       "title": "同步候选模块身份并完成安装验收",
       "kind": "task",
-      "status": "queued",
+      "status": "in_progress",
       "modules": [
         "engine",
         "tooling",
@@ -537,14 +537,16 @@
         "docs/project/evidence/V02-003C*"
       ],
       "receipt": "docs/project/evidence/V02-003C-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-17T06:46:55.001567+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "003B 已终止交回；此新卡专门修复范围遗漏并完成未执行的安装门槛，不重复 A 全量测试。",
       "clientThreadId": "client-new-thread:98dffb4a-8310-4542-a2c3-ce233a86eb98",
-      "dispatchRequestedAt": "2026-09-17T06:47:19.321545+00:00"
+      "dispatchRequestedAt": "2026-09-17T06:47:19.321545+00:00",
+      "startedAt": "2026-09-17T06:47:49.5028399Z",
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
     }
   ],
   "developmentBaseline": {
