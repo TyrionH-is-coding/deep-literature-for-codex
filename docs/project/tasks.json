@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T06:29:00.379796+00:00"
     },
     "lastReviewAt": "2026-09-17T07:03:12.676023+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T07:05:49.813822+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-17T07:17:03.407303+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -629,7 +629,14 @@
       "dispatchRequestedAt": "2026-09-17T07:04:51.549239+00:00",
       "startedAt": "2026-09-17T07:05:19.9546706Z",
       "receiptPhase": "received",
-      "startConfirmedBy": "fixed-double-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-double-worktree-receipt-and-git-state",
+      "progressSnapshot": {
+        "checkedAt": "2026-09-17T07:17:03.407303+00:00",
+        "engineHead": "26abee5f8c8e4f92f26a9b7fba4ddd236e523b05",
+        "workbenchHead": "c7757c49d509bcec28464120a82cd87d7360458f",
+        "deliveryReady": false,
+        "observation": "A客户端源码已提交，A证据与B候选元数据/验收脚本仍在写入，报告明确为未完成草稿；未验收、未合入，不重复派发。"
+      }
     }
   ],
   "developmentBaseline": {
