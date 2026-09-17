@@ -1,0 +1,266 @@
+PASS runtime versions
+PASS local PDF + parser fixture + translation fixture → real Reader; Excel save
+PASS real host start and identity
+PASS repeated start reuses launch
+PASS engine library HTTP route
+PASS Reader HTTP bytes match engine manifest
+PASS local model executes native tool; native session and handoff persisted
+PASS restart 1: identity, notes, Reader, native history
+PASS restart 2: identity, notes, Reader, native history
+PASS old Excel vs newer SQLite preservation
+PASS library backup and actual empty-directory restore
+PASS final stop leaves owned sentinel alive
+[
+  {
+    "name": "runtime versions",
+    "status": "passed",
+    "value": {
+      "node": "v22.22.2\r\n",
+      "python": "Python 3.11.16\r\n"
+    }
+  },
+  {
+    "name": "local PDF + parser fixture + translation fixture → real Reader; Excel save",
+    "status": "passed",
+    "value": {
+      "paper_id": "title_d8b339a0356f",
+      "expected": [
+        "合成个人思考",
+        "部分理解",
+        "V02 saved note"
+      ],
+      "xlsx": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\library\\library\\scientific-reading.xlsx",
+      "reader": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\library\\papers\\title_d8b339a0356f\\generations\\2c407980f198d16a\\reading\\reader.html",
+      "pdf_sha256": "2c407980f198d16a5c1885ea907fb0bc06cc2f0ce172178f0d81ebbad5c43215",
+      "reader_sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a",
+      "normalized_blocks": 15
+    }
+  },
+  {
+    "name": "real host start and identity",
+    "status": "passed",
+    "value": {
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+      "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d",
+      "version": "0.2.0-dev.2",
+      "candidate": true,
+      "status": "running",
+      "launchId": "b56156f0-c418-4444-ac40-f1c175cf97ac",
+      "supervisorPid": 34752,
+      "startedAt": 1789629799469,
+      "pid": 35216,
+      "url": "http://127.0.0.1:60539"
+    }
+  },
+  {
+    "name": "repeated start reuses launch",
+    "status": "passed",
+    "value": {
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+      "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d",
+      "version": "0.2.0-dev.2",
+      "candidate": true,
+      "status": "running",
+      "launchId": "b56156f0-c418-4444-ac40-f1c175cf97ac",
+      "supervisorPid": 34752,
+      "startedAt": 1789629799469,
+      "pid": 35216,
+      "url": "http://127.0.0.1:60539"
+    }
+  },
+  {
+    "name": "engine library HTTP route",
+    "status": "passed",
+    "value": {
+      "status": 200
+    }
+  },
+  {
+    "name": "Reader HTTP bytes match engine manifest",
+    "status": "passed",
+    "value": {
+      "readerUrl": "http://127.0.0.1:60539/sr/reader/title_d8b339a0356f",
+      "sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a",
+      "sourcePdfSha256": "2c407980f198d16a5c1885ea907fb0bc06cc2f0ce172178f0d81ebbad5c43215"
+    }
+  },
+  {
+    "name": "local model executes native tool; native session and handoff persisted",
+    "status": "passed",
+    "value": {
+      "binding": {
+        "folderId": "folder_4dae36ae66b54af5974cf783e7205496",
+        "sessionId": "session-d8a550b7-1761-49a9-b2ff-7a725b418c2a",
+        "active": true,
+        "name": "V02 synthetic category 1789629805058"
+      },
+      "events": 28
+    }
+  },
+  {
+    "name": "restart 1: identity, notes, Reader, native history",
+    "status": "passed",
+    "value": {
+      "running": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d",
+        "version": "0.2.0-dev.2",
+        "candidate": true,
+        "status": "running",
+        "launchId": "ecf9c8f1-5ada-4564-92c0-f501bb2a807b",
+        "supervisorPid": 31256,
+        "startedAt": 1789629809128,
+        "pid": 27508,
+        "url": "http://127.0.0.1:54771"
+      },
+      "records": {
+        "notes": [
+          "合成个人思考",
+          "部分理解",
+          "V02 saved note"
+        ],
+        "reader_sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a"
+      }
+    }
+  },
+  {
+    "name": "restart 2: identity, notes, Reader, native history",
+    "status": "passed",
+    "value": {
+      "running": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d",
+        "version": "0.2.0-dev.2",
+        "candidate": true,
+        "status": "running",
+        "launchId": "9cfaf5dd-6730-4fcf-bd41-4c27e31b543f",
+        "supervisorPid": 6024,
+        "startedAt": 1789629816538,
+        "pid": 19436,
+        "url": "http://127.0.0.1:55357"
+      },
+      "records": {
+        "notes": [
+          "合成个人思考",
+          "部分理解",
+          "V02 saved note"
+        ],
+        "reader_sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a"
+      }
+    }
+  },
+  {
+    "name": "old Excel vs newer SQLite preservation",
+    "status": "passed",
+    "value": {
+      "old_excel": [
+        "合成个人思考",
+        "部分理解",
+        "V02 saved note"
+      ],
+      "new_sqlite": [
+        "SQLite newer thought",
+        "深入",
+        "SQLite newer note"
+      ],
+      "refresh": {
+        "status": "success",
+        "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\library\\library\\scientific-reading.xlsx",
+        "rows": 1
+      },
+      "after": [
+        "SQLite newer thought",
+        "深入",
+        "SQLite newer note"
+      ],
+      "newer_preserved": true
+    }
+  },
+  {
+    "name": "library backup and actual empty-directory restore",
+    "status": "passed",
+    "value": {
+      "backup": {
+        "status": "completed",
+        "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\v02-library.zip",
+        "sha256": "bd97a7a4c01f9de322d40f893ad50dab1dd2422b7f125a9d5dd486068fe69351",
+        "files": 24,
+        "schema_version": 4,
+        "contract": "scientific-reading-backup-v1"
+      },
+      "restore": {
+        "status": "completed",
+        "data_root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d\\restored-library",
+        "schema_version": 4,
+        "archive_sha256": "bd97a7a4c01f9de322d40f893ad50dab1dd2422b7f125a9d5dd486068fe69351",
+        "recovered_tasks": [],
+        "rebased_workspace_jobs": [
+          "papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json"
+        ],
+        "credentials": "请重新配置凭据；未恢复 DPAPI 密钥。",
+        "automatic_resume": false
+      },
+      "asset_files": 20,
+      "asset_mismatches": [],
+      "notes": [
+        "SQLite newer thought",
+        "深入",
+        "SQLite newer note"
+      ],
+      "members": [
+        "data/library.sqlite",
+        "data/library/scientific-reading.xlsx",
+        "data/papers/title_d8b339a0356f/job.json",
+        "data/papers/title_d8b339a0356f/metadata.json",
+        "data/papers/title_d8b339a0356f/source.pdf",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/metadata.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/package-manifest.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/source.pdf",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/output/reader_full.html",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/full.md",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/parse_report.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/source_map.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/raw/fixture_content_list.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader-manifest.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader.html",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/full_read.md",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/highlights.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/reading_guide.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translations.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_notes.md",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_plan.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.source.json",
+        "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.translation.json",
+        "manifest.json"
+      ],
+      "native_session_in_archive": false,
+      "handoff_in_archive": false
+    }
+  },
+  {
+    "name": "whole instance recovery includes native sessions and handoff",
+    "status": "known_gap",
+    "reason": "library backup scope excludes state/dsh-home and state/handoff.json; library-only restore is not whole-instance restore"
+  },
+  {
+    "name": "final stop leaves owned sentinel alive",
+    "status": "passed",
+    "value": {
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+      "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d",
+      "status": "stopped",
+      "startedAt": 1789629816538
+    }
+  }
+]

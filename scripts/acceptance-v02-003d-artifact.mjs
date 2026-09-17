@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
+const p=JSON.parse(await fs.readFile('docs/project/evidence/V02-003D/package.txt','utf8'));
+const release=JSON.parse(await fs.readFile(path.join(p.destination,'RELEASE-MANIFEST.json'),'utf8'));
+const verify=JSON.parse(await fs.readFile(path.join(p.destination,'PACKAGE-VERIFY.json'),'utf8'));
+const manifest=JSON.parse(await fs.readFile(path.join(p.extractedRoot,'BUILD-MANIFEST.json'),'utf8'));
+const archive=path.join(p.extractedRoot,'inputs/scientific-reading.tgz');const dir=path.resolve('outputs/a-readback');await fs.mkdir(dir,{recursive:true});
+execFileSync('C:/Windows/System32/tar.exe',['-xf',archive,'-C',dir]);
+const wheels=await fs.readdir(path.join(dir,'package/dist/python'));const wheel=wheels.find(n=>n.endsWith('.whl'));
+const sha=async f=>createHash('sha256').update(await fs.readFile(f)).digest('hex');
+if(await sha(archive)!==release.artifacts[1].sha256)throw Error('A mismatch');
+await fs.writeFile('docs/project/evidence/V02-003D/artifact.json',JSON.stringify({release,verify,manifestSource:manifest.sourceCommit,manifestEngineSource:manifest.pluginSourceCommit,archive,archiveSha256:await sha(archive),wheel: path.join(dir,'package/dist/python',wheel),wheelSha256:await sha(path.join(dir,'package/dist/python',wheel)),manifestSha256:await sha(path.join(p.extractedRoot,'BUILD-MANIFEST.json'))},null,2));

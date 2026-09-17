@@ -1,0 +1,14 @@
+{
+  "product": "codex-scientific-reading",
+  "schema": 1,
+  "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+  "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3d",
+  "version": "0.2.0-dev.2",
+  "candidate": true,
+  "status": "running",
+  "launchId": "7e8b8e67-b236-49f0-8376-2682d2173ae0",
+  "supervisorPid": 36136,
+  "startedAt": 1789630621368,
+  "pid": 24984,
+  "url": "http://127.0.0.1:64152"
+}

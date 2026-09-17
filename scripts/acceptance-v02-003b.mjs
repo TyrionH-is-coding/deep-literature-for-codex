@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {execFileSync,spawnSync} from 'node:child_process';
+const root=path.resolve(import.meta.dirname,'..');
+const out=path.join(root,'docs/project/evidence/V02-003B');fs.mkdirSync(out,{recursive:true});
+const commands={check:['node',['scripts/modules.mjs','check']],test:['node',['scripts/modules.mjs','test','foundation']],impact:['node',['scripts/modules.mjs','impact','--base','bde3ee1d79d527fb11c15eda6f46b5522483f02e']],package:['node',['scripts/package-release.mjs',path.join(root,'outputs/v02-003b-candidate')]]};
+const id=process.argv[2]; if(!Object.hasOwn(commands,id))throw Error('Unknown check');
+const [command,args]=commands[id],startedAt=new Date().toISOString();
+const result=spawnSync(command,args,{cwd:root,encoding:'utf8',windowsHide:true,maxBuffer:32*1024*1024});
+fs.writeFileSync(path.join(out,id+'.txt'),(result.stdout??'')+(result.stderr??''));
+const p=path.join(out,'runs.json'),runs=fs.existsSync(p)?JSON.parse(fs.readFileSync(p)):[];
+runs.push({id,command,args,cwd:root,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8',windowsHide:true}).trim(),trackedStatus:execFileSync('git',['status','--porcelain','--untracked-files=no'],{cwd:root,encoding:'utf8',windowsHide:true}).trim(),startedAt,finishedAt:new Date().toISOString(),exitCode:result.status,error:result.error?.message??null});
+fs.writeFileSync(p,JSON.stringify(runs,null,2)+'\n');console.log(id+': '+result.status+'\n'+(result.stdout??'')+(result.stderr??''));process.exitCode=result.status??1;

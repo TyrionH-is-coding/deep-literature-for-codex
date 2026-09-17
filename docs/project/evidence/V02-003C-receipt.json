@@ -1,0 +1,17 @@
+{
+  "ownerSession": null,
+  "contextCommit": "e13a4bc468217e78fe872c82e28d753af23148ee",
+  "baseCommit": "8c37fb13d7c6816c1de067d72ef8fef091097ac3",
+  "branch": "codex/v02-003c-candidate-acceptance",
+  "startedAt": "2026-09-17T06:47:49.5028399Z",
+  "worktree": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c",
+  "task": "V02-003C",
+  "phase": "review",
+  "completedAt": "2026-09-17T06:57:42.0123120Z",
+  "sourceCommit": "5a3506aa8429af6ea1db27ecf096f85823fc914d",
+  "outcome": "needs_followup",
+  "reason": "Installed F1 data protection and smoke passed; actual UI shows pending count but not detailed conflict reason/field despite HTTP paper API carrying it; production UI outside allowed scope. Native Office opener not exercised. F2 remains open.",
+  "reportCommit": "self: commit containing review receipt and V02-003C.md",
+  "instanceRoot": "C:/Users/15694/AppData/Local/Temp/v3c",
+  "stopped": true
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "check",
+    "command": "node",
+    "args": [
+      "scripts/modules.mjs",
+      "check"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b",
+    "sourceCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+    "trackedStatus": "M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-17T06:32:35.704Z",
+    "finishedAt": "2026-09-17T06:32:36.224Z",
+    "exitCode": 1,
+    "error": null
+  },
+  {
+    "id": "test",
+    "command": "node",
+    "args": [
+      "scripts/modules.mjs",
+      "test",
+      "foundation"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b",
+    "sourceCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+    "trackedStatus": "M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-17T06:32:36.379Z",
+    "finishedAt": "2026-09-17T06:32:36.931Z",
+    "exitCode": 1,
+    "error": null
+  },
+  {
+    "id": "impact",
+    "command": "node",
+    "args": [
+      "scripts/modules.mjs",
+      "impact",
+      "--base",
+      "bde3ee1d79d527fb11c15eda6f46b5522483f02e"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b",
+    "sourceCommit": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+    "trackedStatus": "M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-17T06:32:37.107Z",
+    "finishedAt": "2026-09-17T06:32:37.865Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "package",
+    "command": "node",
+    "args": [
+      "scripts/package-release.mjs",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b\\outputs\\v02-003b-candidate"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003b",
+    "sourceCommit": "7a04cf1287f0f4200e736e91618a6b7956949ff2",
+    "trackedStatus": "",
+    "startedAt": "2026-09-17T06:32:46.681Z",
+    "finishedAt": "2026-09-17T06:32:47.614Z",
+    "exitCode": 1,
+    "error": null
+  }
+]

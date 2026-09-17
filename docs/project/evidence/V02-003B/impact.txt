@@ -1,0 +1,38 @@
+{
+  "base": "bde3ee1d79d527fb11c15eda6f46b5522483f02e",
+  "files": [
+    "package-lock.json",
+    "package.json",
+    "runtime/package-lock.json",
+    "runtime/pins.json",
+    "src/modules/foundation/constants.mjs",
+    "docs/project/evidence/V02-003B-receipt.json",
+    "docs/project/evidence/V02-003B/artifact.json",
+    "docs/project/evidence/V02-003B/baseline-modules.txt",
+    "docs/project/evidence/V02-003B/check.txt",
+    "docs/project/evidence/V02-003B/direct-host-tests-exit.txt",
+    "docs/project/evidence/V02-003B/direct-host-tests.txt",
+    "docs/project/evidence/V02-003B/runs.json",
+    "docs/project/evidence/V02-003B/test.txt",
+    "scripts/acceptance-v02-003b.mjs"
+  ],
+  "changed": [
+    "tooling",
+    "application",
+    "engine",
+    "foundation"
+  ],
+  "affected": [
+    "foundation",
+    "skill",
+    "lifecycle",
+    "releases",
+    "workflow",
+    "bridge",
+    "engine",
+    "application",
+    "tooling"
+  ],
+  "unowned": [],
+  "note": "Includes transitive consumers and declared runtime dependencies."
+}

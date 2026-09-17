@@ -1,0 +1,9 @@
+file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003b/scripts/module-graph.mjs:143
+  if (catalog.modules.find(m => m.id === 'engine').version !== pins.plugin.version || catalog.externalEngine.version !== pins.plugin.version || catalog.externalEngine.sourceCommit !== pins.plugin.sourceCommit || catalog.externalEngine.sha256 !== pins.plugin.sha256) throw new Error('engine_pin_mismatch');
+                                                                                                                                                                                                                                                                                ^
+
+Error: engine_pin_mismatch
+    at checkModules (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003b/scripts/module-graph.mjs:143:273)
+    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-003b/scripts/package-release.mjs:13:1
+
+Node.js v24.18.0

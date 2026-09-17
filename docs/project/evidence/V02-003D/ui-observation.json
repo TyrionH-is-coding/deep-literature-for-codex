@@ -1,0 +1,18 @@
+{
+  "browser": "Codex in-app browser via cua_repl",
+  "instanceId": "8211e3ed-3ba2-43c9-b00b-203a0d911025",
+  "root": "C:/Users/15694/AppData/Local/Temp/v3d",
+  "conflictText": "关闭\nA Compact Review Fixture for Structured Equations\n\nAda Example、Lin Test · 2026 · Offline Engineering Fixtures\n\n归类：V02 synthetic category 1789629805058｜标签：无\n\nAbstract\n\n待补摘要\n\n浅读：待补摘要｜精读：精读完成\n\nExcel 同步已暂停\n\nExcel 与数据库中的个人字段存在冲突，或同步基线需要核对。\n\n当前文献 ID：title_d8b339a0356f；用户笔记；需要核对\n\n原工作簿和数据库均已保留，整批未导入；同批文献也可能因此暂停。\n\n请先备份 Excel，核对双方记录及文献身份、同步基线和冲突字段；处理差异后保存并关闭 Excel，再重试同步。\n\nPDF\n阅读 HTML\n查看资产目录\n整理文章图表",
+  "observations": [
+    {"case":"initial","time":"2026-09-17T07:30:55.112Z","url":"http://127.0.0.1:55125/","text":"关闭\n正在加载详情…"},
+    {"case":"initial-loaded","time":"2026-09-17T07:31:07.988Z","url":"http://127.0.0.1:55125/","matchesInitial":true},
+    {"case":"close-reopen","time":"2026-09-17T07:31:22.679Z","url":"http://127.0.0.1:55125/","matchesInitial":true},
+    {"case":"page-refresh","time":"2026-09-17T07:32:44.535Z","url":"http://127.0.0.1:55125/","matchesInitial":true},
+    {"case":"normal-paper","time":"2026-09-17T07:33:18.198Z","url":"http://127.0.0.1:55125/","text":"关闭\nV02-003D unrelated row\n\nDOI：10.9999/v3d-unrelated\n\n归类：待归类｜标签：无\n\nAbstract\n\n待补摘要\n\n浅读：待补摘要｜精读：未开始\n\n查看资产目录\n整理文章图表"},
+    {"case":"pdf-gate","time":"2026-09-17T07:33:44.057Z","url":"http://127.0.0.1:55125/","text":"关闭\nV02-003D synthetic PDF gate\n\nDOI：10.9999/v3d-pdf-gate\n\n归类：待归类｜标签：无\n\nAbstract\n\n待补摘要\n\n浅读：待补摘要｜精读：未开始\n\n查看资产目录\n整理文章图表\n重试 OA 获取\n挂接本地 PDF","oaEnabled":true},
+    {"case":"reader-open-bilingual","time":"2026-09-17T07:33:59.103Z","url":"http://127.0.0.1:55125/sr/reader/title_d8b339a0356f","excerpt":"button \"中英\" [active] [pressed]; paragraph: 该确定性样例在完全离线条件下检查公式、引用和持久化目录。"},
+    {"case":"host-restart-1","time":"2026-09-17T07:36:46.551Z","url":"http://127.0.0.1:54064/","matchesInitial":true},
+    {"case":"host-restart-2","time":"2026-09-17T07:39:50.042Z","url":"http://127.0.0.1:64152/","matchesInitial":true}
+  ],
+  "screenshot":"Visual screenshot shown in tool transcript; durable evidence is rendered DOM/text, no exported screenshot claimed"
+}

@@ -1,0 +1,841 @@
+{
+  "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+  "startedAt": "2026-09-17T06:52:46.232Z",
+  "checks": [
+    {
+      "name": "installed CLI seven conflict/legacy/three-field cases",
+      "status": "passed",
+      "value": {
+        "engine": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\__init__.py",
+        "executable": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+        "checks": [
+          {
+            "name": "old",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "DB new thought",
+                "深入",
+                "DB new note"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          },
+          {
+            "name": "excel",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "Excel new thought",
+                "部分理解",
+                "Excel new note"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          },
+          {
+            "name": "conflict0",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "DB conflict",
+                "B",
+                "B"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          },
+          {
+            "name": "conflict1",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "B",
+                "DB conflict",
+                "B"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          },
+          {
+            "name": "conflict2",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "B",
+                "B",
+                "DB conflict"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          },
+          {
+            "name": "legacy-equal",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "B",
+                "B",
+                "B"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          },
+          {
+            "name": "legacy-different",
+            "passed": true,
+            "database": {
+              "doi_10.9999_v3c-0": [
+                "B",
+                "B",
+                "B"
+              ],
+              "doi_10.9999_v3c-1": [
+                "B",
+                "B",
+                "B"
+              ]
+            }
+          }
+        ],
+        "commands": [
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\old",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\old\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\old",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\old\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\excel",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\excel\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\excel",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\excel\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict0",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict0",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"personal_thoughts\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict0",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"personal_thoughts\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict0",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"personal_thoughts\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict1",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict1",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"understanding_level\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict1",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"understanding_level\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict1",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"understanding_level\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict2",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict2",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"user_notes\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict2",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"user_notes\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\conflict2",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"user_notes\", \"code\": \"user_field_conflict\"}]}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\legacy-equal",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-equal\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\legacy-equal",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-equal\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\legacy-different",
+            "code": 0,
+            "stdout": "{\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-different\\\\library\\\\scientific-reading.xlsx\", \"rows\": 2}\n",
+            "stderr": ""
+          },
+          {
+            "args": [
+              "xlsx-refresh"
+            ],
+            "data": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\f1-cases\\legacy-different",
+            "code": 0,
+            "stdout": "{\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-different\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"doi_10.9999_v3c-0\", \"field\": \"personal_thoughts\", \"code\": \"baseline_missing_difference\"}]}\n",
+            "stderr": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "prepare live two-row conflict",
+      "status": "passed",
+      "value": {
+        "paper_id": "title_d8b339a0356f",
+        "job_id": "job_2a98cc02111fd542",
+        "database": {
+          "doi_10.9999_v3c-unrelated": [
+            null,
+            null,
+            null
+          ],
+          "title_d8b339a0356f": [
+            "SQLite newer thought",
+            "深入",
+            "Live DB conflict"
+          ]
+        },
+        "xlsxSha256": "5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04"
+      }
+    },
+    {
+      "name": "worker retry 0: waiting_user, exact field and paper, atomic batch",
+      "status": "passed",
+      "value": {
+        "status": {
+          "job_id": "job_2a98cc02111fd542",
+          "state": "waiting_user",
+          "created_at": "2026-09-17T06:53:05.941120+00:00",
+          "updated_at": "2026-09-17T06:53:07.930911+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "xlsx_user_fields_conflict",
+          "required_input": {
+            "status": "pending",
+            "updated": 0,
+            "conflicts": 1,
+            "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+            "error": {
+              "code": "xlsx_user_fields_conflict",
+              "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+            },
+            "conflict_details": [
+              {
+                "paper_id": "title_d8b339a0356f",
+                "field": "user_notes",
+                "code": "user_field_conflict"
+              }
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": null
+        },
+        "database": {
+          "doi_10.9999_v3c-unrelated": [
+            null,
+            null,
+            null
+          ],
+          "title_d8b339a0356f": [
+            "SQLite newer thought",
+            "深入",
+            "Live DB conflict"
+          ]
+        },
+        "xlsxSha256": "5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04",
+        "workerExit": 2
+      }
+    },
+    {
+      "name": "host start 0",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "version": "0.2.0-dev.1",
+        "candidate": true,
+        "status": "running",
+        "launchId": "26dd7eae-1ee2-4fe1-9de4-8fabf9a5a3f5",
+        "supervisorPid": 4324,
+        "startedAt": 1789627988195,
+        "pid": 32488,
+        "url": "http://127.0.0.1:53720"
+      }
+    },
+    {
+      "name": "HTTP job details after restart 0",
+      "status": "passed",
+      "value": {
+        "paper_id": "title_d8b339a0356f",
+        "status": "waiting_user",
+        "job_id": "job_2a98cc02111fd542",
+        "foreground_elapsed_ms": 4,
+        "agent_required": false,
+        "next_action": "user",
+        "detail": {
+          "job_id": "job_2a98cc02111fd542",
+          "state": "waiting_user",
+          "created_at": "2026-09-17T06:53:05.941120+00:00",
+          "updated_at": "2026-09-17T06:53:07.930911+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "xlsx_user_fields_conflict",
+          "required_input": {
+            "status": "pending",
+            "updated": 0,
+            "conflicts": 1,
+            "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+            "error": {
+              "code": "xlsx_user_fields_conflict",
+              "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+            },
+            "conflict_details": [
+              {
+                "paper_id": "title_d8b339a0356f",
+                "field": "user_notes",
+                "code": "user_field_conflict"
+              }
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": null
+        }
+      }
+    },
+    {
+      "name": "UI status API after restart 0",
+      "status": "passed",
+      "value": {
+        "contract_version": "environment-status-v1",
+        "onboarding": {
+          "show_settings": true,
+          "version": "v1"
+        },
+        "download": {
+          "status": "not_checked",
+          "checked_at": null,
+          "mode": "oa_only"
+        },
+        "mineru": {
+          "local": {
+            "status": "not_checked",
+            "checked_at": null
+          },
+          "api": {
+            "status": "not_checked",
+            "checked_at": null,
+            "api_call_verified": false
+          },
+          "strategy": "auto"
+        },
+        "library": {
+          "data_root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library",
+          "database": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library.sqlite",
+          "status": "ready",
+          "papers": 2,
+          "xlsx_pending": 2
+        }
+      }
+    },
+    {
+      "name": "worker retry 1: waiting_user, exact field and paper, atomic batch",
+      "status": "passed",
+      "value": {
+        "status": {
+          "job_id": "job_2a98cc02111fd542",
+          "state": "waiting_user",
+          "created_at": "2026-09-17T06:53:05.941120+00:00",
+          "updated_at": "2026-09-17T06:53:14.250533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "xlsx_user_fields_conflict",
+          "required_input": {
+            "status": "pending",
+            "updated": 0,
+            "conflicts": 1,
+            "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+            "error": {
+              "code": "xlsx_user_fields_conflict",
+              "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+            },
+            "conflict_details": [
+              {
+                "paper_id": "title_d8b339a0356f",
+                "field": "user_notes",
+                "code": "user_field_conflict"
+              }
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": null
+        },
+        "database": {
+          "doi_10.9999_v3c-unrelated": [
+            null,
+            null,
+            null
+          ],
+          "title_d8b339a0356f": [
+            "SQLite newer thought",
+            "深入",
+            "Live DB conflict"
+          ]
+        },
+        "xlsxSha256": "5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04",
+        "workerExit": 2
+      }
+    },
+    {
+      "name": "host start 1",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "version": "0.2.0-dev.1",
+        "candidate": true,
+        "status": "running",
+        "launchId": "0786e323-ea33-47fa-9f3c-2a6c17300792",
+        "supervisorPid": 17544,
+        "startedAt": 1789627994489,
+        "pid": 1784,
+        "url": "http://127.0.0.1:53730"
+      }
+    },
+    {
+      "name": "HTTP job details after restart 1",
+      "status": "passed",
+      "value": {
+        "paper_id": "title_d8b339a0356f",
+        "status": "waiting_user",
+        "job_id": "job_2a98cc02111fd542",
+        "foreground_elapsed_ms": 6,
+        "agent_required": false,
+        "next_action": "user",
+        "detail": {
+          "job_id": "job_2a98cc02111fd542",
+          "state": "waiting_user",
+          "created_at": "2026-09-17T06:53:05.941120+00:00",
+          "updated_at": "2026-09-17T06:53:14.250533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "xlsx_user_fields_conflict",
+          "required_input": {
+            "status": "pending",
+            "updated": 0,
+            "conflicts": 1,
+            "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+            "error": {
+              "code": "xlsx_user_fields_conflict",
+              "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+            },
+            "conflict_details": [
+              {
+                "paper_id": "title_d8b339a0356f",
+                "field": "user_notes",
+                "code": "user_field_conflict"
+              }
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": null
+        }
+      }
+    },
+    {
+      "name": "UI status API after restart 1",
+      "status": "passed",
+      "value": {
+        "contract_version": "environment-status-v1",
+        "onboarding": {
+          "show_settings": true,
+          "version": "v1"
+        },
+        "download": {
+          "status": "not_checked",
+          "checked_at": null,
+          "mode": "oa_only"
+        },
+        "mineru": {
+          "local": {
+            "status": "not_checked",
+            "checked_at": null
+          },
+          "api": {
+            "status": "not_checked",
+            "checked_at": null,
+            "api_call_verified": false
+          },
+          "strategy": "auto"
+        },
+        "library": {
+          "data_root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library",
+          "database": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library.sqlite",
+          "status": "ready",
+          "papers": 2,
+          "xlsx_pending": 2
+        }
+      }
+    },
+    {
+      "name": "worker retry 2: waiting_user, exact field and paper, atomic batch",
+      "status": "passed",
+      "value": {
+        "status": {
+          "job_id": "job_2a98cc02111fd542",
+          "state": "waiting_user",
+          "created_at": "2026-09-17T06:53:05.941120+00:00",
+          "updated_at": "2026-09-17T06:53:20.144597+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "xlsx_user_fields_conflict",
+          "required_input": {
+            "status": "pending",
+            "updated": 0,
+            "conflicts": 1,
+            "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+            "error": {
+              "code": "xlsx_user_fields_conflict",
+              "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+            },
+            "conflict_details": [
+              {
+                "paper_id": "title_d8b339a0356f",
+                "field": "user_notes",
+                "code": "user_field_conflict"
+              }
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": null
+        },
+        "database": {
+          "doi_10.9999_v3c-unrelated": [
+            null,
+            null,
+            null
+          ],
+          "title_d8b339a0356f": [
+            "SQLite newer thought",
+            "深入",
+            "Live DB conflict"
+          ]
+        },
+        "xlsxSha256": "5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04",
+        "workerExit": 2
+      }
+    },
+    {
+      "name": "host start 2",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "version": "0.2.0-dev.1",
+        "candidate": true,
+        "status": "running",
+        "launchId": "b4771986-a89a-48eb-b365-8b5401066b02",
+        "supervisorPid": 28756,
+        "startedAt": 1789628000538,
+        "pid": 27608,
+        "url": "http://127.0.0.1:53742"
+      }
+    },
+    {
+      "name": "HTTP job details after restart 2",
+      "status": "passed",
+      "value": {
+        "paper_id": "title_d8b339a0356f",
+        "status": "waiting_user",
+        "job_id": "job_2a98cc02111fd542",
+        "foreground_elapsed_ms": 3,
+        "agent_required": false,
+        "next_action": "user",
+        "detail": {
+          "job_id": "job_2a98cc02111fd542",
+          "state": "waiting_user",
+          "created_at": "2026-09-17T06:53:05.941120+00:00",
+          "updated_at": "2026-09-17T06:53:20.144597+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "xlsx_user_fields_conflict",
+          "required_input": {
+            "status": "pending",
+            "updated": 0,
+            "conflicts": 1,
+            "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+            "error": {
+              "code": "xlsx_user_fields_conflict",
+              "detail": "已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。"
+            },
+            "conflict_details": [
+              {
+                "paper_id": "title_d8b339a0356f",
+                "field": "user_notes",
+                "code": "user_field_conflict"
+              }
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": null
+        }
+      }
+    },
+    {
+      "name": "UI status API after restart 2",
+      "status": "passed",
+      "value": {
+        "contract_version": "environment-status-v1",
+        "onboarding": {
+          "show_settings": true,
+          "version": "v1"
+        },
+        "download": {
+          "status": "not_checked",
+          "checked_at": null,
+          "mode": "oa_only"
+        },
+        "mineru": {
+          "local": {
+            "status": "not_checked",
+            "checked_at": null
+          },
+          "api": {
+            "status": "not_checked",
+            "checked_at": null,
+            "api_call_verified": false
+          },
+          "strategy": "auto"
+        },
+        "library": {
+          "data_root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library",
+          "database": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library.sqlite",
+          "status": "ready",
+          "papers": 2,
+          "xlsx_pending": 2
+        }
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\conflict-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "cases"
+      ],
+      "code": 0,
+      "stdout": "{\"engine\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\releases\\\\1e4db6237664e5d2\\\\runtime\\\\venv\\\\Lib\\\\site-packages\\\\scientific_reading\\\\__init__.py\", \"executable\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\releases\\\\1e4db6237664e5d2\\\\runtime\\\\venv\\\\Scripts\\\\python.exe\", \"checks\": [{\"name\": \"old\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"DB new thought\", \"深入\", \"DB new note\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}, {\"name\": \"excel\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"Excel new thought\", \"部分理解\", \"Excel new note\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}, {\"name\": \"conflict0\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"DB conflict\", \"B\", \"B\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}, {\"name\": \"conflict1\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"B\", \"DB conflict\", \"B\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}, {\"name\": \"conflict2\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"B\", \"B\", \"DB conflict\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}, {\"name\": \"legacy-equal\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"B\", \"B\", \"B\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}, {\"name\": \"legacy-different\", \"passed\": true, \"database\": {\"doi_10.9999_v3c-0\": [\"B\", \"B\", \"B\"], \"doi_10.9999_v3c-1\": [\"B\", \"B\", \"B\"]}}], \"commands\": [{\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\old\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\old\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\old\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\old\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\excel\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\excel\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\excel\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\excel\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict0\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict0\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"personal_thoughts\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict0\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"personal_thoughts\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict0\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict0\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"personal_thoughts\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict1\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict1\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"understanding_level\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict1\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"understanding_level\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict1\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict1\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"understanding_level\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict2\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict2\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"user_notes\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict2\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"user_notes\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\conflict2\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\conflict2\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"user_notes\\\", \\\"code\\\": \\\"user_field_conflict\\\"}]}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-equal\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\legacy-equal\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-equal\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\legacy-equal\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-different\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"success\\\", \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\legacy-different\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"rows\\\": 2}\\n\", \"stderr\": \"\"}, {\"args\": [\"xlsx-refresh\"], \"data\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\f1-cases\\\\legacy-different\", \"code\": 0, \"stdout\": \"{\\\"status\\\": \\\"pending\\\", \\\"updated\\\": 0, \\\"conflicts\\\": 1, \\\"path\\\": \\\"C:\\\\\\\\Users\\\\\\\\15694\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\v3c\\\\\\\\f1-cases\\\\\\\\legacy-different\\\\\\\\library\\\\\\\\scientific-reading.xlsx\\\", \\\"error\\\": {\\\"code\\\": \\\"xlsx_user_fields_conflict\\\", \\\"detail\\\": \\\"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\\\"}, \\\"conflict_details\\\": [{\\\"paper_id\\\": \\\"doi_10.9999_v3c-0\\\", \\\"field\\\": \\\"personal_thoughts\\\", \\\"code\\\": \\\"baseline_missing_difference\\\"}]}\\n\", \"stderr\": \"\"}]}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\conflict-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "live-seed"
+      ],
+      "code": 0,
+      "stdout": "{\"paper_id\": \"title_d8b339a0356f\", \"job_id\": \"job_2a98cc02111fd542\", \"database\": {\"doi_10.9999_v3c-unrelated\": [null, null, null], \"title_d8b339a0356f\": [\"SQLite newer thought\", \"\\u6df1\\u5165\", \"Live DB conflict\"]}, \"xlsxSha256\": \"5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04\"}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\conflict-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "live-check"
+      ],
+      "code": 0,
+      "stdout": "{\"status\": {\"job_id\": \"job_2a98cc02111fd542\", \"state\": \"waiting_user\", \"created_at\": \"2026-09-17T06:53:05.941120+00:00\", \"updated_at\": \"2026-09-17T06:53:07.930911+00:00\", \"pid\": null, \"heartbeat_at\": null, \"reason_code\": \"xlsx_user_fields_conflict\", \"required_input\": {\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\library\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"title_d8b339a0356f\", \"field\": \"user_notes\", \"code\": \"user_field_conflict\"}]}, \"result\": {}, \"error\": null, \"scope\": null}, \"database\": {\"doi_10.9999_v3c-unrelated\": [null, null, null], \"title_d8b339a0356f\": [\"SQLite newer thought\", \"深入\", \"Live DB conflict\"]}, \"xlsxSha256\": \"5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04\", \"workerExit\": 2}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\conflict-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "live-check"
+      ],
+      "code": 0,
+      "stdout": "{\"status\": {\"job_id\": \"job_2a98cc02111fd542\", \"state\": \"waiting_user\", \"created_at\": \"2026-09-17T06:53:05.941120+00:00\", \"updated_at\": \"2026-09-17T06:53:14.250533+00:00\", \"pid\": null, \"heartbeat_at\": null, \"reason_code\": \"xlsx_user_fields_conflict\", \"required_input\": {\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\library\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"title_d8b339a0356f\", \"field\": \"user_notes\", \"code\": \"user_field_conflict\"}]}, \"result\": {}, \"error\": null, \"scope\": null}, \"database\": {\"doi_10.9999_v3c-unrelated\": [null, null, null], \"title_d8b339a0356f\": [\"SQLite newer thought\", \"深入\", \"Live DB conflict\"]}, \"xlsxSha256\": \"5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04\", \"workerExit\": 2}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\conflict-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "live-check"
+      ],
+      "code": 0,
+      "stdout": "{\"status\": {\"job_id\": \"job_2a98cc02111fd542\", \"state\": \"waiting_user\", \"created_at\": \"2026-09-17T06:53:05.941120+00:00\", \"updated_at\": \"2026-09-17T06:53:20.144597+00:00\", \"pid\": null, \"heartbeat_at\": null, \"reason_code\": \"xlsx_user_fields_conflict\", \"required_input\": {\"status\": \"pending\", \"updated\": 0, \"conflicts\": 1, \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\library\\\\library\\\\scientific-reading.xlsx\", \"error\": {\"code\": \"xlsx_user_fields_conflict\", \"detail\": \"已保留原工作簿和数据库，整批未导入；请先备份并核对身份、基线及冲突字段后重试。\"}, \"conflict_details\": [{\"paper_id\": \"title_d8b339a0356f\", \"field\": \"user_notes\", \"code\": \"user_field_conflict\"}]}, \"result\": {}, \"error\": null, \"scope\": null}, \"database\": {\"doi_10.9999_v3c-unrelated\": [null, null, null], \"title_d8b339a0356f\": [\"SQLite newer thought\", \"深入\", \"Live DB conflict\"]}, \"xlsxSha256\": \"5ae23da0b725ffd0657096b3e8289aec70d305675422279168c57a0dd4644e04\", \"workerExit\": 2}\r\n",
+      "stderr": ""
+    }
+  ],
+  "finalStatus": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+    "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+    "status": "stopped",
+    "startedAt": 1789628000538
+  },
+  "completedAt": "2026-09-17T06:53:25.647Z"
+}

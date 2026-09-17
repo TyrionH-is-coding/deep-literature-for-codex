@@ -1,0 +1,508 @@
+{
+  "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+  "failureControl": false,
+  "instance": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+    "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c"
+  },
+  "appSha256": "1e4db6237664e5d20e8ba76c4ab78882a8f9ed8fe5c7c11d89bd1b6adac58f53",
+  "pins": {
+    "schema": 1,
+    "channel": "internal-development",
+    "platform": "win32-x64",
+    "node": {
+      "version": "22.22.2",
+      "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-win-x64.zip",
+      "sha256": "7c93e9d92bf68c07182b471aa187e35ee6cd08ef0f24ab060dfff605fcc1c57c"
+    },
+    "python": {
+      "version": "3.11.16",
+      "build": "20260901",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
+    },
+    "dsh": "0.1.0-rc.7",
+    "plugin": {
+      "name": "@dsh-external/dsh-scientific-reading",
+      "version": "0.2.0-dev.1",
+      "sha256": "fdce0ada390e2f27615c6b6050dbf7ef83c871d6a6304c4235e4414f667c8930",
+      "source": "V02-003B internal candidate; local archive inputs/scientific-reading.tgz",
+      "sourceCommit": "ca02db6beb2cf45ad0fd69618313971d0a346c55"
+    },
+    "platforms": {
+      "darwin-arm64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-arm64.tar.gz",
+          "sha256": "db4b275b83736df67533529a18cc55de2549a8329ace6c7bcc68f8d22d3c9000"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "768f05cf200273bbdda9a5955a5a6892a4b22f2a0b1e4b0a9160f5c7fce86816"
+        }
+      },
+      "darwin-x64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-x64.tar.gz",
+          "sha256": "12a6abb9c2902cf48a21120da13f87fde1ed1b71a13330712949e8db818708ba"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "908b381433f78b832c8d64960ced0f85871893cc8779f413f963e0c9e293c258"
+        }
+      },
+      "linux-arm64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-arm64.tar.gz",
+          "sha256": "b2f3a96f31486bfc365192ad65ced14833ad2a3c2e1bcefec4846902f264fa28"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "f9308ed57184fae73941c712ed847be420ce36d31ba73ce53f0508a1ee752f68"
+        }
+      },
+      "linux-x64": {
+        "node": {
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-x64.tar.gz",
+          "sha256": "978978a635eef872fa68beae09f0aad0bbbae6757e444da80b570964a97e62a3"
+        },
+        "python": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "64427febea27864d136db46c8efe968eb6fa5ca2813ce1dca4bb95aec31cb2e4"
+        }
+      }
+    }
+  },
+  "startedAt": "2026-09-17T06:52:09.672Z",
+  "commands": [
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\runtime\\node\\22.22.2\\node.exe",
+      "args": [
+        "--version"
+      ],
+      "code": 0,
+      "stdout": "v22.22.2\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "--version"
+      ],
+      "code": 0,
+      "stdout": "Python 3.11.16\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\engine-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "seed"
+      ],
+      "code": 0,
+      "stdout": "{\"paper_id\": \"title_d8b339a0356f\", \"expected\": [\"合成个人思考\", \"部分理解\", \"V02 saved note\"], \"xlsx\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\library\\\\library\\\\scientific-reading.xlsx\", \"reader\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\2c407980f198d16a\\\\reading\\\\reader.html\", \"pdf_sha256\": \"2c407980f198d16a5c1885ea907fb0bc06cc2f0ce172178f0d81ebbad5c43215\", \"reader_sha256\": \"8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a\", \"normalized_blocks\": 15}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\engine-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "read"
+      ],
+      "code": 0,
+      "stdout": "{\"notes\": [\"合成个人思考\", \"部分理解\", \"V02 saved note\"], \"reader_sha256\": \"8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a\"}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\engine-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "read"
+      ],
+      "code": 0,
+      "stdout": "{\"notes\": [\"合成个人思考\", \"部分理解\", \"V02 saved note\"], \"reader_sha256\": \"8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a\"}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\engine-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "conflict"
+      ],
+      "code": 0,
+      "stdout": "{\"old_excel\": [\"合成个人思考\", \"部分理解\", \"V02 saved note\"], \"new_sqlite\": [\"SQLite newer thought\", \"深入\", \"SQLite newer note\"], \"refresh\": {\"status\": \"success\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\library\\\\library\\\\scientific-reading.xlsx\", \"rows\": 1}, \"after\": [\"SQLite newer thought\", \"深入\", \"SQLite newer note\"], \"newer_preserved\": true}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\releases\\1e4db6237664e5d2\\runtime\\venv\\Scripts\\python.exe",
+      "args": [
+        "-I",
+        "-X",
+        "utf8",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003c\\scripts\\fixtures\\v02-003c\\engine-probe.py",
+        "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "backup"
+      ],
+      "code": 0,
+      "stdout": "{\"backup\": {\"status\": \"completed\", \"path\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\v02-library.zip\", \"sha256\": \"7b909cdab42f29a34eb0862e5477cad977cfe829ba399f7f1ef1d10a0e70942a\", \"files\": 24, \"schema_version\": 4, \"contract\": \"scientific-reading-backup-v1\"}, \"restore\": {\"status\": \"completed\", \"data_root\": \"C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\v3c\\\\restored-library\", \"schema_version\": 4, \"archive_sha256\": \"7b909cdab42f29a34eb0862e5477cad977cfe829ba399f7f1ef1d10a0e70942a\", \"recovered_tasks\": [], \"rebased_workspace_jobs\": [\"papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json\"], \"credentials\": \"请重新配置凭据；未恢复 DPAPI 密钥。\", \"automatic_resume\": false}, \"asset_files\": 20, \"asset_mismatches\": [], \"notes\": [\"SQLite newer thought\", \"深入\", \"SQLite newer note\"], \"members\": [\"data/library.sqlite\", \"data/library/scientific-reading.xlsx\", \"data/papers/title_d8b339a0356f/job.json\", \"data/papers/title_d8b339a0356f/metadata.json\", \"data/papers/title_d8b339a0356f/source.pdf\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/metadata.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/package-manifest.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/source.pdf\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/output/reader_full.html\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/full.md\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/parse_report.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/source_map.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/raw/fixture_content_list.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader-manifest.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader.html\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/full_read.md\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/highlights.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/reading_guide.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translations.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_notes.md\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_plan.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.source.json\", \"data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.translation.json\", \"manifest.json\"], \"native_session_in_archive\": false, \"handoff_in_archive\": false}\r\n",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "name": "runtime versions",
+      "status": "passed",
+      "value": {
+        "node": "v22.22.2\r\n",
+        "python": "Python 3.11.16\r\n"
+      }
+    },
+    {
+      "name": "local PDF + parser fixture + translation fixture → real Reader; Excel save",
+      "status": "passed",
+      "value": {
+        "paper_id": "title_d8b339a0356f",
+        "expected": [
+          "合成个人思考",
+          "部分理解",
+          "V02 saved note"
+        ],
+        "xlsx": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+        "reader": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\papers\\title_d8b339a0356f\\generations\\2c407980f198d16a\\reading\\reader.html",
+        "pdf_sha256": "2c407980f198d16a5c1885ea907fb0bc06cc2f0ce172178f0d81ebbad5c43215",
+        "reader_sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a",
+        "normalized_blocks": 15
+      }
+    },
+    {
+      "name": "real host start and identity",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "version": "0.2.0-dev.1",
+        "candidate": true,
+        "status": "running",
+        "launchId": "bad3653f-42fd-4be6-8fed-0ded38848603",
+        "supervisorPid": 15036,
+        "startedAt": 1789627932900,
+        "pid": 30924,
+        "url": "http://127.0.0.1:53837"
+      }
+    },
+    {
+      "name": "repeated start reuses launch",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "version": "0.2.0-dev.1",
+        "candidate": true,
+        "status": "running",
+        "launchId": "bad3653f-42fd-4be6-8fed-0ded38848603",
+        "supervisorPid": 15036,
+        "startedAt": 1789627932900,
+        "pid": 30924,
+        "url": "http://127.0.0.1:53837"
+      }
+    },
+    {
+      "name": "engine library HTTP route",
+      "status": "passed",
+      "value": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Reader HTTP bytes match engine manifest",
+      "status": "passed",
+      "value": {
+        "readerUrl": "http://127.0.0.1:53837/sr/reader/title_d8b339a0356f",
+        "sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a",
+        "sourcePdfSha256": "2c407980f198d16a5c1885ea907fb0bc06cc2f0ce172178f0d81ebbad5c43215"
+      }
+    },
+    {
+      "name": "local model executes native tool; native session and handoff persisted",
+      "status": "passed",
+      "value": {
+        "binding": {
+          "folderId": "folder_6f9cc8bea001461c87e1dd1c90e5432f",
+          "sessionId": "session-dc9ee04b-7902-48e1-a477-e6d9cd1ee2f2",
+          "active": true,
+          "name": "V02 synthetic category 1789627938438"
+        },
+        "events": 28
+      }
+    },
+    {
+      "name": "restart 1: identity, notes, Reader, native history",
+      "status": "passed",
+      "value": {
+        "running": {
+          "product": "codex-scientific-reading",
+          "schema": 1,
+          "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+          "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+          "version": "0.2.0-dev.1",
+          "candidate": true,
+          "status": "running",
+          "launchId": "b4e3d03f-ff3d-4ddc-8da7-5bb136d075c3",
+          "supervisorPid": 11824,
+          "startedAt": 1789627941470,
+          "pid": 31304,
+          "url": "http://127.0.0.1:53847"
+        },
+        "records": {
+          "notes": [
+            "合成个人思考",
+            "部分理解",
+            "V02 saved note"
+          ],
+          "reader_sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a"
+        }
+      }
+    },
+    {
+      "name": "restart 2: identity, notes, Reader, native history",
+      "status": "passed",
+      "value": {
+        "running": {
+          "product": "codex-scientific-reading",
+          "schema": 1,
+          "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+          "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+          "version": "0.2.0-dev.1",
+          "candidate": true,
+          "status": "running",
+          "launchId": "80a32c99-f7f2-40d5-b582-62d081294cd4",
+          "supervisorPid": 32604,
+          "startedAt": 1789627947038,
+          "pid": 31456,
+          "url": "http://127.0.0.1:53856"
+        },
+        "records": {
+          "notes": [
+            "合成个人思考",
+            "部分理解",
+            "V02 saved note"
+          ],
+          "reader_sha256": "8fb87d11b9fab8e5fd3024f6a28ca493529ca6497fb9d88ca676b7c2a488db8a"
+        }
+      }
+    },
+    {
+      "name": "old Excel vs newer SQLite preservation",
+      "status": "passed",
+      "value": {
+        "old_excel": [
+          "合成个人思考",
+          "部分理解",
+          "V02 saved note"
+        ],
+        "new_sqlite": [
+          "SQLite newer thought",
+          "深入",
+          "SQLite newer note"
+        ],
+        "refresh": {
+          "status": "success",
+          "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+          "rows": 1
+        },
+        "after": [
+          "SQLite newer thought",
+          "深入",
+          "SQLite newer note"
+        ],
+        "newer_preserved": true
+      }
+    },
+    {
+      "name": "library backup and actual empty-directory restore",
+      "status": "passed",
+      "value": {
+        "backup": {
+          "status": "completed",
+          "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\v02-library.zip",
+          "sha256": "7b909cdab42f29a34eb0862e5477cad977cfe829ba399f7f1ef1d10a0e70942a",
+          "files": 24,
+          "schema_version": 4,
+          "contract": "scientific-reading-backup-v1"
+        },
+        "restore": {
+          "status": "completed",
+          "data_root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\restored-library",
+          "schema_version": 4,
+          "archive_sha256": "7b909cdab42f29a34eb0862e5477cad977cfe829ba399f7f1ef1d10a0e70942a",
+          "recovered_tasks": [],
+          "rebased_workspace_jobs": [
+            "papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json"
+          ],
+          "credentials": "请重新配置凭据；未恢复 DPAPI 密钥。",
+          "automatic_resume": false
+        },
+        "asset_files": 20,
+        "asset_mismatches": [],
+        "notes": [
+          "SQLite newer thought",
+          "深入",
+          "SQLite newer note"
+        ],
+        "members": [
+          "data/library.sqlite",
+          "data/library/scientific-reading.xlsx",
+          "data/papers/title_d8b339a0356f/job.json",
+          "data/papers/title_d8b339a0356f/metadata.json",
+          "data/papers/title_d8b339a0356f/source.pdf",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/metadata.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/package-manifest.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/source.pdf",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/output/reader_full.html",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/full.md",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/parse_report.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/source_map.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/raw/fixture_content_list.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader-manifest.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader.html",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/full_read.md",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/highlights.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/reading_guide.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translations.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_notes.md",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_plan.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.source.json",
+          "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.translation.json",
+          "manifest.json"
+        ],
+        "native_session_in_archive": false,
+        "handoff_in_archive": false
+      }
+    },
+    {
+      "name": "whole instance recovery includes native sessions and handoff",
+      "status": "known_gap",
+      "reason": "library backup scope excludes state/dsh-home and state/handoff.json; library-only restore is not whole-instance restore"
+    },
+    {
+      "name": "final stop leaves owned sentinel alive",
+      "status": "passed",
+      "value": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "4f8cbd14-7706-4db5-98f9-9b67c0acd6cd",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c",
+        "status": "stopped",
+        "startedAt": 1789627947038
+      }
+    }
+  ],
+  "sessionId": "session-dc9ee04b-7902-48e1-a477-e6d9cd1ee2f2",
+  "conflict": {
+    "old_excel": [
+      "合成个人思考",
+      "部分理解",
+      "V02 saved note"
+    ],
+    "new_sqlite": [
+      "SQLite newer thought",
+      "深入",
+      "SQLite newer note"
+    ],
+    "refresh": {
+      "status": "success",
+      "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\library\\library\\scientific-reading.xlsx",
+      "rows": 1
+    },
+    "after": [
+      "SQLite newer thought",
+      "深入",
+      "SQLite newer note"
+    ],
+    "newer_preserved": true
+  },
+  "backup": {
+    "backup": {
+      "status": "completed",
+      "path": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\v02-library.zip",
+      "sha256": "7b909cdab42f29a34eb0862e5477cad977cfe829ba399f7f1ef1d10a0e70942a",
+      "files": 24,
+      "schema_version": 4,
+      "contract": "scientific-reading-backup-v1"
+    },
+    "restore": {
+      "status": "completed",
+      "data_root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v3c\\restored-library",
+      "schema_version": 4,
+      "archive_sha256": "7b909cdab42f29a34eb0862e5477cad977cfe829ba399f7f1ef1d10a0e70942a",
+      "recovered_tasks": [],
+      "rebased_workspace_jobs": [
+        "papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json"
+      ],
+      "credentials": "请重新配置凭据；未恢复 DPAPI 密钥。",
+      "automatic_resume": false
+    },
+    "asset_files": 20,
+    "asset_mismatches": [],
+    "notes": [
+      "SQLite newer thought",
+      "深入",
+      "SQLite newer note"
+    ],
+    "members": [
+      "data/library.sqlite",
+      "data/library/scientific-reading.xlsx",
+      "data/papers/title_d8b339a0356f/job.json",
+      "data/papers/title_d8b339a0356f/metadata.json",
+      "data/papers/title_d8b339a0356f/source.pdf",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/job.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/metadata.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/package-manifest.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/source.pdf",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/output/reader_full.html",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/full.md",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/parse_report.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/source_map.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/parsed/mineru/raw/fixture_content_list.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader-manifest.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/reader.html",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/full_read.md",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/highlights.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/reading_guide.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translations.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_notes.md",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/translation_plan.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.source.json",
+      "data/papers/title_d8b339a0356f/generations/2c407980f198d16a/reading/full/batches/batch-0001.translation.json",
+      "manifest.json"
+    ],
+    "native_session_in_archive": false,
+    "handoff_in_archive": false
+  },
+  "handoffExists": true,
+  "nativeSessionCreated": true,
+  "completedAt": "2026-09-17T06:52:34.105Z"
+}

@@ -1,0 +1,10 @@
+{
+  "destination": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d\\outputs\\v02-003d-candidate",
+  "zip": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d\\outputs\\v02-003d-candidate\\deep-literature-for-codex-0.2.0-dev.2-win-x64.zip",
+  "zipSha": "a96a0d6bd702e7edd3f9e5327555c978aded3e189ceb06948a9d9da73fcdaca9",
+  "aName": "dsh-external-dsh-scientific-reading-0.2.0-dev.2.tgz",
+  "aSha256": "2e1ec6ebbc9ca37d33060d978f5d1f855455bb4423cc5b481957b3da0259bc09",
+  "sourceFiles": 270,
+  "verifiedFiles": 271,
+  "extractedRoot": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-003d\\outputs\\v02-003d-candidate\\verified-extraction\\deep-literature-for-codex-0.2.0-dev.2-win-x64"
+}
