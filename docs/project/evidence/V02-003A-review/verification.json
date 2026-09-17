@@ -1,0 +1,23 @@
+{
+  "engineCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "56",
+    "time": "48.173",
+    "timestamp": "2026-09-17T14:21:45.155167+08:00",
+    "hostname": "DESKTOP-niuniu"
+  },
+  "wheelSha256": "1b4d6297fc9afdb53b68a6da97ebed867c063d8e1f33dcd812b3da1ac156bc73",
+  "wheelModifiedSourcesMatchIntegrated": true,
+  "files": {
+    "build.log": "5c2d37c31046aac7f0c05ccf3d3a25782a2a19d06b4a5f2bddf2f22dd314d2d0",
+    "excel-actions.log": "30145352a80c6db27ae5d97f54e670de399031f78853544a50ac52caa5cd44fc",
+    "navigation.log": "58abe60c25e3334ea30c970c3bc013a17fa5f14ae8bf2371c5e93b4f17e69116",
+    "npm-ci.log": "6222419957c55b28e3fdfff42788871ac520debb4b1a6143b73321d5de18e865",
+    "targeted-junit.xml": "af7b09269b6fb3d3ecfbf7a9c715cb0d006109de0b7f39d254984dc382c82cc5",
+    "targeted.log": "7cb94c2ec3a95d00d7aef33c5d385fe75a2d39bf55805d84b9fd8f27c4866a4e"
+  }
+}

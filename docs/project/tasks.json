@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T05:45:40.190Z"
     },
-    "lastReviewAt": "2026-09-17T06:03:10.047Z",
+    "lastReviewAt": "2026-09-17T06:26:28.384502+00:00",
     "lastHeartbeatCompletedAt": "2026-09-17T06:07:14.779Z"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -127,9 +127,11 @@
       "findings": [
         {
           "id": "F3",
-          "status": "open",
+          "status": "closed",
           "title": "默认链外导航合同测试的期望落后，后续断言未运行",
-          "followup": "V02-002B"
+          "followup": "V02-002B",
+          "closedBy": "V02-002B",
+          "evidence": "docs/project/evidence/V02-003A-review.md"
         }
       ]
     },
@@ -306,7 +308,7 @@
       "id": "V02-003A",
       "title": "阻止旧 Excel 静默覆盖较新个人记录",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine"
       ],
@@ -330,22 +332,29 @@
         "docs/codex-v02/V02-003A*"
       ],
       "receipt": "docs/codex-v02/V02-003A-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T06:03:10.046Z",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "已核对固定基线与真实工作目录，回执确认开工；等待提交和验收证据，不重复派发。",
+      "commits": [
+        "e5b2c441d5e6f3deed864de8231e1b55c581f1cf"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-003A-review.md"
+      ],
+      "notes": "总控检查允许路径、实际差异与原始证据；组合复验 56 Excel tests/build/navigation/excel-actions 通过。F1 安装制品复验仍待 003B。",
       "clientThreadId": "client-new-thread:46aa5fa1-e0c1-4db3-a916-58bc928d4924",
       "dispatchRequestedAt": "2026-09-17T06:05:41.127Z",
       "startedAt": "2026-09-17T06:05:10.1897356Z",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "integrationCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
+      "integrationBranch": "codex/v02-engine-baseline",
+      "acceptance": "reviewed-and-combined-tests-passed"
     },
     {
       "id": "V02-002B",
       "title": "恢复导航合同测试的有效覆盖",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine"
       ],
@@ -364,20 +373,27 @@
         "docs/codex-v02/V02-002B*"
       ],
       "receipt": "docs/codex-v02/V02-002B-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-17T06:03:10.047Z",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "已核对固定基线与真实工作目录，回执确认开工；等待提交和验收证据，不重复派发。",
+      "commits": [
+        "41ede7940123ce121eba74bcfa5d14867acb7e97"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-003A-review.md"
+      ],
+      "notes": "已加入默认离线链；完整导航合同组合复验通过，F3 关闭。",
       "clientThreadId": "client-new-thread:b2aa9ff0-8cbd-4448-9a41-079304388110",
       "dispatchRequestedAt": "2026-09-17T06:05:41.128Z",
       "startedAt": "2026-09-17T06:05:40.6986079Z",
-      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
+      "integrationCommit": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
+      "integrationBranch": "codex/v02-engine-baseline",
+      "acceptance": "reviewed-and-combined-tests-passed"
     }
   ],
   "developmentBaseline": {
-    "engine": "d26cb9e88d0f7884db8e69a5a2d18286a62aaf83",
+    "engine": "4e5e6b964ddb8b823be17fb61774f8386bb0ba98",
     "engineBranch": "codex/v02-engine-baseline"
   }
 }
