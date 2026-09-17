@@ -13,7 +13,8 @@
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
-      "state": "ACTIVE"
+      "state": "ACTIVE",
+      "lastVerifiedAt": "2026-09-17T05:45:40.190Z"
     }
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -81,7 +82,7 @@
       "id": "V02-002",
       "title": "固定引擎源码、接口和测试基线",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine"
       ],
@@ -97,8 +98,8 @@
       "branch": "codex/v02-002-engine-baseline",
       "commits": [],
       "evidence": [],
-      "notes": "创建请求已提交；真实源码 worktree 已固定。等待应用 session ID 或本工作树开工回执，不能重复创建。仅审计和测试，不改产品代码。",
-      "dispatchState": "queued",
+      "notes": "已通过固定 worktree 回执确认开工；只审计、实际测试和记录引擎基线。应用尚未提供可关联的真实 session ID，后续优先读取回执、提交与报告。",
+      "dispatchState": "running",
       "userConfirmed": true,
       "writePaths": [
         "docs/codex-v02/",
@@ -107,7 +108,9 @@
       "receipt": "docs/codex-v02/V02-002-receipt.json",
       "dispatchReservedAt": "2026-09-17T05:43:14.437Z",
       "clientThreadId": "client-new-thread:24cab2e9-08bb-4f14-9e3b-c6eb7be44c32",
-      "dispatchRequestedAt": "2026-09-17T05:44:22.039Z"
+      "dispatchRequestedAt": "2026-09-17T05:44:22.039Z",
+      "startedAt": "2026-09-17T13:44:04.7654069+08:00",
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
     },
     {
       "id": "V02-003",
@@ -235,7 +238,7 @@
       "id": "V02-006A",
       "title": "完整实例恢复的最小方案",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "releases",
         "workflow",
@@ -257,14 +260,16 @@
         "docs/project/evidence/V02-006A-receipt.json"
       ],
       "receipt": "docs/project/evidence/V02-006A-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "running",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "创建请求已提交；只写恢复设计文档，与 002 独立。等待应用 session ID 或本工作树开工回执，不重复创建、不实施恢复功能。",
+      "notes": "已通过固定 worktree 回执确认开工；仅写恢复方案，与 002 的引擎审计并行。正式恢复实现和验收另立任务。",
       "dispatchReservedAt": "2026-09-17T05:43:14.438Z",
       "clientThreadId": "client-new-thread:b693194c-492c-4eb9-aecd-9681a2f42c87",
-      "dispatchRequestedAt": "2026-09-17T05:44:22.041Z"
+      "dispatchRequestedAt": "2026-09-17T05:44:22.041Z",
+      "startedAt": "2026-09-17T13:44:15.7644282+08:00",
+      "startConfirmedBy": "fixed-worktree-receipt-and-git-state"
     }
   ]
 }
