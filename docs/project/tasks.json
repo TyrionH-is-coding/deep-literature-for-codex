@@ -29,7 +29,9 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "已准备任务卡，未创建开发任务；分派时冻结包含任务卡的总控 commit 到 baseCommit。ready 不代表已执行或通过。"
+      "userConfirmed": true,
+      "approvedScope": "仅隔离验收与问题定位；可补验收脚本和测试样例；产品代码修复另立任务",
+      "notes": "用户已确认启动，正在准备独立开发任务；分派时冻结包含任务卡的总控 commit 到 baseCommit。ready 不代表已执行或通过。"
     },
     {
       "id": "V02-002",
