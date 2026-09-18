@@ -119,7 +119,8 @@
         "src/workspace.mjs",
         "tests/handoff.test.mjs",
         "docs/modules/workflow.md",
-        "docs/modules/changes/workflow.md"
+        "docs/modules/changes/workflow.md",
+        "tests/v02-cancel-contract.test.mjs"
       ],
       "dependencies": [
         "foundation"
@@ -131,7 +132,8 @@
       "context": "docs/modules/workflow.md",
       "changelog": "docs/modules/changes/workflow.md",
       "tests": [
-        "tests/handoff.test.mjs"
+        "tests/handoff.test.mjs",
+        "tests/v02-cancel-contract.test.mjs"
       ]
     },
     {
