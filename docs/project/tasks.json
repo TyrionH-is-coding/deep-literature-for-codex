@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T05:59:16.127537+00:00",
+    "lastReviewAt": "2026-09-18T06:27:28.877363+00:00",
     "lastHeartbeatCompletedAt": "2026-09-18T06:10:35.914182+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -186,13 +186,15 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "004E源码持久意图修复通过，004D继续安装复验；待候选基线确定再拆A后台停止协议卡，004A-G1仍开放，005不解除。",
+      "notes": "恢复F1已安装闭环；停止控制004F与冻结旧路径诊断004G并行，005继续等待。",
       "children": [
         "V02-004A",
         "V02-004B",
         "V02-004C",
         "V02-004D",
-        "V02-004E"
+        "V02-004E",
+        "V02-004F",
+        "V02-004G"
       ]
     },
     {
@@ -725,20 +727,23 @@
       "findings": [
         {
           "id": "004A-F1",
-          "status": "open",
+          "status": "closed",
           "title": "解析提交前进程中断导致generation_workspace_conflict，无法续接",
           "followup": "V02-004D",
           "blocksV02Release": true,
           "sourceFix": "V02-004B",
-          "sourceAcceptance": "passed; root 24 tests; installed candidate pending"
+          "sourceAcceptance": "passed; root 24 tests; installed candidate pending",
+          "closedBy": "V02-004D",
+          "evidence": "docs/project/evidence/V02-004D-control-review.md",
+          "installedAcceptance": "dev.3 new/legacy checkpoints verified"
         },
         {
           "id": "004A-G1",
           "status": "open",
           "title": "宿主取消与独立引擎worker取消职责未闭合",
-          "followup": "V02-004C",
+          "followup": "V02-004F",
           "blocksV02Release": true,
-          "notes": "004C诊断通过但取消未闭合；004E仅修复C1持久意图，A安全边界停止仍待实施。"
+          "notes": "先A权威停止控制，再B工具接入及最终组合；004E只关闭宿主持久意图C1。"
         }
       ]
     },
@@ -856,7 +861,7 @@
       "id": "V02-004D",
       "title": "恢复修复的安装候选复验",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "application",
@@ -886,12 +891,18 @@
         "docs/project/evidence/V02-004D*"
       ],
       "receipt": "docs/project/evidence/V02-004D-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "独立写入/实例，冻结生产输入；串行合入后须验组合，004尚未通过。",
+      "commits": [
+        "865647f0fdcd4ec9164b44790823e8b66a7581e2"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004D-control-review.md",
+        "docs/project/evidence/V02-004D-control-verification.json",
+        "docs/project/evidence/V02-004DE-control-tests.txt"
+      ],
+      "notes": "004A-F1安装恢复闭环；004E组合源码80pass/1skip，最终组合安装未验证。直接advance观察另卡归因。",
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004d",
       "engineBranch": "codex/v02-004d-installed-recovery",
       "engineBaseCommit": "bf09c557bcedbba1d843579401d73b7beb65705d",
@@ -908,21 +919,30 @@
       "clientThreadId": "client-new-thread:a7acdab2-1460-4483-8978-0086153b59c9",
       "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
       "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00",
-      "receiptPhase": "in_progress",
+      "receiptPhase": "review",
       "startedAt": "2026-09-18T05:46:31.1927945Z",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-build-evidence",
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T06:10:35.914182+00:00",
-        "deliveryReady": false,
-        "engineHead": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
-        "workbenchSource": "c78dc5846dac799b024a4cd07dfbef40bc2e8f6a",
-        "observations": [
-          "Current full Python log now reports 547 passed / 3 skipped; prior pytest-not-ready attempt remains historical, not current blocker.",
-          "B candidate installation, upgrade/provenance and synthetic smoke evidence newly present; legacy/restart/conflict probes are still being refined.",
-          "Both worktrees contain uncommitted probe/evidence changes; receipt remains in_progress and final report/cleanup not delivered. No acceptance or dependency release.",
-          "004D frozen candidate excludes integrated004E; final combined installation remains separate."
-        ]
-      }
+        "checkedAt": "2026-09-18T06:27:28.877363+00:00",
+        "deliveryReady": true,
+        "engineHead": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
+        "workbenchHead": "865647f0fdcd4ec9164b44790823e8b66a7581e2"
+      },
+      "engineCommits": [
+        "a37a415c4bec9a895f1dc1619cfa35081cf85d26"
+      ],
+      "integrationCommit": "6b979d18dcb14d54e2e9bb3dc026dfd7b5325b87",
+      "engineIntegrationCommit": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
+      "acceptance": "installed-recovery-accepted; direct-advance-observation retained",
+      "findings": [
+        {
+          "id": "004D-O1",
+          "status": "open",
+          "title": "failed后直接advance导致状态校验失败，支持边界与根因待核实",
+          "followup": "V02-004G",
+          "classification": "unresolved-observation"
+        }
+      ]
     },
     {
       "id": "V02-004E",
@@ -977,14 +997,89 @@
       "startConfirmedBy": "fixed-worktree-receipt-and-final-commit",
       "integrationCommit": "df66bdbec8f84097a7dac5c4013634ff3bb2a76b",
       "acceptance": "source-fix-accepted; combined installed candidate still pending"
+    },
+    {
+      "id": "V02-004F",
+      "title": "引擎持久停止控制与显式恢复",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-004D",
+        "V02-004E"
+      ],
+      "parent": "V02-004",
+      "card": "docs/project/tasks/V02-004F.md",
+      "ownerSession": null,
+      "baseCommit": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004f",
+      "branch": "codex/v02-004f-engine-stop",
+      "writePaths": [
+        "engine/src/scientific_reading/reading_control.py",
+        "engine/src/scientific_reading/reading_pipeline.py",
+        "engine/src/scientific_reading/worker.py",
+        "engine/src/scientific_reading/background_launcher.py",
+        "engine/src/scientific_reading/background_store.py",
+        "engine/src/scientific_reading/__main__.py",
+        "engine/src/scientific_reading/background_models.py",
+        "engine/src/scientific_reading/scope.py#new-command-authorization-only",
+        "engine/tests/test_reading_control.py",
+        "engine/tests/test_reading_control_process.py",
+        "engine/tests/#related-pipeline-worker-launcher-cli-scope-only",
+        "engine/tests/test_v02_pipeline_contract.py#historical-no-cancel-assertion-only",
+        "scripts/v02-004f-*",
+        "scripts/fixtures/v02-004f/",
+        "docs/codex-v02/V02-004F*"
+      ],
+      "receipt": "docs/codex-v02/V02-004F-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。"
+    },
+    {
+      "id": "V02-004G",
+      "title": "直接advance失败路径归因",
+      "kind": "task",
+      "status": "ready",
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-004D",
+        "V02-004E"
+      ],
+      "parent": "V02-004",
+      "card": "docs/project/tasks/V02-004G.md",
+      "ownerSession": null,
+      "baseCommit": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004g",
+      "branch": "codex/v02-004g-advance-audit",
+      "writePaths": [
+        "scripts/v02-004g-*",
+        "scripts/fixtures/v02-004g/",
+        "docs/codex-v02/V02-004G*"
+      ],
+      "receipt": "docs/codex-v02/V02-004G-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。"
     }
   ],
   "developmentBaseline": {
-    "engine": "bf09c557bcedbba1d843579401d73b7beb65705d",
+    "engine": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "df66bdbec8f84097a7dac5c4013634ff3bb2a76b",
+    "workbench": "6b979d18dcb14d54e2e9bb3dc026dfd7b5325b87",
     "workbenchBranch": "codex/v02-control",
-    "candidate": "0.2.0-dev.2",
-    "engineAcceptance": "source recovery fix accepted; dev.3 installed verification pending"
+    "candidate": "0.2.0-dev.3",
+    "engineAcceptance": "installed recovery accepted; stop control pending",
+    "workbenchAcceptance": "004D+004E source combination tested; final combined installation pending"
   }
 }
