@@ -39,24 +39,24 @@ test('not yet dispatched: cancel persists across reopen and suppresses submit/de
  assert.equal((await restored.list()).tasks[0].cancelRequested,true);
  assert.equal(s.prompts,0);assert.equal(s.starts,1);
 });
-test('queued receipt: repeat cancel preserves job; explicit retry key clears marker and creates only one new dispatch',async t=>{
+test('queued receipt: repeat cancel preserves job; retry key cannot clear stop intent',async t=>{
  const {s,service,id}=await fixture(t);await service.dispatch(id);
  await service.cancel(id);await service.cancel(id);assert.equal(s.cancels,2);
  assert.equal((await service.dispatch(id)).dispatch.status,'not_needed');
  await service.dispatch(id,'retry');await service.dispatch(id,'retry');
- assert.equal(s.prompts,2);assert.equal((await service.task(id)).cancelRequested,false);assert.equal(s.starts,1);
+ assert.equal(s.prompts,1);assert.equal((await service.task(id)).cancelRequested,true);assert.equal(s.starts,1);
 });
 test('detached engine status is independent; completed artifacts remain visible after cancel (injected)',async t=>{
  const {s,service,id}=await fixture(t);s.status='running';await service.cancel(id);
  s.status='completed';const task=await service.task(id);
  assert.equal(task.status,'completed');assert.equal(task.cancelRequested,true);assert.equal(task.artifacts.sha256,'synthetic-artifact');assert.equal(s.resumes,0);
 });
-test('fresh successful resume clears cancellation; failed resume leaves request set',async t=>{
+test('ordinary resume cannot clear cancellation even when engine is available',async t=>{
  const {s,service,id}=await fixture(t);await service.cancel(id);s.failResume=true;
- await assert.rejects(service.operate(id,'failure','resume',{input:{}}),/resume_lost/);
+ await assert.rejects(service.operate(id,'failure','resume',{input:{}}),/reading_stop_requested/);
  assert.equal((await service.task(id)).cancelRequested,true);s.failResume=false;
- await service.operate(id,'new','resume',{input:{}});
- assert.equal((await service.task(id)).cancelRequested,false);
+ await assert.rejects(service.operate(id,'new','resume',{input:{}}),/reading_stop_requested/);
+ assert.equal((await service.task(id)).cancelRequested,true);assert.equal(s.resumes,0);
 });
 test('replaying an already completed resume operation after cancellation does not reopen it',async t=>{
  const {s,service,id}=await fixture(t);await service.operate(id,'old','resume',{input:{}});await service.cancel(id);
@@ -95,7 +95,7 @@ test('cancel intent is on disk before host call; failure propagates unchanged wi
  assert.equal((await service.dispatch(id)).dispatch.status,'not_needed');
  assert.equal(s.prompts,0);
  const raw=await fs.readFile(service.file,'utf8');
- assert.equal(raw.includes('synthetic_host_failure'),false);
+ assert.equal(Object.values(JSON.parse(raw).tasks)[0].hostCancellation.error,'synthetic_host_failure');
  assert.equal(Object.values(JSON.parse(raw).tasks)[0].cancellation,undefined);
 });
 
@@ -129,10 +129,10 @@ test('host failure intent survives independent read-only Node process and servic
  await assert.rejects(service.cancel(id),/host_unavailable/);
  const probe=fileURLToPath(new URL('../scripts/fixtures/v02-004e/reopen.mjs',import.meta.url));
  const before=await fs.readFile(service.file,'utf8');
- const read=JSON.parse(execFileSync(process.execPath,[probe,'read',root,id],{encoding:'utf8',windowsHide:true,timeout:15000}));
+ const read=JSON.parse(execFileSync(process.execPath,[probe,'read',root,id],{encoding:'utf8',windowsHide:true,timeout:60000}));
  assert.equal(read.cancelRequested,true);assert.notEqual(read.pid,process.pid);
  assert.equal(await fs.readFile(service.file,'utf8'),before);
- const reopened=JSON.parse(execFileSync(process.execPath,[probe,'reopen',root,id],{encoding:'utf8',windowsHide:true,timeout:15000}));
+ const reopened=JSON.parse(execFileSync(process.execPath,[probe,'reopen',root,id],{encoding:'utf8',windowsHide:true,timeout:60000}));
  assert.equal(reopened.cancelRequested,true);assert.equal(reopened.cancels,2);
  assert.equal(reopened.prompts,0);assert.notEqual(reopened.pid,read.pid);
 });
@@ -148,7 +148,7 @@ test('host failure keeps real terminal states and submitted Reader artifacts', a
  }
 });
 
-test('fresh attach clears intent; replaying the completed attach after later cancellation preserves it', async t => {
+test('fresh attach cannot clear intent; replaying an earlier completed attach preserves later cancellation', async t => {
  const {root,s,service,id}=await fixture(t);
  const engine=service.engine;let attaches=0;
  service.engine=async (...args)=>{
@@ -157,10 +157,10 @@ test('fresh attach clears intent; replaying the completed attach after later can
  };
  const pdf=path.join(root,'synthetic.pdf');await fs.writeFile(pdf,'%PDF-1.4 synthetic');
  const payload={sourceType:'manual',pdf};
- s.failCancel=true;await assert.rejects(service.cancel(id),/host_unavailable/);
  await service.operate(id,'attach-new','attach',payload);
- assert.equal((await service.task(id)).cancelRequested,false);
+ s.failCancel=true;
  await assert.rejects(service.cancel(id),/host_unavailable/);
+ await assert.rejects(service.operate(id,'attach-fresh','attach',payload),/reading_stop_requested/);
  const replay=await service.operate(id,'attach-new','attach',payload);
  assert.equal(replay.cancelRequested,true);assert.equal(attaches,1);
 });

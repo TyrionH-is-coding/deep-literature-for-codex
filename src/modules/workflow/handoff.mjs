@@ -15,6 +15,7 @@ function identifier(value) {
   return value;
 }
 const gateDigest = job => digest({ status: job?.status, reason: job?.detail?.reason_code, input: job?.detail?.required_input });
+const safeError = error => /^[a-z0-9_]+$/i.test(error?.message) ? error.message : 'control_request_failed';
 
 export class Handoff {
   pending = Promise.resolve();
@@ -23,6 +24,7 @@ export class Handoff {
     try { service.data = await readJson(service.file); }
     catch (error) { if (error.code !== 'ENOENT') throw error; }
     if (service.data.instanceId !== dependencies.instance.instanceId || service.data.schema !== 1) throw new Error('handoff_instance_mismatch');
+    for (const task of Object.values(service.data.tasks)) await service._refresh(task);
     return service;
   }
   constructor(root, dependencies) {
@@ -37,6 +39,88 @@ export class Handoff {
     return result;
   }
   save() { return writeJson(this.file, this.data); }
+  sameScopePaper(a, b) { return a.sessionId === b.sessionId && a.folderId === b.folderId && a.paperId === b.paperId; }
+  aliases(task) {
+    return Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other)
+      && task.jobId && other.jobId === task.jobId);
+  }
+  stopped(task) {
+    return task.cancelRequested || task.control?.stopRequested === true || Object.values(this.data.tasks).some(other =>
+      other !== task && this.sameScopePaper(task, other) && (!task.jobId || !other.jobId || task.jobId === other.jobId) && other.cancelRequested);
+  }
+  // Called with the host's actual session. Arguments identify a target, never authority.
+  guardAdvance(sessionId, name, args = {}) {
+    const scope = this.scopeFor(sessionId);
+    if (!scope) throw new Error('category_binding_required');
+    if (!['sr_start_full_read', 'sr_continue_full_read'].includes(name)) return;
+    if (args.resumeStopped || args.resume_stopped) throw new Error('explicit_resume_requires_administrator');
+    const tasks = Object.values(this.data.tasks).filter(task => task.sessionId === scope.scopeSessionId
+      && this.stopped(task) && (name === 'sr_start_full_read' ? task.paperId === args.paper_id : task.jobId === args.job_id));
+    if (tasks.length) throw new Error('reading_stop_requested');
+  }
+  async readControl(task, scope) {
+    const control = await this.engine(['full-read-pipeline-control', '--job-id', task.jobId], undefined, scope);
+    if (control?.contract !== 'reading-control-v1' || control.parentJobId !== task.jobId
+      || control.pipelineState?.paper_id !== task.paperId) throw new Error('engine_stop_control_invalid');
+    for (const alias of this.aliases(task)) {
+      alias.control = structuredClone(control);
+      alias.controlError = null;
+    }
+    return control;
+  }
+  async reconcileStop(task, scope) {
+    let control;
+    try { control = await this.readControl(task, scope); }
+    catch (error) { task.controlError = safeError(error); }
+    if (!task.cancelRequested) return;
+    const stop = task.stopOperation ??= { requestId: 'stop-' + randomUUID(), status: 'prepared' };
+    // Even migration/retry must commit its intent before any cross-domain effect.
+    await this.save();
+    if (!control) { stop.status = 'unknown'; stop.error = task.controlError; return; }
+    const accepted = control.operations[stop.requestId];
+    if (accepted) {
+      stop.revision = accepted.revision;
+      stop.status = control.stopRequested && control.revision === accepted.revision ? control.status : 'superseded';
+      stop.error = null;
+      return;
+    }
+    if (stop.expectedRevision === undefined) {
+      stop.expectedRevision = control.revision;
+      await this.save();
+    }
+    try {
+      await this.engine(['full-read-pipeline-stop', '--job-id', task.jobId, '--request-id', stop.requestId,
+        '--expected-revision', String(stop.expectedRevision)], undefined, scope);
+      control = await this.readControl(task, scope);
+      const op = control.operations[stop.requestId];
+      stop.status = op ? (control.stopRequested && control.revision === op.revision ? control.status : 'superseded') : 'unknown';
+      if (op) stop.revision = op.revision;
+      stop.error = null;
+    } catch (error) { stop.status = 'unknown'; stop.error = safeError(error); }
+  }
+  reconcileResumes(task) {
+    const control = task.control;
+    if (!control || task.controlError || control.stopRequested) return;
+    const aliases = this.aliases(task);
+    for (const owner of aliases) for (const operation of Object.values(owner.operations ?? {})) {
+      if (!operation.resumeStopped) continue;
+      const op = control.operations[operation.requestId];
+      if (op?.kind !== 'resume' || op.revision !== control.revision || op.expectedRevision !== operation.expectedRevision
+        || !op.dispatched || digest(op.input) !== digest(operation.input)) continue;
+      operation.status = 'completed';
+      operation.error = null;
+      // Coverage is journaled before resume. Match both local generation and A's
+      // accepted stop revision; an unsent or later intent cannot be covered.
+      const covered = operation.coveredStops ?? [{ taskId: owner.taskId, requestId: operation.stopRequestId }];
+      for (const alias of aliases) {
+        const stop = alias.stopOperation;
+        const receipt = stop && control.operations[stop.requestId];
+        if (receipt?.kind !== 'stop' || receipt.revision > operation.expectedRevision) continue;
+        if (covered.some(row => row.taskId === alias.taskId && row.requestId === stop.requestId
+          && (row.revision === undefined || row.revision === receipt.revision))) alias.cancelRequested = false;
+      }
+    }
+  }
   scopeFor(sessionId) {
     const seen = new Set();
     while (sessionId && !seen.has(sessionId)) {
@@ -88,6 +172,16 @@ export class Handoff {
     if (!scope) throw new Error('folder_archived');
     const item = await this.engine(['library-item-v2', '--paper-id', task.paperId], undefined, scope);
     if (item.folder_id !== task.folderId) throw new Error('scope_changed');
+    if (!task.jobId && this.stopped(task)) {
+      const parents = [...new Set(Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other) && other.jobId).map(other => other.jobId))];
+      if (parents.length > 1 || (parents.length === 1 && item.active_job_id && item.active_job_id !== parents[0])) throw new Error('handoff_parent_ambiguous');
+      if (parents.length === 1) {
+        const job = await this.engine(['job-status', '--job-id', parents[0]], undefined, scope);
+        if (job.paper_id !== task.paperId || job.job_id !== parents[0]) throw new Error('job_identity_mismatch');
+        task.jobId = job.job_id;
+        await this.save();
+      }
+    }
     return { task, scope };
   }
   submit(request) {
@@ -104,6 +198,7 @@ export class Handoff {
       }
       const { scope } = await this.checkedTask(task.taskId);
       if (!task.jobId) {
+        if (this.stopped(task)) { task.status = 'cancel_requested'; await this.save(); return structuredClone(task); }
         // A's content identity is stable; a crash before this receipt can safely
         // repeat start without starting a second parse or changing the paper ID.
         const result = await this.engine(['full-read-pipeline-start', '--paper-id', task.paperId], undefined, scope);
@@ -119,22 +214,26 @@ export class Handoff {
   async _refresh(task) {
     try {
       const { scope } = await this.checkedTask(task.taskId);
-      if (!task.jobId) { await this.save(); return task; }
+      if (!task.jobId) { if (this.stopped(task)) task.status = 'cancel_requested'; await this.save(); return task; }
+      await this.reconcileStop(task, scope);
+      this.reconcileResumes(task);
       const job = await this.engine(['job-status', '--job-id', task.jobId], undefined, scope);
       if (job.paper_id !== task.paperId || job.job_id !== task.jobId) throw new Error('job_identity_mismatch');
-      task.job = job;
-      task.error = job.status === 'failed'
+      const error = job.status === 'failed'
         ? (typeof job.detail?.error === 'string' && job.detail.error ? job.detail.error
           : typeof job.detail?.reason_code === 'string' && job.detail.reason_code ? job.detail.reason_code
           : 'job_failed')
         : null;
-      task.status = ['waiting_user', 'waiting_agent', 'failed'].includes(job.status) ? job.status
+      const status = ['waiting_user', 'waiting_agent', 'failed'].includes(job.status) ? job.status
         : job.status === 'interrupted' ? 'waiting_user' : 'dispatched';
-      if (job.status === 'completed') {
-        task.artifacts = await this.reader(task.paperId, scope);
-        task.status = 'completed';
+      const artifacts = job.status === 'completed' ? await this.reader(task.paperId, scope) : undefined;
+      for (const alias of this.aliases(task)) {
+        alias.job = structuredClone(job);
+        alias.error = error;
+        alias.status = job.status === 'completed' ? 'completed' : status;
+        if (artifacts) alias.artifacts = structuredClone(artifacts);
+        if (this.stopped(alias) && !['completed', 'failed'].includes(alias.status)) alias.status = 'cancel_requested';
       }
-      if (task.cancelRequested && !['completed', 'failed'].includes(task.status)) task.status = 'cancel_requested';
     } catch (error) { task.status = 'failed'; task.error = error.message; }
     task.checkedAt = new Date().toISOString();
     await this.save();
@@ -156,13 +255,13 @@ export class Handoff {
   dispatch(taskId, retryKey) {
     return this.serial(async () => {
       const { task } = await this.checkedTask(taskId);
-      if (retryKey !== undefined) { identifier(retryKey); task.cancelRequested = false; }
+      if (retryKey !== undefined) identifier(retryKey);
       await this._refresh(task);
       return this._dispatch(task, retryKey);
     });
   }
   async _dispatch(task, retryKey) {
-    if (task.status !== 'waiting_agent') return { ...structuredClone(task), dispatch: { status: 'not_needed' } };
+    if (this.stopped(task) || task.status !== 'waiting_agent') return { ...structuredClone(task), dispatch: { status: 'not_needed' } };
     const gate = digest({ reason: task.job.detail?.reason_code, input: task.job.detail?.required_input, retryKey });
     let dispatch = task.dispatches[gate];
     if (dispatch) {
@@ -185,6 +284,8 @@ export class Handoff {
     return { ...structuredClone(task), dispatch };
   }
   operate(taskId, idempotencyKey, kind, payload) {
+    // Detach caller-owned input before waiting on the serialization queue.
+    payload = structuredClone(payload);
     return this.serial(async () => {
       const { task, scope } = await this.checkedTask(taskId);
       const key = digest(identifier(idempotencyKey)), fingerprint = digest({ kind, payload });
@@ -192,12 +293,49 @@ export class Handoff {
       if (previous && previous.fingerprint !== fingerprint) throw new Error('idempotency_conflict');
       if (['completed', 'observed_progress'].includes(previous?.status)) return structuredClone(await this._refresh(task));
       await this._refresh(task);
+      if (kind === 'resume' && payload.resumeStopped === true) {
+        if (!Number.isSafeInteger(payload.expectedRevision) || payload.expectedRevision < 0
+          || !payload.input || typeof payload.input !== 'object' || Array.isArray(payload.input)) throw new Error('invalid_control_resume');
+        if (!task.jobId) throw new Error('handoff_parent_unavailable');
+        // Bind legacy parentless aliases and deliver their durable intents before
+        // taking a resume coverage snapshot. Never resume past an unknown stop.
+        for (const alias of Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other) && !other.jobId)) await this.checkedTask(alias.taskId);
+        for (const alias of this.aliases(task)) if (alias.cancelRequested) await this.reconcileStop(alias, scope);
+        const control = await this.readControl(task, scope);
+        const coveredStops = this.aliases(task).filter(alias => alias.cancelRequested).flatMap(alias => {
+          const stop = alias.stopOperation, receipt = stop && control.operations[stop.requestId];
+          return receipt?.kind === 'stop' && receipt.revision <= payload.expectedRevision
+            ? [{ taskId: alias.taskId, requestId: stop.requestId, revision: receipt.revision }] : [];
+        });
+        const operation = previous ?? (task.operations[key] = { fingerprint, kind, resumeStopped: true,
+          requestId: 'resume-' + digest({ taskId, key }), expectedRevision: payload.expectedRevision,
+          input: payload.input, stopRequestId: task.stopOperation?.requestId ?? null, coveredStops, status: 'prepared' });
+        await this.save();
+        try {
+          if (this.aliases(task).some(alias => alias.cancelRequested
+            && !control.operations[alias.stopOperation?.requestId])) throw new Error('reading_control_stop_unconfirmed');
+          await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-', '--resume-stopped',
+            '--request-id', operation.requestId, '--expected-revision', String(operation.expectedRevision)], operation.input, scope);
+          await this.readControl(task, scope);
+          this.reconcileResumes(task);
+          if (operation.status !== 'completed') throw new Error('reading_control_reconciliation_required');
+        } catch (error) {
+          operation.error = safeError(error);
+          await this.save();
+          throw error;
+        }
+        await this.save();
+        return structuredClone(await this._refresh(task));
+      }
+      if (payload.resumeStopped !== undefined || payload.expectedRevision !== undefined) throw new Error('invalid_control_resume');
+      if (this.stopped(task)) throw new Error('reading_stop_requested');
       if (previous) {
         if (kind === 'attach') {
           const artifact = await this.engine(['artifact-resolve', '--paper-id', task.paperId, '--kind', 'pdf'], undefined, scope);
           if (artifact.sha256 === previous.sha256) {
             if (task.job.detail?.reason_code === 'pdf_required') {
-              await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-'], { pdf_attached: true }, scope);
+              const result = await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-'], { pdf_attached: true }, scope);
+              if (result?.stopRequested) throw new Error('reading_stop_requested');
             }
             previous.status = 'completed';
             await this.save();
@@ -223,23 +361,41 @@ export class Handoff {
       const operation = task.operations[key] = { fingerprint, kind, status: 'prepared', gateDigest: gateDigest(task.job),
         ...(kind === 'attach' ? { sha256, sourceType: payload.sourceType } : {}) };
       await this.save();
-      if (kind === 'resume') await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-'], payload.input, scope);
-      else await this.engine(['full-read-pdf-attach-resume', '--paper-id', task.paperId, '--job-id', task.jobId, '--pdf', pdf], undefined, scope);
+      const result = kind === 'resume'
+        ? await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-'], payload.input, scope)
+        : await this.engine(['full-read-pdf-attach-resume', '--paper-id', task.paperId, '--job-id', task.jobId, '--pdf', pdf], undefined, scope);
+      if (result?.stopRequested) { task.control = result; await this.save(); throw new Error('reading_stop_requested'); }
       operation.status = 'completed';
-      task.cancelRequested = false;
       await this.save();
       return structuredClone(await this._refresh(task));
     });
   }
   cancel(taskId) {
     return this.serial(async () => {
-      const { task } = await this.checkedTask(taskId);
+      const { task, scope } = await this.checkedTask(taskId);
+      const resumeAttempted = this.aliases(task).some(alias => Object.values(alias.operations ?? {}).some(op => op.resumeStopped
+        && (op.coveredStops?.some(row => row.taskId === task.taskId && row.requestId === task.stopOperation?.requestId)
+          || (!op.coveredStops && (alias !== task || op.stopRequestId === task.stopOperation?.requestId)))));
+      if (!task.cancelRequested || resumeAttempted) task.stopOperation = { requestId: 'stop-' + randomUUID(), status: 'prepared' };
       task.cancelRequested = true;
+      task.stopOperation ??= { requestId: 'stop-' + randomUUID(), status: 'prepared' };
+      task.hostCancellation = { status: 'requested', requestId: task.stopOperation.requestId,
+        previousResult: task.cancellation ?? null };
       // Persist intent before host side effects; a failed host call remains retryable.
       await this.save();
-      task.cancellation = await this.cancelTask(task);
-      // DSH cancellation does not kill A's detached worker. Keep that distinction.
+      // Both domains are attempted independently after durable intent. Neither
+      // transport failure is proof of cancellation or permission to resume.
+      let persistenceError, hostError;
+      try { if (task.jobId) await this.reconcileStop(task, scope); }
+      catch (error) { persistenceError = error; }
+      try {
+        task.cancellation = await this.cancelTask(task);
+        task.hostCancellation = { status: 'received', requestId: task.stopOperation.requestId, result: task.cancellation };
+      } catch (error) { hostError = error; task.hostCancellation = { status: 'unknown', requestId: task.stopOperation.requestId, error: safeError(error) }; }
+      await this.save();
+      if (persistenceError) throw persistenceError;
       await this._refresh(task);
+      if (hostError) throw hostError;
       return structuredClone(task);
     });
   }

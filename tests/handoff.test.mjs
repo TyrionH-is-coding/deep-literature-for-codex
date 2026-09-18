@@ -231,7 +231,15 @@ test('宿主取消失败只持久化目标意图，同会话其他任务及投�
   const { service, state, counters, root, deps } = await fixture(t);
   state.job = 'waiting_agent';
   const target = await service.submit({ idempotencyKey: 'target', folderId: 'f1', paperId: 'paper1' });
-  const other = await service.submit({ idempotencyKey: 'other', folderId: 'f1', paperId: 'paper1' });
+  // A distinct paper, not an alias of the same protected parent.
+  const originalEngine = service.engine;
+  service.engine = async (args, input, scope) => {
+    if (args[0] === 'full-read-pipeline-start' && args.includes('paper2')) return { parent_job_id: 'job_abcdef1234567890' };
+    if (args[0] === 'job-status' && args.includes('job_abcdef1234567890')) return { paper_id: 'paper2', job_id: 'job_abcdef1234567890', status: 'waiting_agent', detail: {} };
+    return originalEngine(args, input, scope);
+  };
+  deps.engine = service.engine;
+  const other = await service.submit({ idempotencyKey: 'other', folderId: 'f1', paperId: 'paper2' });
   assert.equal(target.sessionId, other.sessionId);
   service.cancelTask = async task => { assert.equal(task.taskId, target.taskId); throw Error('host_unavailable'); };
   const before = JSON.parse(await fs.readFile(service.file, 'utf8'));

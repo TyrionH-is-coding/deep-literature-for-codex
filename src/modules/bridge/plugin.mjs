@@ -51,6 +51,10 @@ export async function apply(ctx, config) {
   ctx.on('tools/execute', async (exec, next) => {
     const scope = service.scopeFor(exec.agent?.session?.id);
     if (!scope || !CATEGORY_TOOLS.has(exec.name)) throw new Error('scope_command_forbidden');
+    if (['sr_start_full_read', 'sr_continue_full_read'].includes(exec.name)) return service.serial(() => {
+      service.guardAdvance(exec.agent?.session?.id, exec.name, exec.arguments);
+      return api.withEngineScope(scope, next);
+    });
     // A's download status has a TS fast path; require the scoped Python fact first.
     if (exec.name === 'sr_job_status') {
       await engine(['job-status', '--job-id', exec.arguments.job_id], undefined, scope);

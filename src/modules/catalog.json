@@ -111,7 +111,7 @@
     },
     {
       "id": "workflow",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "purpose": "分类会话绑定、任务幂等、交接与恢复",
       "ownedPaths": [
         "src/modules/workflow/",
@@ -120,7 +120,8 @@
         "tests/handoff.test.mjs",
         "docs/modules/workflow.md",
         "docs/modules/changes/workflow.md",
-        "tests/v02-cancel-contract.test.mjs"
+        "tests/v02-cancel-contract.test.mjs",
+        "tests/v02-workflow-control.test.mjs"
       ],
       "dependencies": [
         "foundation"
@@ -133,12 +134,13 @@
       "changelog": "docs/modules/changes/workflow.md",
       "tests": [
         "tests/handoff.test.mjs",
-        "tests/v02-cancel-contract.test.mjs"
+        "tests/v02-cancel-contract.test.mjs",
+        "tests/v02-workflow-control.test.mjs"
       ]
     },
     {
       "id": "bridge",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "purpose": "DSH 工具和 HTTP 与任务/文献引擎适配",
       "ownedPaths": [
         "src/modules/bridge/",

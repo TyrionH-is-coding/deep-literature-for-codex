@@ -31,3 +31,9 @@
 `reading-control-v1` 按原快照返回，验证 parent、嵌套身份、revision、阶段及控制记录；仅停止中的普通 resume/attach 可接受 exit 2 gate。`requested` 不等于 `acknowledged`，业务 failed/completed 不转换为 canceled，独立 child 不停止。非法控制快照为 `engine_stop_control_invalid`；revision/request 冲突、dispatch uncertain 与 scope 错误保留安全代码。错误 envelope 不作为业务成功。
 
 分类工具白名单和 workflow 语义未变；此接口仅供后继取消接入，本卡不是安装或用户取消链验收。新增回归登记 `tests/v02-control-adapter.test.mjs`，真实来源集成脚本 `scripts/v02-004i-integration.mjs`。
+
+## 0.1.2 Handoff 控制守卫（V02-004J）
+
+可信 HTTP resume 原有路径把 `resumeStopped: true`、安全整数 `expectedRevision`、input 与幂等键传给 Handoff。分类工具清单未扩大；`sr_start_full_read`/`sr_continue_full_read` 在实际 session 范围内通过 Handoff 串行守卫后执行，避免尚未送达 A 的本地取消被推进工具绕过。A 的最终控制守卫继续生效。其他论文和读取不被全局冻结；没有强杀 worker/provider。
+
+控制事实及恢复语义见 [workflow](workflow.md)，当前验证与最终安装限制见 [J 报告](../project/evidence/V02-004J-report.md)。
