@@ -1290,7 +1290,8 @@
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "完整workflow行为及真实来源验证；不改A/产品版本，不冒充最终安装验收。"
+      "notes": "完整workflow行为及真实来源验证；不改A/产品版本，不冒充最终安装验收。",
+      "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8"
     }
   ],
   "developmentBaseline": {
