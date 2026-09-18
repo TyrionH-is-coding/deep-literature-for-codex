@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync,execFileSync} from 'node:child_process';
+const root=path.resolve(import.meta.dirname,'..');
+const out=path.join(root,'docs/project/evidence/V02-004D');fs.mkdirSync(out,{recursive:true});
+const commands={check:['scripts/modules.mjs','check'],test:['scripts/modules.mjs','test','engine'],impact:['scripts/modules.mjs','impact','--base','d78e48bbad317c92770b767390addd589b475038'],package:['scripts/package-release.mjs',path.join(root,'outputs/v02-004d-candidate'),path.join(root,'inputs/scientific-reading.tgz')]};
+const id=process.argv[2];if(!Object.hasOwn(commands,id))throw Error('Unknown check');
+const args=commands[id], startedAt=new Date().toISOString();
+const sourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
+const trackedStatus=execFileSync('git',['status','--porcelain','--untracked-files=no'],{cwd:root,encoding:'utf8'}).trim();
+const r=spawnSync(process.execPath,args,{cwd:root,encoding:'utf8',windowsHide:true,maxBuffer:32*1024*1024});
+fs.writeFileSync(path.join(out,id+'.txt'),(r.stdout??'')+(r.stderr??''));
+const p=path.join(out,'runs.json'),runs=fs.existsSync(p)?JSON.parse(fs.readFileSync(p)):[];
+runs.push({id,command:process.execPath,args,cwd:root,sourceCommit,trackedStatus,startedAt,finishedAt:new Date().toISOString(),exitCode:r.status,error:r.error?.message??null});
+fs.writeFileSync(p,JSON.stringify(runs,null,2)+'\n');console.log(id+': '+r.status);process.exitCode=r.status??1;
