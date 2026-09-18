@@ -1,0 +1,102 @@
+{
+  "repo": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine",
+  "commit": "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea",
+  "time": "2026-09-17T08:36:45.067Z",
+  "layer": "frozen source audit, not worker execution",
+  "files": {
+    "engine/src/scientific_reading/background_store.py": {
+      "sha256": "e824894bfadd2fd1948ccf8ceabf00d4877912881476f454f3bdf8d7fbaffdad",
+      "lines": [
+        {
+          "line": 23,
+          "text": "ALLOWED_TRANSITIONS = {"
+        },
+        {
+          "line": 203,
+          "text": "        allowed = ALLOWED_TRANSITIONS.get(status.state)"
+        }
+      ]
+    },
+    "engine/src/scientific_reading/background_launcher.py": {
+      "sha256": "768ae1b1536b9441b566bbeb592894e2d66bd5653da0786b4edaa227efdfce6c",
+      "lines": [
+        {
+          "line": 104,
+          "text": "    def launch_existing(self, job_id: str) -> LaunchResult:"
+        },
+        {
+          "line": 189,
+          "text": "                creationflags = 0"
+        },
+        {
+          "line": 191,
+          "text": "                    creationflags = getattr(subprocess, \"CREATE_NO_WINDOW\", 0)"
+        },
+        {
+          "line": 203,
+          "text": "                        start_new_session=os.name != \"nt\","
+        },
+        {
+          "line": 204,
+          "text": "                        creationflags=creationflags,"
+        }
+      ]
+    },
+    "engine/src/scientific_reading/worker.py": {
+      "sha256": "9873e1be4b5bd3947708e32c1f0872b0c5da7ff58a2da12b17a06b2443986908",
+      "lines": [
+        {
+          "line": 289,
+          "text": "        while True:"
+        },
+        {
+          "line": 291,
+          "text": "            result = selected.advance(parent_job_id, supplied)"
+        }
+      ]
+    },
+    "engine/src/scientific_reading/__main__.py": {
+      "sha256": "0302f821cfc677116ec11bab3aca7107fbd721f06939e87521f6f22bd7e6ec77",
+      "lines": [
+        {
+          "line": 124,
+          "text": "def resume_job("
+        },
+        {
+          "line": 223,
+          "text": "        return launcher.launch_existing(job_id)"
+        },
+        {
+          "line": 295,
+          "text": "                BackgroundLauncher(args.data_root).launch_existing(state.parent_job_id)"
+        },
+        {
+          "line": 317,
+          "text": "                BackgroundLauncher(args.data_root).launch_existing(args.job_id)"
+        },
+        {
+          "line": 342,
+          "text": "            BackgroundLauncher(args.data_root).launch_existing(args.job_id)"
+        }
+      ]
+    },
+    "engine/src/scientific_reading/reading_pipeline.py": {
+      "sha256": "c2da4d5f44a8a0db4a998cd2ee0b2b7ee5bfc4d13c0fef3e641f5300ef0e8688",
+      "lines": [
+        {
+          "line": 674,
+          "text": "                and supplied_input is None"
+        },
+        {
+          "line": 944,
+          "text": "        while True:"
+        },
+        {
+          "line": 1102,
+          "text": "        while True:"
+        }
+      ]
+    }
+  },
+  "allowedTransitions": "ALLOWED_TRANSITIONS = {\n    \"queued\": {\"running\", \"failed\"},\n    \"running\": {\n        \"completed\",\n        \"waiting_agent\",\n        \"waiting_user\",\n        \"failed\",\n        \"interrupted\",\n    },\n    \"waiting_agent\": {\"queued\", \"failed\"},\n    \"waiting_user\": {\"queued\", \"failed\"},\n    \"interrupted\": {\"queued\", \"failed\"},\n    \"completed\": set(),\n    \"failed\": {\"queued\"},\n}\n\n\n"
+}

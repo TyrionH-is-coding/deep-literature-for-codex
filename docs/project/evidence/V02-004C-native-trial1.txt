@@ -1,0 +1,1 @@
+{"status":"failed","error":"Error: state timeout v4c-mixed\n    at waitFor (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004c/scripts/v02-004c-native.mjs:13:156)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004c/scripts/v02-004c-native.mjs:23:254","run":"C:\\Users\\15694\\AppData\\Local\\Temp\\v4c-host-T4kAeX"}

@@ -1,0 +1,5 @@
+
+> deep-literature-for-codex@0.2.0-dev.2 modules
+> node scripts/modules.mjs test workflow
+
+unregistered_test: tests/v02-cancel-contract.test.mjs
