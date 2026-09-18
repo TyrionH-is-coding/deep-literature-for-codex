@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-18T11:15:27.987Z"
     },
-    "lastReviewAt": "2026-09-18T11:15:27.987Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T10:56:50.677Z",
+    "lastReviewAt": "2026-09-18T11:30:56.049Z",
+    "lastHeartbeatCompletedAt": "2026-09-18T11:30:56.049Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -1316,22 +1316,22 @@
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:3",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:4",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
-      "lastDispatchCheckAt": "2026-09-18T10:56:50.677Z",
+      "lastDispatchCheckAt": "2026-09-18T11:30:56.049Z",
       "receiptPhase": "in_progress",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-18T10:56:50.677Z",
+        "checkedAt": "2026-09-18T11:30:56.049Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0b41b-9a81-7251-bf7f-d276d4d17776"
       },
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T10:56:50.677Z",
+        "checkedAt": "2026-09-18T11:30:56.049Z",
         "deliveryReady": false,
-        "workbenchHead": "36c27fb8b281faf4496ae6fade265e5f2d866555",
-        "notes": "首版workflow/plugin及定向测试修改中，尚无交付提交/报告；保持后继依赖。"
+        "workbenchHead": "43bca47fead32d9c48aeb00b4c9832f9d434e7a8",
+        "notes": "已固定源码，开发者报告99 pass/1 skip及真实A链两次重开通过；原生DSH夹具合法跳转已修正，宿主验证仍进行中；未有review回执/报告，不计为验收。"
       },
       "risk": "R2",
       "reviewRounds": 0,
