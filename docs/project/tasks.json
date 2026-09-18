@@ -6,15 +6,15 @@
     "taskId": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
     "writingTaskLimit": 2,
     "integrationLimit": 1,
-    "autoAdvance": true,
+    "autoAdvance": false,
     "authorization": "用户明确授权自动循环：002 验收通过后自动开启 003，互不影响的任务可并行。",
     "automation": {
       "kind": "heartbeat",
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
-      "state": "ACTIVE",
-      "lastVerifiedAt": "2026-09-18T11:15:27.987Z"
+      "state": "PAUSED",
+      "lastVerifiedAt": "2026-09-18T12:36:39.455Z"
     },
     "lastReviewAt": "2026-09-18T12:11:35.822Z",
     "lastHeartbeatCompletedAt": "2026-09-18T12:11:35.822Z",
@@ -38,6 +38,11 @@
         "diagnosis and recovery elapsed time"
       ],
       "historicalMissingMetrics": "unknown; do not backfill"
+    },
+    "userPause": {
+      "requestedAt": "2026-09-18T12:36:39.455Z",
+      "reason": "User requested pause for computer reboot",
+      "resumeRequires": "explicit user resume"
     }
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -1432,7 +1437,10 @@
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0b471-36bb-7ff1-a5a0-3032b8f2b4f8"
-      }
+      },
+      "pauseRequestedAt": "2026-09-18T12:36:39.455Z",
+      "pauseReason": "User requested computer reboot",
+      "resumeRequires": "explicit user resume"
     }
   ],
   "developmentBaseline": {

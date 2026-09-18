@@ -4,6 +4,8 @@
 
 ## 当前交付状态
 
+**用户暂停（电脑重启）**：自动循环已暂停，004K已收到保存与停止指令；待用户明确恢复再继续。
+
 - 稳定 main 为 rc.6 文件树（e7160eb）；用户安装未升级，v0.2 未发布。
 - 已验收开发源码：A 引擎 b4a9ecc，B 工作台生产集成 697dfc4；总控资料在 codex/v02-control。最新精确提交见台账 developmentBaseline。
 - 已完成：旧 Excel 覆盖防护与冲突提示、解析中断恢复的隔离安装验证；引擎停止与跨包恢复接口的源码验证。依据：[003D](docs/project/evidence/V02-003D-control-review.md)、[004D](docs/project/evidence/V02-004D-control-review.md)、[004I](docs/project/evidence/V02-004I-control-review.md)。
