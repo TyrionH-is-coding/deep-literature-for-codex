@@ -1,0 +1,29 @@
+{
+  "delivery": "28ffdb9dd9cf61d6bea2b6177479d83324454c33",
+  "production": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9",
+  "integration": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+  "verifiedAt": "2026-09-18T12:11:35.809Z",
+  "rootTests": {
+    "pass": 19,
+    "fail": 0
+  },
+  "realIntegration": {
+    "name": "cross-alias reconciliation fixed",
+    "value": {
+      "sameParent": true,
+      "engineStopRequested": false,
+      "revision": 3,
+      "latestTaskCancelRequested": false,
+      "latestTaskStatus": "waiting_user",
+      "olderAliasCancelRequested": false,
+      "guard": "allowed",
+      "oldResume": "reading_control_not_stopped",
+      "worker": null
+    }
+  },
+  "localRoot": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex",
+  "hashes": {
+    "outputs/v02-004j-control-review/real-alias-1789733292997/report.json": "8ed2547a346e9b6edf1fc3847a79559f9880d7a95d9af1db6c006b2babebacd0",
+    "outputs/v02-004j-control-review/real-alias-fixed.mjs": "f9a724f1aeefdd12bac7bddd68e664ee511b47e0701356d308ff5aaca753a46d"
+  }
+}

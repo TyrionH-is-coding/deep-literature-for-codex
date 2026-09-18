@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-18T11:15:27.987Z"
     },
-    "lastReviewAt": "2026-09-18T11:56:51.590Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T11:56:51.590Z",
+    "lastReviewAt": "2026-09-18T12:11:35.822Z",
+    "lastHeartbeatCompletedAt": "2026-09-18T12:11:35.822Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -207,7 +207,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "F/H/I源码接口已验收；J接入持久取消与显式恢复完整workflow，之后最终安装组合验收，005等待。",
+      "notes": "J源码闭环已验收；K固定dev.4隔离安装组合验证停止/恢复与资产保护，004A-G1/004D-O1仍待安装证据，005等待。",
       "children": [
         "V02-004A",
         "V02-004B",
@@ -218,7 +218,8 @@
         "V02-004G",
         "V02-004H",
         "V02-004I",
-        "V02-004J"
+        "V02-004J",
+        "V02-004K"
       ]
     },
     {
@@ -1273,7 +1274,7 @@
       "title": "取消与显式恢复的完整工作流",
       "kind": "task",
       "parent": "V02-004",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "workflow",
         "bridge"
@@ -1306,35 +1307,33 @@
         "docs/project/evidence/V02-004J*"
       ],
       "receipt": "docs/project/evidence/V02-004J-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T10:36:40.862Z",
       "userConfirmed": true,
-      "commits": [],
+      "commits": [
+        "28ffdb9dd9cf61d6bea2b6177479d83324454c33"
+      ],
       "evidence": [
         "docs/project/evidence/V02-004J-control-review.md",
-        "docs/project/evidence/V02-004J-control-review.json"
+        "docs/project/evidence/V02-004J-control-review.json",
+        "docs/project/evidence/V02-004J-control-accepted.md",
+        "docs/project/evidence/V02-004J-control-accepted.json"
       ],
-      "notes": "保持已冻结接口与验收场景；一页交接、证据索引和已有验收路径的可复现操作样例，不新增重复测试。",
+      "notes": "一轮返工后总控19项及原失败真实A场景复验通过；合入src/tests与交付相同，modules check通过。",
       "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8",
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:7",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:8",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
       "lastDispatchCheckAt": "2026-09-18T11:56:51.590Z",
-      "receiptPhase": "in_progress",
+      "receiptPhase": "review",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-18T11:56:51.590Z",
-        "status": "active",
-        "turnStatus": "inProgress",
+        "checkedAt": "2026-09-18T12:11:35.822Z",
+        "status": "idle",
+        "turnStatus": "completed",
         "turnId": "01a0b455-27fb-7f62-bc70-f35a2f5815de"
-      },
-      "progressSnapshot": {
-        "checkedAt": "2026-09-18T11:56:51.590Z",
-        "deliveryReady": false,
-        "workbenchHead": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9",
-        "notes": "第1轮返工源码已提交；开发者报告真实A别名恢复与两次重开通过，正在更新报告/索引/回执。尚未交回review，004J-R1保持开放。"
       },
       "risk": "R2",
       "reviewRounds": 1,
@@ -1345,36 +1344,99 @@
       "governanceDecision": "D021",
       "reviewAt": "2026-09-18T11:45:30.425Z",
       "reviewedCommit": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
-      "acceptance": "needs-rework-cross-alias-stop-reconciliation",
+      "acceptance": "source-workflow-and-alias-recovery-accepted; final installation pending",
       "findings": [
         {
           "id": "004J-R1",
-          "status": "open",
+          "status": "closed",
           "classification": "current-task-required-fix",
           "title": "同parent多条Handoff意图在合法恢复后不一致，无parent别名也可永久阻挡",
           "followup": "V02-004J",
-          "blocksTaskAcceptance": true
+          "blocksTaskAcceptance": true,
+          "closedBy": "V02-004J",
+          "evidence": "docs/project/evidence/V02-004J-control-accepted.md"
         }
       ],
-      "nextCheckpointAt": "2026-09-18T13:15:30.425Z"
+      "integrationCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+      "integratedAt": "2026-09-18T12:11:35.822Z"
+    },
+    {
+      "id": "V02-004K",
+      "title": "安装组合中的停止与安全恢复",
+      "kind": "task",
+      "parent": "V02-004",
+      "status": "ready",
+      "modules": [
+        "engine",
+        "workflow",
+        "bridge",
+        "application",
+        "tooling"
+      ],
+      "dependsOn": [
+        "V02-004J"
+      ],
+      "card": "docs/project/tasks/V02-004K.md",
+      "ownerSession": null,
+      "baseCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+      "engineBaseCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k",
+      "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k",
+      "branch": "codex/v02-004k-installed-control",
+      "engineBranch": "codex/v02-004k-installed-control",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-18T12:11:35.822Z",
+      "userConfirmed": true,
+      "risk": "R2",
+      "checkpointMinutes": 90,
+      "reviewRounds": 0,
+      "expectedFirstEvidence": "固定制品来源/构建证据",
+      "observableOutcome": "隔离安装中的停止→两次重启→明确恢复同parent，保护已提交资产",
+      "writePaths": [
+        "package.json#version",
+        "package-lock.json#self-version",
+        "src/modules/foundation/constants.mjs#VERSION",
+        "runtime/pins.json#plugin-channel",
+        "runtime/package-lock.json#local-plugin",
+        "src/modules/catalog.json#engine-identity",
+        "inputs/scientific-reading.tgz",
+        "docs/modules/engine.md",
+        "docs/modules/changes/engine.md",
+        "scripts/acceptance-v02-004k*",
+        "scripts/v02-004k-*",
+        "scripts/fixtures/v02-004k/",
+        "docs/project/evidence/V02-004K*"
+      ],
+      "engineWritePaths": [
+        "package.json#version",
+        "package-lock.json#self-version",
+        "engine/pyproject.toml#version",
+        "scripts/v02-004k-*",
+        "scripts/fixtures/v02-004k/",
+        "docs/codex-v02/V02-004K*"
+      ],
+      "receipt": "docs/project/evidence/V02-004K-receipt.json",
+      "commits": [],
+      "evidence": [],
+      "notes": "仅新候选身份与必要安装验收，不改生产算法/依赖；F2/真实模型/最终发布另验。"
     }
   ],
   "developmentBaseline": {
     "engine": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "36c27fb8b281faf4496ae6fade265e5f2d866555",
+    "workbench": "697dfc4718b7c984223cafc4479b4843fe17dffd",
     "workbenchBranch": "codex/v02-control",
     "candidate": "0.2.0-dev.3",
     "engineAcceptance": "stop/lifecycle/API source accepted; final installed combination pending",
-    "workbenchAcceptance": "I bridge adapter accepted; J workflow control pending"
+    "workbenchAcceptance": "J source workflow accepted; K final installed combination pending"
   },
   "demonstrations": [
     {
       "id": "stop-resume",
       "ownerTask": "V02-004J",
-      "status": "planned",
+      "status": "demonstrated-source-only",
       "scope": "同一合成任务停止→独立进程重开→普通推进受阻→明确恢复同parent",
-      "evidence": null
+      "evidence": "docs/project/evidence/V02-004J-report.md"
     },
     {
       "id": "first-main-flow",
