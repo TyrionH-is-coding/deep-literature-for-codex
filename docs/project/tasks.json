@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
     "lastReviewAt": "2026-09-18T06:27:28.877363+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T06:10:35.914182+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-18T06:32:51.355119+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -1002,7 +1002,7 @@
       "id": "V02-004F",
       "title": "引擎持久停止控制与显式恢复",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine"
       ],
@@ -1034,20 +1034,26 @@
         "docs/codex-v02/V02-004F*"
       ],
       "receipt": "docs/codex-v02/V02-004F-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。",
       "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:30599887-c834-4d31-8ed5-fb525e4ec463",
+      "dispatchRequestedAt": "2026-09-18T06:32:05.715608+00:00",
+      "startedAt": "2026-09-18T06:30:20.0085554Z",
+      "receiptPhase": "received",
+      "startConfirmedBy": "fixed-worktree-receipt",
+      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00"
     },
     {
       "id": "V02-004G",
       "title": "直接advance失败路径归因",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine"
       ],
@@ -1067,14 +1073,20 @@
         "docs/codex-v02/V02-004G*"
       ],
       "receipt": "docs/codex-v02/V02-004G-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。",
       "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:68102028-58d1-4380-a736-5f9e2c7f685d",
+      "dispatchRequestedAt": "2026-09-18T06:32:05.715608+00:00",
+      "startedAt": "2026-09-18T06:30:18.5414075Z",
+      "receiptPhase": "diagnosis",
+      "startConfirmedBy": "fixed-worktree-receipt",
+      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00"
     }
   ],
   "developmentBaseline": {
