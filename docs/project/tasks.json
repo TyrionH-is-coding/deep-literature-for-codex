@@ -899,7 +899,9 @@
         "scripts/v02-004d-*",
         "scripts/fixtures/v02-004d/",
         "docs/codex-v02/V02-004D*"
-      ]
+      ],
+      "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
     },
     {
       "id": "V02-004E",
@@ -936,7 +938,9 @@
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "独立写入/实例，冻结生产输入；串行合入后须验组合，004尚未通过。"
+      "notes": "独立写入/实例，冻结生产输入；串行合入后须验组合，004尚未通过。",
+      "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
     }
   ],
   "developmentBaseline": {
