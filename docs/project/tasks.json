@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
     "lastReviewAt": "2026-09-18T05:44:20.563418+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-17T08:32:03.022934+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-18T05:46:30.847608+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -883,7 +883,7 @@
         "docs/project/evidence/V02-004D*"
       ],
       "receipt": "docs/project/evidence/V02-004D-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
       "userConfirmed": true,
       "commits": [],
@@ -901,7 +901,10 @@
         "docs/codex-v02/V02-004D*"
       ],
       "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:a7acdab2-1460-4483-8978-0086153b59c9",
+      "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
+      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00"
     },
     {
       "id": "V02-004E",
@@ -933,14 +936,17 @@
         "docs/project/evidence/V02-004E*"
       ],
       "receipt": "docs/project/evidence/V02-004E-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "独立写入/实例，冻结生产输入；串行合入后须验组合，004尚未通过。",
       "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
-      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "clientThreadId": "client-new-thread:aa0d2c0b-0e09-4759-bf8e-ce0740cc3cc2",
+      "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
+      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00"
     }
   ],
   "developmentBaseline": {
