@@ -39,9 +39,14 @@ export class Handoff {
     return result;
   }
   save() { return writeJson(this.file, this.data); }
+  sameScopePaper(a, b) { return a.sessionId === b.sessionId && a.folderId === b.folderId && a.paperId === b.paperId; }
+  aliases(task) {
+    return Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other)
+      && task.jobId && other.jobId === task.jobId);
+  }
   stopped(task) {
     return task.cancelRequested || task.control?.stopRequested === true || Object.values(this.data.tasks).some(other =>
-      other !== task && other.sessionId === task.sessionId && other.paperId === task.paperId && other.cancelRequested);
+      other !== task && this.sameScopePaper(task, other) && (!task.jobId || !other.jobId || task.jobId === other.jobId) && other.cancelRequested);
   }
   // Called with the host's actual session. Arguments identify a target, never authority.
   guardAdvance(sessionId, name, args = {}) {
@@ -57,8 +62,10 @@ export class Handoff {
     const control = await this.engine(['full-read-pipeline-control', '--job-id', task.jobId], undefined, scope);
     if (control?.contract !== 'reading-control-v1' || control.parentJobId !== task.jobId
       || control.pipelineState?.paper_id !== task.paperId) throw new Error('engine_stop_control_invalid');
-    task.control = control;
-    task.controlError = null;
+    for (const alias of this.aliases(task)) {
+      alias.control = structuredClone(control);
+      alias.controlError = null;
+    }
     return control;
   }
   async reconcileStop(task, scope) {
@@ -94,15 +101,24 @@ export class Handoff {
   reconcileResumes(task) {
     const control = task.control;
     if (!control || task.controlError || control.stopRequested) return;
-    for (const operation of Object.values(task.operations ?? {})) {
+    const aliases = this.aliases(task);
+    for (const owner of aliases) for (const operation of Object.values(owner.operations ?? {})) {
       if (!operation.resumeStopped) continue;
       const op = control.operations[operation.requestId];
       if (op?.kind !== 'resume' || op.revision !== control.revision || op.expectedRevision !== operation.expectedRevision
         || !op.dispatched || digest(op.input) !== digest(operation.input)) continue;
       operation.status = 'completed';
       operation.error = null;
-      // A receipt from an older local stop generation must not clear a newer intent.
-      if (task.stopOperation?.requestId === operation.stopRequestId) task.cancelRequested = false;
+      // Coverage is journaled before resume. Match both local generation and A's
+      // accepted stop revision; an unsent or later intent cannot be covered.
+      const covered = operation.coveredStops ?? [{ taskId: owner.taskId, requestId: operation.stopRequestId }];
+      for (const alias of aliases) {
+        const stop = alias.stopOperation;
+        const receipt = stop && control.operations[stop.requestId];
+        if (receipt?.kind !== 'stop' || receipt.revision > operation.expectedRevision) continue;
+        if (covered.some(row => row.taskId === alias.taskId && row.requestId === stop.requestId
+          && (row.revision === undefined || row.revision === receipt.revision))) alias.cancelRequested = false;
+      }
     }
   }
   scopeFor(sessionId) {
@@ -156,6 +172,16 @@ export class Handoff {
     if (!scope) throw new Error('folder_archived');
     const item = await this.engine(['library-item-v2', '--paper-id', task.paperId], undefined, scope);
     if (item.folder_id !== task.folderId) throw new Error('scope_changed');
+    if (!task.jobId && this.stopped(task)) {
+      const parents = [...new Set(Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other) && other.jobId).map(other => other.jobId))];
+      if (parents.length > 1 || (parents.length === 1 && item.active_job_id && item.active_job_id !== parents[0])) throw new Error('handoff_parent_ambiguous');
+      if (parents.length === 1) {
+        const job = await this.engine(['job-status', '--job-id', parents[0]], undefined, scope);
+        if (job.paper_id !== task.paperId || job.job_id !== parents[0]) throw new Error('job_identity_mismatch');
+        task.jobId = job.job_id;
+        await this.save();
+      }
+    }
     return { task, scope };
   }
   submit(request) {
@@ -193,19 +219,21 @@ export class Handoff {
       this.reconcileResumes(task);
       const job = await this.engine(['job-status', '--job-id', task.jobId], undefined, scope);
       if (job.paper_id !== task.paperId || job.job_id !== task.jobId) throw new Error('job_identity_mismatch');
-      task.job = job;
-      task.error = job.status === 'failed'
+      const error = job.status === 'failed'
         ? (typeof job.detail?.error === 'string' && job.detail.error ? job.detail.error
           : typeof job.detail?.reason_code === 'string' && job.detail.reason_code ? job.detail.reason_code
           : 'job_failed')
         : null;
-      task.status = ['waiting_user', 'waiting_agent', 'failed'].includes(job.status) ? job.status
+      const status = ['waiting_user', 'waiting_agent', 'failed'].includes(job.status) ? job.status
         : job.status === 'interrupted' ? 'waiting_user' : 'dispatched';
-      if (job.status === 'completed') {
-        task.artifacts = await this.reader(task.paperId, scope);
-        task.status = 'completed';
+      const artifacts = job.status === 'completed' ? await this.reader(task.paperId, scope) : undefined;
+      for (const alias of this.aliases(task)) {
+        alias.job = structuredClone(job);
+        alias.error = error;
+        alias.status = job.status === 'completed' ? 'completed' : status;
+        if (artifacts) alias.artifacts = structuredClone(artifacts);
+        if (this.stopped(alias) && !['completed', 'failed'].includes(alias.status)) alias.status = 'cancel_requested';
       }
-      if (this.stopped(task) && !['completed', 'failed'].includes(task.status)) task.status = 'cancel_requested';
     } catch (error) { task.status = 'failed'; task.error = error.message; }
     task.checkedAt = new Date().toISOString();
     await this.save();
@@ -268,11 +296,24 @@ export class Handoff {
       if (kind === 'resume' && payload.resumeStopped === true) {
         if (!Number.isSafeInteger(payload.expectedRevision) || payload.expectedRevision < 0
           || !payload.input || typeof payload.input !== 'object' || Array.isArray(payload.input)) throw new Error('invalid_control_resume');
+        if (!task.jobId) throw new Error('handoff_parent_unavailable');
+        // Bind legacy parentless aliases and deliver their durable intents before
+        // taking a resume coverage snapshot. Never resume past an unknown stop.
+        for (const alias of Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other) && !other.jobId)) await this.checkedTask(alias.taskId);
+        for (const alias of this.aliases(task)) if (alias.cancelRequested) await this.reconcileStop(alias, scope);
+        const control = await this.readControl(task, scope);
+        const coveredStops = this.aliases(task).filter(alias => alias.cancelRequested).flatMap(alias => {
+          const stop = alias.stopOperation, receipt = stop && control.operations[stop.requestId];
+          return receipt?.kind === 'stop' && receipt.revision <= payload.expectedRevision
+            ? [{ taskId: alias.taskId, requestId: stop.requestId, revision: receipt.revision }] : [];
+        });
         const operation = previous ?? (task.operations[key] = { fingerprint, kind, resumeStopped: true,
           requestId: 'resume-' + digest({ taskId, key }), expectedRevision: payload.expectedRevision,
-          input: payload.input, stopRequestId: task.stopOperation?.requestId ?? null, status: 'prepared' });
+          input: payload.input, stopRequestId: task.stopOperation?.requestId ?? null, coveredStops, status: 'prepared' });
         await this.save();
         try {
+          if (this.aliases(task).some(alias => alias.cancelRequested
+            && !control.operations[alias.stopOperation?.requestId])) throw new Error('reading_control_stop_unconfirmed');
           await this.engine(['full-read-pipeline-resume', '--job-id', task.jobId, '--input', '-', '--resume-stopped',
             '--request-id', operation.requestId, '--expected-revision', String(operation.expectedRevision)], operation.input, scope);
           await this.readControl(task, scope);
@@ -332,8 +373,9 @@ export class Handoff {
   cancel(taskId) {
     return this.serial(async () => {
       const { task, scope } = await this.checkedTask(taskId);
-      const resumeAttempted = Object.values(task.operations ?? {}).some(op => op.resumeStopped
-        && op.stopRequestId === task.stopOperation?.requestId);
+      const resumeAttempted = this.aliases(task).some(alias => Object.values(alias.operations ?? {}).some(op => op.resumeStopped
+        && (op.coveredStops?.some(row => row.taskId === task.taskId && row.requestId === task.stopOperation?.requestId)
+          || (!op.coveredStops && (alias !== task || op.stopRequestId === task.stopOperation?.requestId)))));
       if (!task.cancelRequested || resumeAttempted) task.stopOperation = { requestId: 'stop-' + randomUUID(), status: 'prepared' };
       task.cancelRequested = true;
       task.stopOperation ??= { requestId: 'stop-' + randomUUID(), status: 'prepared' };

@@ -49,11 +49,18 @@ try {
   await poll(t => t.job?.status === 'waiting_user' && t.control?.worker === null);
   assert.equal(task.job.detail.reason_code, 'pdf_required');
   record('initial authoritative gate', task);
+  const originalId = task.taskId;
+  const alias = await service.submit({ ...request, idempotencyKey: 'alias-before-stop' });
+  assert.equal(alias.jobId, parent);
+  await poll(t => t.job?.status === 'waiting_user' && t.control?.worker === null);
+  const other = await service.submit({ ...request, paperId: metadata.papers[1], idempotencyKey: 'other-paper' });
   const source = task.control.pipelineState.source_pdf_sha256;
   const generation = task.control.pipelineState.generation;
   task = record('cancel and real A acknowledgement', await service.cancel(task.taskId));
   assert.equal(task.control.status, 'acknowledged'); assert.equal(task.control.revision, 1); assert.equal(hosts, 1);
-  assert.equal((await service.cancel(task.taskId)).control.revision, 1);
+  record('second alias stop', await service.cancel(alias.taskId));
+  assert.equal((await service.cancel(task.taskId)).control.revision, 2);
+  service.guardAdvance(other.sessionId, 'sr_continue_full_read', { job_id: other.jobId });
   for (let i = 0; i < 2; i++) {
     const reopened = record('independent reopen ' + i, JSON.parse(execute(process.execPath,
       [path.join(b, 'scripts/fixtures/v02-004j/reopen.mjs'), root, a, task.taskId])));
@@ -65,18 +72,38 @@ try {
     '--paper-id', task.paperId, '--pdf', path.join(root, 'absent.pdf')]]) {
     assert.equal(record('A final guard', await engine(command, {}, scope)).stopRequested, true);
   }
-  await assert.rejects(service.operate(task.taskId, 'wrong-gate', 'resume', { resumeStopped: true, expectedRevision: 1, input: { bogus: true } }), /pdf_resume_input_invalid/);
+  await assert.rejects(service.operate(task.taskId, 'wrong-gate', 'resume', { resumeStopped: true, expectedRevision: 2, input: { bogus: true } }), /pdf_resume_input_invalid/);
   assert.equal((await service.task(task.taskId)).cancelRequested, true);
-  const payload = { resumeStopped: true, expectedRevision: 1, input: {} };
-  task = record('explicit same-parent resume', await service.operate(task.taskId, 'explicit', 'resume', payload));
-  assert.equal(task.control.revision, 2); assert.equal(task.cancelRequested, false);
+  const payload = { resumeStopped: true, expectedRevision: 2, input: {} };
+  task = record('explicit cross-alias same-parent resume', await service.operate(alias.taskId, 'explicit', 'resume', payload));
+  assert.equal(task.control.revision, 3); assert.equal(task.cancelRequested, false);
   task = await poll(t => t.job?.status === 'waiting_user' && t.control?.worker === null);
   assert.equal(task.jobId, parent); assert.equal(task.job.detail.reason_code, 'pdf_required');
   assert.equal(task.control.pipelineState.source_pdf_sha256, source); assert.equal(task.control.pipelineState.generation, generation);
-  record('real worker returned to legal PDF gate; same source and generation', task);
+  record('real worker returned to PDF gate; source remains null and generation absent', task);
+  const original = await service.task(originalId);
+  assert.equal(original.cancelRequested, false); assert.equal(original.status, 'waiting_user');
+  service.guardAdvance(original.sessionId, 'sr_continue_full_read', { job_id: parent });
+  record('both aliases cleared by covered stop revisions', { original, alias: task });
   task = await service.cancel(task.taskId);
   task = record('old resume replay after newer stop', await service.operate(task.taskId, 'explicit', 'resume', payload));
-  assert.equal(task.cancelRequested, true); assert.equal(task.control.revision, 3); assert.equal(prompts, 0);
+  assert.equal(task.cancelRequested, true); assert.equal(task.control.revision, 4); assert.equal(prompts, 0);
+  const afterStop = record('alias submitted after stop binds existing parent', await service.submit({ ...request, idempotencyKey: 'alias-after-stop' }));
+  assert.equal(afterStop.jobId, parent);
+  await service.cancel(afterStop.taskId);
+  task = record('resume original covers later alias stop', await service.operate(originalId, 'recover-all', 'resume', { resumeStopped: true, expectedRevision: 5, input: {} }));
+  assert.equal(task.control.revision, 6);
+  await poll(t => t.job?.status === 'waiting_user' && t.control?.worker === null);
+  for (let i = 0; i < 2; i++) {
+    const reopened = record('independent active alias reopen ' + i, JSON.parse(execute(process.execPath,
+      [path.join(b, 'scripts/fixtures/v02-004j/reopen.mjs'), root, a, originalId])));
+    assert.equal(reopened.effects, 0); assert.equal(reopened.guard, 'allowed');
+    for (const row of reopened.tasks.filter(row => row.jobId === parent)) {
+      assert.equal(row.cancelRequested, false); assert.equal(row.status, 'waiting_user'); assert.equal(row.control.revision, 6);
+    }
+  }
+  const otherFinal = record('other paper control untouched', await service.task(other.taskId));
+  assert.equal(otherFinal.control.revision, 0); assert.equal(otherFinal.control.stopRequested, false);
   assert.equal(execute('git', ['status', '--porcelain'], a).trim(), '');
   report.status = 'passed';
 } catch (error) { report.status = 'failed'; report.error = error.stack; process.exitCode = 1; }

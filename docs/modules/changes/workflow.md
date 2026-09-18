@@ -2,6 +2,8 @@
 
 ## 0.1.2 — 持久取消与 revision 显式恢复（V02-004J，未发布）
 
+- 第 1 轮总控返工：修复同 parent 多幂等别名恢复后残留本地停止。恢复前持久化跨别名 coveredStops，成功只清已覆盖且仍匹配的 stop ID/revision；未知/后来取消与旧键保护保留。无 parent 受阻别名验证后绑定现有 parent；当前事实同步限于实际目标。
+
 - 接入 A stop/control；意图、请求与两端结果分开持久化，open/task/list 对账，旧 schema 1 标记不推断为已停止。
 - 仅可信 resumeStopped + expectedRevision 可恢复同一 parent；稳定操作键与原输入可重试，旧键不清后来取消。普通 retry/attach 不解停。
 - 按实际会话和目标论文保护尚未发到 A 的取消，其他论文继续工作。原范围、终态、Reader 断言保留；新测试及真实来源集成见 [报告](../../project/evidence/V02-004J-report.md)。

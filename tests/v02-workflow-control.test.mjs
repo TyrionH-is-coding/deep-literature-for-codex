@@ -234,3 +234,112 @@ test('host receipt persistence loss leaves requested on disk, never a recycled s
   assert.equal((await reopened.task(task.taskId)).cancelRequested, true);
   await reopened.cancel(task.taskId); assert.equal(state.hosts, 3);
 });
+
+test('explicit resume covers confirmed stops of both same-parent aliases', async t => {
+  const { service, state, task, request, root, deps } = await fixture(t);
+  const alias = await service.submit({ ...request, idempotencyKey: 'alias' });
+  await service.cancel(task.taskId); await service.cancel(alias.taskId);
+  const resumed = await service.operate(alias.taskId, 'recover', 'resume', explicit(2));
+  assert.equal(state.revision, 3); assert.equal(resumed.status, 'waiting_agent');
+  for (const row of (await service.list()).tasks) { assert.equal(row.cancelRequested, false); assert.equal(row.control.stopRequested, false); }
+  service.guardAdvance(task.sessionId, 'sr_continue_full_read', { job_id: task.jobId });
+  const reopened = await Handoff.open(root, deps);
+  await reopened.dispatch(task.taskId);
+  assert.equal(state.prompts, 1);
+  const operation = Object.values(resumed.operations)[0];
+  assert.equal(operation.coveredStops.length, 2);
+});
+
+test('alias submitted while stopped binds existing parent; legacy parentless cancellation is reconciled before resume', async t => {
+  const { service, state, task, request, root, deps } = await fixture(t);
+  await service.cancel(task.taskId);
+  const alias = await service.submit({ ...request, idempotencyKey: 'after-stop' });
+  assert.equal(alias.jobId, task.jobId); assert.equal(state.starts, 1);
+  const saved = Object.values(service.data.tasks).find(t => t.taskId === alias.taskId);
+  // Reproduce an old schema-1 parentless local intent, not an A acknowledgement.
+  saved.jobId = null; saved.cancelRequested = true;
+  saved.stopOperation = { requestId: 'legacy-unsent', status: 'prepared' };
+  await service.save();
+  const reopened = await Handoff.open(root, deps);
+  assert.equal((await reopened.task(alias.taskId)).jobId, task.jobId); assert.equal(state.revision, 2);
+  await assert.rejects(reopened.operate(task.taskId, 'stale', 'resume', explicit(1)), /revision_conflict/);
+  const result = await reopened.operate(task.taskId, 'current', 'resume', explicit(2));
+  assert.equal(result.status, 'waiting_agent');
+  assert.equal((await reopened.task(alias.taskId)).cancelRequested, false);
+  assert.equal(state.starts, 1);
+});
+
+test('unknown alias stop prevents A resume and cannot be cleared by a prior cross-alias receipt', async t => {
+  const { service, state, task, request } = await fixture(t);
+  const alias = await service.submit({ ...request, idempotencyKey: 'alias' });
+  await service.cancel(task.taskId);
+  state.failBefore = true; await service.cancel(alias.taskId);
+  const priorResumes = state.calls.filter(row => row.args.includes('--resume-stopped')).length;
+  await assert.rejects(service.operate(task.taskId, 'blocked', 'resume', explicit(1)), /stop_unconfirmed/);
+  assert.equal(state.calls.filter(row => row.args.includes('--resume-stopped')).length, priorResumes);
+  assert.equal(state.stopped, true);
+  state.failBefore = false;
+  await service.task(alias.taskId);
+  await service.operate(task.taskId, 'recover', 'resume', explicit(2));
+  state.noControl = true;
+  await service.cancel(alias.taskId);
+  const laterId = Object.values(service.data.tasks).find(t => t.taskId === alias.taskId).stopOperation.requestId;
+  state.noControl = false; state.failBefore = true;
+  await service.operate(task.taskId, 'recover', 'resume', explicit(2));
+  const current = await service.task(alias.taskId);
+  assert.equal(current.cancelRequested, true); assert.equal(current.stopOperation.requestId, laterId);
+  assert.throws(() => service.guardAdvance(task.sessionId, 'sr_continue_full_read', { job_id: task.jobId }), /reading_stop_requested/);
+});
+
+test('lost cross-alias resume receipt followed by cancel creates a new local generation', async t => {
+  const { service, state, task, request, root, deps } = await fixture(t);
+  const alias = await service.submit({ ...request, idempotencyKey: 'alias' });
+  await service.cancel(task.taskId); await service.cancel(alias.taskId);
+  state.loseReply = true;
+  await assert.rejects(service.operate(alias.taskId, 'recover', 'resume', explicit(2)), /receipt_lost/);
+  const old = Object.values(service.data.tasks).find(t => t.taskId === task.taskId).stopOperation.requestId;
+  state.loseReply = false; state.noControl = true;
+  await service.cancel(task.taskId);
+  assert.notEqual(Object.values(service.data.tasks).find(t => t.taskId === task.taskId).stopOperation.requestId, old);
+  state.noControl = false;
+  const reopened = await Handoff.open(root, deps);
+  assert.equal((await reopened.task(task.taskId)).cancelRequested, true);
+  assert.equal(state.revision, 4);
+  await reopened.operate(alias.taskId, 'recover', 'resume', explicit(2)).catch(() => {});
+  assert.equal(state.stopped, true); assert.equal(state.revision, 4);
+  await reopened.operate(alias.taskId, 'new-recover', 'resume', explicit(4));
+  assert.equal((await reopened.task(task.taskId)).cancelRequested, false);
+});
+
+test('coverage and authoritative snapshots do not cross parent, paper or bound scope', async t => {
+  const { service, task } = await fixture(t);
+  const original = Object.values(service.data.tasks)[0];
+  const unrelated = [
+    { ...structuredClone(original), taskId: 'other-paper', paperId: 'other', jobId: 'job_otherpaper' },
+    { ...structuredClone(original), taskId: 'other-scope', sessionId: 'other-session', folderId: 'other-folder' },
+    { ...structuredClone(original), taskId: 'other-parent', jobId: 'job_otherparent' },
+  ];
+  for (const row of unrelated) { row.cancelRequested = true; row.stopOperation = { requestId: row.taskId, status: 'unknown' }; service.data.tasks[row.taskId] = row; }
+  const before = structuredClone(unrelated);
+  await service.cancel(task.taskId);
+  await service.operate(task.taskId, 'recover', 'resume', explicit(1));
+  assert.deepEqual(unrelated, before);
+  service.guardAdvance(task.sessionId, 'sr_continue_full_read', { job_id: task.jobId });
+  service.guardAdvance(task.sessionId, 'sr_start_full_read', { paper_id: 'untouched-paper' });
+});
+
+test('legacy resume without cross-alias coverage stays conservative but fresh cancel/resume repairs it', async t => {
+  const { service, state, task, request } = await fixture(t);
+  const alias = await service.submit({ ...request, idempotencyKey: 'alias' });
+  await service.cancel(task.taskId); await service.cancel(alias.taskId);
+  await service.operate(alias.taskId, 'legacy-resume', 'resume', explicit(2));
+  const original = Object.values(service.data.tasks).find(row => row.taskId === task.taskId);
+  const owner = Object.values(service.data.tasks).find(row => row.taskId === alias.taskId);
+  delete Object.values(owner.operations)[0].coveredStops;
+  original.cancelRequested = true;
+  assert.equal((await service.task(task.taskId)).cancelRequested, true);
+  await service.cancel(task.taskId);
+  assert.equal(state.revision, 4); assert.equal(state.stopped, true);
+  await service.operate(task.taskId, 'fresh-recovery', 'resume', explicit(4));
+  assert.equal((await service.task(task.taskId)).cancelRequested, false);
+});

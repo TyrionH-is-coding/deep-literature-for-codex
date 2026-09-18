@@ -29,6 +29,8 @@
 
 可信 `operate(..., 'resume', { resumeStopped: true, expectedRevision, input })` 使用幂等键派生的稳定 requestId。完整 payload 指纹、原输入和 revision 在副作用前保存。只有权威 control 中同一 resume 的最新 revision、相同输入与 dispatched 证明，才清除对应本地停止代；旧回执不清后来取消，未知调度和 gate 错误保留意图。同键重试复用原请求。PDF 等 gate 使用 A 原合同，缺输入时仍等待，不新建 parent/source/generation。
 
+同一实际目标由绑定 session、folder、paper 和非空 parent 共同确定。显式恢复先对账该目标所有别名的持久停止，再把 `coveredStops`（taskId、stop requestId、A stop revision）保存到恢复操作；成功回执只解除清单中仍匹配的停止代。未知/后来取消不在旧清单内，仍保留保护；存在未送达 A 的意图时不调用 resume。当前控制与 job 事实同步给同目标别名，其他 parent/paper/scope 不变。停止中新增或旧 schema 的无 parent 别名，仅在范围一致、候选 parent 唯一且真实 job 身份验证通过后绑定，不能另起 parent。旧恢复记录没有覆盖清单时仍保守处理；若旧缺陷已留下跨别名本地意图，重新 cancel 建立新停止代，再按最新 revision 明确恢复可修复，不根据历史回执猜测解除。
+
 普通 submit、dispatch/retryKey、resume、attach 不能解停；同会话同论文的另一个幂等键也不能绕过本地意图。`guardAdvance(actualSessionId, toolName, args)` 为 bridge 提供真实会话范围下的目标推进守卫；其他论文和读取不受影响。schema 1 以新增可选字段兼容读取，旧 cancelRequested 仅视为未核实意图。旧引擎无控制能力时可撤回宿主，但后台停止为 unknown。
 
 新增测试登记 `tests/v02-workflow-control.test.mjs`；真实来源脚本 `scripts/v02-004j-integration.mjs`。结果见 [J 报告](../project/evidence/V02-004J-report.md)。模块组合仍需后续最终安装验收，不能降级后使用旧普通 retry/attach 绕过已保存的 stop。

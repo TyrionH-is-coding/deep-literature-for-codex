@@ -7,7 +7,7 @@
   "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004j",
   "branch": "codex/v02-004j-workflow-control",
   "startedAt": "2026-09-18T10:44:10.1614737Z",
-  "phase": "review",
+  "phase": "in_progress",
   "baselineClean": true,
   "modules": [
     "workflow",
@@ -21,5 +21,7 @@
   "managementContextCommit": "59878f25b1e707d08277197b3ca949a673e3620a",
   "report": "docs/project/evidence/V02-004J-report.md",
   "evidenceIndex": "docs/project/evidence/V02-004J-index.json",
-  "limitation": "Source-only synthetic validation; final combined installation gate remains open"
+  "limitation": "Source-only synthetic validation; final combined installation gate remains open",
+  "revisionRound": 1,
+  "reviewFinding": "Cross-alias stop reconciliation; returned by controller after da1d08a"
 }

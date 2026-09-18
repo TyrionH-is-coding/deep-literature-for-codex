@@ -13,4 +13,7 @@ const service = await Handoff.open(root, { instance, engine,
   rpc: async () => { effects++; throw Error('unexpected_dispatch'); }, cancelTask: async () => { effects++; throw Error('unexpected_host_cancel'); } });
 const task = await service.task(id);
 await service.dispatch(id, 'ordinary-retry');
-console.log(JSON.stringify({ pid: process.pid, task, effects }));
+let guard;
+try { service.guardAdvance(task.sessionId, 'sr_continue_full_read', { job_id: task.jobId }); guard = 'allowed'; }
+catch (error) { guard = error.message; }
+console.log(JSON.stringify({ pid: process.pid, task, tasks: (await service.list()).tasks, guard, effects }));
