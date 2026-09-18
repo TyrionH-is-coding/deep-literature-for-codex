@@ -1039,7 +1039,9 @@
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。"
+      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。",
+      "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
     },
     {
       "id": "V02-004G",
@@ -1070,7 +1072,9 @@
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。"
+      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。",
+      "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex"
     }
   ],
   "developmentBaseline": {
