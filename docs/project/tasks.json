@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T06:27:28.877363+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T06:32:51.355119+00:00"
+    "lastReviewAt": "2026-09-18T06:48:14.877096+00:00",
+    "lastHeartbeatCompletedAt": "2026-09-18T06:48:14.877096+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -186,7 +186,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "恢复F1已安装闭环；停止控制004F与冻结旧路径诊断004G并行，005继续等待。",
+      "notes": "恢复F1已安装闭环；004F停止控制测试中，004G诊断通过，004H修复需等待F。005继续等待。",
       "children": [
         "V02-004A",
         "V02-004B",
@@ -194,7 +194,8 @@
         "V02-004D",
         "V02-004E",
         "V02-004F",
-        "V02-004G"
+        "V02-004G",
+        "V02-004H"
       ]
     },
     {
@@ -939,8 +940,9 @@
           "id": "004D-O1",
           "status": "open",
           "title": "failed后直接advance导致状态校验失败，支持边界与根因待核实",
-          "followup": "V02-004G",
-          "classification": "unresolved-observation"
+          "followup": "V02-004H",
+          "classification": "confirmed-direct-service-lifecycle-guard-defect",
+          "evidence": "docs/project/evidence/V02-004G-control-review.md"
         }
       ]
     },
@@ -1047,13 +1049,19 @@
       "startedAt": "2026-09-18T06:30:20.0085554Z",
       "receiptPhase": "received",
       "startConfirmedBy": "fixed-worktree-receipt",
-      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00"
+      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00",
+      "progressSnapshot": {
+        "checkedAt": "2026-09-18T06:48:14.877096+00:00",
+        "head": "093172e0d5d1619a6497d4ab9bf9290f5e867612",
+        "deliveryReady": false,
+        "evidence": "源码已提交，完整回归仍在执行，回执尚非review；不据部分日志验收。"
+      }
     },
     {
       "id": "V02-004G",
       "title": "直接advance失败路径归因",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine"
       ],
@@ -1073,24 +1081,53 @@
         "docs/codex-v02/V02-004G*"
       ],
       "receipt": "docs/codex-v02/V02-004G-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。",
+      "commits": [
+        "6d88f2bef88867c335ded9a5bcb443b7c6cf921d"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004G-control-review.md"
+      ],
+      "notes": "总控独立六场景重现；公共CLI对照正常。004H待004F后串行修复。",
       "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:68102028-58d1-4380-a736-5f9e2c7f685d",
       "dispatchRequestedAt": "2026-09-18T06:32:05.715608+00:00",
       "startedAt": "2026-09-18T06:30:18.5414075Z",
-      "receiptPhase": "diagnosis",
+      "receiptPhase": "review",
       "startConfirmedBy": "fixed-worktree-receipt",
-      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00"
+      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00",
+      "integrationCommit": "6d88f2bef88867c335ded9a5bcb443b7c6cf921d",
+      "integrationBranch": "codex/v02-engine-baseline",
+      "acceptance": "diagnosis-accepted; direct advance defect remains",
+      "followup": "V02-004H"
+    },
+    {
+      "id": "V02-004H",
+      "title": "直接推进的生命周期写前守卫",
+      "kind": "task",
+      "status": "planned",
+      "parent": "V02-004",
+      "modules": [
+        "engine"
+      ],
+      "dependsOn": [
+        "V02-004F",
+        "V02-004G"
+      ],
+      "card": null,
+      "ownerSession": null,
+      "worktree": null,
+      "branch": null,
+      "commits": [],
+      "evidence": [],
+      "notes": "F验收后再固定基线拆卡；写前拒绝绕过worker生命周期的显式advance，保留现有校验与公共恢复，不与F并行改pipeline。"
     }
   ],
   "developmentBaseline": {
-    "engine": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
+    "engine": "6d88f2bef88867c335ded9a5bcb443b7c6cf921d",
     "engineBranch": "codex/v02-engine-baseline",
     "workbench": "6b979d18dcb14d54e2e9bb3dc026dfd7b5325b87",
     "workbenchBranch": "codex/v02-control",

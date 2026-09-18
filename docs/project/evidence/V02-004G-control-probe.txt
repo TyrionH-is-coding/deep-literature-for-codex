@@ -1,0 +1,56 @@
+{
+  "direct-none": {
+    "job": "failed",
+    "pipeline": "failed",
+    "stage": "parse_mineru",
+    "inspect_ok": true
+  },
+  "direct-success": {
+    "job": "failed",
+    "pipeline": "queued",
+    "stage": "translate_full",
+    "inspect_ok": false
+  },
+  "direct-refail": {
+    "job": "failed",
+    "pipeline": "failed",
+    "stage": "parse_mineru",
+    "inspect_ok": true
+  },
+  "direct-gate": {
+    "job": "failed",
+    "pipeline": "waiting_agent",
+    "stage": "parse_mineru",
+    "inspect_ok": false
+  },
+  "cli-resume": {
+    "job": "waiting_agent",
+    "pipeline": "waiting_agent",
+    "stage": "translate_full",
+    "inspect_ok": true
+  },
+  "cli-start": {
+    "job": "waiting_agent",
+    "pipeline": "waiting_agent",
+    "stage": "translate_full",
+    "inspect_ok": true
+  }
+}
+EXPECTED RED: REGRESSION: accepted explicit advance must leave reloadable state (or reject before mutation)
+{
+  "sourceFilesVerified": 51,
+  "redReproduced": true,
+  "cases": [
+    "direct-none",
+    "direct-success",
+    "direct-refail",
+    "direct-gate",
+    "cli-resume",
+    "cli-start"
+  ],
+  "liveRecordedPids": [],
+  "ownerClaims": 0,
+  "sourceCommit": "6d88f2bef88867c335ded9a5bcb443b7c6cf921d",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "note": "Source diagnosis only; red defect remains. Two real CLI recovery comparisons pass."
+}
