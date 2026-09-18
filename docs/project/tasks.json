@@ -1252,7 +1252,7 @@
       "title": "取消与显式恢复的完整工作流",
       "kind": "task",
       "parent": "V02-004",
-      "status": "ready",
+      "status": "queued",
       "modules": [
         "workflow",
         "bridge"
@@ -1285,13 +1285,16 @@
         "docs/project/evidence/V02-004J*"
       ],
       "receipt": "docs/project/evidence/V02-004J-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-18T10:36:40.862Z",
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
       "notes": "完整workflow行为及真实来源验证；不改A/产品版本，不冒充最终安装验收。",
-      "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8"
+      "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8",
+      "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
+      "hostId": "local",
+      "dispatchRequestedAt": "2026-09-18T10:39:47.649Z"
     }
   ],
   "developmentBaseline": {
