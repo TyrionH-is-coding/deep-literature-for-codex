@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-18T11:15:27.987Z"
     },
-    "lastReviewAt": "2026-09-18T11:30:56.049Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T11:30:56.049Z",
+    "lastReviewAt": "2026-09-18T11:45:30.425Z",
+    "lastHeartbeatCompletedAt": "2026-09-18T11:45:30.425Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -1310,17 +1310,20 @@
       "dispatchReservedAt": "2026-09-18T10:36:40.862Z",
       "userConfirmed": true,
       "commits": [],
-      "evidence": [],
+      "evidence": [
+        "docs/project/evidence/V02-004J-control-review.md",
+        "docs/project/evidence/V02-004J-control-review.json"
+      ],
       "notes": "保持已冻结接口与验收场景；一页交接、证据索引和已有验收路径的可复现操作样例，不新增重复测试。",
       "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8",
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:4",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:5",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
       "lastDispatchCheckAt": "2026-09-18T11:30:56.049Z",
-      "receiptPhase": "in_progress",
+      "receiptPhase": "review-returned-for-rework",
       "lastThreadSnapshot": {
         "checkedAt": "2026-09-18T11:30:56.049Z",
         "status": "active",
@@ -1328,18 +1331,32 @@
         "turnId": "01a0b41b-9a81-7251-bf7f-d276d4d17776"
       },
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T11:30:56.049Z",
+        "checkedAt": "2026-09-18T11:45:30.425Z",
         "deliveryReady": false,
-        "workbenchHead": "43bca47fead32d9c48aeb00b4c9832f9d434e7a8",
-        "notes": "已固定源码，开发者报告99 pass/1 skip及真实A链两次重开通过；原生DSH夹具合法跳转已修正，宿主验证仍进行中；未有review回执/报告，不计为验收。"
+        "workbenchHead": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
+        "notes": "总控真实A复现别名恢复缺陷，已送回同一任务第1轮返工；未集成，不开后继。"
       },
       "risk": "R2",
-      "reviewRounds": 0,
+      "reviewRounds": 1,
       "checkpointMinutes": 90,
       "checkpointBasis": "startedAt; checkpoint is review, not automatic cancellation",
       "expectedFirstEvidence": "固定源码与定向故障测试，随后实际来源集成",
       "observableOutcome": "停止后重启保持，明确恢复同一任务；演示为合成任务且不冒称安装/UI/模型质量",
-      "governanceDecision": "D021"
+      "governanceDecision": "D021",
+      "reviewAt": "2026-09-18T11:45:30.425Z",
+      "reviewedCommit": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
+      "acceptance": "needs-rework-cross-alias-stop-reconciliation",
+      "findings": [
+        {
+          "id": "004J-R1",
+          "status": "open",
+          "classification": "current-task-required-fix",
+          "title": "同parent多条Handoff意图在合法恢复后不一致，无parent别名也可永久阻挡",
+          "followup": "V02-004J",
+          "blocksTaskAcceptance": true
+        }
+      ],
+      "nextCheckpointAt": "2026-09-18T13:15:30.425Z"
     }
   ],
   "developmentBaseline": {

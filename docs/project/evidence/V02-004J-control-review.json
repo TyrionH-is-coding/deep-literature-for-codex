@@ -1,0 +1,31 @@
+{
+  "sourceCommit": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
+  "engineCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+  "checkedAt": "2026-09-18T11:45:30.420Z",
+  "result": "defect_reproduced",
+  "observation": {
+    "name": "confirmed cross-alias reconciliation defect",
+    "value": {
+      "sameParent": true,
+      "engineStopRequested": false,
+      "revision": 3,
+      "latestTaskCancelRequested": false,
+      "latestTaskStatus": "cancel_requested",
+      "olderAliasCancelRequested": true,
+      "guard": "reading_stop_requested",
+      "oldResume": "reading_control_not_stopped",
+      "worker": null
+    }
+  },
+  "localEvidenceRoot": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+  "hashes": {
+    "outputs/v02-004j-control-review/alias-probe.mjs": "ac07cb467d1a89f184364540fa712491070b08a0ae0d4bcc9408b3d77c400151",
+    "outputs/v02-004j-control-review/real-alias-probe.mjs": "dfcc22afab5af58f9720a15dbe3a43445e35a481c406faeb0580f2befcf32ebe",
+    "outputs/v02-004j-control-review/real-alias-1789731799167/report.json": "57607a849b6657ed1a9f716bdfc782028b55dbb6cd046e0a7c20400413295886"
+  },
+  "tests": {
+    "directed": 13,
+    "failed": 0
+  },
+  "note": "Local artifacts retained; host RPC synthetic, Handoff/adapter/A Python actual. No installation or scientific quality claim."
+}
