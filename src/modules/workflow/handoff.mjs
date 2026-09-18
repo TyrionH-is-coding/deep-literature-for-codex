@@ -336,6 +336,9 @@ export class Handoff {
         && op.stopRequestId === task.stopOperation?.requestId);
       if (!task.cancelRequested || resumeAttempted) task.stopOperation = { requestId: 'stop-' + randomUUID(), status: 'prepared' };
       task.cancelRequested = true;
+      task.stopOperation ??= { requestId: 'stop-' + randomUUID(), status: 'prepared' };
+      task.hostCancellation = { status: 'requested', requestId: task.stopOperation.requestId,
+        previousResult: task.cancellation ?? null };
       // Persist intent before host side effects; a failed host call remains retryable.
       await this.save();
       // Both domains are attempted independently after durable intent. Neither
@@ -345,8 +348,8 @@ export class Handoff {
       catch (error) { persistenceError = error; }
       try {
         task.cancellation = await this.cancelTask(task);
-        task.hostCancellation = { status: 'received', result: task.cancellation };
-      } catch (error) { hostError = error; task.hostCancellation = { status: 'unknown', error: safeError(error) }; }
+        task.hostCancellation = { status: 'received', requestId: task.stopOperation.requestId, result: task.cancellation };
+      } catch (error) { hostError = error; task.hostCancellation = { status: 'unknown', requestId: task.stopOperation.requestId, error: safeError(error) }; }
       await this.save();
       if (persistenceError) throw persistenceError;
       await this._refresh(task);

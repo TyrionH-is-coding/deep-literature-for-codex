@@ -220,3 +220,17 @@ test('a stop gate returned by ordinary resume is never recorded as completed', a
   assert.equal(Object.values(Object.values(service.data.tasks)[0].operations)[0].status, 'prepared');
   assert.equal(state.revision, 0);
 });
+
+test('host receipt persistence loss leaves requested on disk, never a recycled success', async t => {
+  const { service, state, task, root, deps } = await fixture(t);
+  await service.cancel(task.taskId);
+  const save = service.save.bind(service);
+  service.save = async () => { if (state.hosts === 2) throw Error('host_receipt_save_failed'); return save(); };
+  await assert.rejects(service.cancel(task.taskId), /host_receipt_save_failed/);
+  const persisted = Object.values(JSON.parse(await fs.readFile(service.file)).tasks)[0];
+  assert.equal(persisted.hostCancellation.status, 'requested');
+  assert.deepEqual(persisted.hostCancellation.previousResult, persisted.cancellation);
+  const reopened = await Handoff.open(root, deps);
+  assert.equal((await reopened.task(task.taskId)).cancelRequested, true);
+  await reopened.cancel(task.taskId); assert.equal(state.hosts, 3);
+});
