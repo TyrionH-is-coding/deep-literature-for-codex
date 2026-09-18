@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T06:48:14.877096+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T06:48:14.877096+00:00"
+    "lastReviewAt": "2026-09-18T07:02:36.560826+00:00",
+    "lastHeartbeatCompletedAt": "2026-09-18T07:02:36.560826+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -1049,13 +1049,14 @@
       "startedAt": "2026-09-18T06:30:20.0085554Z",
       "receiptPhase": "received",
       "startConfirmedBy": "fixed-worktree-receipt",
-      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00",
+      "lastDispatchCheckAt": "2026-09-18T07:02:36.560826+00:00",
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T06:48:14.877096+00:00",
-        "head": "093172e0d5d1619a6497d4ab9bf9290f5e867612",
+        "checkedAt": "2026-09-18T07:02:36.560826+00:00",
+        "head": "566bf4dedaeb6bd4540bd2bdf2b40a455cf121bd",
         "deliveryReady": false,
-        "evidence": "源码已提交，完整回归仍在执行，回执尚非review；不据部分日志验收。"
-      }
+        "evidence": "总控独立控制单测16pass；最终完整回归和真实进程验收仍在增长，回执received，文档证据未提交；不合入。"
+      },
+      "controlProgressEvidence": "docs/project/evidence/V02-004F-control-progress.md"
     },
     {
       "id": "V02-004G",
