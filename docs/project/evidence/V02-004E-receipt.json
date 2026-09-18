@@ -1,0 +1,15 @@
+{
+  "task": "V02-004E",
+  "branch": "codex/v02-004e-cancel-intent",
+  "taskId": null,
+  "initialStatus": "clean",
+  "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
+  "time": "2026-09-18T05:46:50.4054044Z",
+  "contextPath": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+  "baseCommit": "d78e48bbad317c92770b767390addd589b475038",
+  "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004e",
+  "dependencySetup": "npm ci --ignore-scripts; lock unchanged",
+  "phase": "in_progress",
+  "objective": "004C-C1 durable cancel intent before external cancellation",
+  "module": "workflow"
+}

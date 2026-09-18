@@ -111,7 +111,7 @@
     },
     {
       "id": "workflow",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "purpose": "分类会话绑定、任务幂等、交接与恢复",
       "ownedPaths": [
         "src/modules/workflow/",

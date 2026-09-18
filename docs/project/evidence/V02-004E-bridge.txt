@@ -1,0 +1,18 @@
+✔ 原生交接证据识别持久队列被正常停止撤销，并优先使用实际 pending 或 delivered (3.2382ms)
+✔ 领取后尚未追加 user/message 或不完整取消记录仅能判为 uncertain (1.1975ms)
+✔ 实际会话身份决定工具范围，不能通过参数声明自己是其他分类 (1.1967ms)
+✔ 取消只移除本任务排队消息，不取消同分类正在处理的另一篇论文 (4.9465ms)
+✔ 上一任务结束后不能取消尚未追加消息的新 turn；领取记录必须属于当前 turn (0.5948ms)
+✔ 同一 turn 混入其他任务或手动消息时只撤回队列，不中断共享 turn (0.4085ms)
+✔ gate 源文仅可分页读取真实本篇材料；任意路径和移出分类被拒绝 (199.1824ms)
+✔ A 门槛退出码保持真实状态，scope 错误不会伪装为正常任务 (1.9725ms)
+✔ job-status 失败时返回完整 JSON，并把 detail.error 作为可识别错误 (1.2499ms)
+✔ 完成以真实 Reader HTTP 字节和 SHA 为准，RPC 校验完整回执 (251.3893ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 996.4465

@@ -1,0 +1,57 @@
+{
+  "node": "v24.18.0",
+  "platform": "win32",
+  "results": [
+    {
+      "name": "check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/modules.mjs",
+        "check"
+      ],
+      "start": "2026-09-18T05:48:56.646Z",
+      "end": "2026-09-18T05:48:57.313Z",
+      "exit": 0,
+      "error": null
+    },
+    {
+      "name": "impact",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/modules.mjs",
+        "impact",
+        "--base",
+        "d78e48bbad317c92770b767390addd589b475038"
+      ],
+      "start": "2026-09-18T05:48:57.317Z",
+      "end": "2026-09-18T05:48:58.351Z",
+      "exit": 0,
+      "error": null
+    },
+    {
+      "name": "workflow",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/modules.mjs",
+        "test",
+        "workflow"
+      ],
+      "start": "2026-09-18T05:48:58.351Z",
+      "end": "2026-09-18T05:49:09.602Z",
+      "exit": 0,
+      "error": null
+    },
+    {
+      "name": "bridge",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--test",
+        "tests/bridge.test.mjs"
+      ],
+      "start": "2026-09-18T05:49:09.602Z",
+      "end": "2026-09-18T05:49:10.960Z",
+      "exit": 0,
+      "error": null
+    }
+  ]
+}

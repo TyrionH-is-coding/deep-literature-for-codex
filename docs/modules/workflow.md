@@ -19,6 +19,12 @@
 
 ## 验证边界
 
-`npm run modules -- test workflow` 覆盖模块与下游；本模块登记 `tests/handoff.test.mjs`。当前执行结果应独立记录。
+`npm run modules -- test workflow` 覆盖模块与下游；本模块登记 `tests/handoff.test.mjs` 和 `tests/v02-cancel-contract.test.mjs`。当前执行结果应独立记录。
 
 修改幂等键、持久格式、投递/重试、分类范围或取消语义时，检查重启、重复请求、未知操作结果和范围变化；再验证真实 DSH/引擎交接。修改 Reader 完成判定还要验证实际资产及 HTTP 摘要，不能仅依赖任务状态字符串。
+
+## 0.1.1 取消失败语义
+
+`cancel` 先通过已有任务身份与分类范围检查，再以现有原子 JSON 写入保存 `cancelRequested=true`，最后调用宿主撤回。保存失败不会开始宿主副作用；宿主失败向调用方抛出原错误，但文件中的意图继续抑制同键提交和默认投递。重复取消始终重新保存并重试宿主，不把旧取消回执当成本次成功，也不持久化宿主异常或 stack。写盘失败时内存中的意图仍保留，调用方必须处理失败，不能视为已持久化成功。
+
+成功的新 resume/attach 和显式 dispatch(retryKey) 仍按现有行为清除意图；旧 completed operation 重放不清除后来的取消。真实 completed/failed 与 Reader 资产照常呈现。schema 1、公开接口和依赖均不变；不保证断电 fsync 耐久性，不代表 A worker 已停止。验证及限定见 [V02-004E](../project/evidence/V02-004E-report.md)。
