@@ -1418,7 +1418,8 @@
       "receipt": "docs/project/evidence/V02-004K-receipt.json",
       "commits": [],
       "evidence": [],
-      "notes": "仅新候选身份与必要安装验收，不改生产算法/依赖；F2/真实模型/最终发布另验。"
+      "notes": "仅新候选身份与必要安装验收，不改生产算法/依赖；F2/真实模型/最终发布另验。",
+      "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f"
     }
   ],
   "developmentBaseline": {
