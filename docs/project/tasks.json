@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T10:36:40.862Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T10:21:26.852840+00:00"
+    "lastReviewAt": "2026-09-18T10:56:50.677Z",
+    "lastHeartbeatCompletedAt": "2026-09-18T10:56:50.677Z"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -1295,10 +1295,23 @@
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:1",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:2",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
-      "lastDispatchCheckAt": "2026-09-18T10:43:06.157Z"
+      "lastDispatchCheckAt": "2026-09-18T10:56:50.677Z",
+      "receiptPhase": "in_progress",
+      "lastThreadSnapshot": {
+        "checkedAt": "2026-09-18T10:56:50.677Z",
+        "status": "active",
+        "turnStatus": "inProgress",
+        "turnId": "01a0b41b-9a81-7251-bf7f-d276d4d17776"
+      },
+      "progressSnapshot": {
+        "checkedAt": "2026-09-18T10:56:50.677Z",
+        "deliveryReady": false,
+        "workbenchHead": "36c27fb8b281faf4496ae6fade265e5f2d866555",
+        "notes": "首版workflow/plugin及定向测试修改中，尚无交付提交/报告；保持后继依赖。"
+      }
     }
   ],
   "developmentBaseline": {
