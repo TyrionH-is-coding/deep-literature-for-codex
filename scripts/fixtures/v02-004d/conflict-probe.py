@@ -16,7 +16,7 @@ assert not os.environ.get('PYTHONPATH')
 cols=['personal_thoughts','understanding_level','user_notes']; names=['个人思考','个人理解程度','用户笔记']
 records=[]
 def cli(data,*args,code=0):
- p=subprocess.run([sys.executable,'-I','-X','utf8','-m','scientific_reading','--data-root',str(data),*args],capture_output=True,text=True,encoding='utf-8')
+ p=subprocess.run([sys.executable,'-I','-X','utf8','-m','scientific_reading','--data-root',str(data),*args],capture_output=True,text=True,encoding='utf-8',creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
  records.append({'args':args,'data':str(data),'code':p.returncode,'stdout':p.stdout,'stderr':p.stderr})
  assert p.returncode==code,records[-1]
  return json.loads(p.stdout)
@@ -73,7 +73,7 @@ elif mode=='live-seed':
 elif mode=='live-check':
  data=root/'library';saved=json.loads((root/'v3d-conflict.json').read_text());store=BackgroundJobStore(data);job=saved['job_id']
  if store.load_status(job).state=='waiting_user':store.transition(job,'queued')
- p=subprocess.run([sys.executable,'-I','-X','utf8','-m','scientific_reading.worker','--data-root',str(data),'--job-id',job],capture_output=True,text=True,encoding='utf-8');assert p.returncode==2,(p.stdout,p.stderr,p.returncode)
+ p=subprocess.run([sys.executable,'-I','-X','utf8','-m','scientific_reading.worker','--data-root',str(data),'--job-id',job],capture_output=True,text=True,encoding='utf-8',creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0));assert p.returncode==2,(p.stdout,p.stderr,p.returncode)
  status=BackgroundJobStore(data).load_status(job).to_dict();assert status['state']=='waiting_user' and status['reason_code']=='xlsx_user_fields_conflict'
  assert status['required_input']['updated']==0
  assert status['required_input']['conflict_details']==[{'paper_id':saved['paper_id'],'field':'user_notes','code':'user_field_conflict'}]

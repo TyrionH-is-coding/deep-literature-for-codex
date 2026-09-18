@@ -1,7 +1,7 @@
 {
   "taskId": "V02-004D",
   "ownerSession": null,
-  "phase": "in_progress",
+  "phase": "review",
   "startedAt": "2026-09-18T05:46:31.1927945Z",
   "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
   "contextPath": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
@@ -15,5 +15,23 @@
     "baseCommit": "d78e48bbad317c92770b767390addd589b475038",
     "initialClean": true,
     "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004d"
-  }
+  },
+  "completedAt": "2026-09-18T06:14:28.378054+00:00",
+  "A_sourceCommit": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
+  "A_deliveryCommit": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
+  "B_sourceCommit": "c78dc5846dac799b024a4cd07dfbef40bc2e8f6a",
+  "artifactSha256": {
+    "tgz": "a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44",
+    "wheel": "37f3da559ba74f022f4b73c3757b55299254ee50a75f04af49162b00749f4f83",
+    "zip": "74bc15abc25499ecec9d8971e585e2c46dd4ce9ac3410aea86dd12b8bd6f0a8a"
+  },
+  "report": "docs/project/evidence/V02-004D.md",
+  "cleanup": "docs/project/evidence/V02-004D/cleanup.json",
+  "remainingTaskProcesses": 0,
+  "limitations": [
+    "cancellation/004A-G1 remains open",
+    "F2 remains open",
+    "failed direct ReadingPipeline.advance path retained; normal installed worker recovery passed",
+    "no visual/Office/real model/non-Windows claim"
+  ]
 }

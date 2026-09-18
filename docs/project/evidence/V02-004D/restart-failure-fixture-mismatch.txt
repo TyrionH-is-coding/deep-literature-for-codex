@@ -1,0 +1,29 @@
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Traceback (most recent call last):
+
+  File "C:\Users\15694\Documents\ChatGPT\deep-literature-v02-004d\scripts\fixtures\v02-004d\restart-failure.py", line 28, in <module>
+
+    assert state.state!='failed',state.to_dict()
+
+           ^^^^^^^^^^^^^^^^^^^^^
+
+AssertionError: {'paper_id': 'doi_10.5555_v02-004d-restart-failure', 'parent_job_id': 'job_ca640943a56948f0', 'current_stage': 'parse_mineru', 'state': 'failed', 'stage_jobs': {}, 'stage_outputs': {'ensure_pdf': {'status': 'pdf_ready', 'source_pdf_sha256': '482ea8ab20667b667ab6dc8fb56b0947aede3d9fbe566316222c11283f12e46a', 'source_path': 'C:\\Users\\15694\\AppData\\Local\\Temp\\v4do\\library\\papers\\doi_10.5555_v02-004d-restart-failure\\source.pdf', 'page_count': 0, 'reused': True}}, 'stage_timings': {'ensure_pdf': {'started_at': '2026-09-18T06:03:55.566714+00:00', 'finished_at': '2026-09-18T06:03:55.882490+00:00'}, 'parse_mineru': {'started_at': '2026-09-18T06:03:56.068338+00:00', 'finished_at': None}}, 'source_pdf_sha256': '482ea8ab20667b667ab6dc8fb56b0947aede3d9fbe566316222c11283f12e46a', 'reader_source_sha256': None, 'required_action': None, 'last_error': 'MinerU 正文缺少论文身份锚点', 'created_at': '2026-09-18T06:03:55.256158+00:00', 'updated_at': '2026-09-18T06:04:50.166002+00:00', 'completed_at': None, 'contract_version': 'reading-pipeline-v1'}
+
+
+
+1 !== 0
+
+    at probe (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004d/scripts/acceptance-v02-004d-failure.mjs:8:412)
+    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004d/scripts/acceptance-v02-004d-failure.mjs:17:25 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.22.2

@@ -1,0 +1,31 @@
+{
+  "time": "2026-09-18T06:12:12.450Z",
+  "records": [
+    {
+      "root": "C:/Users/15694/AppData/Local/Temp/v4d",
+      "app": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d\\releases\\2e3ea62e9a4a11a4\\app",
+      "python": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d\\releases\\2e3ea62e9a4a11a4\\runtime\\venv\\Scripts\\python.exe",
+      "status": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "a18615e1-662f-4326-8795-bce64dd43092",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d",
+        "status": "stopped",
+        "startedAt": 1789711835573
+      }
+    },
+    {
+      "root": "C:/Users/15694/AppData/Local/Temp/v4do",
+      "app": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4do\\releases\\2e3ea62e9a4a11a4\\app",
+      "python": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4do\\releases\\2e3ea62e9a4a11a4\\runtime\\venv\\Scripts\\python.exe",
+      "status": {
+        "product": "codex-scientific-reading",
+        "schema": 1,
+        "instanceId": "1d04bf14-8a60-4dbe-9856-bdb21d6fa81e",
+        "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4do",
+        "status": "stopped",
+        "startedAt": 1789711705016
+      }
+    }
+  ]
+}
