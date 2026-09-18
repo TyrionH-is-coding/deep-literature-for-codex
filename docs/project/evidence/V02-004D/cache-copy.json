@@ -1,0 +1,16 @@
+{
+  "root": "C:/Users/15694/AppData/Local/Temp/v4d",
+  "extractedRoot": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d\\outputs\\v02-004d-candidate\\verified-extraction\\deep-literature-for-codex-0.2.0-dev.3-win-x64",
+  "records": [
+    {
+      "source": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\downloads\\node-22.22.2.zip",
+      "target": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d\\runtime\\downloads\\node-22.22.2.zip",
+      "sha256": "7c93e9d92bf68c07182b471aa187e35ee6cd08ef0f24ab060dfff605fcc1c57c"
+    },
+    {
+      "source": "C:\\Users\\15694\\AppData\\Local\\Temp\\v02-001-20260917-probe\\runtime\\downloads\\python-3.11.16-20260901.tar.gz",
+      "target": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d\\runtime\\downloads\\python-3.11.16-20260901.tar.gz",
+      "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
+    }
+  ]
+}

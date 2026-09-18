@@ -1,0 +1,19 @@
+{
+  "A_base": "bf09c557bcedbba1d843579401d73b7beb65705d",
+  "B_base": "d78e48bbad317c92770b767390addd589b475038",
+  "A_source": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
+  "B_source": "c78dc5846dac799b024a4cd07dfbef40bc2e8f6a",
+  "checks": [
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004d\\package.json dependencies unchanged",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004d\\package-lock.json dependencies unchanged",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d\\package.json dependencies unchanged",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d\\package-lock.json dependencies unchanged",
+    "runtime lock only local plugin version/integrity",
+    "runtime/platform pins unchanged",
+    "catalog only engine identity; workflow unchanged",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004d production/test/validator exclusions unchanged",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d production/test/validator exclusions unchanged"
+  ],
+  "currentArchiveSha256": "a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44",
+  "currentZipSha256": "74bc15abc25499ecec9d8971e585e2c46dd4ce9ac3410aea86dd12b8bd6f0a8a"
+}

@@ -1,0 +1,485 @@
+Modules: foundation, skill, lifecycle, releases, workflow, bridge, application, tooling
+TAP version 13
+# Subtest: 原生交接证据识别持久队列被正常停止撤销，并优先使用实际 pending 或 delivered
+ok 1 - 原生交接证据识别持久队列被正常停止撤销，并优先使用实际 pending 或 delivered
+  ---
+  duration_ms: 2.5104
+  type: 'test'
+  ...
+# Subtest: 领取后尚未追加 user/message 或不完整取消记录仅能判为 uncertain
+ok 2 - 领取后尚未追加 user/message 或不完整取消记录仅能判为 uncertain
+  ---
+  duration_ms: 1.4509
+  type: 'test'
+  ...
+# Subtest: 实际会话身份决定工具范围，不能通过参数声明自己是其他分类
+ok 3 - 实际会话身份决定工具范围，不能通过参数声明自己是其他分类
+  ---
+  duration_ms: 0.5552
+  type: 'test'
+  ...
+# Subtest: 取消只移除本任务排队消息，不取消同分类正在处理的另一篇论文
+ok 4 - 取消只移除本任务排队消息，不取消同分类正在处理的另一篇论文
+  ---
+  duration_ms: 1.8682
+  type: 'test'
+  ...
+# Subtest: 上一任务结束后不能取消尚未追加消息的新 turn；领取记录必须属于当前 turn
+ok 5 - 上一任务结束后不能取消尚未追加消息的新 turn；领取记录必须属于当前 turn
+  ---
+  duration_ms: 0.5707
+  type: 'test'
+  ...
+# Subtest: 同一 turn 混入其他任务或手动消息时只撤回队列，不中断共享 turn
+ok 6 - 同一 turn 混入其他任务或手动消息时只撤回队列，不中断共享 turn
+  ---
+  duration_ms: 0.428
+  type: 'test'
+  ...
+# Subtest: gate 源文仅可分页读取真实本篇材料；任意路径和移出分类被拒绝
+ok 7 - gate 源文仅可分页读取真实本篇材料；任意路径和移出分类被拒绝
+  ---
+  duration_ms: 133.2365
+  type: 'test'
+  ...
+# Subtest: A 门槛退出码保持真实状态，scope 错误不会伪装为正常任务
+ok 8 - A 门槛退出码保持真实状态，scope 错误不会伪装为正常任务
+  ---
+  duration_ms: 2.5173
+  type: 'test'
+  ...
+# Subtest: job-status 失败时返回完整 JSON，并把 detail.error 作为可识别错误
+ok 9 - job-status 失败时返回完整 JSON，并把 detail.error 作为可识别错误
+  ---
+  duration_ms: 2.0583
+  type: 'test'
+  ...
+# Subtest: 完成以真实 Reader HTTP 字节和 SHA 为准，RPC 校验完整回执
+ok 10 - 完成以真实 Reader HTTP 字节和 SHA 为准，RPC 校验完整回执
+  ---
+  duration_ms: 180.3689
+  type: 'test'
+  ...
+# Subtest: 重复初始化复用身份，状态与文献目录独立
+ok 11 - 重复初始化复用身份，状态与文献目录独立
+  ---
+  duration_ms: 70.3252
+  type: 'test'
+  ...
+# Subtest: 拒绝将未知非空目录当成安装根
+ok 12 - 拒绝将未知非空目录当成安装根
+  ---
+  duration_ms: 30.12
+  type: 'test'
+  ...
+# Subtest: 排除外部宿主、模型凭据和解释器注入，保留系统与代理
+ok 13 - 排除外部宿主、模型凭据和解释器注入，保留系统与代理
+  ---
+  duration_ms: 10.0676
+  type: 'test'
+  ...
+# Subtest: 文件校验拒绝被替换的发行包
+ok 14 - 文件校验拒绝被替换的发行包
+  ---
+  duration_ms: 114.8916
+  type: 'test'
+  ...
+# Subtest: 安装 Skill 可重复执行，但不能覆盖用户已有的同名内容
+ok 15 - 安装 Skill 可重复执行，但不能覆盖用户已有的同名内容
+  ---
+  duration_ms: 444.6431
+  type: 'test'
+  ...
+# Subtest: 自有且未修改的 Skill 可升级和卸载
+ok 16 - 自有且未修改的 Skill 可升级和卸载
+  ---
+  duration_ms: 826.7632
+  type: 'test'
+  ...
+# Subtest: 并发重复交接只启动一个任务，重命名不改变绑定，重启后读回同一任务
+ok 17 - 并发重复交接只启动一个任务，重命名不改变绑定，重启后读回同一任务
+  ---
+  duration_ms: 578.9662
+  type: 'test'
+  ...
+# Subtest: 聊天或任务说完成但没有正式 Reader 时，不能报精读完成
+ok 18 - 聊天或任务说完成但没有正式 Reader 时，不能报精读完成
+  ---
+  duration_ms: 681.0792
+  type: 'test'
+  ...
+# Subtest: 投递回执丢失后从 DSH 历史调和，不重复提示导致重复执行
+ok 19 - 投递回执丢失后从 DSH 历史调和，不重复提示导致重复执行
+  ---
+  duration_ms: 558.0403
+  type: 'test'
+  ...
+# Subtest: 论文移出分类后旧任务拒绝继续；真实父子会话范围可继承
+ok 20 - 论文移出分类后旧任务拒绝继续；真实父子会话范围可继承
+  ---
+  duration_ms: 330.868
+  type: 'test'
+  ...
+# Subtest: 失败后的显式重试另记回执，同一重试仍幂等
+ok 21 - 失败后的显式重试另记回执，同一重试仍幂等
+  ---
+  duration_ms: 268.9357
+  type: 'test'
+  ...
+# Subtest: 正常停止撤销原生队列后重新核对已接收回执，同键不重发，显式重试另记回执
+ok 22 - 正常停止撤销原生队列后重新核对已接收回执，同键不重发，显式重试另记回执
+  ---
+  duration_ms: 412.632
+  type: 'test'
+  ...
+# Subtest: 已接收回执缺乏原生证据时持久化 uncertain，不把未知当作已交付或自动重发
+ok 23 - 已接收回执缺乏原生证据时持久化 uncertain，不把未知当作已交付或自动重发
+  ---
+  duration_ms: 368.5307
+  type: 'test'
+  ...
+# Subtest: 绑定分类时注册自有工作区并关联主管，不传 cwd；重复绑定不新建工作区身份
+ok 24 - 绑定分类时注册自有工作区并关联主管，不传 cwd；重复绑定不新建工作区身份
+  ---
+  duration_ms: 141.2471
+  type: 'test'
+  ...
+# Subtest: 全新实例在用户未设置时把默认 Agent 设为文献模式，已有用户选择则保留
+ok 25 - 全新实例在用户未设置时把默认 Agent 设为文献模式，已有用户选择则保留
+  ---
+  duration_ms: 121.3513
+  type: 'test'
+  ...
+# Subtest: 任务失败时透传 job.detail.error，不把顶层 error 留空
+ok 26 - 任务失败时透传 job.detail.error，不把顶层 error 留空
+  ---
+  duration_ms: 225.0541
+  type: 'test'
+  ...
+# Subtest: 改名后迁移未修改的旧 Skill，保留同一实例与安装根
+ok 27 - 改名后迁移未修改的旧 Skill，保留同一实例与安装根
+  ---
+  duration_ms: 947.813
+  type: 'test'
+  ...
+# Subtest: 改名保留定制或非本实例所有的旧 Skill
+ok 28 - 改名保留定制或非本实例所有的旧 Skill
+  ---
+  duration_ms: 1099.5018
+  type: 'test'
+  ...
+# Subtest: 新名称被定制 Skill 占用时，不删除旧入口或改写其收据
+ok 29 - 新名称被定制 Skill 占用时，不删除旧入口或改写其收据
+  ---
+  duration_ms: 159.3678
+  type: 'test'
+  ...
+# Subtest: 新版源码的 install-skill 可为旧安装单独更新入口
+ok 30 - 新版源码的 install-skill 可为旧安装单独更新入口
+  ---
+  duration_ms: 927.0548
+  type: 'test'
+  ...
+# Subtest: 发布已升级后，定制 Skill 冲突作为保留结果返回，不误报安装失败
+ok 31 - 发布已升级后，定制 Skill 冲突作为保留结果返回，不误报安装失败
+  ---
+  duration_ms: 363.5296
+  type: 'test'
+  ...
+# Subtest: 未被本实例管理的同名 Skill 保留且不创建所有权收据
+ok 32 - 未被本实例管理的同名 Skill 保留且不创建所有权收据
+  ---
+  duration_ms: 211.6278
+  type: 'test'
+  ...
+# Subtest: Skill 收据损坏等真实错误仍拒绝，不当成可忽略冲突
+ok 33 - Skill 收据损坏等真实错误仍拒绝，不当成可忽略冲突
+  ---
+  duration_ms: 282.8733
+  type: 'test'
+  ...
+# Subtest: 错误插件校验在创建安装根或发起下载前失败
+ok 34 - 错误插件校验在创建安装根或发起下载前失败
+  ---
+  duration_ms: 1556.8083
+  type: 'test'
+  ...
+# Subtest: 发行源文件被破坏时在引导安装前拒绝，安装根保持不存在
+ok 35 - 发行源文件被破坏时在引导安装前拒绝，安装根保持不存在
+  ---
+  duration_ms: 1588.8548
+  type: 'test'
+  ...
+# Subtest: Windows 卸载处理超长路径且不遍历文库 junction
+ok 36 - Windows 卸载处理超长路径且不遍历文库 junction
+  ---
+  duration_ms: 1261.2332
+  type: 'test'
+  ...
+# Subtest: 并发启动复用一个真实子进程，停止后状态准确，旁边的服务继续可用
+ok 37 - 并发启动复用一个真实子进程，停止后状态准确，旁边的服务继续可用
+  ---
+  duration_ms: 3237.2752
+  type: 'test'
+  ...
+# Subtest: 不按陈旧磁盘 PID 停止其他进程
+ok 38 - 不按陈旧磁盘 PID 停止其他进程
+  ---
+  duration_ms: 146.6968
+  type: 'test'
+  ...
+# Subtest: 宿主失败后返回具体状态，不能把进程存在当成就绪
+ok 39 - 宿主失败后返回具体状态，不能把进程存在当成就绪
+  ---
+  duration_ms: 2227.3427
+  type: 'test'
+  ...
+# Subtest: 拒绝控制通道返回的其他实例，即使其 HTTP 身份自洽
+ok 40 - 拒绝控制通道返回的其他实例，即使其 HTTP 身份自洽
+  ---
+  duration_ms: 296.6376
+  type: 'test'
+  ...
+# Subtest: 控制管道按解析后的安装根命名，联接路径仍拒绝伪造实例
+ok 41 - 控制管道按解析后的安装根命名，联接路径仍拒绝伪造实例
+  ---
+  duration_ms: 163.9954
+  type: 'test'
+  ...
+# Subtest: 升级日志未恢复时禁止普通启动，不猜测切换已经完成
+ok 42 - 升级日志未恢复时禁止普通启动，不猜测切换已经完成
+  ---
+  duration_ms: 76.017
+  type: 'test'
+  ...
+# Subtest: core.mjs preserves the rc.6 public API and module object identity
+ok 43 - core.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 45.8937
+  type: 'test'
+  ...
+# Subtest: platform.mjs preserves the rc.6 public API and module object identity
+ok 44 - platform.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 2.2638
+  type: 'test'
+  ...
+# Subtest: bridge.mjs preserves the rc.6 public API and module object identity
+ok 45 - bridge.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 12.796
+  type: 'test'
+  ...
+# Subtest: bridge-services.mjs preserves the rc.6 public API and module object identity
+ok 46 - bridge-services.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 3.9155
+  type: 'test'
+  ...
+# Subtest: handoff.mjs preserves the rc.6 public API and module object identity
+ok 47 - handoff.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 3.217
+  type: 'test'
+  ...
+# Subtest: workspace.mjs preserves the rc.6 public API and module object identity
+ok 48 - workspace.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 3.2511
+  type: 'test'
+  ...
+# Subtest: control.mjs preserves the rc.6 public API and module object identity
+ok 49 - control.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 12.2694
+  type: 'test'
+  ...
+# Subtest: local-socket.mjs preserves the rc.6 public API and module object identity
+ok 50 - local-socket.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 3.5281
+  type: 'test'
+  ...
+# Subtest: releases.mjs preserves the rc.6 public API and module object identity
+ok 51 - releases.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 16.1934
+  type: 'test'
+  ...
+# Subtest: library-transfer.mjs preserves the rc.6 public API and module object identity
+ok 52 - library-transfer.mjs preserves the rc.6 public API and module object identity
+  ---
+  duration_ms: 14.2211
+  type: 'test'
+  ...
+# Subtest: the stable bridge entrypoint retains the DSH plugin registration contract
+ok 53 - the stable bridge entrypoint retains the DSH plugin registration contract
+  ---
+  duration_ms: 1.1871
+  type: 'test'
+  ...
+# Subtest: relocated public APIs import from an unrelated cwd without loading the supervisor
+ok 54 - relocated public APIs import from an unrelated cwd without loading the supervisor
+  ---
+  duration_ms: 1692.0257
+  type: 'test'
+  ...
+# Subtest: the actual source graph has declared public boundaries and pinned module identities
+ok 55 - the actual source graph has declared public boundaries and pinned module identities
+  ---
+  duration_ms: 760.5293
+  type: 'test'
+  ...
+# Subtest: syntax parsing ignores example imports but detects export-from and computed imports
+ok 56 - syntax parsing ignores example imports but detects export-from and computed imports
+  ---
+  duration_ms: 6.4092
+  type: 'test'
+  ...
+# Subtest: a consumer cannot import private implementations or unregistered dependencies
+ok 57 - a consumer cannot import private implementations or unregistered dependencies
+  ---
+  duration_ms: 1.3465
+  type: 'test'
+  ...
+# Subtest: CommonJS bridges require review and literal require calls participate in dependency checks
+ok 58 - CommonJS bridges require review and literal require calls participate in dependency checks
+  ---
+  duration_ms: 0.7156
+  type: 'test'
+  ...
+# Subtest: unknown module requests fail and impact includes transitive consumers and runtime wiring
+ok 59 - unknown module requests fail and impact includes transitive consumers and runtime wiring
+  ---
+  duration_ms: 1.5621
+  type: 'test'
+  ...
+# Subtest: ambiguous ownership is rejected rather than silently choosing a module
+ok 60 - ambiguous ownership is rejected rather than silently choosing a module
+  ---
+  duration_ms: 0.3961
+  type: 'test'
+  ...
+# Subtest: a source cycle is rejected before traversing files
+ok 61 - a source cycle is rejected before traversing files
+  ---
+  duration_ms: 1.4962
+  type: 'test'
+  ...
+# Subtest: module fingerprints change only for modules that own changed bytes
+ok 62 - module fingerprints change only for modules that own changed bytes
+  ---
+  duration_ms: 67.4863
+  type: 'test'
+  ...
+# Subtest: every supported architecture selects pinned runtime assets and executable paths
+ok 63 - every supported architecture selects pinned runtime assets and executable paths
+  ---
+  duration_ms: 34.7939
+  type: 'test'
+  ...
+# Subtest: Unix host retains desktop keyring access and system commands without inheriting model settings
+ok 64 - Unix host retains desktop keyring access and system commands without inheriting model settings
+  ---
+  duration_ms: 0.9839
+  type: 'test'
+  ...
+# Subtest: POSIX socket survives long install paths and recovers a crashed owner without deleting live sockets
+ok 65 - POSIX socket survives long install paths and recovers a crashed owner without deleting live sockets # SKIP
+  ---
+  duration_ms: 0.2411
+  type: 'test'
+  ...
+# Subtest: 未解析临时路径或联接到达同一安装根时，发行槽位仍有效
+ok 66 - 未解析临时路径或联接到达同一安装根时，发行槽位仍有效
+  ---
+  duration_ms: 650.1908
+  type: 'test'
+  ...
+# Subtest: 发行槽位若联接到实例外目录则拒绝
+ok 67 - 发行槽位若联接到实例外目录则拒绝
+  ---
+  duration_ms: 266.0901
+  type: 'test'
+  ...
+# Subtest: 升级和回退保留新旧文献、配置和实例身份
+ok 68 - 升级和回退保留新旧文献、配置和实例身份
+  ---
+  duration_ms: 667.7679
+  type: 'test'
+  ...
+# Subtest: 候选启动失败自动恢复旧版本，既有 PDF 字节不变
+ok 69 - 候选启动失败自动恢复旧版本，既有 PDF 字节不变
+  ---
+  duration_ms: 498.7856
+  type: 'test'
+  ...
+# Subtest: 中断切换可恢复旧描述符，不恢复旧数据库覆盖新文献
+ok 70 - 中断切换可恢复旧描述符，不恢复旧数据库覆盖新文献
+  ---
+  duration_ms: 486.2875
+  type: 'test'
+  ...
+# Subtest: 拒绝跨数据格式回退与实例外目录，卸载只退役代码描述符
+ok 71 - 拒绝跨数据格式回退与实例外目录，卸载只退役代码描述符
+  ---
+  duration_ms: 366.834
+  type: 'test'
+  ...
+# Subtest: 有活动写入导致一致快照失败时，不切换候选版本
+ok 72 - 有活动写入导致一致快照失败时，不切换候选版本
+  ---
+  duration_ms: 353.3043
+  type: 'test'
+  ...
+# Subtest: not yet dispatched: cancel persists across reopen and suppresses submit/default dispatch/new gate
+ok 73 - not yet dispatched: cancel persists across reopen and suppresses submit/default dispatch/new gate
+  ---
+  duration_ms: 327.4487
+  type: 'test'
+  ...
+# Subtest: queued receipt: repeat cancel preserves job; explicit retry key clears marker and creates only one new dispatch
+ok 74 - queued receipt: repeat cancel preserves job; explicit retry key clears marker and creates only one new dispatch
+  ---
+  duration_ms: 430.8308
+  type: 'test'
+  ...
+# Subtest: detached engine status is independent; completed artifacts remain visible after cancel (injected)
+ok 75 - detached engine status is independent; completed artifacts remain visible after cancel (injected)
+  ---
+  duration_ms: 193.5483
+  type: 'test'
+  ...
+# Subtest: fresh successful resume clears cancellation; failed resume leaves request set
+ok 76 - fresh successful resume clears cancellation; failed resume leaves request set
+  ---
+  duration_ms: 216.1272
+  type: 'test'
+  ...
+# Subtest: replaying an already completed resume operation after cancellation does not reopen it
+ok 77 - replaying an already completed resume operation after cancellation does not reopen it
+  ---
+  duration_ms: 176.0821
+  type: 'test'
+  ...
+# Subtest: host failure before persistence loses cancellation intent after reopen: current gap
+ok 78 - host failure before persistence loses cancellation intent after reopen: current gap
+  ---
+  duration_ms: 241.0542
+  type: 'test'
+  ...
+# Subtest: shared turn only removes owned queues; exclusive current claim requests host cancel with keepInbox
+ok 79 - shared turn only removes owned queues; exclusive current claim requests host cancel with keepInbox
+  ---
+  duration_ms: 3.1914
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 78
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 9106.7002

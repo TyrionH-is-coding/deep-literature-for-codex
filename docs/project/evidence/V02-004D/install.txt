@@ -1,0 +1,63 @@
+Check private Node
+Check private Python
+Install locked DSH packages
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+Install locked DSH packages … 15s
+Install locked DSH packages … 30s
+Install locked DSH packages … 45s
+Install locked DSH packages … 60s
+Install locked DSH packages … 75s
+Install locked DSH packages … 90s
+Install locked DSH packages … 105s
+Install locked DSH packages … 120s
+Install locked DSH packages … 135s
+Install locked DSH packages … 150s
+Install locked DSH packages … 165s
+npm notice
+npm notice New major version of npm available! 10.9.7 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice
+Create private Python environment
+Create private Python environment … 15s
+Create private Python environment … 30s
+Create private Python environment … 45s
+Install locked Python dependencies
+Install locked Python dependencies … 15s
+  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))': /packages/64/98/240cb6378973917dd00b8281a68dd91551d243d8a48f7680cbdfb5086834/scansci_pdf-1.9.0-py3-none-any.whl
+  WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))': /packages/64/98/240cb6378973917dd00b8281a68dd91551d243d8a48f7680cbdfb5086834/scansci_pdf-1.9.0-py3-none-any.whl
+Install locked Python dependencies … 30s
+Install locked Python dependencies … 45s
+Install locked Python dependencies … 60s
+Install A bundled engine
+Verify engine imports
+
+接下来完成首次配置：
+在新的 Codex 对话中使用 $deep-literature-for-codex 打开工作台，核对 start 返回的实际 URL。
+选择模型接入：配置本实例的 DSH 原生模型 API，或打开实际 URL + /api/codex-oauth/ui，点击“使用 ChatGPT 登录”及“打开 OpenAI 授权页”，由本人完成 Codex OAuth。
+Codex OAuth 登录成功后，在 DSH 模型选择器选择 OpenAI Codex 和账号可用的模型；外层 Codex 登录不会自动接入本实例，同账号额度共享。
+需要全文解析时，在“设置与状态”保存 MinerU API Token。安装完成不代表模型与 MinerU 已配置。
+{
+  "ok": true,
+  "root": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d",
+  "instanceId": "a18615e1-662f-4326-8795-bce64dd43092",
+  "version": "0.2.0-dev.3",
+  "candidate": true,
+  "installation": "installed",
+  "skill": null,
+  "migration": null,
+  "setupSteps": [
+    "在新的 Codex 对话中使用 $deep-literature-for-codex 打开工作台，核对 start 返回的实际 URL。",
+    "选择模型接入：配置本实例的 DSH 原生模型 API，或打开实际 URL + /api/codex-oauth/ui，点击“使用 ChatGPT 登录”及“打开 OpenAI 授权页”，由本人完成 Codex OAuth。",
+    "Codex OAuth 登录成功后，在 DSH 模型选择器选择 OpenAI Codex 和账号可用的模型；外层 Codex 登录不会自动接入本实例，同账号额度共享。",
+    "需要全文解析时，在“设置与状态”保存 MinerU API Token。安装完成不代表模型与 MinerU 已配置。"
+  ],
+  "start": {
+    "node": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d\\runtime\\node\\22.22.2\\node.exe",
+    "cli": "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d\\releases\\2e3ea62e9a4a11a4\\app\\src\\cli.mjs",
+    "args": [
+      "start",
+      "C:\\Users\\15694\\AppData\\Local\\Temp\\v4d"
+    ]
+  }
+}

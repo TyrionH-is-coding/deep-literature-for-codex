@@ -7,9 +7,9 @@
 | 字段 | 当前值 |
 | --- | --- |
 | 包 | `@dsh-external/dsh-scientific-reading` |
-| 版本 | `0.2.0-dev.2` |
-| 来源 commit | `26abee5f8c8e4f92f26a9b7fba4ddd236e523b05` |
-| SHA256 | `2e1ec6ebbc9ca37d33060d978f5d1f855455bb4423cc5b481957b3da0259bc09` |
+| 版本 | `0.2.0-dev.3` |
+| 来源 commit | `a45aff9a6d5419c1b7a5cbc7954355176d56fac5` |
+| SHA256 | `a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44` |
 | 父 DSH | `0.1.0-rc.7` |
 
 这些是锁定配置，不证明本地制品已下载或当前安装已切换。以后升级应以实际 pins 和验证结果为准，而不是继续沿用本文的初始表格。
@@ -42,3 +42,10 @@
 - 本地制品：`inputs/scientific-reading.tgz`，SHA256 `2e1ec6ebbc9ca37d33060d978f5d1f855455bb4423cc5b481957b3da0259bc09`。
 - wheel SHA256 `b5d6439b1e3e895e0127dac27ec2b12b9f0bdd46d813896a6a90fd990e2b66d3`。
 - 无远程发布 URL；固定 DSH rc.7、Node 22.22.2、Python 3.11.16。新候选安装结果见 V02-003D 证据，不沿用 dev.1 的安装结论。
+
+## V02-004D 安装恢复候选（未发布）
+
+A npm `0.2.0-dev.3` / Python `0.2.0.dev2`，来源 `a45aff9a6d5419c1b7a5cbc7954355176d56fac5`。
+A tgz SHA256 `a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44`；wheel SHA256 `37f3da559ba74f022f4b73c3757b55299254ee50a75f04af49162b00749f4f83`。
+沿用已验收 004B 恢复修复，B 接口/schema/依赖和运行时未变；未包含并行 004E，取消与 F2 不宣称解决。
+固定 Node 22.22.2 / Python 3.11.16 / DSH rc.7。当前验证见 V02-004D 专属证据。回退候选身份不回退用户数据。

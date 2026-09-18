@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {pathToFileURL} from 'node:url';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';
+const root=path.resolve(process.argv[2]),output=path.resolve(process.argv[3]),a=JSON.parse(await fs.readFile(process.argv[4],'utf8'));
+const i=JSON.parse(await fs.readFile(path.join(root,'installation.json'),'utf8'));
+const {isolatedEnvironment}=await import(pathToFileURL(path.join(i.app,'src/core.mjs')));
+const args=['-I','-X','utf8',path.join(import.meta.dirname,'fixtures/v02-004d/provenance.py'),root];
+const r=spawnSync(i.python,args,{env:isolatedEnvironment(root,process.env,i),encoding:'utf8',windowsHide:true});assert.equal(r.status,0,r.stderr);
+const v=JSON.parse(r.stdout);assert.equal(v.distributionVersion,'0.2.0.dev2');assert.equal(v.wheelSha256,a.wheelSha256);assert.ok(v.engine.startsWith(root));assert.equal(i.pins.plugin.sha256,a.sha256);assert.equal(i.pins.plugin.sourceCommit,a.sourceCommit);
+assert.equal(v.files.length,Object.keys(a.moduleHashes).length);for(const f of v.files)assert.equal(f.sha256,a.moduleHashes[f.file]);
+const plugin=path.resolve(path.dirname(v.wheel),'../..'), client=path.join(plugin,'lib/client.js');const hash=createHash('sha256').update(await fs.readFile(client)).digest('hex');assert.equal(hash,a.clientSha256);
+const pkg=JSON.parse(await fs.readFile(path.join(plugin,'package.json'),'utf8'));assert.equal(pkg.version,'0.2.0-dev.3');
+const result={root,command:i.python,args,app:i.app,pins:i.pins,python:v,client:{path:client,sha256:hash},npmVersion:pkg.version};
+await fs.writeFile(output,JSON.stringify(result,null,2));console.log('PASS installed provenance '+v.files.length+' Python files + client');

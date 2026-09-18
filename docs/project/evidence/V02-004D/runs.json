@@ -1,0 +1,66 @@
+[
+  {
+    "id": "check",
+    "command": "C:\\tmp\\v4d-tools\\node\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "check"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d",
+    "sourceCommit": "d78e48bbad317c92770b767390addd589b475038",
+    "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-18T05:55:44.704Z",
+    "finishedAt": "2026-09-18T05:55:45.942Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "impact",
+    "command": "C:\\tmp\\v4d-tools\\node\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "impact",
+      "--base",
+      "d78e48bbad317c92770b767390addd589b475038"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d",
+    "sourceCommit": "d78e48bbad317c92770b767390addd589b475038",
+    "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-18T05:55:46.214Z",
+    "finishedAt": "2026-09-18T05:55:47.572Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "test",
+    "command": "C:\\tmp\\v4d-tools\\node\\node.exe",
+    "args": [
+      "scripts/modules.mjs",
+      "test",
+      "engine"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d",
+    "sourceCommit": "d78e48bbad317c92770b767390addd589b475038",
+    "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+    "startedAt": "2026-09-18T05:55:47.801Z",
+    "finishedAt": "2026-09-18T05:55:57.838Z",
+    "exitCode": 0,
+    "error": null
+  },
+  {
+    "id": "package",
+    "command": "C:\\tmp\\v4d-tools\\node\\node.exe",
+    "args": [
+      "scripts/package-release.mjs",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d\\outputs\\v02-004d-candidate",
+      "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d\\inputs\\scientific-reading.tgz"
+    ],
+    "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004d",
+    "sourceCommit": "c78dc5846dac799b024a4cd07dfbef40bc2e8f6a",
+    "trackedStatus": "",
+    "startedAt": "2026-09-18T05:57:12.610Z",
+    "finishedAt": "2026-09-18T05:57:19.722Z",
+    "exitCode": 0,
+    "error": null
+  }
+]
