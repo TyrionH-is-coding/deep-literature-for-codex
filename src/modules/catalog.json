@@ -138,7 +138,7 @@
     },
     {
       "id": "bridge",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "purpose": "DSH 工具和 HTTP 与任务/文献引擎适配",
       "ownedPaths": [
         "src/modules/bridge/",
@@ -146,7 +146,8 @@
         "src/bridge-services.mjs",
         "tests/bridge.test.mjs",
         "docs/modules/bridge.md",
-        "docs/modules/changes/bridge.md"
+        "docs/modules/changes/bridge.md",
+        "tests/v02-control-adapter.test.mjs"
       ],
       "dependencies": [
         "foundation",
@@ -162,7 +163,8 @@
       "context": "docs/modules/bridge.md",
       "changelog": "docs/modules/changes/bridge.md",
       "tests": [
-        "tests/bridge.test.mjs"
+        "tests/bridge.test.mjs",
+        "tests/v02-control-adapter.test.mjs"
       ],
       "externalPackages": [
         "@dsh-external/dsh-scientific-reading"
