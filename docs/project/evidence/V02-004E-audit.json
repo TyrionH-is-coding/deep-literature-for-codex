@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "d99577b77a0ecbf63dd19bca0fdf3cc6b4c5a299",
+  "sha256": {
+    "src/modules/workflow/handoff.mjs": "e115dca7c873679f4ca7e8d57f56a45cbe0b8321d4b4fb2f1176cfb68ac4f821",
+    "src/modules/catalog.json": "bead43884ceb7fda21f11844425dd2ad1dc4056c18e8e78559aeb46e9fbb2099",
+    "tests/handoff.test.mjs": "5c3fc89a246917fcdfae4501d972cce3c9d02cecd95902a9561d4f07cd41cc56",
+    "tests/v02-cancel-contract.test.mjs": "89c676e7de9ae83c76faefd4355699bba699568dbaaf2e6d9cbc3966ed222801",
+    "scripts/fixtures/v02-004e/reopen.mjs": "c91efc1f563c552f944a0ded0bda101a3e0a23946b615911246473f80caf955f"
+  },
+  "cleanup": {
+    "syntheticOnly": true,
+    "testAfterHooksCompleted": true,
+    "independentNodeChildrenExited": true,
+    "persistentHostStarted": false,
+    "userInstallationTouched": false
+  },
+  "scope": "Production only handoff cancel ordering; catalog only workflow version; no A/bridge/pins/lock/schema changes"
+}
