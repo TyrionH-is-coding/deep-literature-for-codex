@@ -1,0 +1,64 @@
+[
+  {
+    "name": "check",
+    "command": "npm.cmd",
+    "args": [
+      "run",
+      "modules",
+      "--",
+      "check"
+    ],
+    "started": "2026-09-18T10:25:10.2694375Z",
+    "exitCode": 0
+  },
+  {
+    "name": "impact",
+    "command": "npm.cmd",
+    "args": [
+      "run",
+      "modules",
+      "--",
+      "impact",
+      "--base",
+      "21e34c9763859442df33d047d12749e9a8b53744"
+    ],
+    "started": "2026-09-18T10:25:11.3185329Z",
+    "exitCode": 0
+  },
+  {
+    "name": "bridge",
+    "command": "npm.cmd",
+    "args": [
+      "run",
+      "modules",
+      "--",
+      "test",
+      "bridge"
+    ],
+    "started": "2026-09-18T10:25:12.3760644Z",
+    "exitCode": 0
+  },
+  {
+    "name": "workflow",
+    "command": "npm.cmd",
+    "args": [
+      "run",
+      "modules",
+      "--",
+      "test",
+      "workflow"
+    ],
+    "started": "2026-09-18T10:25:17.4469078Z",
+    "exitCode": 0
+  },
+  {
+    "name": "integration",
+    "command": "node.exe",
+    "args": [
+      "scripts/v02-004i-integration.mjs",
+      "final"
+    ],
+    "started": "2026-09-18T10:25:23.0107725Z",
+    "exitCode": 0
+  }
+]

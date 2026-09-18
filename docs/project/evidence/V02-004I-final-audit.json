@@ -1,0 +1,21 @@
+{
+  "time": "2026-09-18T10:28:06.229564+00:00",
+  "manifestVerified": true,
+  "manifest": {
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\src\\cli.ts": "70d796ec5271c6e990d10947ce5375153102dd8b625c43b3b59905becf8e71d1",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\src\\index.ts": "83f6a1fbd23799c83003dedb6159933cc5b638bc91cca23562c147ad13a8dbfe",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\lib\\cli.js": "b7185c97b9b3c3094f7f6b04b3d43fbe1cd8b93f3f44a983f6393c35c5fa5082",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\lib\\index.js": "a6453a843dc3ad955c79fc357229e46f4c865a2060b7faa0a876b9b2cd30af6e",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i\\src\\modules\\bridge\\services.mjs": "f87910d57329c42a087e76f5b13f4f24aee1fe7cd3b896016786e7f60f9ba55e",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i\\scripts\\v02-004i-integration.mjs": "92fe418c0326a78cbbf8db989fd7919c0c688691f64d6901a3c8aab7dd7b0f59"
+  },
+  "aHead": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+  "bSourceCommit": "748a9e7abcca66aa773f44508d1f65f1fd810466",
+  "aClean": true,
+  "bClean": "expected after committing these evidence files; verify git status at handoff",
+  "pythonProcessesRemaining": 0,
+  "workerFinal": null,
+  "workerState": "waiting_user",
+  "cleanup": "No processes/services left. Task-only runtimes, build outputs and synthetic fixtures retained for review.",
+  "sourceDelta": "A since b9365ce: validation script short TEMP fix and docs only; B since 748a9e7: docs only"
+}

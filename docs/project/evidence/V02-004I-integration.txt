@@ -1,0 +1,1 @@
+PASS: 17 real cross-package observations, PDF gate, same parent and scope refusals. Evidence: C:\Users\15694\Documents\ChatGPT\deep-literature-v02-004i\docs\project\evidence\V02-004I-integration.json
