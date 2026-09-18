@@ -1,0 +1,43 @@
+✔ 原生交接证据识别持久队列被正常停止撤销，并优先使用实际 pending 或 delivered (2.7488ms)
+✔ 领取后尚未追加 user/message 或不完整取消记录仅能判为 uncertain (0.6924ms)
+✔ 实际会话身份决定工具范围，不能通过参数声明自己是其他分类 (0.5941ms)
+✔ 取消只移除本任务排队消息，不取消同分类正在处理的另一篇论文 (3.6987ms)
+✔ 上一任务结束后不能取消尚未追加消息的新 turn；领取记录必须属于当前 turn (3.8044ms)
+✔ 同一 turn 混入其他任务或手动消息时只撤回队列，不中断共享 turn (0.7186ms)
+✔ gate 源文仅可分页读取真实本篇材料；任意路径和移出分类被拒绝 (82.4579ms)
+✔ A 门槛退出码保持真实状态，scope 错误不会伪装为正常任务 (1.6955ms)
+✔ job-status 失败时返回完整 JSON，并把 detail.error 作为可识别错误 (0.4469ms)
+✔ 完成以真实 Reader HTTP 字节和 SHA 为准，RPC 校验完整回执 (182.1143ms)
+✔ 并发重复交接只启动一个任务，重命名不改变绑定，重启后读回同一任务 (177.7822ms)
+✔ 聊天或任务说完成但没有正式 Reader 时，不能报精读完成 (157.352ms)
+✔ 投递回执丢失后从 DSH 历史调和，不重复提示导致重复执行 (85.7164ms)
+✔ 论文移出分类后旧任务拒绝继续；真实父子会话范围可继承 (75.9743ms)
+✔ 失败后的显式重试另记回执，同一重试仍幂等 (148.9574ms)
+✔ 正常停止撤销原生队列后重新核对已接收回执，同键不重发，显式重试另记回执 (144.9583ms)
+✔ 已接收回执缺乏原生证据时持久化 uncertain，不把未知当作已交付或自动重发 (142.4824ms)
+✔ 绑定分类时注册自有工作区并关联主管，不传 cwd；重复绑定不新建工作区身份 (121.848ms)
+✔ 全新实例在用户未设置时把默认 Agent 设为文献模式，已有用户选择则保留 (74.3172ms)
+✔ 任务失败时透传 job.detail.error，不把顶层 error 留空 (77.7621ms)
+✔ 取消先验证任务与分类范围；拒绝时不写意图、不调用宿主 (130.4744ms)
+✔ 宿主取消失败只持久化目标意图，同会话其他任务及投递记录不变 (205.0382ms)
+✔ not yet dispatched: cancel persists across reopen and suppresses submit/default dispatch/new gate (193.7108ms)
+✔ queued receipt: repeat cancel preserves job; explicit retry key clears marker and creates only one new dispatch (140.0086ms)
+✔ detached engine status is independent; completed artifacts remain visible after cancel (injected) (73.5256ms)
+✔ fresh successful resume clears cancellation; failed resume leaves request set (129.9839ms)
+✔ replaying an already completed resume operation after cancellation does not reopen it (97.6227ms)
+✔ host failure preserves cancellation intent after reopen and suppresses default delivery (81.2206ms)
+✔ shared turn only removes owned queues; exclusive current claim requests host cancel with keepInbox (3.1097ms)
+✔ cancel intent is on disk before host call; failure propagates unchanged without a false receipt (116.4411ms)
+✔ atomic rename failure prevents host side effects; retry must save even when marker is already in memory (153.3604ms)
+✔ failed repeated cancel retains last real receipt and can retry host again (121.861ms)
+✔ host failure intent survives independent read-only Node process and service reopen/retry process (752.0572ms)
+✔ host failure keeps real terminal states and submitted Reader artifacts (147.1614ms)
+✔ fresh attach clears intent; replaying the completed attach after later cancellation preserves it (102.3919ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2723.4808

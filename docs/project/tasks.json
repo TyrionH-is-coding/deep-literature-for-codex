@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T05:44:20.563418+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T05:46:30.847608+00:00"
+    "lastReviewAt": "2026-09-18T05:59:16.127537+00:00",
+    "lastHeartbeatCompletedAt": "2026-09-18T05:59:16.127537+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -186,7 +186,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "004B源码修复通过，004C诊断设计通过；004D安装恢复复验与004E取消意图修复独立并行。A完整停止合同仍待后继，005等待。",
+      "notes": "004E源码持久意图修复通过，004D继续安装复验；待候选基线确定再拆A后台停止协议卡，004A-G1仍开放，005不解除。",
       "children": [
         "V02-004A",
         "V02-004B",
@@ -842,10 +842,13 @@
       "findings": [
         {
           "id": "004C-C1",
-          "status": "open",
+          "status": "closed",
           "title": "宿主取消失败使意图未持久化，重启后可再投递",
           "followup": "V02-004E",
-          "blocksV02Release": true
+          "blocksV02Release": true,
+          "closedBy": "V02-004E",
+          "acceptance": "source and persistence contract verified; final installed combination pending",
+          "evidence": "docs/project/evidence/V02-004E-control-review.md"
         }
       ]
     },
@@ -853,7 +856,7 @@
       "id": "V02-004D",
       "title": "恢复修复的安装候选复验",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine",
         "application",
@@ -883,7 +886,7 @@
         "docs/project/evidence/V02-004D*"
       ],
       "receipt": "docs/project/evidence/V02-004D-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
       "userConfirmed": true,
       "commits": [],
@@ -904,13 +907,27 @@
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:a7acdab2-1460-4483-8978-0086153b59c9",
       "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
-      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00"
+      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00",
+      "receiptPhase": "in_progress",
+      "startedAt": "2026-09-18T05:46:31.1927945Z",
+      "startConfirmedBy": "fixed-double-worktree-receipt-and-build-evidence",
+      "progressSnapshot": {
+        "checkedAt": "2026-09-18T05:59:16.127537+00:00",
+        "deliveryReady": false,
+        "engineHead": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
+        "workbenchSource": "c78dc5846dac799b024a4cd07dfbef40bc2e8f6a",
+        "observations": [
+          "Source/build/pack and B installed-candidate preparation progressing; final report not delivered.",
+          "Early Python command failed: pytest environment not ready; full-suite final evidence still required, not counted as passed.",
+          "004D frozen source excludes integrated004E; no combined-installed acceptance."
+        ]
+      }
     },
     {
       "id": "V02-004E",
       "title": "宿主失败时保留取消意图",
       "kind": "task",
-      "status": "ready",
+      "status": "integrated",
       "modules": [
         "workflow"
       ],
@@ -936,23 +953,35 @@
         "docs/project/evidence/V02-004E*"
       ],
       "receipt": "docs/project/evidence/V02-004E-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "独立写入/实例，冻结生产输入；串行合入后须验组合，004尚未通过。",
+      "commits": [
+        "d99577b77a0ecbf63dd19bca0fdf3cc6b4c5a299",
+        "d37d7b14a074ee288f3f846e7505392afe6a9a05"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004E-report.md",
+        "docs/project/evidence/V02-004E-control-review.md",
+        "docs/project/evidence/V02-004E-control-tests.txt"
+      ],
+      "notes": "取消意图先落盘，宿主失败仍抑制默认投递；独立35项通过。只关闭C1，不关闭004A-G1，004D包不含本修复。",
       "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:aa0d2c0b-0e09-4759-bf8e-ce0740cc3cc2",
       "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
-      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00"
+      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00",
+      "receiptPhase": "review",
+      "startedAt": "2026-09-18T05:46:50.4054044Z",
+      "startConfirmedBy": "fixed-worktree-receipt-and-final-commit",
+      "integrationCommit": "df66bdbec8f84097a7dac5c4013634ff3bb2a76b",
+      "acceptance": "source-fix-accepted; combined installed candidate still pending"
     }
   ],
   "developmentBaseline": {
     "engine": "bf09c557bcedbba1d843579401d73b7beb65705d",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "d78e48bbad317c92770b767390addd589b475038",
+    "workbench": "df66bdbec8f84097a7dac5c4013634ff3bb2a76b",
     "workbenchBranch": "codex/v02-control",
     "candidate": "0.2.0-dev.2",
     "engineAcceptance": "source recovery fix accepted; dev.3 installed verification pending"
