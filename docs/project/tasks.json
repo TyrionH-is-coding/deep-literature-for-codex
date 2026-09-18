@@ -1210,7 +1210,8 @@
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "只冻结跨包控制适配，不改workflow取消行为；最多一项开发中。"
+      "notes": "只冻结跨包控制适配，不改workflow取消行为；最多一项开发中。",
+      "contextCommit": "d06be8e6367ef4debc758506574a4be9dfa01874"
     }
   ],
   "developmentBaseline": {
