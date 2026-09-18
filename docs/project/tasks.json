@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "coordinator": {
     "taskTitle": "Deep Literature 项目总控",
     "taskId": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T10:20:26.748891+00:00",
+    "lastReviewAt": "2026-09-18T10:36:40.862Z",
     "lastHeartbeatCompletedAt": "2026-09-18T10:21:26.852840+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -186,7 +186,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "F/H源码已验收；I跨包控制适配后再接入workflow取消与安装组合，005等待。",
+      "notes": "F/H/I源码接口已验收；J接入持久取消与显式恢复完整workflow，之后最终安装组合验收，005等待。",
       "children": [
         "V02-004A",
         "V02-004B",
@@ -196,7 +196,8 @@
         "V02-004F",
         "V02-004G",
         "V02-004H",
-        "V02-004I"
+        "V02-004I",
+        "V02-004J"
       ]
     },
     {
@@ -1167,7 +1168,7 @@
       "title": "停止控制跨包适配",
       "kind": "task",
       "parent": "V02-004",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "bridge"
@@ -1205,18 +1206,22 @@
         "docs/codex-v02/V02-004I*"
       ],
       "receipt": "docs/project/evidence/V02-004I-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T07:48:50.476803+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "只冻结跨包控制适配，不改workflow取消行为；最多一项开发中。",
+      "commits": [
+        "f4c93517fa693c4232c252df9d0cb301d38f0c5d"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004I-control-review.md"
+      ],
+      "notes": "独立接口16项、合入调用方31项通过；6个来源哈希吻合。004A-G1仍开放。",
       "contextCommit": "d06be8e6367ef4debc758506574a4be9dfa01874",
       "clientThreadId": "client-new-thread:326232b5-8a1c-490e-a7be-fd47bddef567",
       "dispatchRequestedAt": "2026-09-18T07:50:32.619057+00:00",
       "lastDispatchCheckAt": "2026-09-18T10:20:26.748891+00:00",
       "hostId": "local",
-      "receiptPhase": "in_progress",
+      "receiptPhase": "review",
       "startedAt": "2026-09-18T07:51:22.1684732Z",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-real-thread",
       "resumeHistory": [
@@ -1226,18 +1231,6 @@
           "threadStatusBefore": "interrupted"
         }
       ],
-      "progressSnapshot": {
-        "checkedAt": "2026-09-18T10:20:26.748891+00:00",
-        "deliveryReady": false,
-        "workbenchHead": "21e34c9763859442df33d047d12749e9a8b53744",
-        "engineHead": "2720fac32cf2b989523079405abbd0e4f3698e07",
-        "changedFiles": [
-          "B:src/modules/bridge/services.mjs",
-          "A:src/cli.ts",
-          "A:src/index.ts"
-        ],
-        "notes": "未提交实现，无验收测试/报告；不得计作完成。"
-      },
       "controlProgressEvidence": "docs/project/evidence/V02-004I-control-resume.md",
       "waitCursor": "c2fd0a82-c54e-42db-bdf5-2e3034e0d86e:1",
       "lastThreadSnapshot": {
@@ -1245,16 +1238,68 @@
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0b408-197f-79a1-aee5-8f3d0e7ebc3c"
-      }
+      },
+      "engineCommits": [
+        "b4a9ecc00a76b85c244a0167c79b5a3539e97415"
+      ],
+      "integrationCommit": "36c27fb8b281faf4496ae6fade265e5f2d866555",
+      "engineIntegrationCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+      "acceptance": "source-adapter-accepted; workflow and final installation pending",
+      "completedAt": "2026-09-18T10:36:40.862Z"
+    },
+    {
+      "id": "V02-004J",
+      "title": "取消与显式恢复的完整工作流",
+      "kind": "task",
+      "parent": "V02-004",
+      "status": "ready",
+      "modules": [
+        "workflow",
+        "bridge"
+      ],
+      "dependsOn": [
+        "V02-004I"
+      ],
+      "card": "docs/project/tasks/V02-004J.md",
+      "ownerSession": null,
+      "baseCommit": "36c27fb8b281faf4496ae6fade265e5f2d866555",
+      "engineBaseCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004j",
+      "branch": "codex/v02-004j-workflow-control",
+      "writePaths": [
+        "src/modules/workflow/handoff.mjs",
+        "src/modules/bridge/plugin.mjs",
+        "src/modules/bridge/services.mjs",
+        "tests/handoff.test.mjs",
+        "tests/bridge.test.mjs",
+        "tests/v02-cancel-contract.test.mjs",
+        "tests/v02-control-adapter.test.mjs",
+        "tests/v02-workflow-control.test.mjs",
+        "docs/modules/workflow.md",
+        "docs/modules/bridge.md",
+        "docs/modules/changes/workflow.md",
+        "docs/modules/changes/bridge.md",
+        "src/modules/catalog.json#workflow-bridge-only",
+        "scripts/v02-004j-*",
+        "scripts/fixtures/v02-004j/",
+        "docs/project/evidence/V02-004J*"
+      ],
+      "receipt": "docs/project/evidence/V02-004J-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-18T10:36:40.862Z",
+      "userConfirmed": true,
+      "commits": [],
+      "evidence": [],
+      "notes": "完整workflow行为及真实来源验证；不改A/产品版本，不冒充最终安装验收。"
     }
   ],
   "developmentBaseline": {
-    "engine": "2720fac32cf2b989523079405abbd0e4f3698e07",
+    "engine": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "6b979d18dcb14d54e2e9bb3dc026dfd7b5325b87",
+    "workbench": "36c27fb8b281faf4496ae6fade265e5f2d866555",
     "workbenchBranch": "codex/v02-control",
     "candidate": "0.2.0-dev.3",
-    "engineAcceptance": "stop/lifecycle source accepted; cross-package and installed integration pending",
-    "workbenchAcceptance": "004D+004E source combination tested; final combined installation pending"
+    "engineAcceptance": "stop/lifecycle/API source accepted; final installed combination pending",
+    "workbenchAcceptance": "I bridge adapter accepted; J workflow control pending"
   }
 }
