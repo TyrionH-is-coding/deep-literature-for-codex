@@ -38,7 +38,7 @@
 
 **004D安装恢复已通过**，004A-F1关闭。引擎集成 `a37a415`、B组合 `6b979d1`，当前pins为dev.3；总控独立核对制品和两套安装字节，组合源码80pass/1skip。004D的原ZIP不含004E，因此最终组合安装仍须重验，见[004D复核](docs/project/evidence/V02-004D-control-review.md)。
 
-**004G诊断已通过并集成**到A `6d88f2b`，总控独立六场景重现直接服务状态不一致，正常CLI对照通过，见[004G复核](docs/project/evidence/V02-004G-control-review.md)。**004F源码已验收**并集成A `776a018`：完整571pass/3skip，总控来源/XML与最终delta通过，见[004F复核](docs/project/evidence/V02-004F-control-review.md)。当前派发004H写前守卫，B工具接入另卡。004A-G1、004整体与005依赖仍未解除，不能把收到停止意图当成后台已停止。
+**004G诊断已通过并集成**到A `6d88f2b`，总控独立六场景重现直接服务状态不一致，正常CLI对照通过，见[004G复核](docs/project/evidence/V02-004G-control-review.md)。**004F源码已验收**并集成A `776a018`：完整571pass/3skip，总控来源/XML与最终delta通过，见[004F复核](docs/project/evidence/V02-004F-control-review.md)。**004H写前守卫已验收**并集成A `2720fac`，完整595pass/3skip，总控24pass，见[004H复核](docs/project/evidence/V02-004H-control-review.md)。当前派发004I跨包控制适配；之后再接workflow取消与最终安装。004A-G1、004整体与005依赖仍未解除，不能把收到停止意图当成后台已停止。
 
 006A 恢复设计与 006B 固定 DSH 文本历史/队列限定取证已集成；尚无产品持久禁重放门禁与完整三域恢复演练，**F2 仍开放**。003D 的首次导航显示观察留给 005 核查，尚未归因，不据此扩大功能。每 10 分钟自动总控复核，最多两个独立开发任务，合入串行。
 

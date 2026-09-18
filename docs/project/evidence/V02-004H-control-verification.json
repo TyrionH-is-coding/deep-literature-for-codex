@@ -1,0 +1,24 @@
+{
+  "deliveryCommit": "2720fac32cf2b989523079405abbd0e4f3698e07",
+  "sourceCommit": "2379f9341e872c900edf5258848f0c1bc603600a",
+  "sourceFilesVerified": 122,
+  "privatePythonFilesVerified": 52,
+  "testFiles": 65,
+  "uniqueTests": 598,
+  "xmlCounts": {
+    "tests": 598,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 3
+  },
+  "cliCases": [
+    "direct-none",
+    "direct-success",
+    "direct-refail",
+    "direct-gate",
+    "cli-resume",
+    "cli-start"
+  ],
+  "independentTests": "24 passed in 42.76s",
+  "acceptance": "source only; installed combination pending"
+}
