@@ -6,6 +6,8 @@ root, job = pathlib.Path(sys.argv[1]), sys.argv[2]
 store = BackgroundJobStore(root)
 state = store.load_status(job)
 assert state.state == 'waiting_user' and state.reason_code == 'pdf_required'
+store.transition(job, 'queued')
+store.transition(job, 'running')
 store.transition(job, 'waiting_agent', reason_code='translate_full_read')
 file = store.handle(job).reading_pipeline_path
 pipeline = read_json_file(file)
