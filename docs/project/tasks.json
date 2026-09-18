@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
     "lastReviewAt": "2026-09-18T05:59:16.127537+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T05:59:16.127537+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-18T06:10:35.914182+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -912,14 +912,15 @@
       "startedAt": "2026-09-18T05:46:31.1927945Z",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-build-evidence",
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T05:59:16.127537+00:00",
+        "checkedAt": "2026-09-18T06:10:35.914182+00:00",
         "deliveryReady": false,
         "engineHead": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
         "workbenchSource": "c78dc5846dac799b024a4cd07dfbef40bc2e8f6a",
         "observations": [
-          "Source/build/pack and B installed-candidate preparation progressing; final report not delivered.",
-          "Early Python command failed: pytest environment not ready; full-suite final evidence still required, not counted as passed.",
-          "004D frozen source excludes integrated004E; no combined-installed acceptance."
+          "Current full Python log now reports 547 passed / 3 skipped; prior pytest-not-ready attempt remains historical, not current blocker.",
+          "B candidate installation, upgrade/provenance and synthetic smoke evidence newly present; legacy/restart/conflict probes are still being refined.",
+          "Both worktrees contain uncommitted probe/evidence changes; receipt remains in_progress and final report/cleanup not delivered. No acceptance or dependency release.",
+          "004D frozen candidate excludes integrated004E; final combined installation remains separate."
         ]
       }
     },
