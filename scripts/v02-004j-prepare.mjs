@@ -11,5 +11,5 @@ for (const name of ['@dsh-external/dsh-scientific-reading', 'codex-scientific-re
 }
 await fs.writeFile(path.join(dir, 'package.json'), JSON.stringify(pkg, null, 2));
 await fs.writeFile(path.join(dir, 'package-lock.json'), JSON.stringify(lock, null, 2));
-const result = spawnSync('cmd.exe', ['/d', '/c', 'npm ci --ignore-scripts --no-audit --no-fund'], { cwd: dir, stdio: 'inherit', windowsHide: true });
+const result = spawnSync('cmd.exe', ['/d', '/c', 'npm ci --cache ../npm-cache --ignore-scripts --no-audit --no-fund'], { cwd: dir, stdio: 'inherit', windowsHide: true });
 process.exitCode = result.status ?? 1;

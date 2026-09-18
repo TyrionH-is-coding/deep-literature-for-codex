@@ -8,7 +8,7 @@ site = pathlib.Path(scientific_reading.__file__).parent.parent
 assert site == pathlib.Path(env['site'])
 assert sys.version == env['python']
 for name, expected in env['source_sha256'].items():
-    for root in (site, a / 'engine/src'):
+    for root in (site, a / ('engine' if name.startswith('reader/') else 'engine/src')):
         assert hashlib.sha256((root / name).read_bytes()).hexdigest() == expected, str(root / name)
 for name, version in audit['versions'].items():
     assert importlib.metadata.version(name) == version, name
