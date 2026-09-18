@@ -46,7 +46,7 @@ try {
     for (let i = 0; i < 80; i++) { task = await service.task(task.taskId); if (predicate(task)) return task; await new Promise(r => setTimeout(r, 100)); }
     throw Error('worker_gate_timeout');
   }
-  await poll(t => t.job.status === 'waiting_user' && !t.control.worker);
+  await poll(t => t.job?.status === 'waiting_user' && t.control?.worker === null);
   assert.equal(task.job.detail.reason_code, 'pdf_required');
   record('initial authoritative gate', task);
   const source = task.control.pipelineState.source_pdf_sha256;
@@ -70,7 +70,7 @@ try {
   const payload = { resumeStopped: true, expectedRevision: 1, input: {} };
   task = record('explicit same-parent resume', await service.operate(task.taskId, 'explicit', 'resume', payload));
   assert.equal(task.control.revision, 2); assert.equal(task.cancelRequested, false);
-  task = await poll(t => t.job.status === 'waiting_user' && !t.control.worker);
+  task = await poll(t => t.job?.status === 'waiting_user' && t.control?.worker === null);
   assert.equal(task.jobId, parent); assert.equal(task.job.detail.reason_code, 'pdf_required');
   assert.equal(task.control.pipelineState.source_pdf_sha256, source); assert.equal(task.control.pipelineState.generation, generation);
   record('real worker returned to legal PDF gate; same source and generation', task);

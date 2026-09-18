@@ -89,7 +89,7 @@ try {
     let task = await action('submit', { folderId: metadata.folder, paperId, idempotencyKey, runAgent: false });
     for (let i = 0; i < 80; i++) {
       task = await action('task', { taskId: task.taskId });
-      if (task.job.status === 'waiting_user' && task.control.worker === null) break;
+      if (task.job?.status === 'waiting_user' && task.control?.worker === null) break;
       await pause();
     }
     if (idempotencyKey === 'one') {
@@ -98,7 +98,7 @@ try {
         resumeStopped: true, expectedRevision: stopped.control.revision, input: {} }));
       for (let i = 0; i < 80; i++) {
         task = await action('task', { taskId: task.taskId });
-        if (task.job.status === 'waiting_user' && task.control.worker === null) break;
+        if (task.job?.status === 'waiting_user' && task.control?.worker === null) break;
         await pause();
       }
       assert.equal(task.cancelRequested, false); assert.equal(task.control.revision, 2);
