@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
     "lastReviewAt": "2026-09-18T07:29:27.619356+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T07:02:36.560826+00:00"
+    "lastHeartbeatCompletedAt": "2026-09-18T07:31:29.878571+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -1143,10 +1143,13 @@
         "docs/codex-v02/V02-004H*"
       ],
       "receipt": "docs/codex-v02/V02-004H-receipt.json",
-      "dispatchState": "reserved",
+      "dispatchState": "queued",
       "dispatchReservedAt": "2026-09-18T07:29:27.619356+00:00",
       "userConfirmed": true,
-      "contextCommit": "76767f0cc5f5adeb9accb8a5aeec28bef6db45f4"
+      "contextCommit": "76767f0cc5f5adeb9accb8a5aeec28bef6db45f4",
+      "clientThreadId": "client-new-thread:fd184319-55e1-4d54-81c5-05f8f09f04cb",
+      "dispatchRequestedAt": "2026-09-18T07:30:44.579321+00:00",
+      "lastDispatchCheckAt": "2026-09-18T07:31:29.878571+00:00"
     }
   ],
   "developmentBaseline": {
