@@ -1319,16 +1319,16 @@
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:5",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:6",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
-      "lastDispatchCheckAt": "2026-09-18T11:30:56.049Z",
+      "lastDispatchCheckAt": "2026-09-18T11:45:54.854Z",
       "receiptPhase": "review-returned-for-rework",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-18T11:30:56.049Z",
+        "checkedAt": "2026-09-18T11:45:54.854Z",
         "status": "active",
         "turnStatus": "inProgress",
-        "turnId": "01a0b41b-9a81-7251-bf7f-d276d4d17776"
+        "turnId": "01a0b455-27fb-7f62-bc70-f35a2f5815de"
       },
       "progressSnapshot": {
         "checkedAt": "2026-09-18T11:45:30.425Z",
