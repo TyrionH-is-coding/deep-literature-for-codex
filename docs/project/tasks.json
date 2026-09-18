@@ -1365,7 +1365,7 @@
       "title": "安装组合中的停止与安全恢复",
       "kind": "task",
       "parent": "V02-004",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine",
         "workflow",
@@ -1377,14 +1377,14 @@
         "V02-004J"
       ],
       "card": "docs/project/tasks/V02-004K.md",
-      "ownerSession": null,
+      "ownerSession": "01a0b471-26e1-7fd1-ae92-c6aa053824f4",
       "baseCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
       "engineBaseCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k",
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k",
       "branch": "codex/v02-004k-installed-control",
       "engineBranch": "codex/v02-004k-installed-control",
-      "dispatchState": "reserved",
+      "dispatchState": "started",
       "dispatchReservedAt": "2026-09-18T12:11:35.822Z",
       "userConfirmed": true,
       "risk": "R2",
@@ -1419,7 +1419,20 @@
       "commits": [],
       "evidence": [],
       "notes": "仅新候选身份与必要安装验收，不改生产算法/依赖；F2/真实模型/最终发布另验。",
-      "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f"
+      "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f",
+      "clientThreadId": "client-new-thread:b1a1a1fa-b189-4c2c-8b0c-c99119978944",
+      "hostId": "local",
+      "dispatchRequestedAt": "2026-09-18T12:15:23.0281648Z",
+      "startedAt": "2026-09-18T12:15:13.000Z",
+      "startConfirmedBy": "official-read-thread-active-and-start-commentary",
+      "lastDispatchCheckAt": "2026-09-18T12:16:04.669Z",
+      "waitCursor": "95bfbcdb-28d7-4f0f-9d20-98bf9cb69154:1",
+      "lastThreadSnapshot": {
+        "checkedAt": "2026-09-18T12:16:35.264Z",
+        "status": "active",
+        "turnStatus": "inProgress",
+        "turnId": "01a0b471-36bb-7ff1-a5a0-3032b8f2b4f8"
+      }
     }
   ],
   "developmentBaseline": {

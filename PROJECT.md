@@ -7,7 +7,7 @@
 - 稳定 main 为 rc.6 文件树（e7160eb）；用户安装未升级，v0.2 未发布。
 - 已验收开发源码：A 引擎 b4a9ecc，B 工作台生产集成 697dfc4；总控资料在 codex/v02-control。最新精确提交见台账 developmentBaseline。
 - 已完成：旧 Excel 覆盖防护与冲突提示、解析中断恢复的隔离安装验证；引擎停止与跨包恢复接口的源码验证。依据：[003D](docs/project/evidence/V02-003D-control-review.md)、[004D](docs/project/evidence/V02-004D-control-review.md)、[004I](docs/project/evidence/V02-004I-control-review.md)。
-- **004J源码闭环已验收**：多条交接记录恢复一致，见[复验](docs/project/evidence/V02-004J-control-accepted.md)。当前准备004K隔离安装组合，005尚未启动。
+- **004J源码闭环已验收**：多条交接记录恢复一致，见[复验](docs/project/evidence/V02-004J-control-accepted.md)。004K隔离安装组合任务已启动；005尚未启动。
 - 最近已验证安装候选为 dev.3，其原安装证据不包含后来的完整停止链；源码通过不能替代新组合安装通过。
 
 ## 发布缺口与下一项可见结果
