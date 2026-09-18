@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T07:48:50.476803+00:00",
-    "lastHeartbeatCompletedAt": "2026-09-18T07:51:17.002705+00:00"
+    "lastReviewAt": "2026-09-18T10:20:26.748891+00:00",
+    "lastHeartbeatCompletedAt": "2026-09-18T10:21:26.852840+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -1167,7 +1167,7 @@
       "title": "停止控制跨包适配",
       "kind": "task",
       "parent": "V02-004",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine",
         "bridge"
@@ -1176,7 +1176,7 @@
         "V02-004H"
       ],
       "card": "docs/project/tasks/V02-004I.md",
-      "ownerSession": null,
+      "ownerSession": "01a0b37e-c170-7cb0-98b3-f89d22f0365a",
       "baseCommit": "21e34c9763859442df33d047d12749e9a8b53744",
       "engineBaseCommit": "2720fac32cf2b989523079405abbd0e4f3698e07",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004i",
@@ -1205,7 +1205,7 @@
         "docs/codex-v02/V02-004I*"
       ],
       "receipt": "docs/project/evidence/V02-004I-receipt.json",
-      "dispatchState": "queued",
+      "dispatchState": "running",
       "dispatchReservedAt": "2026-09-18T07:48:50.476803+00:00",
       "userConfirmed": true,
       "commits": [],
@@ -1214,7 +1214,38 @@
       "contextCommit": "d06be8e6367ef4debc758506574a4be9dfa01874",
       "clientThreadId": "client-new-thread:326232b5-8a1c-490e-a7be-fd47bddef567",
       "dispatchRequestedAt": "2026-09-18T07:50:32.619057+00:00",
-      "lastDispatchCheckAt": "2026-09-18T07:51:17.002705+00:00"
+      "lastDispatchCheckAt": "2026-09-18T10:20:26.748891+00:00",
+      "hostId": "local",
+      "receiptPhase": "in_progress",
+      "startedAt": "2026-09-18T07:51:22.1684732Z",
+      "startConfirmedBy": "fixed-double-worktree-receipt-and-real-thread",
+      "resumeHistory": [
+        {
+          "at": "2026-09-18T10:20:26.748891+00:00",
+          "reason": "Original turn interrupted after environment setup command; same thread resumed with existing edits.",
+          "threadStatusBefore": "interrupted"
+        }
+      ],
+      "progressSnapshot": {
+        "checkedAt": "2026-09-18T10:20:26.748891+00:00",
+        "deliveryReady": false,
+        "workbenchHead": "21e34c9763859442df33d047d12749e9a8b53744",
+        "engineHead": "2720fac32cf2b989523079405abbd0e4f3698e07",
+        "changedFiles": [
+          "B:src/modules/bridge/services.mjs",
+          "A:src/cli.ts",
+          "A:src/index.ts"
+        ],
+        "notes": "未提交实现，无验收测试/报告；不得计作完成。"
+      },
+      "controlProgressEvidence": "docs/project/evidence/V02-004I-control-resume.md",
+      "waitCursor": "c2fd0a82-c54e-42db-bdf5-2e3034e0d86e:1",
+      "lastThreadSnapshot": {
+        "checkedAt": "2026-09-18T10:21:26.852840+00:00",
+        "status": "active",
+        "turnStatus": "inProgress",
+        "turnId": "01a0b408-197f-79a1-aee5-8f3d0e7ebc3c"
+      }
     }
   ],
   "developmentBaseline": {

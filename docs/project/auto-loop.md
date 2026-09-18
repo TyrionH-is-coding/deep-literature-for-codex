@@ -10,7 +10,7 @@
 
 ## 每轮步骤
 
-1. 核对总控 Git 状态与台账；保留任何用户修改。先处理已有任务，检查已登记的真实 session（优先 wait_threads 紧凑快照），再检查它的固定 worktree、任务回执、提交和报告。列表找不到 session 不代表任务不存在；不得因为 clientThreadId 未解析就重复创建。
+1. 核对总控 Git 状态与台账；保留任何用户修改。先处理已有任务，检查已登记的真实 session（优先 wait_threads 紧凑快照），再检查它的固定 worktree、任务回执、提交和报告。列表找不到 session 不代表任务不存在；不得因为 clientThreadId 未解析就重复创建。必要时只按本任务原派发提示精确匹配本地任务日志的session_meta，再用read_thread核对身份；确认interrupted后可向同一任务续发继续指令，保存真实ID/cursor，不能把clientThreadId直接代入。
 2. kind=task 且 reserved/queued/in_progress/review 中尚未终止的开发任务占用并行名额；workstream 的汇总状态不重复占名额。派发前写入唯一任务编号、固定 baseCommit/contextCommit、分支、worktree、writePaths、依赖与 dispatchState=reserved；创建后保存返回 ID，并等待一次进展。真实 ID 尚不可用时只保存 clientThreadId，不把它传给需要 threadId 的工具。
 3. 开工/交付回执只提供状态线索，不能代替验收。结束时读当前提交的差异、报告与原始结果，检查是否越界，补做必要的合同/调用方检查。测试退出成功、聊天说完成或有一个报告文件，都不单独构成通过。
 4. 满足任务目标且证据充分后串行集成到指定分支，记录 integrationCommit 与遗留问题，再解除对应依赖。只诊断任务可接收已归因问题，但必须明确它是诊断交付通过，而非产品全通过。002 必须完成源码/制品来源审计、接口地图及实际测试基线；阻断这些目标的失败未解决时，不开 003。
