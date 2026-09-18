@@ -1,0 +1,75 @@
+
+> deep-literature-for-codex@0.2.0-dev.3 modules
+> node scripts/modules.mjs test bridge
+
+Modules: lifecycle, releases, bridge, application, tooling
+✔ 原生交接证据识别持久队列被正常停止撤销，并优先使用实际 pending 或 delivered (2.9243ms)
+✔ 领取后尚未追加 user/message 或不完整取消记录仅能判为 uncertain (0.5479ms)
+✔ 实际会话身份决定工具范围，不能通过参数声明自己是其他分类 (0.5546ms)
+✔ 取消只移除本任务排队消息，不取消同分类正在处理的另一篇论文 (2.8269ms)
+✔ 上一任务结束后不能取消尚未追加消息的新 turn；领取记录必须属于当前 turn (0.4355ms)
+✔ 同一 turn 混入其他任务或手动消息时只撤回队列，不中断共享 turn (0.2995ms)
+✔ gate 源文仅可分页读取真实本篇材料；任意路径和移出分类被拒绝 (39.7496ms)
+✔ A 门槛退出码保持真实状态，scope 错误不会伪装为正常任务 (1.7077ms)
+✔ job-status 失败时返回完整 JSON，并把 detail.error 作为可识别错误 (0.4015ms)
+✔ 完成以真实 Reader HTTP 字节和 SHA 为准，RPC 校验完整回执 (120.9087ms)
+✔ 改名后迁移未修改的旧 Skill，保留同一实例与安装根 (147.5061ms)
+✔ 改名保留定制或非本实例所有的旧 Skill (346.9619ms)
+✔ 新名称被定制 Skill 占用时，不删除旧入口或改写其收据 (79.2329ms)
+✔ 新版源码的 install-skill 可为旧安装单独更新入口 (392.3484ms)
+✔ 发布已升级后，定制 Skill 冲突作为保留结果返回，不误报安装失败 (119.0558ms)
+✔ 未被本实例管理的同名 Skill 保留且不创建所有权收据 (27.5699ms)
+✔ Skill 收据损坏等真实错误仍拒绝，不当成可忽略冲突 (47.045ms)
+✔ 错误插件校验在创建安装根或发起下载前失败 (947.4442ms)
+✔ 发行源文件被破坏时在引导安装前拒绝，安装根保持不存在 (966.5973ms)
+✔ Windows 卸载处理超长路径且不遍历文库 junction (650.2242ms)
+✔ 并发启动复用一个真实子进程，停止后状态准确，旁边的服务继续可用 (2053.4478ms)
+✔ 不按陈旧磁盘 PID 停止其他进程 (32.7858ms)
+✔ 宿主失败后返回具体状态，不能把进程存在当成就绪 (1295.1511ms)
+✔ 拒绝控制通道返回的其他实例，即使其 HTTP 身份自洽 (142.4297ms)
+✔ 控制管道按解析后的安装根命名，联接路径仍拒绝伪造实例 (139.1139ms)
+✔ 升级日志未恢复时禁止普通启动，不猜测切换已经完成 (22.1878ms)
+✔ core.mjs preserves the rc.6 public API and module object identity (33.8546ms)
+✔ platform.mjs preserves the rc.6 public API and module object identity (11.104ms)
+✔ bridge.mjs preserves the rc.6 public API and module object identity (9.1712ms)
+✔ bridge-services.mjs preserves the rc.6 public API and module object identity (4.2907ms)
+✔ handoff.mjs preserves the rc.6 public API and module object identity (2.1913ms)
+✔ workspace.mjs preserves the rc.6 public API and module object identity (1.2886ms)
+✔ control.mjs preserves the rc.6 public API and module object identity (25.5034ms)
+✔ local-socket.mjs preserves the rc.6 public API and module object identity (1.9149ms)
+✔ releases.mjs preserves the rc.6 public API and module object identity (14.2545ms)
+✔ library-transfer.mjs preserves the rc.6 public API and module object identity (3.667ms)
+✔ the stable bridge entrypoint retains the DSH plugin registration contract (0.7047ms)
+✔ relocated public APIs import from an unrelated cwd without loading the supervisor (646.0095ms)
+✔ the actual source graph has declared public boundaries and pinned module identities (441.33ms)
+✔ syntax parsing ignores example imports but detects export-from and computed imports (1.6328ms)
+✔ a consumer cannot import private implementations or unregistered dependencies (0.937ms)
+✔ CommonJS bridges require review and literal require calls participate in dependency checks (0.5371ms)
+✔ unknown module requests fail and impact includes transitive consumers and runtime wiring (0.5544ms)
+✔ ambiguous ownership is rejected rather than silently choosing a module (0.2618ms)
+✔ a source cycle is rejected before traversing files (0.7525ms)
+✔ module fingerprints change only for modules that own changed bytes (47.606ms)
+✔ every supported architecture selects pinned runtime assets and executable paths (12.1484ms)
+✔ Unix host retains desktop keyring access and system commands without inheriting model settings (0.7536ms)
+﹣ POSIX socket survives long install paths and recovers a crashed owner without deleting live sockets (0.2013ms) # SKIP
+✔ 未解析临时路径或联接到达同一安装根时，发行槽位仍有效 (244.1844ms)
+✔ 发行槽位若联接到实例外目录则拒绝 (52.7797ms)
+✔ 升级和回退保留新旧文献、配置和实例身份 (159.8155ms)
+✔ 候选启动失败自动恢复旧版本，既有 PDF 字节不变 (127.474ms)
+✔ 中断切换可恢复旧描述符，不恢复旧数据库覆盖新文献 (83.2531ms)
+✔ 拒绝跨数据格式回退与实例外目录，卸载只退役代码描述符 (86.6619ms)
+✔ 有活动写入导致一致快照失败时，不切换候选版本 (77.4136ms)
+✔ control phases and business terminal states are lossless (5.5003ms)
+✔ explicit resume preserves zero revision, input and scope; legacy paths remain separate (4.5816ms)
+✔ invalid control inputs fail before any engine call (1.3239ms)
+✔ only stopped resume/attach accept exit 2 gates, never arbitrary failed envelopes (2.0436ms)
+✔ forged control snapshots and identity mismatches fail closed (10.4202ms)
+✔ safe errors remain distinct and error envelopes cannot impersonate gates (6.4049ms)
+ℹ tests 62
+ℹ suites 0
+ℹ pass 61
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 4024.9591

@@ -1,5 +1,13 @@
 # bridge 变更记录
 
+## 0.1.1 — 停止控制跨包适配（V02-004I，未发布）
+
+- 新增显式恢复分流、控制参数预检和 reading-control-v1 无损快照校验。
+- 保留业务失败/完成及 request/ack/terminal 的区别；错误 envelope、错 parent 和缺失导出拒绝。
+- start/普通 resume/attach 保留原调用方接口，workflow、scope 白名单和产品 pins 未变化。
+- 验证、兼容边界与回退见 [V02-004I 报告](../../project/evidence/V02-004I-report.md)。
+
+
 ## 0.1.0 — 模块登记基线（2026-09-17，未发布）
 
 - 来源：产品 `v0.1.0-rc.6`，回退基线 `e7160eb`。

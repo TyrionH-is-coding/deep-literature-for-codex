@@ -6,21 +6,105 @@ export const CATEGORY_TOOLS = new Set(['sr_ingest', 'sr_abstract_submit', 'sr_li
   'sr_continue_full_read', 'sr_export_assets', 'sr_job_status', 'sr_evidence_locate', 'sr_review_context',
   'sr_review_confirm', 'csr_read_job_input']);
 
+const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const revision = value => Number.isSafeInteger(value) && value >= 0;
+const requestId = value => typeof value === 'string' && !!value.trim() && [...value].length <= 200;
+const businessStates = ['queued', 'running', 'waiting_user', 'waiting_agent', 'interrupted', 'failed', 'completed'];
+const pipelineStates = ['queued', 'ensure_pdf', 'parse_mineru', 'translate_full', 'render_reader',
+  'schedule_derived_updates', 'needs_user', 'waiting_agent', 'failed', 'completed'];
+
+function controlSnapshot(json, jobId, paperId) {
+  const invalid = () => { throw new Error('engine_stop_control_invalid'); };
+  if (!record(json) || json.contract !== 'reading-control-v1' || !jobId || json.parentJobId !== jobId
+    || !revision(json.revision) || typeof json.stopRequested !== 'boolean'
+    || !(json.requestId === null || requestId(json.requestId))
+    || !(json.acknowledgedRevision === null || revision(json.acknowledgedRevision))
+    || !(json.effectiveBoundary === null || typeof json.effectiveBoundary === 'string')
+    || json.independentChildrenStopped !== false || !record(json.operations)
+    || !record(json.businessStatus) || json.businessStatus.job_id !== jobId
+    || !businessStates.includes(json.businessStatus.state)
+    || !record(json.pipelineState) || json.pipelineState.contract_version !== 'reading-pipeline-v1'
+    || json.pipelineState.parent_job_id !== jobId || !pipelineStates.includes(json.pipelineState.state)
+    || typeof json.pipelineState.paper_id !== 'string' || !json.pipelineState.paper_id
+    || (paperId && json.pipelineState.paper_id !== paperId)) invalid();
+  for (const owner of [json.activeStage, json.worker]) {
+    if (owner !== null && (!record(owner) || !Number.isSafeInteger(owner.pid) || owner.pid <= 0
+      || !(owner.identity === null || typeof owner.identity === 'string'))) invalid();
+  }
+  const scope = json.businessStatus.scope;
+  if (scope != null && (!record(scope) || ['instanceId', 'scopeSessionId', 'scopeFolderId'].some(key =>
+    typeof scope[key] !== 'string' || !scope[key]) || scope.scopePaperId !== json.pipelineState.paper_id
+    || !revision(scope.scopePaperRevision))) invalid();
+  if (json.acknowledgedRevision !== null && (!json.stopRequested
+    || json.acknowledgedRevision !== json.revision || typeof json.effectiveBoundary !== 'string')) invalid();
+  const operations = Object.entries(json.operations);
+  if (operations.length !== json.revision) invalid();
+  const seen = new Set();
+  for (const [id, op] of operations) {
+    if (!requestId(id) || !record(op) || !['stop', 'resume'].includes(op.kind)
+      || !revision(op.expectedRevision) || !revision(op.revision) || op.revision !== op.expectedRevision + 1
+      || op.revision > json.revision || seen.has(op.revision)
+      || (op.kind === 'resume' && (!record(op.input) || typeof op.dispatched !== 'boolean'))) invalid();
+    seen.add(op.revision);
+  }
+  const latest = Object.hasOwn(json.operations, json.requestId) ? json.operations[json.requestId] : null;
+  if (json.revision === 0 ? (json.requestId !== null || json.stopRequested || json.acknowledgedRevision !== null)
+    : (!latest || latest.revision !== json.revision || (latest.kind === 'stop') !== json.stopRequested)) invalid();
+  const terminal = [json.businessStatus.state, json.pipelineState.state].some(state => ['failed', 'completed'].includes(state));
+  const phase = terminal ? 'terminal' : !json.stopRequested ? 'active'
+    : json.acknowledgedRevision === json.revision ? 'acknowledged' : 'requested';
+  if (json.status !== phase || json.compatibility !== (phase === 'requested' ? 'unconfirmed_worker_or_stage' : 'cooperative_boundary')) invalid();
+  const replay = json.replayedOperation;
+  if (replay !== null && (!record(replay) || !operations.some(([, op]) =>
+    op.kind === replay.kind && op.revision === replay.revision && op.expectedRevision === replay.expectedRevision
+    && (op.kind !== 'resume' || (record(replay.input) && typeof replay.dispatched === 'boolean'))))) invalid();
+  return json;
+}
+
 export function engineAdapter(api, config) {
   return (args, input, scope) => {
     const run = async () => {
-    const value = flag => args[args.indexOf(flag) + 1];
-    let result;
-    if (args[0] === 'full-read-pipeline-start') result = await api.engineStartFullRead(config, value('--paper-id'));
-    else if (args[0] === 'full-read-pipeline-resume') result = await api.engineContinueFullRead(config, value('--job-id'), input);
-    else if (args[0] === 'full-read-pdf-attach-resume') result = await api.engineAttachAndResumeFullReadPdf(config, value('--paper-id'), value('--job-id'), value('--pdf'));
-    else result = await api.engineJson(config, args, input);
-    const json = result.json;
-    const foreground = ['queued', 'running', 'waiting_user', 'waiting_agent', 'interrupted', 'failed', 'completed'];
-    if (json && (result.ok || (args[0] === 'job-status' && json.job_id && foreground.includes(json.status))
-      || (args[0].startsWith('full-read-') && json.parent_job_id))) return json;
-    const code = json?.error ?? json?.reason_code ?? json?.detail?.reason_code ?? 'engine_request_failed';
-    throw new Error(typeof code === 'string' && /^[a-z0-9_]+$/i.test(code) ? code : 'engine_request_failed');
+      const value = flag => args.includes(flag) ? args[args.indexOf(flag) + 1] : undefined;
+      const command = args[0];
+      const explicit = command === 'full-read-pipeline-resume' && args.includes('--resume-stopped');
+      const control = ['full-read-pipeline-stop', 'full-read-pipeline-control'].includes(command) || explicit;
+      const optionsPresent = ['--request-id', '--expected-revision', '--resume-stopped'].some(flag => args.includes(flag));
+      let options;
+      if (command === 'full-read-pipeline-stop' || explicit) {
+        const rawRevision = value('--expected-revision');
+        options = { requestId: value('--request-id'), expectedRevision: Number(rawRevision) };
+        if (!requestId(options.requestId) || typeof rawRevision !== 'string' || !/^\d+$/.test(rawRevision)
+          || !revision(options.expectedRevision) || ['--request-id', '--expected-revision', '--resume-stopped']
+            .some(flag => args.filter(arg => arg === flag).length > 1)) throw new Error('reading_control_operation_invalid');
+      } else if (optionsPresent) throw new Error('resume_stopped_required');
+      let result;
+      if (command === 'full-read-pipeline-start') result = await api.engineStartFullRead(config, value('--paper-id'));
+      else if (explicit) {
+        if (typeof api.engineResumeStoppedFullRead !== 'function') throw new Error('engine_stop_control_unavailable');
+        result = await api.engineResumeStoppedFullRead(config, value('--job-id'), input, options);
+      } else if (command === 'full-read-pipeline-resume') result = await api.engineContinueFullRead(config, value('--job-id'), input);
+      else if (command === 'full-read-pdf-attach-resume') result = await api.engineAttachAndResumeFullReadPdf(config, value('--paper-id'), value('--job-id'), value('--pdf'));
+      else result = await api.engineJson(config, args, input);
+      if (!record(result) || typeof result.ok !== 'boolean'
+        || (result.exitCode !== undefined && !revision(result.exitCode))) throw new Error('engine_request_failed');
+      const json = result.json;
+      const code = json?.error ?? json?.reason_code ?? json?.detail?.reason_code ?? 'engine_request_failed';
+      const fail = () => { throw new Error(typeof code === 'string' && /^[a-z0-9_]+$/i.test(code) ? code : 'engine_request_failed'); };
+      // A's generic runner also marks exit 2/3 as ok. Error envelopes must win.
+      if (json?.error != null) fail();
+      if (control || json?.contract === 'reading-control-v1' || json?.parentJobId !== undefined) {
+        const snapshot = controlSnapshot(json, value('--job-id'), value('--paper-id') ?? scope?.scopePaperId);
+        const blocked = !explicit && ['full-read-pipeline-resume', 'full-read-pdf-attach-resume'].includes(command)
+          && snapshot.stopRequested;
+        const accepted = result.ok && (result.exitCode === undefined || result.exitCode === 0
+          || (blocked && result.exitCode === 2));
+        if (!accepted && !(blocked && result.exitCode === 2)) fail();
+        return snapshot;
+      }
+      if (json?.parent_job_id && ((value('--job-id') && json.parent_job_id !== value('--job-id'))
+        || (value('--paper-id') && json.paper_id && json.paper_id !== value('--paper-id')))) throw new Error('engine_parent_mismatch');
+      if (json && (result.ok || (command === 'job-status' && json.job_id && businessStates.includes(json.status)))) return json;
+      fail();
     };
     return scope ? api.withEngineScope(scope, run) : run();
   };

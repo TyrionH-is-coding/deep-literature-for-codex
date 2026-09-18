@@ -1,0 +1,10 @@
+
+> deep-literature-for-codex@0.2.0-dev.3 modules
+> node scripts/modules.mjs check
+
+{
+  "ok": true,
+  "modules": 10,
+  "sourceFiles": 47,
+  "imports": 152
+}

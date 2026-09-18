@@ -23,3 +23,11 @@
 `npm run modules -- test bridge` 覆盖目标及下游；本模块登记 `tests/bridge.test.mjs`。命令说明不代表当前已经通过。
 
 修改工具清单、scope 传播、Host/Origin、文件读取、投递或取消时，覆盖拒绝与异常路径。修改引擎导出、DSH hooks、包解析或安装插件路径时，还需隔离宿主启动与真实交接验证；静态边界检查不能证明运行时 API 存在。
+
+## 0.1.1 停止控制适配（V02-004I）
+
+可信调用方可传 `full-read-pipeline-stop/control`，显式恢复须带 `--resume-stopped --request-id <id> --expected-revision <n>`，input 仍由独立参数传入。显式恢复只调用 A 的 `engineResumeStoppedFullRead`；缺失导出抛 `engine_stop_control_unavailable`，不回落普通 resume。旧 start/continue/attach 调用路径不变。
+
+`reading-control-v1` 按原快照返回，验证 parent、嵌套身份、revision、阶段及控制记录；仅停止中的普通 resume/attach 可接受 exit 2 gate。`requested` 不等于 `acknowledged`，业务 failed/completed 不转换为 canceled，独立 child 不停止。非法控制快照为 `engine_stop_control_invalid`；revision/request 冲突、dispatch uncertain 与 scope 错误保留安全代码。错误 envelope 不作为业务成功。
+
+分类工具白名单和 workflow 语义未变；此接口仅供后继取消接入，本卡不是安装或用户取消链验收。新增回归登记 `tests/v02-control-adapter.test.mjs`，真实来源集成脚本 `scripts/v02-004i-integration.mjs`。

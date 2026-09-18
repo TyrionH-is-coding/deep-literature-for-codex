@@ -1,0 +1,784 @@
+{
+  "mode": "actual source integration; no product installation or real provider",
+  "time": "2026-09-18T10:25:32.282Z",
+  "a": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i",
+  "b": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i",
+  "python": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\.venv\\Scripts\\python.exe",
+  "modulePath": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\.venv\\Lib\\site-packages\\scientific_reading\\__init__.py\r\n3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+  "fixture": {
+    "root": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i\\outputs\\v02-004i\\final",
+    "job": "job_3f57913a0e5129c0",
+    "paper": "title_281c24bae926",
+    "second": "title_98a2ceed2216",
+    "folder": "folder_7807134aac3647cf9bde792eb7db2d38",
+    "other": "folder_2f08d955dc2446e1b480e9bdda3bd88d",
+    "scope": {
+      "instanceId": "v02-004i",
+      "scopeSessionId": "synthetic-session",
+      "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38"
+    }
+  },
+  "manifest": {
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\src\\cli.ts": "70d796ec5271c6e990d10947ce5375153102dd8b625c43b3b59905becf8e71d1",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\src\\index.ts": "83f6a1fbd23799c83003dedb6159933cc5b638bc91cca23562c147ad13a8dbfe",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\lib\\cli.js": "b7185c97b9b3c3094f7f6b04b3d43fbe1cd8b93f3f44a983f6393c35c5fa5082",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\lib\\index.js": "a6453a843dc3ad955c79fc357229e46f4c865a2060b7faa0a876b9b2cd30af6e",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i\\src\\modules\\bridge\\services.mjs": "f87910d57329c42a087e76f5b13f4f24aee1fe7cd3b896016786e7f60f9ba55e",
+    "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i\\scripts\\v02-004i-integration.mjs": "92fe418c0326a78cbbf8db989fd7919c0c688691f64d6901a3c8aab7dd7b0f59"
+  },
+  "rows": [
+    {
+      "name": "read initial",
+      "args": [
+        "full-read-pipeline-control",
+        "--job-id",
+        "job_3f57913a0e5129c0"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 0,
+        "stopRequested": false,
+        "requestId": null,
+        "acknowledgedRevision": null,
+        "effectiveBoundary": null,
+        "activeStage": null,
+        "worker": null,
+        "operations": {},
+        "status": "active",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": null
+      }
+    },
+    {
+      "name": "stop",
+      "args": [
+        "full-read-pipeline-stop",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--request-id",
+        "stop",
+        "--expected-revision",
+        "0"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 1,
+        "stopRequested": true,
+        "requestId": "stop",
+        "acknowledgedRevision": 1,
+        "effectiveBoundary": "between_stages",
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          }
+        },
+        "status": "acknowledged",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": null
+      }
+    },
+    {
+      "name": "repeat stop",
+      "args": [
+        "full-read-pipeline-stop",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--request-id",
+        "stop",
+        "--expected-revision",
+        "0"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 1,
+        "stopRequested": true,
+        "requestId": "stop",
+        "acknowledgedRevision": 1,
+        "effectiveBoundary": "between_stages",
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          }
+        },
+        "status": "acknowledged",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": {
+          "kind": "stop",
+          "expectedRevision": 0,
+          "revision": 1
+        }
+      }
+    },
+    {
+      "name": "ordinary resume blocked",
+      "args": [
+        "full-read-pipeline-resume",
+        "--job-id",
+        "job_3f57913a0e5129c0"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 1,
+        "stopRequested": true,
+        "requestId": "stop",
+        "acknowledgedRevision": 1,
+        "effectiveBoundary": "between_stages",
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          }
+        },
+        "status": "acknowledged",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": null
+      }
+    },
+    {
+      "name": "attach blocked before reading PDF",
+      "args": [
+        "full-read-pdf-attach-resume",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--paper-id",
+        "title_281c24bae926",
+        "--pdf",
+        "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004i\\outputs\\v02-004i\\final\\absent.pdf"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 1,
+        "stopRequested": true,
+        "requestId": "stop",
+        "acknowledgedRevision": 1,
+        "effectiveBoundary": "between_stages",
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          }
+        },
+        "status": "acknowledged",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": null
+      }
+    },
+    {
+      "name": "actual CLI exit 2",
+      "result": {
+        "ok": true,
+        "exitCode": 2,
+        "stdout": "{\"contract\": \"reading-control-v1\", \"parentJobId\": \"job_3f57913a0e5129c0\", \"revision\": 1, \"stopRequested\": true, \"requestId\": \"stop\", \"acknowledgedRevision\": 1, \"effectiveBoundary\": \"between_stages\", \"activeStage\": null, \"worker\": null, \"operations\": {\"stop\": {\"kind\": \"stop\", \"expectedRevision\": 0, \"revision\": 1}}, \"status\": \"acknowledged\", \"businessStatus\": {\"job_id\": \"job_3f57913a0e5129c0\", \"state\": \"queued\", \"created_at\": \"2026-09-18T10:25:23.712533+00:00\", \"updated_at\": \"2026-09-18T10:25:23.712533+00:00\", \"pid\": null, \"heartbeat_at\": null, \"reason_code\": null, \"required_input\": {}, \"result\": {}, \"error\": null, \"scope\": {\"instanceId\": \"v02-004i\", \"scopeSessionId\": \"synthetic-session\", \"scopeFolderId\": \"folder_7807134aac3647cf9bde792eb7db2d38\", \"scopePaperId\": \"title_281c24bae926\", \"scopePaperRevision\": 1}}, \"pipelineState\": {\"paper_id\": \"title_281c24bae926\", \"parent_job_id\": \"job_3f57913a0e5129c0\", \"current_stage\": \"ensure_pdf\", \"state\": \"queued\", \"stage_jobs\": {}, \"stage_outputs\": {}, \"stage_timings\": {}, \"source_pdf_sha256\": null, \"reader_source_sha256\": null, \"required_action\": null, \"last_error\": null, \"created_at\": \"2026-09-18T10:25:23.721572+00:00\", \"updated_at\": \"2026-09-18T10:25:23.721572+00:00\", \"completed_at\": null, \"contract_version\": \"reading-pipeline-v1\"}, \"independentChildrenStopped\": false, \"compatibility\": \"cooperative_boundary\", \"replayedOperation\": null}\r\n",
+        "stderr": "",
+        "json": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_3f57913a0e5129c0",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_3f57913a0e5129c0",
+            "state": "queued",
+            "created_at": "2026-09-18T10:25:23.712533+00:00",
+            "updated_at": "2026-09-18T10:25:23.712533+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": null,
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "v02-004i",
+              "scopeSessionId": "synthetic-session",
+              "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+              "scopePaperId": "title_281c24bae926",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "title_281c24bae926",
+            "parent_job_id": "job_3f57913a0e5129c0",
+            "current_stage": "ensure_pdf",
+            "state": "queued",
+            "stage_jobs": {},
+            "stage_outputs": {},
+            "stage_timings": {},
+            "source_pdf_sha256": null,
+            "reader_source_sha256": null,
+            "required_action": null,
+            "last_error": null,
+            "created_at": "2026-09-18T10:25:23.721572+00:00",
+            "updated_at": "2026-09-18T10:25:23.721572+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        }
+      }
+    },
+    {
+      "name": "stale revision",
+      "args": [
+        "full-read-pipeline-stop",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--request-id",
+        "stale",
+        "--expected-revision",
+        "0"
+      ],
+      "error": "reading_control_revision_conflict"
+    },
+    {
+      "name": "request collision",
+      "args": [
+        "full-read-pipeline-stop",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--request-id",
+        "stop",
+        "--expected-revision",
+        "1"
+      ],
+      "error": "reading_control_request_conflict"
+    },
+    {
+      "name": "cross paper",
+      "args": [
+        "full-read-pipeline-control",
+        "--job-id",
+        "job_3f57913a0e5129c0"
+      ],
+      "error": "scope_paper_forbidden"
+    },
+    {
+      "name": "cross category",
+      "args": [
+        "full-read-pipeline-control",
+        "--job-id",
+        "job_3f57913a0e5129c0"
+      ],
+      "error": "scope_changed"
+    },
+    {
+      "name": "cross paper",
+      "args": [
+        "full-read-pipeline-stop",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--request-id",
+        "stop",
+        "--expected-revision",
+        "0"
+      ],
+      "error": "scope_paper_forbidden"
+    },
+    {
+      "name": "cross category",
+      "args": [
+        "full-read-pipeline-stop",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--request-id",
+        "stop",
+        "--expected-revision",
+        "0"
+      ],
+      "error": "scope_changed"
+    },
+    {
+      "name": "cross paper",
+      "args": [
+        "full-read-pipeline-resume",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--resume-stopped",
+        "--request-id",
+        "resume",
+        "--expected-revision",
+        "1"
+      ],
+      "error": "scope_paper_forbidden"
+    },
+    {
+      "name": "cross category",
+      "args": [
+        "full-read-pipeline-resume",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--resume-stopped",
+        "--request-id",
+        "resume",
+        "--expected-revision",
+        "1"
+      ],
+      "error": "scope_changed"
+    },
+    {
+      "name": "explicit resume",
+      "args": [
+        "full-read-pipeline-resume",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--resume-stopped",
+        "--request-id",
+        "resume",
+        "--expected-revision",
+        "1"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 2,
+        "stopRequested": false,
+        "requestId": "resume",
+        "acknowledgedRevision": null,
+        "effectiveBoundary": null,
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          },
+          "resume": {
+            "kind": "resume",
+            "expectedRevision": 1,
+            "revision": 2,
+            "input": {},
+            "dispatched": true
+          }
+        },
+        "status": "active",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": null
+      }
+    },
+    {
+      "name": "repeat explicit resume",
+      "args": [
+        "full-read-pipeline-resume",
+        "--job-id",
+        "job_3f57913a0e5129c0",
+        "--resume-stopped",
+        "--request-id",
+        "resume",
+        "--expected-revision",
+        "1"
+      ],
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 2,
+        "stopRequested": false,
+        "requestId": "resume",
+        "acknowledgedRevision": null,
+        "effectiveBoundary": null,
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          },
+          "resume": {
+            "kind": "resume",
+            "expectedRevision": 1,
+            "revision": 2,
+            "input": {},
+            "dispatched": true
+          }
+        },
+        "status": "active",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "queued",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:23.712533+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "queued",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {},
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": null,
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:23.721572+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": {
+          "kind": "resume",
+          "expectedRevision": 1,
+          "revision": 2,
+          "input": {},
+          "dispatched": true
+        }
+      }
+    },
+    {
+      "name": "real worker reached missing PDF gate and unregistered",
+      "result": {
+        "contract": "reading-control-v1",
+        "parentJobId": "job_3f57913a0e5129c0",
+        "revision": 2,
+        "stopRequested": false,
+        "requestId": "resume",
+        "acknowledgedRevision": null,
+        "effectiveBoundary": null,
+        "activeStage": null,
+        "worker": null,
+        "operations": {
+          "stop": {
+            "kind": "stop",
+            "expectedRevision": 0,
+            "revision": 1
+          },
+          "resume": {
+            "kind": "resume",
+            "expectedRevision": 1,
+            "revision": 2,
+            "input": {},
+            "dispatched": true
+          }
+        },
+        "status": "active",
+        "businessStatus": {
+          "job_id": "job_3f57913a0e5129c0",
+          "state": "waiting_user",
+          "created_at": "2026-09-18T10:25:23.712533+00:00",
+          "updated_at": "2026-09-18T10:25:31.974385+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "pdf_required",
+          "required_input": {
+            "kind": "pdf",
+            "options": [
+              "local_pdf"
+            ]
+          },
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "v02-004i",
+            "scopeSessionId": "synthetic-session",
+            "scopeFolderId": "folder_7807134aac3647cf9bde792eb7db2d38",
+            "scopePaperId": "title_281c24bae926",
+            "scopePaperRevision": 1
+          }
+        },
+        "pipelineState": {
+          "paper_id": "title_281c24bae926",
+          "parent_job_id": "job_3f57913a0e5129c0",
+          "current_stage": "ensure_pdf",
+          "state": "needs_user",
+          "stage_jobs": {},
+          "stage_outputs": {},
+          "stage_timings": {
+            "ensure_pdf": {
+              "started_at": "2026-09-18T10:25:31.878692+00:00",
+              "finished_at": null
+            }
+          },
+          "source_pdf_sha256": null,
+          "reader_source_sha256": null,
+          "required_action": {
+            "reason_code": "pdf_required",
+            "kind": "pdf",
+            "options": [
+              "local_pdf"
+            ]
+          },
+          "last_error": null,
+          "created_at": "2026-09-18T10:25:23.721572+00:00",
+          "updated_at": "2026-09-18T10:25:31.933556+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "independentChildrenStopped": false,
+        "compatibility": "cooperative_boundary",
+        "replayedOperation": null
+      }
+    }
+  ],
+  "engineCommit": "b9365ce622c323ce10b2ab86864f3c85d5edf55c",
+  "bridgeCommit": "748a9e7abcca66aa773f44508d1f65f1fd810466"
+}

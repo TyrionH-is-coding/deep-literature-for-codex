@@ -1,0 +1,18 @@
+{
+  "task": "V02-004I",
+  "base": "21e34c9763859442df33d047d12749e9a8b53744",
+  "engineBase": "2720fac32cf2b989523079405abbd0e4f3698e07",
+  "contextCommit": "d06be8e6367ef4debc758506574a4be9dfa01874",
+  "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004i",
+  "enginePath": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004i",
+  "branch": "codex/v02-004i-control-adapter",
+  "engineBranch": "codex/v02-004i-control-adapter",
+  "sessionId": "01a0b37e-c170-7cb0-98b3-f89d22f0365a",
+  "time": "2026-09-18T10:28:06.229564+00:00",
+  "phase": "review",
+  "resumedAt": "2026-09-18T10:20:47.4657602Z",
+  "commit": "748a9e7abcca66aa773f44508d1f65f1fd810466",
+  "engineCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+  "engineSourceCommit": "b9365ce622c323ce10b2ab86864f3c85d5edf55c",
+  "report": "docs/project/evidence/V02-004I-report.md"
+}

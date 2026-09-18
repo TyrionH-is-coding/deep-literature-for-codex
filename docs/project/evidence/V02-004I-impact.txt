@@ -1,0 +1,34 @@
+
+> deep-literature-for-codex@0.2.0-dev.3 modules
+> node scripts/modules.mjs impact --base 21e34c9763859442df33d047d12749e9a8b53744
+
+{
+  "base": "21e34c9763859442df33d047d12749e9a8b53744",
+  "files": [
+    "docs/modules/bridge.md",
+    "docs/modules/changes/bridge.md",
+    "scripts/v02-004i-integration.mjs",
+    "scripts/v02-004i-verify.ps1",
+    "src/modules/bridge/services.mjs",
+    "src/modules/catalog.json",
+    "tests/v02-control-adapter.test.mjs",
+    "docs/project/evidence/V02-004I-check.txt",
+    "docs/project/evidence/V02-004I-impact.txt",
+    "docs/project/evidence/V02-004I-integration.json",
+    "docs/project/evidence/V02-004I-receipt.json",
+    "docs/project/evidence/V02-004I-runs.json"
+  ],
+  "changed": [
+    "bridge",
+    "tooling"
+  ],
+  "affected": [
+    "lifecycle",
+    "releases",
+    "bridge",
+    "application",
+    "tooling"
+  ],
+  "unowned": [],
+  "note": "Includes transitive consumers and declared runtime dependencies."
+}
