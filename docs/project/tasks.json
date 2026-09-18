@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-18T11:15:27.987Z"
     },
-    "lastReviewAt": "2026-09-18T11:45:30.425Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T11:45:30.425Z",
+    "lastReviewAt": "2026-09-18T11:56:51.590Z",
+    "lastHeartbeatCompletedAt": "2026-09-18T11:56:51.590Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -1319,22 +1319,22 @@
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:6",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:7",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
-      "lastDispatchCheckAt": "2026-09-18T11:45:54.854Z",
-      "receiptPhase": "review-returned-for-rework",
+      "lastDispatchCheckAt": "2026-09-18T11:56:51.590Z",
+      "receiptPhase": "in_progress",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-18T11:45:54.854Z",
+        "checkedAt": "2026-09-18T11:56:51.590Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0b455-27fb-7f62-bc70-f35a2f5815de"
       },
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T11:45:30.425Z",
+        "checkedAt": "2026-09-18T11:56:51.590Z",
         "deliveryReady": false,
-        "workbenchHead": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
-        "notes": "总控真实A复现别名恢复缺陷，已送回同一任务第1轮返工；未集成，不开后继。"
+        "workbenchHead": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9",
+        "notes": "第1轮返工源码已提交；开发者报告真实A别名恢复与两次重开通过，正在更新报告/索引/回执。尚未交回review，004J-R1保持开放。"
       },
       "risk": "R2",
       "reviewRounds": 1,
