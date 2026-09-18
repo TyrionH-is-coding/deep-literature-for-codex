@@ -7,21 +7,24 @@
   "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004j",
   "branch": "codex/v02-004j-workflow-control",
   "startedAt": "2026-09-18T10:44:10.1614737Z",
-  "phase": "in_progress",
+  "phase": "review",
   "baselineClean": true,
   "modules": [
     "workflow",
     "bridge"
   ],
   "goal": "Persistent cancellation and revision-bound explicit resume with real source integration",
-  "reviewAt": "2026-09-18T11:32:47.9438383Z",
-  "productionCommit": "6d1bfd769a104413d3f416d130c1f19b19da5071",
-  "testedSourceCommit": "294741d26938652853f54493b5fb139bf54fab4a",
+  "reviewAt": "2026-09-18T11:57:05.9465381Z",
+  "productionCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9",
+  "testedSourceCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9",
   "nativeSourceCommit": "43bca47fead32d9c48aeb00b4c9832f9d434e7a8",
   "managementContextCommit": "59878f25b1e707d08277197b3ca949a673e3620a",
   "report": "docs/project/evidence/V02-004J-report.md",
   "evidenceIndex": "docs/project/evidence/V02-004J-index.json",
   "limitation": "Source-only synthetic validation; final combined installation gate remains open",
   "revisionRound": 1,
-  "reviewFinding": "Cross-alias stop reconciliation; returned by controller after da1d08a"
+  "reviewFinding": "Cross-alias stop reconciliation; returned by controller after da1d08a",
+  "previousDeliveryCommit": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
+  "nativeEvidenceReused": true,
+  "reviewFindingResolved": "Persisted cross-alias stop coverage and verified parent binding; later/unknown intents preserved"
 }

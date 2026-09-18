@@ -1,11 +1,10 @@
 {
   "taskId": "V02-004J",
-  "generatedAt": "2026-09-18T11:34:05.729Z",
-  "locality": "Detailed logs are local-only; retain until review and archive with final candidate",
+  "revisionRound": 1,
+  "generatedAt": "2026-09-18T11:55:47.958Z",
   "baseCommit": "36c27fb8b281faf4496ae6fade265e5f2d866555",
-  "productionCommit": "6d1bfd769a104413d3f416d130c1f19b19da5071",
-  "testedSourceCommit": "294741d26938652853f54493b5fb139bf54fab4a",
-  "nativeSourceCommit": "43bca47fead32d9c48aeb00b4c9832f9d434e7a8",
+  "previousDeliveryCommit": "da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
+  "sourceCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9",
   "engineCommit": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
   "python": {
     "executable": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004i\\.venv\\Scripts\\python.exe",
@@ -30,17 +29,72 @@
       "wheel": "0.45.1"
     }
   },
-  "dsh": "0.1.0-rc.7",
-  "productionHashes": {
-    "src/modules/workflow/handoff.mjs": "d61a1e13e03c166ec8420001d5edda2279f0283ebb27ea7d4a17a2500162ac51",
+  "sourceHashes": {
+    "src/modules/workflow/handoff.mjs": "3bbb28e9bfdb823d85e19da24a8f86012cb901937798afbba28e497310a4f755",
     "src/modules/bridge/plugin.mjs": "a438227d7207b607281d65a608925773d912d603ce7bfa298dc203511a97deb8",
     "src/modules/bridge/services.mjs": "f6ada4e83de03a32c52fee6a0fbb9ee8d79fb4fad3c0bf54860fa071b0170795",
     "src/modules/catalog.json": "759928da198ae50643cb3330d34c2b0726bda3f03c6ea59b6a816c51706a636f",
-    "tests/v02-workflow-control.test.mjs": "f322cb090fb6bb4b4fde503fe06a3c078cc824b8a7b81b1f5aa53aa384dabc30",
-    "runtime/pins.json": "5c34f0a79a28ee115386b1f835c79da2eaf2afac0be0fc9404c2e8a467d46fd9",
-    "runtime/package-lock.json": "daa85400e0a1d146d50013db12356fcd00170b7f31242fd104edfe8df2c14bb0"
+    "tests/v02-workflow-control.test.mjs": "3009119f415705ee2387105049156144a1296d4198e553ec7ba7172a6e01d547",
+    "scripts/v02-004j-integration.mjs": "a7fbc9b95916202af2a27e0f608bbce646231f29ada39851a6a97ddf755e8e7f",
+    "scripts/fixtures/v02-004j/reopen.mjs": "bb9141e6f42f003e5cdb86fd15f2a44a9f12d9f21d29251638575f77fae66747"
   },
   "evidence": [
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004j\\outputs\\v02-004j\\revision1-check.txt",
+      "sha256": "70cf42dec93dc3f1f15b383f47b8bc60d55f67241b94d4aa8875a6661a37b76b",
+      "command": "node scripts/modules.mjs check",
+      "exitCode": 0,
+      "sourceCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004j\\outputs\\v02-004j\\revision1-impact.txt",
+      "sha256": "e643b7e70372363e716e13547c319c34749f2a1c04fd190374361b7469748a4d",
+      "command": "node scripts/modules.mjs impact --base da1d08a2e7f8b57065fd6f2218e673480e1ce9b3",
+      "exitCode": 0,
+      "sourceCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004j\\outputs\\v02-004j\\revision1-module.txt",
+      "sha256": "696e0f05ce75dfabd89cffca97ba2b9a5bcfc4195f8b07ae5684203bfa0d78e1",
+      "command": "node scripts/modules.mjs test workflow",
+      "exitCode": 0,
+      "sourceCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004j\\outputs\\v02-004j\\integration-1789732341938\\report.json",
+      "sha256": "ab5bedd5cb0791c6c4007b882933af18491131671c67f91f484e3c1205584ac7",
+      "command": "node scripts/v02-004j-integration.mjs",
+      "exitCode": 0,
+      "sourceCommit": "bc05b9b22e3030ef1801a258a9897be8ac95cbc9"
+    }
+  ],
+  "findingEvidence": [
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-004j-control-review\\real-alias-1789731799167\\report.json",
+      "sha256": "57607a849b6657ed1a9f716bdfc782028b55dbb6cd046e0a7c20400413295886",
+      "ownership": "controller; read-only; original failure retained"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-004j-control-review\\real-alias-probe.mjs",
+      "sha256": "dfcc22afab5af58f9720a15dbe3a43445e35a481c406faeb0580f2befcf32ebe",
+      "ownership": "controller; read-only; original failure retained"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-004j-control-review\\alias-probe.mjs",
+      "sha256": "ac07cb467d1a89f184364540fa712491070b08a0ae0d4bcc9408b3d77c400151",
+      "ownership": "controller; read-only; original failure retained"
+    }
+  ],
+  "reusedNative": {
+    "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004j\\outputs\\v02-004j\\native-1789730949246\\report.json",
+    "sha256": "b199602d07acc6a92b745c89626189ef075f6f34ee878b04d684e2481da2d4c1",
+    "command": "node scripts/v02-004j-native.mjs",
+    "exitCode": 0,
+    "role": "final acceptance",
+    "sourceCommit": "43bca47fead32d9c48aeb00b4c9832f9d434e7a8",
+    "scope": "Unchanged DSH rc.7 host withdrawal/claims/mixed-turn/restart evidence, reused as controller requested; not substituted for revised alias integration"
+  },
+  "previousEvidence": [
     {
       "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004j\\outputs\\v02-004j\\check-final.txt",
       "sha256": "70cf42dec93dc3f1f15b383f47b8bc60d55f67241b94d4aa8875a6661a37b76b",
@@ -146,51 +200,101 @@
       "sourceCommit": null
     }
   ],
-  "audit": {
-    "productionAndTestsUnchangedAcrossVerificationCommits": true,
-    "engineWorktreeCleanAtFinalAudit": true,
-    "ownedNodeAndPythonProcessesRemainingAtFinalAudit": 0,
-    "initialRuntimePreparation": "npm ci --ignore-scripts --no-audit --no-fund in task outputs/runtime; default npm cache. Reproduction script now selects task-local cache."
-  },
-  "observations": {
+  "results": {
     "workflow": {
-      "total": 100,
-      "pass": 99,
+      "total": 106,
+      "pass": 105,
       "fail": 0,
       "skip": 1,
-      "skipReason": "POSIX socket test on Windows",
-      "bridgeConsumerTestsIncluded": true
+      "note": "Windows POSIX skip; includes bridge/direct and transitive consumers; counts overlap prior delivery"
     },
-    "chain": [
+    "focused": {
+      "total": 19,
+      "pass": 19,
+      "note": "Six added cross-alias cases; also included in final module run"
+    },
+    "realChain": [
       {
         "name": "Handoff real start",
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 0
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 0
       },
       {
         "name": "initial authoritative gate",
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 0
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 0
       },
       {
         "name": "cancel and real A acknowledgement",
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 1,
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 1,
+        "cancelRequested": true
+      },
+      {
+        "name": "second alias stop",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 2,
         "cancelRequested": true
       },
       {
         "name": "independent reopen 0",
-        "pid": 12080,
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 1,
-        "cancelRequested": true
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 2,
+        "cancelRequested": true,
+        "pid": 30648,
+        "guard": "reading_stop_requested",
+        "aliases": [
+          {
+            "taskId": "task-85d7b475-b7b5-4e01-98cf-e9fe2d355b7f",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "cancel_requested",
+            "cancelRequested": true,
+            "revision": 2
+          },
+          {
+            "taskId": "task-9352ef69-2b18-426b-85e1-d4cd99b33e45",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "cancel_requested",
+            "cancelRequested": true,
+            "revision": 2
+          },
+          {
+            "taskId": "task-33583c81-5b20-4de1-9d5c-1f62aa817dae",
+            "jobId": "job_bf84ccc02eee8d80",
+            "status": "waiting_user",
+            "revision": 0
+          }
+        ]
       },
       {
         "name": "independent reopen 1",
-        "pid": 28196,
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 1,
-        "cancelRequested": true
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 2,
+        "cancelRequested": true,
+        "pid": 26628,
+        "guard": "reading_stop_requested",
+        "aliases": [
+          {
+            "taskId": "task-85d7b475-b7b5-4e01-98cf-e9fe2d355b7f",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "cancel_requested",
+            "cancelRequested": true,
+            "revision": 2
+          },
+          {
+            "taskId": "task-9352ef69-2b18-426b-85e1-d4cd99b33e45",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "cancel_requested",
+            "cancelRequested": true,
+            "revision": 2
+          },
+          {
+            "taskId": "task-33583c81-5b20-4de1-9d5c-1f62aa817dae",
+            "jobId": "job_bf84ccc02eee8d80",
+            "status": "waiting_user",
+            "revision": 0
+          }
+        ]
       },
       {
         "name": "A final guard"
@@ -199,106 +303,122 @@
         "name": "A final guard"
       },
       {
-        "name": "explicit same-parent resume",
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 2,
+        "name": "explicit cross-alias same-parent resume",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 3,
         "cancelRequested": false
       },
       {
-        "name": "real worker returned to legal PDF gate; same source and generation",
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 2,
+        "name": "real worker returned to PDF gate; source remains null and generation absent",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 3,
         "cancelRequested": false
+      },
+      {
+        "name": "both aliases cleared by covered stop revisions"
       },
       {
         "name": "old resume replay after newer stop",
-        "parent": "job_febbbb791648d0fe",
-        "controlRevision": 3,
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 4,
         "cancelRequested": true
-      }
-    ],
-    "host": [
-      {
-        "name": "trusted HTTP explicit resume",
-        "hostCancellation": {
-          "turn": "not_targeted",
-          "removedQueued": 0
-        },
-        "controlRevision": 2,
-        "status": "waiting_user"
       },
       {
-        "name": "synthetic gate injection"
+        "name": "alias submitted after stop binds existing parent",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 4
       },
       {
-        "name": "synthetic gate injection"
+        "name": "resume original covers later alias stop",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 6,
+        "cancelRequested": false
       },
       {
-        "name": "HTTP cancel removes only owned queue and stops real A parent",
-        "hostCancellation": {
-          "turn": "not_targeted",
-          "removedQueued": 1
-        },
-        "controlRevision": 3,
-        "status": "cancel_requested"
+        "name": "independent active alias reopen 0",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 6,
+        "cancelRequested": false,
+        "pid": 31240,
+        "guard": "allowed",
+        "aliases": [
+          {
+            "taskId": "task-85d7b475-b7b5-4e01-98cf-e9fe2d355b7f",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "waiting_user",
+            "cancelRequested": false,
+            "revision": 6
+          },
+          {
+            "taskId": "task-9352ef69-2b18-426b-85e1-d4cd99b33e45",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "waiting_user",
+            "cancelRequested": false,
+            "revision": 6
+          },
+          {
+            "taskId": "task-33583c81-5b20-4de1-9d5c-1f62aa817dae",
+            "jobId": "job_bf84ccc02eee8d80",
+            "status": "waiting_user",
+            "revision": 0
+          },
+          {
+            "taskId": "task-d336b86e-78a3-4ac3-bd78-81027da82928",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "waiting_user",
+            "cancelRequested": false,
+            "revision": 6
+          }
+        ]
       },
       {
-        "name": "unrelated running turn and queue survive",
-        "aborted": 0,
-        "status": "running"
+        "name": "independent active alias reopen 1",
+        "parent": "job_e07a1d69177ec5eb",
+        "revision": 6,
+        "cancelRequested": false,
+        "pid": 30628,
+        "guard": "allowed",
+        "aliases": [
+          {
+            "taskId": "task-85d7b475-b7b5-4e01-98cf-e9fe2d355b7f",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "waiting_user",
+            "cancelRequested": false,
+            "revision": 6
+          },
+          {
+            "taskId": "task-9352ef69-2b18-426b-85e1-d4cd99b33e45",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "waiting_user",
+            "cancelRequested": false,
+            "revision": 6
+          },
+          {
+            "taskId": "task-33583c81-5b20-4de1-9d5c-1f62aa817dae",
+            "jobId": "job_bf84ccc02eee8d80",
+            "status": "waiting_user",
+            "revision": 0
+          },
+          {
+            "taskId": "task-d336b86e-78a3-4ac3-bd78-81027da82928",
+            "jobId": "job_e07a1d69177ec5eb",
+            "status": "waiting_user",
+            "cancelRequested": false,
+            "revision": 6
+          }
+        ]
       },
       {
-        "name": "HTTP cancel exclusive active turn",
-        "hostCancellation": {
-          "turn": "cancel_requested",
-          "removedQueued": 0
-        },
-        "controlRevision": 1,
-        "status": "cancel_requested"
-      },
-      {
-        "name": "HTTP cancel mixed native turn",
-        "hostCancellation": {
-          "turn": "not_targeted",
-          "removedQueued": 0
-        },
-        "controlRevision": 3,
-        "status": "cancel_requested"
-      },
-      {
-        "name": "mixed stream was not aborted",
-        "aborted": 1,
-        "status": "running"
-      },
-      {
-        "name": "restart reconciles stop and never requeues canceled task",
-        "hostCancellation": {
-          "turn": "not_targeted",
-          "removedQueued": 0
-        },
-        "controlRevision": 3,
-        "status": "cancel_requested"
-      }
-    ],
-    "cleanup": [
-      {
-        "pid": 28932,
-        "exitCode": null,
-        "signal": "SIGTERM",
-        "closed": true
-      },
-      {
-        "pid": 30216,
-        "exitCode": null,
-        "signal": "SIGTERM",
-        "closed": true
+        "name": "other paper control untouched",
+        "parent": "job_bf84ccc02eee8d80",
+        "revision": 0
       }
     ]
   },
   "limitations": [
-    "source-only, synthetic metadata and local LLM; no user installation, real library or real model",
-    "Real chain reaches missing-PDF gate: source PDF SHA remains null; no rendered generation or scientific output is claimed",
-    "Native dispatch gate is explicitly injected by test fixture through legal store transitions; actual Handoff, adapter, control, worker and DSH are not mocked",
-    "Final combined installation/recovery acceptance remains required; unchanged Python full suite not rerun"
+    "Source-only synthetic metadata, real Handoff/adapter/A JS/Python/worker; host RPC in this chain is synthetic. Native DSH evidence separately reused.",
+    "Missing PDF gate: source SHA null, no rendered generation or scientific quality claimed; final installed combination gate remains open.",
+    "Legacy resume records without coveredStops cannot retrospectively prove cross-alias local generations. A fresh cancel followed by revision-bound explicit resume is tested recovery.",
+    "All detailed logs remain local-only and must be retained until controller review/archive; A and controller trees were read-only."
   ]
 }
