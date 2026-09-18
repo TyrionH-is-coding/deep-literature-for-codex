@@ -172,7 +172,7 @@ export class Handoff {
       }
       const { scope } = await this.checkedTask(task.taskId);
       if (!task.jobId) {
-        if (this.stopped(task)) return structuredClone(task);
+        if (this.stopped(task)) { task.status = 'cancel_requested'; await this.save(); return structuredClone(task); }
         // A's content identity is stable; a crash before this receipt can safely
         // repeat start without starting a second parse or changing the paper ID.
         const result = await this.engine(['full-read-pipeline-start', '--paper-id', task.paperId], undefined, scope);
@@ -188,7 +188,7 @@ export class Handoff {
   async _refresh(task) {
     try {
       const { scope } = await this.checkedTask(task.taskId);
-      if (!task.jobId) { await this.save(); return task; }
+      if (!task.jobId) { if (this.stopped(task)) task.status = 'cancel_requested'; await this.save(); return task; }
       await this.reconcileStop(task, scope);
       this.reconcileResumes(task);
       const job = await this.engine(['job-status', '--job-id', task.jobId], undefined, scope);
