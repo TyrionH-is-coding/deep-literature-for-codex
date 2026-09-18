@@ -1,5 +1,11 @@
 # bridge 变更记录
 
+## 0.1.2 — 分类推进守卫（V02-004J，未发布）
+
+- start/continue 工具在真实 session 范围下串行检查 Handoff 本地取消，避免控制请求尚未送达 A 时绕过停止。
+- HTTP 继续使用既有 resume→operate 路径；分类工具不获得解除停止能力，Host/Origin、pins、A 协议与产品版本不变。
+- 验证与配套回退限制见 [J 报告](../../project/evidence/V02-004J-report.md)。
+
 ## 0.1.1 — 停止控制跨包适配（V02-004I，未发布）
 
 - 新增显式恢复分流、控制参数预检和 reading-control-v1 无损快照校验。

@@ -1,0 +1,17 @@
+{
+  "taskId": "V02-004J",
+  "sessionId": "01a0b41b-251d-72d1-989b-e46cc5c3dddc",
+  "baseCommit": "36c27fb8b281faf4496ae6fade265e5f2d866555",
+  "engineBase": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+  "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8",
+  "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004j",
+  "branch": "codex/v02-004j-workflow-control",
+  "startedAt": "2026-09-18T10:44:10.1614737Z",
+  "phase": "in_progress",
+  "baselineClean": true,
+  "modules": [
+    "workflow",
+    "bridge"
+  ],
+  "goal": "Persistent cancellation and revision-bound explicit resume with real source integration"
+}
