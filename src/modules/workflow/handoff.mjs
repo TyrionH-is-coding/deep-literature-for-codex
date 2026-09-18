@@ -234,8 +234,10 @@ export class Handoff {
   cancel(taskId) {
     return this.serial(async () => {
       const { task } = await this.checkedTask(taskId);
-      task.cancellation = await this.cancelTask(task);
       task.cancelRequested = true;
+      // Persist intent before host side effects; a failed host call remains retryable.
+      await this.save();
+      task.cancellation = await this.cancelTask(task);
       // DSH cancellation does not kill A's detached worker. Keep that distinction.
       await this._refresh(task);
       return structuredClone(task);

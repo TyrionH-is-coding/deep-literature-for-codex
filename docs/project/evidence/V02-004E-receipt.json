@@ -1,0 +1,22 @@
+{
+  "task": "V02-004E",
+  "branch": "codex/v02-004e-cancel-intent",
+  "taskId": null,
+  "initialStatus": "clean",
+  "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
+  "time": "2026-09-18T05:46:50.4054044Z",
+  "contextPath": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+  "baseCommit": "d78e48bbad317c92770b767390addd589b475038",
+  "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004e",
+  "dependencySetup": "npm ci --ignore-scripts; lock unchanged",
+  "phase": "review",
+  "objective": "004C-C1 durable cancel intent before external cancellation",
+  "module": "workflow",
+  "reviewTime": "2026-09-18T05:50:20.751337+00:00",
+  "sourceCommit": "d99577b77a0ecbf63dd19bca0fdf3cc6b4c5a299",
+  "result": "004C-C1 fixed; workflow 80 pass / 1 Windows POSIX skip; bridge 10 pass",
+  "interfaceChange": false,
+  "schemaChange": false,
+  "cleanAtSourceCommit": true,
+  "commitIdentity": "Codex <codex@local.invalid> (command-local; repository/global config unchanged)"
+}

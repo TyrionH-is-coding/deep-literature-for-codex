@@ -1,0 +1,38 @@
+{
+  "base": "d78e48bbad317c92770b767390addd589b475038",
+  "files": [
+    "docs/modules/changes/workflow.md",
+    "docs/modules/workflow.md",
+    "src/modules/catalog.json",
+    "src/modules/workflow/handoff.mjs",
+    "tests/handoff.test.mjs",
+    "tests/v02-cancel-contract.test.mjs",
+    "docs/project/evidence/V02-004E-baseline.txt",
+    "docs/project/evidence/V02-004E-check.txt",
+    "docs/project/evidence/V02-004E-receipt.json",
+    "docs/project/evidence/V02-004E-red.txt",
+    "docs/project/evidence/V02-004E-targeted.txt",
+    "scripts/fixtures/v02-004e/reopen.mjs",
+    "scripts/v02-004e-verify.mjs"
+  ],
+  "changed": [
+    "workflow",
+    "tooling"
+  ],
+  "affected": [
+    "lifecycle",
+    "releases",
+    "workflow",
+    "bridge",
+    "application",
+    "tooling"
+  ],
+  "unowned": [],
+  "note": "Includes transitive consumers and declared runtime dependencies."
+}
+warning: in the working copy of 'docs/modules/changes/workflow.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/modules/workflow.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/modules/catalog.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'src/modules/workflow/handoff.mjs', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'tests/handoff.test.mjs', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'tests/v02-cancel-contract.test.mjs', CRLF will be replaced by LF the next time Git touches it

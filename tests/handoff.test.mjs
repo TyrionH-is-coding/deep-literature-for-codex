@@ -207,3 +207,42 @@ test('任务失败时透传 job.detail.error，不把顶层 error 留空', async
   assert.equal(refreshed.error, 'full_read_parent_mismatch');
   assert.equal(refreshed.job.detail.error, 'full_read_parent_mismatch');
 });
+
+
+test('取消先验证任务与分类范围；拒绝时不写意图、不调用宿主', async t => {
+  const { service, state } = await fixture(t);
+  const task = await service.submit({ idempotencyKey: 'guard', folderId: 'f1', paperId: 'paper1', runAgent: false });
+  let calls = 0;
+  service.cancelTask = async () => { calls++; return {}; };
+  const before = await fs.readFile(service.file, 'utf8');
+  await assert.rejects(service.cancel('unknown-task'), /task_not_found/);
+  state.folder = 'f2';
+  await assert.rejects(service.cancel(task.taskId), /scope_changed/);
+  assert.equal(await fs.readFile(service.file, 'utf8'), before);
+  state.folder = 'f1';
+  await service.archive('f1', true);
+  const archived = await fs.readFile(service.file, 'utf8');
+  await assert.rejects(service.cancel(task.taskId), /folder_archived/);
+  assert.equal(await fs.readFile(service.file, 'utf8'), archived);
+  assert.equal(calls, 0);
+});
+
+test('宿主取消失败只持久化目标意图，同会话其他任务及投递记录不变', async t => {
+  const { service, state, counters, root, deps } = await fixture(t);
+  state.job = 'waiting_agent';
+  const target = await service.submit({ idempotencyKey: 'target', folderId: 'f1', paperId: 'paper1' });
+  const other = await service.submit({ idempotencyKey: 'other', folderId: 'f1', paperId: 'paper1' });
+  assert.equal(target.sessionId, other.sessionId);
+  service.cancelTask = async task => { assert.equal(task.taskId, target.taskId); throw Error('host_unavailable'); };
+  const before = JSON.parse(await fs.readFile(service.file, 'utf8'));
+  await assert.rejects(service.cancel(target.taskId), /host_unavailable/);
+  const after = JSON.parse(await fs.readFile(service.file, 'utf8'));
+  const otherKey = Object.keys(before.tasks).find(key => before.tasks[key].taskId === other.taskId);
+  assert.deepEqual(after.tasks[otherKey], before.tasks[otherKey]);
+  const reopened = await Handoff.open(root, deps);
+  assert.equal((await reopened.dispatch(target.taskId)).dispatch.status, 'not_needed');
+  assert.equal((await reopened.dispatch(other.taskId)).dispatch.status, 'accepted');
+  assert.equal(counters.prompted, 2);
+  await reopened.dispatch(other.taskId, 'explicit-other');
+  assert.equal(counters.prompted, 3);
+});
