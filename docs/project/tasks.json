@@ -14,10 +14,31 @@
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
       "state": "ACTIVE",
-      "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
+      "lastVerifiedAt": "2026-09-18T11:15:27.987Z"
     },
-    "lastReviewAt": "2026-09-18T10:56:50.677Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T10:56:50.677Z"
+    "lastReviewAt": "2026-09-18T11:15:27.987Z",
+    "lastHeartbeatCompletedAt": "2026-09-18T10:56:50.677Z",
+    "workingMethod": {
+      "revision": 2,
+      "approvedAt": "2026-09-18T11:15:27.987Z",
+      "decision": "D021",
+      "protocol": "docs/project/session-protocol.md",
+      "taskBoundary": "observable behavior including necessary integration",
+      "riskLevels": [
+        "R0",
+        "R1",
+        "R2"
+      ],
+      "defaultCheckpointMinutes": 90,
+      "reviewRoundsBeforeRescope": 2,
+      "metrics": [
+        "development-to-integration elapsed time",
+        "actual rework rounds",
+        "regressions",
+        "diagnosis and recovery elapsed time"
+      ],
+      "historicalMissingMetrics": "unknown; do not backfill"
+    }
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -218,7 +239,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "固定现有阅读页与样例，不引入新的主题或问答能力。 另核查003D初次导航观察，未归因为产品回归，不能据此预设修复。"
+      "notes": "004安装验收后检查代表性Reader样例并交完整主流程演示；未复现缺陷可直接验收结束，不强制实现新层或新主题。"
     },
     {
       "id": "V02-006",
@@ -241,7 +262,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "承接 001 已确认的 F2 覆盖缺口：库/资产恢复通过，原生会话和 handoff 不在库备份内。单独定义完整实例恢复与身份重绑定，不将部分恢复计为全部通过。",
+      "notes": "保留F2三域恢复发布门槛；005形成早期完整演示后推进最小实现/演练，早期用户反馈不替代本门槛。",
       "children": [
         "V02-006B"
       ]
@@ -263,7 +284,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "实际模型和内容质量与夹具测试分开记录。"
+      "notes": "最终真实使用与内容质量验收；复用前阶段反馈，但合成模型/演示不冒充用户通过。"
     },
     {
       "id": "V02-008",
@@ -1290,12 +1311,12 @@
       "userConfirmed": true,
       "commits": [],
       "evidence": [],
-      "notes": "完整workflow行为及真实来源验证；不改A/产品版本，不冒充最终安装验收。",
+      "notes": "保持已冻结接口与验收场景；一页交接、证据索引和已有验收路径的可复现操作样例，不新增重复测试。",
       "contextCommit": "1921cc3c199d301fd959b8a1ba3ef8e7c7444aa8",
       "clientThreadId": "client-new-thread:03d932ad-6fe9-4e1a-ac6f-340d1cadd48d",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T10:39:47.649Z",
-      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:2",
+      "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:3",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
       "lastDispatchCheckAt": "2026-09-18T10:56:50.677Z",
@@ -1311,7 +1332,14 @@
         "deliveryReady": false,
         "workbenchHead": "36c27fb8b281faf4496ae6fade265e5f2d866555",
         "notes": "首版workflow/plugin及定向测试修改中，尚无交付提交/报告；保持后继依赖。"
-      }
+      },
+      "risk": "R2",
+      "reviewRounds": 0,
+      "checkpointMinutes": 90,
+      "checkpointBasis": "startedAt; checkpoint is review, not automatic cancellation",
+      "expectedFirstEvidence": "固定源码与定向故障测试，随后实际来源集成",
+      "observableOutcome": "停止后重启保持，明确恢复同一任务；演示为合成任务且不冒称安装/UI/模型质量",
+      "governanceDecision": "D021"
     }
   ],
   "developmentBaseline": {
@@ -1322,5 +1350,26 @@
     "candidate": "0.2.0-dev.3",
     "engineAcceptance": "stop/lifecycle/API source accepted; final installed combination pending",
     "workbenchAcceptance": "I bridge adapter accepted; J workflow control pending"
-  }
+  },
+  "demonstrations": [
+    {
+      "id": "stop-resume",
+      "ownerTask": "V02-004J",
+      "status": "planned",
+      "scope": "同一合成任务停止→独立进程重开→普通推进受阻→明确恢复同parent",
+      "evidence": null
+    },
+    {
+      "id": "first-main-flow",
+      "ownerTask": "V02-005",
+      "status": "planned",
+      "dependsOn": [
+        "V02-004"
+      ],
+      "beforeImplementationOf": "V02-006",
+      "scope": "同一隔离候选入库→PDF→精读→Reader→记录→重启继续；正常及失败恢复路径",
+      "evidence": null,
+      "userFeedback": "not requested yet; final user acceptance remains V02-007"
+    }
+  ]
 }
