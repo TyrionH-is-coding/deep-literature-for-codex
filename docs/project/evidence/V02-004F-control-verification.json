@@ -1,0 +1,58 @@
+{
+  "sourceCommit": "630398634db15b72064e64e221bc5fa6105e7a25",
+  "sourceHashCount": 10,
+  "testFiles": 64,
+  "uniqueTests": 574,
+  "xmlCounts": {
+    "tests": 574,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 3
+  },
+  "scenarios": {
+    "batch": {
+      "confirmed": "acknowledged",
+      "boundary": "after:translate_full",
+      "sameParent": true,
+      "protectedAssetsUnchanged": true,
+      "requestSeconds": 2.562999999994645
+    },
+    "before_reader": {
+      "confirmed": "acknowledged",
+      "boundary": "after:translate_full",
+      "sameParent": true,
+      "protectedAssetsUnchanged": true,
+      "requestSeconds": 2.5930000000080327
+    },
+    "derived": {
+      "confirmed": "terminal",
+      "boundary": "after:schedule_derived_updates",
+      "sameParent": true,
+      "protectedAssetsUnchanged": true,
+      "requestSeconds": 2.702999999994063
+    },
+    "parse": {
+      "confirmed": "acknowledged",
+      "boundary": "after:parse_mineru",
+      "sameParent": true,
+      "protectedAssetsUnchanged": true,
+      "requestSeconds": 2.4689999999973224
+    },
+    "reader": {
+      "confirmed": "acknowledged",
+      "boundary": "after:render_reader",
+      "sameParent": true,
+      "protectedAssetsUnchanged": true,
+      "requestSeconds": 2.297000000005937
+    }
+  },
+  "note": "Independent evidence validation; source-only. Root independent delta tests recorded separately.",
+  "deliveryCommit": "cc61625df084ea483e62b3517a609fbc601118fc",
+  "integrationCommit": "776a018c7855442de38d591517eea831eae5b463",
+  "integratedEngineGitTreeMatchesDelivery": true,
+  "checkoutLineEndingOnlyDifferences": [
+    "engine/tests/test_reading_control.py",
+    "scripts/v02-004f-verify.py"
+  ],
+  "finalDeltaTests": "2 passed in 5.41s"
+}

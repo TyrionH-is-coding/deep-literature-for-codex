@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-17T08:03:45.012959+00:00"
     },
-    "lastReviewAt": "2026-09-18T07:02:36.560826+00:00",
+    "lastReviewAt": "2026-09-18T07:29:27.619356+00:00",
     "lastHeartbeatCompletedAt": "2026-09-18T07:02:36.560826+00:00"
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
@@ -186,7 +186,7 @@
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "恢复F1已安装闭环；004F停止控制测试中，004G诊断通过，004H修复需等待F。005继续等待。",
+      "notes": "004F引擎停止源码已验收；004H准备派发。B接入与安装未完成，005等待。",
       "children": [
         "V02-004A",
         "V02-004B",
@@ -1004,7 +1004,7 @@
       "id": "V02-004F",
       "title": "引擎持久停止控制与显式恢复",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine"
       ],
@@ -1036,27 +1036,33 @@
         "docs/codex-v02/V02-004F*"
       ],
       "receipt": "docs/codex-v02/V02-004F-receipt.json",
-      "dispatchState": "running",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
       "userConfirmed": true,
-      "commits": [],
-      "evidence": [],
-      "notes": "F实现A停止控制，G冻结旧基线仅诊断；生产与专属文件互不冲突，集成串行。",
+      "commits": [
+        "cc61625df084ea483e62b3517a609fbc601118fc"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004F-control-review.md"
+      ],
+      "notes": "完整571pass/3skip；总控XML/来源与最终delta2pass。仅A源码，不关闭004A-G1。",
       "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:30599887-c834-4d31-8ed5-fb525e4ec463",
       "dispatchRequestedAt": "2026-09-18T06:32:05.715608+00:00",
       "startedAt": "2026-09-18T06:30:20.0085554Z",
-      "receiptPhase": "received",
+      "receiptPhase": "review",
       "startConfirmedBy": "fixed-worktree-receipt",
       "lastDispatchCheckAt": "2026-09-18T07:02:36.560826+00:00",
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T07:02:36.560826+00:00",
-        "head": "566bf4dedaeb6bd4540bd2bdf2b40a455cf121bd",
-        "deliveryReady": false,
-        "evidence": "总控独立控制单测16pass；最终完整回归和真实进程验收仍在增长，回执received，文档证据未提交；不合入。"
+        "checkedAt": "2026-09-18T07:29:27.619356+00:00",
+        "head": "cc61625df084ea483e62b3517a609fbc601118fc",
+        "deliveryReady": true
       },
-      "controlProgressEvidence": "docs/project/evidence/V02-004F-control-progress.md"
+      "controlProgressEvidence": "docs/project/evidence/V02-004F-control-progress.md",
+      "integrationCommit": "776a018c7855442de38d591517eea831eae5b463",
+      "integrationBranch": "codex/v02-engine-baseline",
+      "acceptance": "source-stop-control-accepted; B integration and installed combination pending"
     },
     {
       "id": "V02-004G",
@@ -1109,7 +1115,7 @@
       "id": "V02-004H",
       "title": "直接推进的生命周期写前守卫",
       "kind": "task",
-      "status": "planned",
+      "status": "ready",
       "parent": "V02-004",
       "modules": [
         "engine"
@@ -1118,22 +1124,37 @@
         "V02-004F",
         "V02-004G"
       ],
-      "card": null,
+      "card": "docs/project/tasks/V02-004H.md",
       "ownerSession": null,
-      "worktree": null,
-      "branch": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004h",
+      "branch": "codex/v02-004h-advance-guard",
       "commits": [],
       "evidence": [],
-      "notes": "F验收后再固定基线拆卡；写前拒绝绕过worker生命周期的显式advance，保留现有校验与公共恢复，不与F并行改pipeline。"
+      "notes": "依赖已验收，仅直接advance写前守卫；B接入另卡。",
+      "baseCommit": "776a018c7855442de38d591517eea831eae5b463",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "writePaths": [
+        "engine/src/scientific_reading/reading_pipeline.py",
+        "engine/tests/test_reading_pipeline_lifecycle.py",
+        "engine/tests/test_reading_pipeline_integrity.py",
+        "engine/tests/test_reading_control.py#related-only",
+        "scripts/v02-004h-*",
+        "scripts/fixtures/v02-004h/",
+        "docs/codex-v02/V02-004H*"
+      ],
+      "receipt": "docs/codex-v02/V02-004H-receipt.json",
+      "dispatchState": "reserved",
+      "dispatchReservedAt": "2026-09-18T07:29:27.619356+00:00",
+      "userConfirmed": true
     }
   ],
   "developmentBaseline": {
-    "engine": "6d88f2bef88867c335ded9a5bcb443b7c6cf921d",
+    "engine": "776a018c7855442de38d591517eea831eae5b463",
     "engineBranch": "codex/v02-engine-baseline",
     "workbench": "6b979d18dcb14d54e2e9bb3dc026dfd7b5325b87",
     "workbenchBranch": "codex/v02-control",
     "candidate": "0.2.0-dev.3",
-    "engineAcceptance": "installed recovery accepted; stop control pending",
+    "engineAcceptance": "source stop control accepted; direct guard and installed integration pending",
     "workbenchAcceptance": "004D+004E source combination tested; final combined installation pending"
   }
 }
