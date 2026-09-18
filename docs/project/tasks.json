@@ -1145,7 +1145,8 @@
       "receipt": "docs/codex-v02/V02-004H-receipt.json",
       "dispatchState": "reserved",
       "dispatchReservedAt": "2026-09-18T07:29:27.619356+00:00",
-      "userConfirmed": true
+      "userConfirmed": true,
+      "contextCommit": "76767f0cc5f5adeb9accb8a5aeec28bef6db45f4"
     }
   ],
   "developmentBaseline": {
