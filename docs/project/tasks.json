@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "updated": "2026-09-18",
+  "updated": "2026-09-21",
   "coordinator": {
     "taskTitle": "Deep Literature 项目总控",
     "taskId": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
     "writingTaskLimit": 2,
     "integrationLimit": 1,
-    "autoAdvance": false,
+    "autoAdvance": true,
     "authorization": "用户明确授权自动循环：002 验收通过后自动开启 003，互不影响的任务可并行。",
     "automation": {
       "kind": "heartbeat",
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
-      "state": "PAUSED",
-      "lastVerifiedAt": "2026-09-18T12:36:39.455Z"
+      "state": "ACTIVE",
+      "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-18T12:11:35.822Z",
     "lastHeartbeatCompletedAt": "2026-09-18T12:11:35.822Z",
@@ -39,11 +39,15 @@
       ],
       "historicalMissingMetrics": "unknown; do not backfill"
     },
-    "userPause": {
-      "requestedAt": "2026-09-18T12:36:39.455Z",
-      "reason": "User requested pause for computer reboot",
-      "resumeRequires": "explicit user resume"
-    }
+    "pauseHistory": [
+      {
+        "requestedAt": "2026-09-18T12:36:39.455Z",
+        "reason": "User requested pause for computer reboot",
+        "resumeRequires": "explicit user resume",
+        "resumedAt": "2026-09-21T14:20:11.388Z",
+        "resumeAuthorization": "User: 请继续 (2026-09-21)"
+      }
+    ]
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -1430,17 +1434,28 @@
       "dispatchRequestedAt": "2026-09-18T12:15:23.0281648Z",
       "startedAt": "2026-09-18T12:15:13.000Z",
       "startConfirmedBy": "official-read-thread-active-and-start-commentary",
-      "lastDispatchCheckAt": "2026-09-18T12:16:04.669Z",
-      "waitCursor": "95bfbcdb-28d7-4f0f-9d20-98bf9cb69154:1",
+      "lastDispatchCheckAt": "2026-09-21T14:20:11.388Z",
+      "waitCursor": "e17fc9f2-0203-46dd-b627-af31fc401edc:2",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-18T12:16:35.264Z",
+        "checkedAt": "2026-09-21T14:20:11.388Z",
         "status": "active",
         "turnStatus": "inProgress",
-        "turnId": "01a0b471-36bb-7ff1-a5a0-3032b8f2b4f8"
+        "turnId": "01a0c456-1de5-7ac3-bafd-63be6a050721"
       },
-      "pauseRequestedAt": "2026-09-18T12:36:39.455Z",
-      "pauseReason": "User requested computer reboot",
-      "resumeRequires": "explicit user resume"
+      "resumeHistory": [
+        {
+          "at": "2026-09-21T14:20:11.388Z",
+          "reason": "User authorized resume after computer reboot",
+          "pauseRequestedAt": "2026-09-18T12:36:39.455Z",
+          "savedEngineHead": "b398a6a10c498aee7c527a83d586c99244ec231f",
+          "savedWorkbenchHead": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+          "evidence": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/docs/project/evidence/V02-004K-resume.md",
+          "uncommittedFilesPreserved": true
+        }
+      ],
+      "resumedAt": "2026-09-21T14:20:11.388Z",
+      "checkpointBasis": "90 minutes after resumedAt; user pause excluded from development time",
+      "nextCheckpointAt": "2026-09-21T15:50:11.388Z"
     }
   ],
   "developmentBaseline": {
