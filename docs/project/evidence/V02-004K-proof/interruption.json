@@ -1,0 +1,631 @@
+{
+  "startedAt": "2026-09-21T15:00:40.174Z",
+  "mode": "real installed worker process interruption; distinct from cooperative user cancellation",
+  "rows": [
+    {
+      "name": "registered worker interrupted",
+      "value": {
+        "fault": "forced registered worker exit; never a user-stop action",
+        "owner": {
+          "pid": 33016,
+          "identity": "windows:01dd49d989ce9367"
+        },
+        "before": {
+          "job_id": "job_bd495bc3901361dc",
+          "state": "running",
+          "created_at": "2026-09-21T14:57:35.852146+00:00",
+          "updated_at": "2026-09-21T14:57:37.126398+00:00",
+          "pid": 33016,
+          "heartbeat_at": "2026-09-21T14:57:37.126398+00:00",
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+            "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+            "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+            "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+            "scopePaperRevision": 1
+          }
+        },
+        "after": {
+          "job_id": "job_bd495bc3901361dc",
+          "state": "running",
+          "created_at": "2026-09-21T14:57:35.852146+00:00",
+          "updated_at": "2026-09-21T14:57:37.126398+00:00",
+          "pid": 33016,
+          "heartbeat_at": "2026-09-21T14:57:37.126398+00:00",
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+            "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+            "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+            "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+            "scopePaperRevision": 1
+          }
+        },
+        "source": {
+          "paper": "doi_10.5555_v004k-real-worker-interruption",
+          "folder": "folder_143452e9e330465abbf55cf949a1527b",
+          "pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+          "provider_sha256": "02d58883beb0f2adde6cd498a371fc5d854c32711461d205453ce15fe8e8323f"
+        }
+      }
+    },
+    {
+      "name": "trusted stop acknowledges dead worker before explicit recovery",
+      "task": {
+        "folderId": "folder_143452e9e330465abbf55cf949a1527b",
+        "paperId": "doi_10.5555_v004k-real-worker-interruption",
+        "sessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+        "taskId": "task-07c21a97-1afe-4c3c-aa98-b72ed475fde3",
+        "requestDigest": "3efc761f6103860d6f641eb79d5296f41a5101f53e98d7e6ba4864078ed30a37",
+        "status": "cancel_requested",
+        "jobId": "job_bd495bc3901361dc",
+        "dispatches": {},
+        "operations": {},
+        "createdAt": "2026-09-21T14:57:35.164Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_bd495bc3901361dc",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": {
+            "pid": 33016,
+            "identity": "windows:01dd49d989ce9367",
+            "stage": "parse_mineru"
+          },
+          "worker": {
+            "pid": 33016,
+            "identity": "windows:01dd49d989ce9367"
+          },
+          "operations": {
+            "stop-c1bd182c-c968-43d1-bc19-829cd236680b": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_bd495bc3901361dc",
+            "state": "running",
+            "created_at": "2026-09-21T14:57:35.852146+00:00",
+            "updated_at": "2026-09-21T14:57:37.126398+00:00",
+            "pid": 33016,
+            "heartbeat_at": "2026-09-21T14:57:37.126398+00:00",
+            "reason_code": null,
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+              "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+              "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "doi_10.5555_v004k-real-worker-interruption",
+            "parent_job_id": "job_bd495bc3901361dc",
+            "current_stage": "parse_mineru",
+            "state": "parse_mineru",
+            "stage_jobs": {},
+            "stage_outputs": {
+              "ensure_pdf": {
+                "status": "pdf_ready",
+                "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+                "source_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\source.pdf",
+                "page_count": 0,
+                "reused": true
+              }
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:57:36.996590+00:00",
+                "finished_at": "2026-09-21T14:57:37.075066+00:00"
+              },
+              "parse_mineru": {
+                "started_at": "2026-09-21T14:57:37.154484+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+            "reader_source_sha256": null,
+            "required_action": null,
+            "last_error": null,
+            "created_at": "2026-09-21T14:57:35.875883+00:00",
+            "updated_at": "2026-09-21T14:57:37.154484+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "doi_10.5555_v004k-real-worker-interruption",
+          "status": "running",
+          "job_id": "job_bd495bc3901361dc",
+          "foreground_elapsed_ms": 18,
+          "agent_required": false,
+          "next_action": "poll",
+          "detail": {
+            "job_id": "job_bd495bc3901361dc",
+            "state": "running",
+            "created_at": "2026-09-21T14:57:35.852146+00:00",
+            "updated_at": "2026-09-21T14:57:37.126398+00:00",
+            "pid": 33016,
+            "heartbeat_at": "2026-09-21T14:57:37.126398+00:00",
+            "reason_code": null,
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+              "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+              "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:57:36.996590+00:00",
+                "finished_at": "2026-09-21T14:57:37.075066+00:00"
+              },
+              "parse_mineru": {
+                "started_at": "2026-09-21T14:57:37.154484+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T15:01:44.013Z",
+        "stopOperation": {
+          "requestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": true,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+          "result": {
+            "turn": "not_targeted",
+            "removedQueued": 0
+          }
+        },
+        "cancellation": {
+          "turn": "not_targeted",
+          "removedQueued": 0
+        }
+      }
+    },
+    {
+      "name": "same parent and generation recovered by trusted explicit resume",
+      "task": {
+        "folderId": "folder_143452e9e330465abbf55cf949a1527b",
+        "paperId": "doi_10.5555_v004k-real-worker-interruption",
+        "sessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+        "taskId": "task-07c21a97-1afe-4c3c-aa98-b72ed475fde3",
+        "requestDigest": "3efc761f6103860d6f641eb79d5296f41a5101f53e98d7e6ba4864078ed30a37",
+        "status": "waiting_agent",
+        "jobId": "job_bd495bc3901361dc",
+        "dispatches": {},
+        "operations": {
+          "2cd00a3d7eeb42fb0352042d98cfaea08d0bbf80c9fcb0b757712f4211765e8b": {
+            "fingerprint": "63abae805b192cdbce6d2c958c885bf9a9a33aff634df8891cf8994ffe48e48c",
+            "kind": "resume",
+            "resumeStopped": true,
+            "requestId": "resume-f4bd612926520b939bebfe2474c3f8273eb82a33ee52211f766d013fed4714ce",
+            "expectedRevision": 1,
+            "input": {},
+            "stopRequestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+            "coveredStops": [
+              {
+                "taskId": "task-07c21a97-1afe-4c3c-aa98-b72ed475fde3",
+                "requestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+                "revision": 1
+              }
+            ],
+            "status": "completed",
+            "error": null
+          }
+        },
+        "createdAt": "2026-09-21T14:57:35.164Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_bd495bc3901361dc",
+          "revision": 2,
+          "stopRequested": false,
+          "requestId": "resume-f4bd612926520b939bebfe2474c3f8273eb82a33ee52211f766d013fed4714ce",
+          "acknowledgedRevision": null,
+          "effectiveBoundary": null,
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-c1bd182c-c968-43d1-bc19-829cd236680b": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            },
+            "resume-f4bd612926520b939bebfe2474c3f8273eb82a33ee52211f766d013fed4714ce": {
+              "kind": "resume",
+              "expectedRevision": 1,
+              "revision": 2,
+              "input": {},
+              "dispatched": true
+            }
+          },
+          "status": "active",
+          "businessStatus": {
+            "job_id": "job_bd495bc3901361dc",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:57:35.852146+00:00",
+            "updated_at": "2026-09-21T15:01:50.608302+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {
+              "stage": "translate_full",
+              "batch_id": "batch-0001",
+              "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "source_manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\reading\\full\\batches\\batch-0001.source.json"
+            },
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+              "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+              "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "doi_10.5555_v004k-real-worker-interruption",
+            "parent_job_id": "job_bd495bc3901361dc",
+            "current_stage": "translate_full",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {
+              "ensure_pdf": {
+                "status": "pdf_ready",
+                "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+                "source_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\source.pdf",
+                "page_count": 0,
+                "reused": true
+              },
+              "parse_mineru": {
+                "status": "parsed_mineru",
+                "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+                "output_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\parsed\\mineru\\full.md",
+                "manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\parsed\\mineru\\source_map.json"
+              }
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:57:36.996590+00:00",
+                "finished_at": "2026-09-21T14:57:37.075066+00:00"
+              },
+              "parse_mineru": {
+                "started_at": "2026-09-21T14:57:37.154484+00:00",
+                "finished_at": "2026-09-21T15:01:50.385794+00:00"
+              },
+              "translate_full": {
+                "started_at": "2026-09-21T15:01:50.457667+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read",
+              "stage": "translate_full",
+              "batch_id": "batch-0001",
+              "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "source_manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\reading\\full\\batches\\batch-0001.source.json"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:57:35.875883+00:00",
+            "updated_at": "2026-09-21T15:01:50.576754+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "doi_10.5555_v004k-real-worker-interruption",
+          "status": "waiting_agent",
+          "job_id": "job_bd495bc3901361dc",
+          "foreground_elapsed_ms": 14,
+          "agent_required": true,
+          "next_action": "agent",
+          "detail": {
+            "job_id": "job_bd495bc3901361dc",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:57:35.852146+00:00",
+            "updated_at": "2026-09-21T15:01:50.608302+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {
+              "stage": "translate_full",
+              "batch_id": "batch-0001",
+              "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "source_manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\reading\\full\\batches\\batch-0001.source.json"
+            },
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+              "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+              "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:57:36.996590+00:00",
+                "finished_at": "2026-09-21T14:57:37.075066+00:00"
+              },
+              "parse_mineru": {
+                "started_at": "2026-09-21T14:57:37.154484+00:00",
+                "finished_at": "2026-09-21T15:01:50.385794+00:00"
+              },
+              "translate_full": {
+                "started_at": "2026-09-21T15:01:50.457667+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T15:01:51.915Z",
+        "stopOperation": {
+          "requestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": false,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-c1bd182c-c968-43d1-bc19-829cd236680b",
+          "result": {
+            "turn": "not_targeted",
+            "removedQueued": 0
+          }
+        },
+        "cancellation": {
+          "turn": "not_targeted",
+          "removedQueued": 0
+        }
+      },
+      "value": {
+        "pipeline": {
+          "paper_id": "doi_10.5555_v004k-real-worker-interruption",
+          "parent_job_id": "job_bd495bc3901361dc",
+          "current_stage": "translate_full",
+          "state": "waiting_agent",
+          "stage_jobs": {},
+          "stage_outputs": {
+            "ensure_pdf": {
+              "status": "pdf_ready",
+              "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "source_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\source.pdf",
+              "page_count": 0,
+              "reused": true
+            },
+            "parse_mineru": {
+              "status": "parsed_mineru",
+              "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "output_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\parsed\\mineru\\full.md",
+              "manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\parsed\\mineru\\source_map.json"
+            }
+          },
+          "stage_timings": {
+            "ensure_pdf": {
+              "started_at": "2026-09-21T14:57:36.996590+00:00",
+              "finished_at": "2026-09-21T14:57:37.075066+00:00"
+            },
+            "parse_mineru": {
+              "started_at": "2026-09-21T14:57:37.154484+00:00",
+              "finished_at": "2026-09-21T15:01:50.385794+00:00"
+            },
+            "translate_full": {
+              "started_at": "2026-09-21T15:01:50.457667+00:00",
+              "finished_at": null
+            }
+          },
+          "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+          "reader_source_sha256": null,
+          "required_action": {
+            "reason_code": "translate_full_read",
+            "stage": "translate_full",
+            "batch_id": "batch-0001",
+            "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+            "source_manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\reading\\full\\batches\\batch-0001.source.json"
+          },
+          "last_error": null,
+          "created_at": "2026-09-21T14:57:35.875883+00:00",
+          "updated_at": "2026-09-21T15:01:50.576754+00:00",
+          "completed_at": null,
+          "contract_version": "reading-pipeline-v1"
+        },
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_bd495bc3901361dc",
+          "revision": 2,
+          "stopRequested": false,
+          "requestId": "resume-f4bd612926520b939bebfe2474c3f8273eb82a33ee52211f766d013fed4714ce",
+          "acknowledgedRevision": null,
+          "effectiveBoundary": null,
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-c1bd182c-c968-43d1-bc19-829cd236680b": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            },
+            "resume-f4bd612926520b939bebfe2474c3f8273eb82a33ee52211f766d013fed4714ce": {
+              "kind": "resume",
+              "expectedRevision": 1,
+              "revision": 2,
+              "input": {},
+              "dispatched": true
+            }
+          },
+          "status": "active",
+          "businessStatus": {
+            "job_id": "job_bd495bc3901361dc",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:57:35.852146+00:00",
+            "updated_at": "2026-09-21T15:01:50.608302+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {
+              "stage": "translate_full",
+              "batch_id": "batch-0001",
+              "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "source_manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\reading\\full\\batches\\batch-0001.source.json"
+            },
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+              "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+              "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "doi_10.5555_v004k-real-worker-interruption",
+            "parent_job_id": "job_bd495bc3901361dc",
+            "current_stage": "translate_full",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {
+              "ensure_pdf": {
+                "status": "pdf_ready",
+                "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+                "source_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\source.pdf",
+                "page_count": 0,
+                "reused": true
+              },
+              "parse_mineru": {
+                "status": "parsed_mineru",
+                "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+                "output_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\parsed\\mineru\\full.md",
+                "manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\parsed\\mineru\\source_map.json"
+              }
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:57:36.996590+00:00",
+                "finished_at": "2026-09-21T14:57:37.075066+00:00"
+              },
+              "parse_mineru": {
+                "started_at": "2026-09-21T14:57:37.154484+00:00",
+                "finished_at": "2026-09-21T15:01:50.385794+00:00"
+              },
+              "translate_full": {
+                "started_at": "2026-09-21T15:01:50.457667+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read",
+              "stage": "translate_full",
+              "batch_id": "batch-0001",
+              "source_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+              "source_manifest_path": "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\reading\\full\\batches\\batch-0001.source.json"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:57:35.875883+00:00",
+            "updated_at": "2026-09-21T15:01:50.576754+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "calls": [
+          {
+            "pid": 34180,
+            "args": [
+              "C:\\tmp\\v004k\\final\\library\\.mineru-venv\\Scripts\\mineru.exe",
+              "-p",
+              "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\source.pdf",
+              "-o",
+              "C:\\tmp\\v004k\\final\\library\\.mineru-staging-af0cf54e038f4c30b9553938c2fb4bfd\\raw",
+              "-m",
+              "auto"
+            ]
+          },
+          {
+            "pid": 38776,
+            "args": [
+              "C:\\tmp\\v004k\\final\\library\\.mineru-venv\\Scripts\\mineru.exe",
+              "-p",
+              "C:\\tmp\\v004k\\final\\library\\papers\\doi_10.5555_v004k-real-worker-interruption\\generations\\033f7975bd4e9a7a\\source.pdf",
+              "-o",
+              "C:\\tmp\\v004k\\final\\library\\.mineru-staging-ec9e72b5c0094dd5b4bed790f2a07cfa\\raw",
+              "-m",
+              "auto"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "continues": "C:/tmp/v004k/evidence-final/interruption-1790002721907.json",
+  "boot": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+    "root": "C:\\tmp\\v004k\\final",
+    "version": "0.2.0-dev.4",
+    "candidate": true,
+    "status": "running",
+    "launchId": "7f1c8d24-44f7-44c3-940a-06e04a9f7e14",
+    "supervisorPid": 32540,
+    "startedAt": 1790002840327,
+    "pid": 35304,
+    "url": "http://127.0.0.1:65460"
+  },
+  "seed": {
+    "paper": "doi_10.5555_v004k-real-worker-interruption",
+    "folder": "folder_143452e9e330465abbf55cf949a1527b",
+    "pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+    "provider_sha256": "02d58883beb0f2adde6cd498a371fc5d854c32711461d205453ce15fe8e8323f"
+  },
+  "restored": {
+    "restored": "C:\\tmp\\v004k\\final\\library\\.mineru-venv\\Scripts\\mineru.exe",
+    "sha256": "d3d12ae00507ba96f3309e39517a96fcd9a1f918790a72e7ac57a45420fc575e"
+  },
+  "status": "passed",
+  "finishedAt": "2026-09-21T15:01:52.838Z"
+}

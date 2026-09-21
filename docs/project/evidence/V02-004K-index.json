@@ -1,0 +1,821 @@
+{
+  "task": "V02-004K",
+  "createdAt": "2026-09-21T15:05:18.100Z",
+  "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f",
+  "revisionContextCommit": "c8f56acbe409b83320b5db183bd064c944a284cf",
+  "source": {
+    "A": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+    "B": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+    "fixtureCommit": "8ecccf12960c2e5bef3acd1a8eb911da61ba08cd",
+    "AReportParent": "ad00bc5a84110346801dbb6e98c8b9e19135287d"
+  },
+  "versions": {
+    "npm": "0.2.0-dev.4",
+    "wheel": "0.2.0.dev3",
+    "node": "22.22.2",
+    "python": "3.11.16",
+    "dsh": "0.1.0-rc.7",
+    "schema": 4
+  },
+  "installed": {
+    "product": "codex-scientific-reading",
+    "version": "0.2.0-dev.4",
+    "appSha256": "a4182a78f1e4dc50bdf9286bcf05c2c301aa5c7327f9274c11781a41916d0653",
+    "slot": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50",
+    "app": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\app",
+    "profileModules": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\profile-modules",
+    "profilePackage": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\profile-package.json",
+    "dataFormat": 4,
+    "node": "C:\\tmp\\v004k\\final\\runtime\\node\\22.22.2\\node.exe",
+    "python": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Scripts\\python.exe",
+    "dsh": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\npm\\node_modules\\@deepseek-ai\\dsh\\lib\\bin.js",
+    "pins": {
+      "schema": 1,
+      "channel": "internal-development",
+      "platform": "win32-x64",
+      "node": {
+        "version": "22.22.2",
+        "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-win-x64.zip",
+        "sha256": "7c93e9d92bf68c07182b471aa187e35ee6cd08ef0f24ab060dfff605fcc1c57c"
+      },
+      "python": {
+        "version": "3.11.16",
+        "build": "20260901",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+        "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
+      },
+      "dsh": "0.1.0-rc.7",
+      "plugin": {
+        "name": "@dsh-external/dsh-scientific-reading",
+        "version": "0.2.0-dev.4",
+        "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9",
+        "source": "V02-004K internal installed-control candidate; local archive inputs/scientific-reading.tgz",
+        "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359"
+      },
+      "platforms": {
+        "darwin-arm64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-arm64.tar.gz",
+            "sha256": "db4b275b83736df67533529a18cc55de2549a8329ace6c7bcc68f8d22d3c9000"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-apple-darwin-install_only_stripped.tar.gz",
+            "sha256": "768f05cf200273bbdda9a5955a5a6892a4b22f2a0b1e4b0a9160f5c7fce86816"
+          }
+        },
+        "darwin-x64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-x64.tar.gz",
+            "sha256": "12a6abb9c2902cf48a21120da13f87fde1ed1b71a13330712949e8db818708ba"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-apple-darwin-install_only_stripped.tar.gz",
+            "sha256": "908b381433f78b832c8d64960ced0f85871893cc8779f413f963e0c9e293c258"
+          }
+        },
+        "linux-arm64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-arm64.tar.gz",
+            "sha256": "b2f3a96f31486bfc365192ad65ced14833ad2a3c2e1bcefec4846902f264fa28"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+            "sha256": "f9308ed57184fae73941c712ed847be420ce36d31ba73ce53f0508a1ee752f68"
+          }
+        },
+        "linux-x64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-x64.tar.gz",
+            "sha256": "978978a635eef872fa68beae09f0aad0bbbae6757e444da80b570964a97e62a3"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+            "sha256": "64427febea27864d136db46c8efe968eb6fa5ca2813ce1dca4bb95aec31cb2e4"
+          }
+        }
+      }
+    },
+    "candidate": true,
+    "browserCapability": "check_in_codex",
+    "installedAt": "2026-09-21T14:46:53.735Z"
+  },
+  "artifacts": [
+    {
+      "path": "C:\\tmp\\v004k\\candidate-r1\\deep-literature-for-codex-0.2.0-dev.4-win-x64.zip",
+      "bytes": 1597255,
+      "sha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\candidate-r1\\verified-extraction\\deep-literature-for-codex-0.2.0-dev.4-win-x64\\BUILD-MANIFEST.json",
+      "bytes": 102942,
+      "sha256": "f9bb8e2ab930249cfe9fcb0b585911f965cd298b2de303c1086bebee1dbfa56a"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\dsh-external-dsh-scientific-reading-0.2.0-dev.4.tgz",
+      "bytes": 289082,
+      "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\npm\\node_modules\\@dsh-external\\dsh-scientific-reading\\dist\\python\\dsh_scientific_reading_engine-0.2.0.dev3-py3-none-any.whl",
+      "bytes": 195537,
+      "sha256": "300a1924f9253a6b9854cc3ea38f0172ff03146f52f3208537bed55cfc1764f6"
+    }
+  ],
+  "accepted": {
+    "control": {
+      "path": "C:\\tmp\\v004k\\evidence-final\\control-1790002545663.json",
+      "bytes": 458388,
+      "sha256": "74ab65308b1148ff6283537147d17f87cb54f3a6af0bd783184f05d259938b3b",
+      "reviewCopy": "V02-004K-proof/control.json",
+      "startedAt": "2026-09-21T14:53:12.489Z",
+      "finishedAt": "2026-09-21T14:55:45.663Z",
+      "command": "$env:V004K_INSTANCE=\"C:/tmp/v004k/final\"; & C:/tmp/v004k/final/runtime/node/22.22.2/node.exe scripts/acceptance-v02-004k-control.mjs",
+      "exitCode": 0
+    },
+    "native": {
+      "path": "C:\\tmp\\v004k\\evidence-final\\native-1790002625821.json",
+      "bytes": 56799,
+      "sha256": "a4e692f3ec96681cd22c9f09fd63ba20ecdcb0f786eddedc49a4e813cef8c31d",
+      "reviewCopy": "V02-004K-proof/native.json",
+      "startedAt": "2026-09-21T14:55:52.545Z",
+      "finishedAt": "2026-09-21T14:57:05.821Z",
+      "command": "$env:V004K_INSTANCE=\"C:/tmp/v004k/final\"; & C:/tmp/v004k/final/runtime/node/22.22.2/node.exe scripts/acceptance-v02-004k-native.mjs",
+      "exitCode": 0
+    },
+    "interruption": {
+      "path": "C:\\tmp\\v004k\\evidence-final\\interruption-1790002912838.json",
+      "bytes": 27258,
+      "sha256": "05f53715f3f534e65bacf397fbf166dbeb1d6bb4d6dd5d667308a41b0c060489",
+      "reviewCopy": "V02-004K-proof/interruption.json",
+      "startedAt": "2026-09-21T15:00:40.174Z",
+      "finishedAt": "2026-09-21T15:01:52.838Z",
+      "command": "$env:V004K_INSTANCE=\"C:/tmp/v004k/final\"; & C:/tmp/v004k/final/runtime/node/22.22.2/node.exe scripts/acceptance-v02-004k-interruption.mjs C:/tmp/v004k/evidence-final/interruption-1790002721907.json",
+      "exitCode": 0
+    }
+  },
+  "fixtureFiles": {
+    "scripts/fixtures/v02-004k/agent-gate.py": "c7cc9b8eac4567e3637211771d217f6963a18888d1ce59e3b5cafb896f3f085a",
+    "scripts/fixtures/v02-004k/common.mjs": "8f3ab2fcf22d02f331f0cb4f8bde95eec7dd4a377123db7a552ad3b4732a68ca",
+    "scripts/fixtures/v02-004k/engine-probe.py": "6f266eedfb0573ae86e4deb75182c1628499f670840a1e4ce83c0c9db35d1288",
+    "scripts/fixtures/v02-004k/formula-outline.json": "d519f63c6ca5b3b9d715eeba29820add503cd8cf0924c2c82833f06415a3f43e",
+    "scripts/fixtures/v02-004k/host-probe.mjs": "4fc84c8c8a9ed54247f0c1dd24ca7db9756d4930888152bccfe4fb161985f3b2",
+    "scripts/fixtures/v02-004k/interruption.py": "676a0d27986d8c3420ab5e3308877fc98fb7e9942f65e0d845fef86c341655f7",
+    "scripts/fixtures/v02-004k/locked-python.py": "666f33cf165af6d93a11ea9affc2ab5662b834f4642de97d55b7609f156d500f",
+    "scripts/fixtures/v02-004k/provenance.py": "6bb60977f61372d2e5bac87b8458305e6ae8c330a770bcfe69853bfeba88bd4b",
+    "scripts/fixtures/v02-004k/provider.py": "47cf2240b0267483702c826b9243fcef1a2ba370f83730e797c7a095c6d04559",
+    "scripts/fixtures/v02-004k/stage.py": "6af572efc3c7693fe85164df829c18c69800dbc025b34ada4845c7cf3e64eaaa"
+  },
+  "runs": {
+    "A": [
+      {
+        "id": "ci",
+        "command": "npm ci --ignore-scripts --no-audit --no-fund",
+        "node": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "python": "C:/tmp/v004k/build/venv/Scripts/python.exe",
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k",
+        "sourceCommit": "b398a6a10c498aee7c527a83d586c99244ec231f",
+        "trackedStatus": "",
+        "startedAt": "2026-09-18T12:24:08.160Z",
+        "finishedAt": "2026-09-18T12:32:08.492Z",
+        "exitCode": 1,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\ci-1789734728484.log"
+      },
+      {
+        "id": "ci",
+        "command": "npm ci --ignore-scripts --legacy-peer-deps --no-audit --no-fund",
+        "node": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "python": "C:/tmp/v004k/build/venv/Scripts/python.exe",
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k",
+        "sourceCommit": "b398a6a10c498aee7c527a83d586c99244ec231f",
+        "trackedStatus": "M scripts/v02-004k-run.mjs",
+        "startedAt": "2026-09-21T14:21:10.253Z",
+        "finishedAt": "2026-09-21T14:21:14.242Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\ci-1790000474241.log"
+      },
+      {
+        "id": "build",
+        "command": "npm run build:ci",
+        "node": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "python": "C:/tmp/v004k/build/venv/Scripts/python.exe",
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k",
+        "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:21:43.072Z",
+        "finishedAt": "2026-09-21T14:22:05.080Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\build-1790000525076.log"
+      },
+      {
+        "id": "offline",
+        "command": "npm run test:offline",
+        "node": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "python": "C:/tmp/v004k/build/venv/Scripts/python.exe",
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k",
+        "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+        "trackedStatus": "M lib/client.js",
+        "startedAt": "2026-09-21T14:22:24.049Z",
+        "finishedAt": "2026-09-21T14:23:21.543Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\offline-1790000601541.log"
+      },
+      {
+        "id": "assets",
+        "command": "npm run test:assets",
+        "node": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "python": "C:/tmp/v004k/build/venv/Scripts/python.exe",
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k",
+        "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+        "trackedStatus": "M lib/client.js",
+        "startedAt": "2026-09-21T14:23:21.907Z",
+        "finishedAt": "2026-09-21T14:23:39.667Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\assets-1790000619665.log"
+      },
+      {
+        "id": "pack",
+        "command": "npm pack --json",
+        "node": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "python": "C:/tmp/v004k/build/venv/Scripts/python.exe",
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k",
+        "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:24:26.363Z",
+        "finishedAt": "2026-09-21T14:24:27.947Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\pack-1790000667946.log"
+      }
+    ],
+    "B": [
+      {
+        "id": "test",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "test",
+          "all"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:22:34.005Z",
+        "finishedAt": "2026-09-21T14:22:41.990Z",
+        "exitCode": 1,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790000561988.log"
+      },
+      {
+        "id": "test",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "test",
+          "all"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:24:28.812Z",
+        "finishedAt": "2026-09-21T14:24:35.497Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790000675492.log"
+      },
+      {
+        "id": "check",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "check"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+        "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+        "startedAt": "2026-09-21T14:24:53.746Z",
+        "finishedAt": "2026-09-21T14:24:54.127Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\check-1790000694125.log"
+      },
+      {
+        "id": "impact",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "impact",
+          "--base",
+          "697dfc4718b7c984223cafc4479b4843fe17dffd"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+        "trackedStatus": "M docs/modules/changes/engine.md\n M docs/modules/engine.md\n M package-lock.json\n M package.json\n M runtime/package-lock.json\n M runtime/pins.json\n M src/modules/catalog.json\n M src/modules/foundation/constants.mjs",
+        "startedAt": "2026-09-21T14:24:54.447Z",
+        "finishedAt": "2026-09-21T14:24:54.964Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\impact-1790000694963.log"
+      },
+      {
+        "id": "package",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/package-release.mjs",
+          "C:/tmp/v004k/candidate",
+          "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\inputs\\scientific-reading.tgz"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "89ba17918a57622c2971ba76e1cfcb1fd82688fb",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:25:20.042Z",
+        "finishedAt": "2026-09-21T14:25:23.407Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\package-1790000723405.log"
+      },
+      {
+        "id": "test",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "test",
+          "all"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "89ba17918a57622c2971ba76e1cfcb1fd82688fb",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:25:23.846Z",
+        "finishedAt": "2026-09-21T14:25:30.841Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790000730837.log"
+      },
+      {
+        "id": "check",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "check"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "89ba17918a57622c2971ba76e1cfcb1fd82688fb",
+        "trackedStatus": "M docs/modules/application.md\n M docs/modules/bridge.md\n M docs/modules/changes/application.md\n M docs/modules/changes/bridge.md\n M docs/project/evidence/V02-004K-receipt.json\n M scripts/fixtures/v02-004k/common.mjs\n M scripts/v02-004k-run.mjs\n M src/identity.mjs\n M src/modules/bridge/plugin.mjs\n M src/modules/catalog.json",
+        "startedAt": "2026-09-21T14:41:22.806Z",
+        "finishedAt": "2026-09-21T14:41:23.332Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\check-1790001683330.log"
+      },
+      {
+        "id": "test",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "test",
+          "all"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:42:07.410Z",
+        "finishedAt": "2026-09-21T14:42:13.378Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790001733376.log"
+      },
+      {
+        "id": "package",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/package-release.mjs",
+          "C:/tmp/v004k/candidate-r1",
+          "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\inputs\\scientific-reading.tgz"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+        "trackedStatus": "",
+        "startedAt": "2026-09-21T14:42:13.705Z",
+        "finishedAt": "2026-09-21T14:42:16.173Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\package-1790001736171.log"
+      },
+      {
+        "id": "check",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "check"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+        "trackedStatus": "M scripts/acceptance-v02-004k-control.mjs\n M scripts/acceptance-v02-004k-native.mjs\n M scripts/fixtures/v02-004k/engine-probe.py\n M scripts/fixtures/v02-004k/host-probe.mjs\n M scripts/fixtures/v02-004k/stage.py",
+        "startedAt": "2026-09-21T14:57:40.447Z",
+        "finishedAt": "2026-09-21T14:57:40.809Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\check-1790002660807.log"
+      },
+      {
+        "id": "impact",
+        "command": "C:\\tmp\\v004k\\build\\node-v22.22.2-win-x64\\node.exe",
+        "args": [
+          "scripts/modules.mjs",
+          "impact",
+          "--base",
+          "697dfc4718b7c984223cafc4479b4843fe17dffd"
+        ],
+        "cwd": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k",
+        "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+        "trackedStatus": "M scripts/acceptance-v02-004k-control.mjs\n M scripts/acceptance-v02-004k-native.mjs\n M scripts/fixtures/v02-004k/engine-probe.py\n M scripts/fixtures/v02-004k/host-probe.mjs\n M scripts/fixtures/v02-004k/stage.py",
+        "startedAt": "2026-09-21T14:57:41.203Z",
+        "finishedAt": "2026-09-21T14:57:41.743Z",
+        "exitCode": 0,
+        "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\impact-1790002661741.log"
+      }
+    ]
+  },
+  "archive": [
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-0ebea40c-de32-4e1e-9904-2b721a57f5be.json",
+      "bytes": 3026,
+      "sha256": "952620426d91e94ab5433a699adc7563e52cd649ef4d436e94f75193805e941c"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-4ed85815-8977-487a-bad9-e70cabdaff3d.json",
+      "bytes": 3026,
+      "sha256": "c64f4f6d67cae81497e9c9ac8dda145946d2dc08ca80a42b864552f25652d2aa"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-7363edd2-dd76-4a6e-98e7-9c9b53ca9886.json",
+      "bytes": 3175,
+      "sha256": "6bc324d14a03fa4270a16cdcbad036c3118d29694c9302aa9139050236c01578"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-75354189-2bc7-4281-a1c0-3ec65b94280a.json",
+      "bytes": 3476,
+      "sha256": "e7fa7bcb39ce94463617ac02d46866be7fafb4350efc5204760c1f6e734550cf"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-9c2ba04a-bd04-4fed-8c0b-2fc7bbfe474a.json",
+      "bytes": 3326,
+      "sha256": "edf16cb9fdade59b67265e70ce191911140401c08806f6b6599bff5e80bc1fd9"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-b9ae3c60-ae80-4b19-bb65-493b7c5f0dc0.json",
+      "bytes": 3326,
+      "sha256": "550625b9a00a113c0af4f585f2e1ac6ffa689a66821061635e1e4838c613fc9b"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\api-ready-d4b50b00-d5b8-476c-8cad-8fd7a8c47d70.json",
+      "bytes": 3176,
+      "sha256": "00408b9fbf8e133d0f984de749ae7d2c5c05c66f39b822cb943736f0e3721833"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\control-1790000943677.json",
+      "bytes": 10734,
+      "sha256": "b1c120122cd48d7a4356f47ebc7b895d0b63faec04e635ed223e8aa57f9121da",
+      "status": "failed",
+      "error": "Error: reader_publication_invalid\n    at call (file:///C:/tmp/v004k/instance/releases/1609ada7db53948e/app/src/client.mjs:10:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async action (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:10:48)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:10:57"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\control-1790001038163.json",
+      "bytes": 42273,
+      "sha256": "f6632e217e7fc2c0c351df1e038f4ba766eed05a90c2b4d8678d99cc01f77e6a",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:20:167\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\control-1790001134338.json",
+      "bytes": 42821,
+      "sha256": "90907469e7c004f00b53779380505de8efe089b8ffeca1b2b483d2b1b33246bb",
+      "status": "failed",
+      "error": "SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at parseJSONFromBytes (node:internal/deps/undici/undici:5880:19)\n    at successSteps (node:internal/deps/undici/undici:5861:27)\n    at fullyReadBody (node:internal/deps/undici/undici:4753:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async consumeBody (node:internal/deps/undici/undici:5870:7)\n    at async call (file:///C:/tmp/v004k/instance/releases/1609ada7db53948e/app/src/client.mjs:9:17)\n    at async action (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:10:48)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:13:55"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\control-1790001266977.json",
+      "bytes": 85293,
+      "sha256": "d016b1cd5297cde38e70e02224523b125d4c42c06381315e8ae4734d1a87a243",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Values have same structure but are not reference-equal:\n\n[\n  'generations/2c407980f198d16a/reading/reader.html'\n]\n\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:44:154\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\control-1790001323925.json",
+      "bytes": 87692,
+      "sha256": "fb3915747b79cecc7a844e302437beda03cbb77269dd1b3f665b56dce7a299c3",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /reader_publication_invalid/. Input:\n\n'Error: artifact_not_ready'\n\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:46:3"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\control-1790001415500.json",
+      "bytes": 142036,
+      "sha256": "393886f401ef89b4eae184d1209e0dd1dd4ba9a3b415694b45100fb897b1eddc",
+      "status": "failed",
+      "error": "Error: full_translation_resume_input_invalid\n    at call (file:///C:/tmp/v004k/instance/releases/1609ada7db53948e/app/src/client.mjs:10:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async action (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:10:48)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:56:2"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\provenance.json",
+      "bytes": 26776,
+      "sha256": "1ca1dbf0febb5a35c18d9ee6b29a280cc89610986e5eea124f2a241f04541ad1"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence\\readiness-1790001190131.json",
+      "bytes": 19350,
+      "sha256": "22ede5954abd05f820720dcf057c1e5b09f2e4e1c661bd33525a7c9c23dfbab0"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\control-1790002033778.json",
+      "bytes": 16977,
+      "sha256": "66a37f83720eb8e03bcb02187e0b89957faafcd7179ad4bcab3780bda044a12e",
+      "status": "failed",
+      "error": "Error: Command failed: C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Scripts\\python.exe -I -X utf8 C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\scripts\\fixtures\\v02-004k\\stage.py C:/tmp/v004k/final snapshot job_98065fa9d67c6c27\nTraceback (most recent call last):\r\n  File \"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\scripts\\fixtures\\v02-004k\\stage.py\", line 42, in <module>\r\n    value['committed_assets']={str(f.relative_to(data)):sha(f) for f in (data/'papers').rglob('*') if f.is_file() and ('parsed' in f.parts or f.name.endswith('.translation.json'))}\r\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\scripts\\fixtures\\v02-004k\\stage.py\", line 42, in <dictcomp>\r\n    value['committed_assets']={str(f.relative_to(data)):sha(f) for f in (data/'papers').rglob('*') if f.is_file() and ('parsed' in f.parts or f.name.endswith('.translation.json'))}\r\n                                                        ^^^^^^\r\n  File \"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\scripts\\fixtures\\v02-004k\\stage.py\", line 9, in sha\r\n    def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()\r\n                                      ^^^^^^^^^^^^^^\r\n  File \"C:\\tmp\\v004k\\final\\runtime\\python\\3.11.16-20260901\\python\\Lib\\pathlib.py\", line 1051, in read_bytes\r\n    return f.read()\r\n           ^^^^^^^^\r\nPermissionError: [Errno 13] Permission denied\r\n\n    at genericNodeError (node:internal/errors:983:15)\n    at wrappedFn (node:internal/errors:537:14)\n    at checkExecSyncError (node:child_process:916:11)\n    at execFileSync (node:child_process:952:15)\n    at py (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:9:44)\n    at probe (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:2:88)\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:23:41\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\control-1790002231721.json",
+      "bytes": 18838,
+      "sha256": "a4e063215ff51fbc69651b573f9220dd32263caf60ea2d4e8f636b06c277ee73",
+      "status": "failed",
+      "error": "Error: idempotency_conflict\n    at call (file:///C:/tmp/v004k/final/releases/a4182a78f1e4dc50/app/src/client.mjs:10:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async action (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:10:48)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:20:45"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\control-1790002351604.json",
+      "bytes": 266750,
+      "sha256": "7e5682958613df8bbe10d7a4868a537b23b3f815072894be7ed98dc70aa80b18",
+      "status": "failed",
+      "error": "Error: Command failed: C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Scripts\\python.exe -I -X utf8 C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\scripts\\fixtures\\v02-004k\\stage.py C:/tmp/v004k/final translation-input job_1339562564d481e7\nTraceback (most recent call last):\r\n  File \"C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\scripts\\fixtures\\v02-004k\\stage.py\", line 45, in <module>\r\n    state=ReadingPipeline(data).inspect(sys.argv[3]);source=read(Path(state.required_action['source_manifest_path']))\r\n                                                                      ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\r\nKeyError: 'source_manifest_path'\r\n\n    at genericNodeError (node:internal/errors:983:15)\n    at wrappedFn (node:internal/errors:537:14)\n    at checkExecSyncError (node:child_process:916:11)\n    at execFileSync (node:child_process:952:15)\n    at py (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:9:44)\n    at probe (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:3:88)\n    at file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-control.mjs:57:133\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\control-1790002545663.json",
+      "bytes": 458388,
+      "sha256": "74ab65308b1148ff6283537147d17f87cb54f3a6af0bd783184f05d259938b3b",
+      "status": "passed"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\interruption-1790002721907.json",
+      "bytes": 7231,
+      "sha256": "2cc38f8b9459d14290602d63ab80059e358daa342145339273bbe639690c30d0",
+      "status": "failed",
+      "error": "Error: poll_timeout {\"folderId\":\"folder_143452e9e330465abbf55cf949a1527b\",\"paperId\":\"doi_10.5555_v004k-real-worker-interruption\",\"sessionId\":\"session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77\",\"taskId\":\"task-6f87711b-9658-48c8-b7e3-aea7ba9e1830\",\"requestDigest\":\"3efc761f6103860d6f641eb79d5296f41a5101f53e98d7e6ba4864078ed30a37\",\"status\":\"dispatched\",\"jobId\":\"job_bd495bc3901361dc\",\"dispatches\":{},\"operations\":{},\"createdAt\":\"2026-09-21T14:57:38.722Z\",\"control\":{\"contract\":\"reading-control-v1\",\"parentJobId\":\"job_bd495bc3901361dc\",\"revision\":0,\"stopRequested\":false,\"requestId\":null,\"acknowledgedRevision\":null,\"effectiveBoundary\":null,\"activeStage\":{\"pid\":33016,\"identity\":\"windows:01dd49d989ce9367\",\"stage\":\"parse_mineru\"},\"worker\":{\"pid\":33016,\"identity\":\"windows:01dd49d989ce9367\"},\"operations\":{},\"status\":\"active\",\"businessStatus\":{\"job_id\":\"job_bd495bc3901361dc\",\"state\":\"running\",\"created_at\":\"2026-09-21T14:57:35.852146+00:00\",\"updated_at\":\"2026-09-21T14:57:37.126398+00:00\",\"pid\":33016,\"heartbeat_at\":\"2026-09-21T14:57:37.126398+00:00\",\"reason_code\":null,\"required_input\":{},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff\",\"scopeSessionId\":\"session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77\",\"scopeFolderId\":\"folder_143452e9e330465abbf55cf949a1527b\",\"scopePaperId\":\"doi_10.5555_v004k-real-worker-interruption\",\"scopePaperRevision\":1}},\"pipelineState\":{\"paper_id\":\"doi_10.5555_v004k-real-worker-interruption\",\"parent_job_id\":\"job_bd495bc3901361dc\",\"current_stage\":\"parse_mineru\",\"state\":\"parse_mineru\",\"stage_jobs\":{},\"stage_outputs\":{\"ensure_pdf\":{\"status\":\"pdf_ready\",\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"source_path\":\"C:\\\\tmp\\\\v004k\\\\final\\\\library\\\\papers\\\\doi_10.5555_v004k-real-worker-interruption\\\\source.pdf\",\"page_count\":0,\"reused\":true}},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:57:36.996590+00:00\",\"finished_at\":\"2026-09-21T14:57:37.075066+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:57:37.154484+00:00\",\"finished_at\":null}},\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"reader_source_sha256\":null,\"required_action\":null,\"last_error\":null,\"created_at\":\"2026-09-21T14:57:35.875883+00:00\",\"updated_at\":\"2026-09-21T14:57:37.154484+00:00\",\"completed_at\":null,\"contract_version\":\"reading-pipeline-v1\"},\"independentChildrenStopped\":false,\"compatibility\":\"cooperative_boundary\",\"replayedOperation\":null},\"controlError\":null,\"job\":{\"paper_id\":\"doi_10.5555_v004k-real-worker-interruption\",\"status\":\"running\",\"job_id\":\"job_bd495bc3901361dc\",\"foreground_elapsed_ms\":14,\"agent_required\":false,\"next_action\":\"poll\",\"detail\":{\"job_id\":\"job_bd495bc3901361dc\",\"state\":\"running\",\"created_at\":\"2026-09-21T14:57:35.852146+00:00\",\"updated_at\":\"2026-09-21T14:57:37.126398+00:00\",\"pid\":33016,\"heartbeat_at\":\"2026-09-21T14:57:37.126398+00:00\",\"reason_code\":null,\"required_input\":{},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff\",\"scopeSessionId\":\"session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77\",\"scopeFolderId\":\"folder_143452e9e330465abbf55cf949a1527b\",\"scopePaperId\":\"doi_10.5555_v004k-real-worker-interruption\",\"scopePaperRevision\":1},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:57:36.996590+00:00\",\"finished_at\":\"2026-09-21T14:57:37.075066+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:57:37.154484+00:00\",\"finished_at\":null}}}},\"error\":null,\"checkedAt\":\"2026-09-21T14:58:41.515Z\"}\n    at poll (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:12:201)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-interruption.mjs:4:133"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\interruption-1790002912838.json",
+      "bytes": 27258,
+      "sha256": "05f53715f3f534e65bacf397fbf166dbeb1d6bb4d6dd5d667308a41b0c060489",
+      "status": "passed"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\native-1790002625821.json",
+      "bytes": 56799,
+      "sha256": "a4e692f3ec96681cd22c9f09fd63ba20ecdcb0f786eddedc49a4e813cef8c31d",
+      "status": "passed"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\owned-processes-final.json",
+      "bytes": 154,
+      "sha256": "d9d5550b1b25abd80231aabe017c3939cde302ba10ccbfc62e1efa87dc6922a4"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\provenance.json",
+      "bytes": 26743,
+      "sha256": "5276b0be50ca15ff516ba1343552322ccc4b0c5f6aaa2ab858067b018791fb39"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\evidence-final\\runtime-audit.json",
+      "bytes": 63640,
+      "sha256": "6b3583ad7cb28f749ce04562afc12577049c2a078c64b24b56d74d5b64b2416b"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\install-preparation-final.json",
+      "bytes": 668,
+      "sha256": "a6e13b2d0833e994abebc25f6ade35793152b7d5e90e80671eb09200a7ccc7c7"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\install-preparation.json",
+      "bytes": 674,
+      "sha256": "2c778d5f8f8314137f09399cea8df254cf2af6eee20936368043523f309d82e9"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\install-r1-retry.log",
+      "bytes": 2257,
+      "sha256": "28f744d838d6be640a7beb88364f2f3e0776ba9b65f9f93d8958270f07915411"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\install-r1.log",
+      "bytes": 3820,
+      "sha256": "5e930b9ceb8ba2572040788800c9b42e6239b891cc255a6c3c1ebcc338d366e6"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\install.log",
+      "bytes": 2445,
+      "sha256": "e86c2461749e21f863b2c751f2b8d5e2709afec7428dc35653d5823e430ce246"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\resume-ensurepip.log",
+      "bytes": 285,
+      "sha256": "1edfd7056087bf6e0499f39971f38eff02b4d89cf745d78ffdb3e049b3820f22"
+    },
+    {
+      "path": "C:\\tmp\\v004k\\logs\\resume-python-install.log",
+      "bytes": 4225,
+      "sha256": "3cb90a6eedba31d0c244b498b7c5df6fa0dc978da46a8eab136932d7cea11426"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\assets-1790000619665.log",
+      "bytes": 559,
+      "sha256": "6d78181bc82972289d3cd195268a0b9d7ef8231902de40d144a6551aba19030e"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\build-1790000525076.log",
+      "bytes": 275,
+      "sha256": "d391169c0e2f832c8974f9ce2ab5855e7afd4c4527e5115ee7c76f3e0f5069b1"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\ci-1789734728484.log",
+      "bytes": 2507,
+      "sha256": "8cd4a789c00babf48e508950b7d66f97e1add765e713dc70a0b2e42eb99d9546"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\ci-1790000474241.log",
+      "bytes": 25,
+      "sha256": "b73f0dd1bd42417456ed5d9f9f58ecb3f2f63516051234a431d18772280dc1bc"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\npm-versions.json",
+      "bytes": 1465,
+      "sha256": "0645f9a31db4bcbd3a8efc12f0426d65d2b402323db237dbbf112064c5ebab07"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\offline-1790000601541.log",
+      "bytes": 5200,
+      "sha256": "d72ac4075ca740b7c1abf5632632526d0e55785c1584ace74f23d87277bda7db"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\pack-1790000667946.log",
+      "bytes": 5895,
+      "sha256": "6f6373dc8d8ae42b5757f495d0e2e70936c6bc601d2bf2b1d7cc7d2ca47aec35"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\python-baseline.json",
+      "bytes": 7022,
+      "sha256": "c6323f43c55a777c6ee4b74942f9bf6a9ee6e3b490a7b7def52555c55cedbd3e"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\python-freeze.txt",
+      "bytes": 287,
+      "sha256": "6b6cddfcb311500ad926aa0d86878afbf2877d5dacb7ba2abc53b1e4741e97fd"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\runs.json",
+      "bytes": 3749,
+      "sha256": "f8ace8ebf732121e88dc30e2a7d08d47c860e2e83ab82fb00367c6f5a48f0172"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\a-artifact.json",
+      "bytes": 398,
+      "sha256": "99bfcbf51a36f02ce381d361a4643120146075e347db9a179ff03b1b7288a407"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\check-1790000694125.log",
+      "bytes": 73,
+      "sha256": "70cf42dec93dc3f1f15b383f47b8bc60d55f67241b94d4aa8875a6661a37b76b"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\check-1790001683330.log",
+      "bytes": 73,
+      "sha256": "70cf42dec93dc3f1f15b383f47b8bc60d55f67241b94d4aa8875a6661a37b76b"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\check-1790002660807.log",
+      "bytes": 73,
+      "sha256": "70cf42dec93dc3f1f15b383f47b8bc60d55f67241b94d4aa8875a6661a37b76b"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\impact-1790000694963.log",
+      "bytes": 1340,
+      "sha256": "d4af8af6475ed1fbc412bd949ad3078d97e3f74bfaa81051a88378d1dd05ff19"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\impact-1790002661741.log",
+      "bytes": 2110,
+      "sha256": "48496808b1cdffad51c5373a4fdc32e23862a14ba73212fa8d1850359a015475"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\npm-ci.log",
+      "bytes": 25,
+      "sha256": "c1587b58e4ac647bd01143fd56896d16308fbf32c7ad7e2366024267fd7ee6dc"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\oauth-ci.log",
+      "bytes": 27,
+      "sha256": "ac40c2c5daa76fec814f115426f1a7ebc47ffce8a31548cfb1f85390d2418d3c"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\package-1790000723405.log",
+      "bytes": 527,
+      "sha256": "f09179b42546f724e2d8b5f7400c778cc278c318b6eda7d9a0843e410085ed57"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\package-1790001736171.log",
+      "bytes": 536,
+      "sha256": "ddde52092182961188fd1676aaf10df178944faf6e1a7fcb6b72d9d0130aa0c7"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\package.json",
+      "bytes": 536,
+      "sha256": "ddde52092182961188fd1676aaf10df178944faf6e1a7fcb6b72d9d0130aa0c7"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\readiness-related.log",
+      "bytes": 4744,
+      "sha256": "26ab6f63730641a6fd32047b56fa4f73df288e8e763d3c8c52b66367e1d5ac8e"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\runs.json",
+      "bytes": 7821,
+      "sha256": "c6863a0848e011cb3435a629de1a44e546532d29838d890a7b0c62248e0b46ab"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\startup-targeted.log",
+      "bytes": 957,
+      "sha256": "853f0d506628426e2f4b2a1b039b1ebab4fffd222c02557d824885d16eb575e4"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790000561988.log",
+      "bytes": 34199,
+      "sha256": "74987d3b949b5745bc17f78b08cde6a152eee20e5ed2bd12eb8c2c211552b03c"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790000675492.log",
+      "bytes": 33038,
+      "sha256": "5a62a9036b738b90a93c33eefb7e13ecdec0b37990cf697386f1b0c51dbce20d"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790000730837.log",
+      "bytes": 33047,
+      "sha256": "eaeb1b94f73197b00de7d9e33bc5257095a2b31fba9f7a6fc37ac928035b7920"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790001733376.log",
+      "bytes": 33845,
+      "sha256": "55012f01049838ec7b91e9786da4b551ce91a990a14579c2beee181c030eae74"
+    }
+  ],
+  "installationCommands": [
+    {
+      "command": "& C:/tmp/v004k/candidate/verified-extraction/deep-literature-for-codex-0.2.0-dev.4-win-x64/install.ps1 -Root C:/tmp/v004k/instance -PluginArchive C:/tmp/v004k/candidate/verified-extraction/deep-literature-for-codex-0.2.0-dev.4-win-x64/inputs/scientific-reading.tgz",
+      "exitCode": 0,
+      "log": "C:/tmp/v004k/logs/install.log"
+    },
+    {
+      "command": "& C:\\tmp\\v004k\\candidate-r1\\verified-extraction\\deep-literature-for-codex-0.2.0-dev.4-win-x64/install.ps1 -Root C:/tmp/v004k/final -PluginArchive C:\\tmp\\v004k\\candidate-r1\\verified-extraction\\deep-literature-for-codex-0.2.0-dev.4-win-x64/inputs/scientific-reading.tgz",
+      "attempts": [
+        {
+          "exitCode": 1,
+          "reason": "npm ECONNRESET; no lock/SSL changes",
+          "log": "C:/tmp/v004k/logs/install-r1.log"
+        },
+        {
+          "exitCode": 0,
+          "reason": "same original installer and artifact; reused only task-owned npm integrity cache",
+          "log": "C:/tmp/v004k/logs/install-r1-retry.log"
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "provenance": {
+      "command": "$env:V004K_INSTANCE=\"C:/tmp/v004k/final\"; & C:/tmp/v004k/final/runtime/node/22.22.2/node.exe scripts/acceptance-v02-004k-provenance.mjs",
+      "exitCode": 0,
+      "appFiles": 41,
+      "archiveFiles": 54,
+      "pythonFiles": 52
+    },
+    "runtime": {
+      "command": "$env:V004K_INSTANCE=\"C:/tmp/v004k/final\"; & C:/tmp/v004k/final/runtime/node/22.22.2/node.exe scripts/v02-004k-runtime-audit.mjs",
+      "exitCode": 0,
+      "npm": 536,
+      "python": 14,
+      "platformOptionalSkipped": 65
+    },
+    "BFullModules": {
+      "pass": 149,
+      "skip": 1,
+      "fail": 0,
+      "log": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-v02-004k\\outputs\\v02-004k\\test-1790001733376.log"
+    },
+    "APython": {
+      "rerun": false,
+      "reason": "52 production files byte-identical to accepted H baseline",
+      "referenceSource": "2379f9341e872c900edf5258848f0c1bc603600a",
+      "pass": 595,
+      "skip": 3,
+      "proof": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-engine-v02-004k\\outputs\\v02-004k\\python-baseline.json"
+    }
+  },
+  "failuresAndCorrections": [
+    "Original candidate ready-before-bridge defect reproduced with raw POST 405 empty responses; fixed only under 004K-R1, final candidate uses no extra fixture readiness wait.",
+    "Build npm peer auto-resolution conflict: restored historically validated --legacy-peer-deps; all lock versions preserved.",
+    "B first module run lacked oauth node_modules: npm ci using its existing lock, then full run passed.",
+    "A pack clean-source guard saw generated lib/client.js line-ending/stat noise; git refresh proved no content delta before packing.",
+    "Final first install network ECONNRESET retained; unchanged installer succeeded with task-owned integrity cache.",
+    "Preserved control failures include Reader smoke ordering, alias local-vs-shared control assertion, scalar Reader pointer, alternate safe not-ready code, locked transient .lock file, globally repeated idempotency key, and stopped overlay hiding the persisted translation gate. Fixture corrections use unique synthetic paper/run identity, exclude transient lock handles, read persisted gate input; no acceptance requirement relaxed."
+  ],
+  "limits": [
+    "Windows x64 isolated installed trusted API and Reader HTTP tested; browser UI not tested.",
+    "Synthetic parser/model/translation and explicit native queue gate injection; no scientific quality or real model claim.",
+    "Worker crash is a separate labeled fault; cooperative user-stop proof never kills its worker. New alias submit alone did not recover the dead worker (persisted running); trusted cancel/ack/explicit resume safely recovered the same parent. Controller classified 004K-O3 as a nonblocking status/ordinary-retry usability follow-up. Persisted businessStatus=running, even after acknowledgement, is not proof of a live worker; no automatic crash-recovery claim.",
+    "Full F2 three-domain recovery, non-Windows installs and task005 full reading demonstration remain unverified.",
+    "004K-O2 route disposer/hot-reload behavior deferred by controller; only complete host process restarts verified.",
+    "65 platform-specific optional npm dependencies absent as intended; B one existing platform skip and H three baseline skips retained."
+  ],
+  "rollback": "Revert version metadata and artifacts as a matched pair. Preserve library generations, notes, checkpoints and reading-control records; do not downgrade away stop intent."
+}

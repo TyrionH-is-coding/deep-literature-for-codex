@@ -4,16 +4,21 @@
   "sessionId": "01a0b471-26e1-7fd1-ae92-c6aa053824f4",
   "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f",
   "startedAt": "2026-09-18T12:17:10.4585373Z",
-  "phase": "revision-1-startup-readiness",
+  "phase": "review",
   "A": {
     "base": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
     "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k",
-    "initialClean": true
+    "initialClean": true,
+    "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+    "finalCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d"
   },
   "B": {
     "base": "697dfc4718b7c984223cafc4479b4843fe17dffd",
     "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k",
-    "initialClean": true
+    "initialClean": true,
+    "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+    "fixtureCommit": "8ecccf12960c2e5bef3acd1a8eb911da61ba08cd",
+    "reportCommit": "commit containing this receipt; full final hash reported in handoff"
   },
   "risk": "R2",
   "goal": "Traceable dev.4 isolated installation; persistent stop, two restarts, explicit same-parent resume, committed asset protection",
@@ -22,9 +27,20 @@
   "pauseReason": "User requested computer restart; no further build/install/test until explicit resume",
   "resumeNote": "A identity commit created; dependency installs may be interrupted. Check task-only process cleanup and dependency completeness before resuming. No candidate ZIP or product installation created.",
   "resumedAt": "2026-09-21T14:20:18.8078835Z",
-  "nextCheckpointAt": "2026-09-21T15:50:18.8078835Z",
+  "nextCheckpointAt": null,
   "resumedAHead": "b398a6a10c498aee7c527a83d586c99244ec231f",
   "resumedBHead": "697dfc4718b7c984223cafc4479b4843fe17dffd",
   "resumeProcessCheck": "No node/python executable under C:/tmp/v004k at resume",
-  "revisionContextCommit": "c8f56acbe409b83320b5db183bd064c944a284cf"
+  "revisionContextCommit": "c8f56acbe409b83320b5db183bd064c944a284cf",
+  "completedAt": "2026-09-21T15:05:17.831875+00:00",
+  "reviewStatus": "submitted-for-controller-review",
+  "evidenceIndex": "docs/project/evidence/V02-004K-index.json",
+  "finalInstance": "C:/tmp/v004k/final",
+  "hostStatus": "stopped",
+  "ownedProcessCount": 0,
+  "classifications": {
+    "004K-R1": "required startup fix implemented and verified",
+    "004K-O2": "nonblocking: route disposal / hot reload follow-up, not tested",
+    "004K-O3": "nonblocking: stale status / ordinary retry usability; explicit cancel/ack/resume recovered same parent, no automatic recovery claim"
+  }
 }

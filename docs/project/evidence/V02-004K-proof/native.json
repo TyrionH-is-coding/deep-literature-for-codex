@@ -1,0 +1,1646 @@
+{
+  "startedAt": "2026-09-21T14:55:52.545Z",
+  "mode": "installed native DSH/B/A; synthetic local LLM and explicitly injected agent gate",
+  "rows": [
+    {
+      "name": "synthetic gate injection",
+      "value": {
+        "job": "job_05de139bcc5e6150",
+        "mode": "synthetic agent gate; no model/tool advancement",
+        "state": {
+          "job_id": "job_05de139bcc5e6150",
+          "state": "waiting_agent",
+          "created_at": "2026-09-21T14:56:06.597015+00:00",
+          "updated_at": "2026-09-21T14:56:09.256683+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "translate_full_read",
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+            "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+            "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+            "scopePaperId": "title_87077309a633",
+            "scopePaperRevision": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "synthetic gate injection",
+      "value": {
+        "job": "job_6be4fe3f1f96c4b5",
+        "mode": "synthetic agent gate; no model/tool advancement",
+        "state": {
+          "job_id": "job_6be4fe3f1f96c4b5",
+          "state": "waiting_agent",
+          "created_at": "2026-09-21T14:56:11.740403+00:00",
+          "updated_at": "2026-09-21T14:56:14.504774+00:00",
+          "pid": null,
+          "heartbeat_at": null,
+          "reason_code": "translate_full_read",
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+            "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+            "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+            "scopePaperId": "title_0c7178f6b835",
+            "scopePaperRevision": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "trusted cancel removes only target queue",
+      "value": {
+        "folderId": "folder_04185149bee94d04af4346fadd396ceb",
+        "paperId": "title_87077309a633",
+        "sessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+        "taskId": "task-c42c3a3f-d206-4c1b-b226-028f0d808729",
+        "requestDigest": "d69186827440df3bca8cbeba7440127253a84e4ef7bcc66f5ad78c65eb0147ce",
+        "status": "cancel_requested",
+        "jobId": "job_05de139bcc5e6150",
+        "dispatches": {
+          "52f1ce36fd7bfd21f3ad80094b871fa58f34519be2c4f3884d01ca1c1ed10f18": {
+            "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+            "status": "accepted"
+          }
+        },
+        "operations": {},
+        "createdAt": "2026-09-21T14:56:05.867Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_05de139bcc5e6150",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "title_87077309a633",
+            "parent_job_id": "job_05de139bcc5e6150",
+            "current_stage": "ensure_pdf",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {},
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": null,
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:56:06.619287+00:00",
+            "updated_at": "2026-09-21T14:56:07.973203+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "title_87077309a633",
+          "status": "waiting_agent",
+          "job_id": "job_05de139bcc5e6150",
+          "foreground_elapsed_ms": 14,
+          "agent_required": true,
+          "next_action": "agent",
+          "detail": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T14:56:20.239Z",
+        "stopOperation": {
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": true,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "result": {
+            "turn": "not_targeted",
+            "removedQueued": 1
+          }
+        },
+        "cancellation": {
+          "turn": "not_targeted",
+          "removedQueued": 1
+        }
+      }
+    },
+    {
+      "name": "installed category continuation guard",
+      "value": {
+        "calls": 1,
+        "aborted": 0,
+        "toolResult": {
+          "isError": true,
+          "error": {
+            "message": "reading_stop_requested"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Error: reading_stop_requested"
+            }
+          ]
+        },
+        "status": "running",
+        "queue": [
+          "unrelated-queue"
+        ],
+        "events": [
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 5,
+            "time": 1790002575652,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC manual-blocker"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "manual-blocker"
+                  },
+                  "role": "user",
+                  "id": "7b8b8d86-d93a-4223-8bcb-d779d4de76dc"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 6,
+            "time": 1790002575653,
+            "data": {
+              "turn": 1
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 7,
+            "time": 1790002575654,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 9,
+            "time": 1790002575667,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC manual-blocker"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "manual-blocker"
+              },
+              "role": "user",
+              "id": "7b8b8d86-d93a-4223-8bcb-d779d4de76dc"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "user/message",
+            "seq": 10,
+            "time": 1790002575670,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\n\nCurrent DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\tmp\\\\v004k\\\\final\\\\workspace\". Some platform temporary areas may also be writable.\n\nApproval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt",
+                "form": "snapshot",
+                "sections": [
+                  {
+                    "name": "sandbox:policy",
+                    "text": "Current DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\tmp\\\\v004k\\\\final\\\\workspace\". Some platform temporary areas may also be writable."
+                  },
+                  {
+                    "name": "approval:policy",
+                    "text": "Approval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                  }
+                ]
+              },
+              "role": "user",
+              "id": "a78aaad9-2731-4a7a-8c63-3ac795de093b"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 13,
+            "time": 1790002577444,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "请继续本分类的论文 title_87077309a633，现有任务 job_05de139bcc5e6150。先用 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+                    "clientTimeZone": "Asia/Shanghai"
+                  },
+                  "role": "user",
+                  "id": "a26dd740-da2a-47ed-8874-c3a4c0d779ed"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 14,
+            "time": 1790002577457,
+            "data": {
+              "target": "next-turn",
+              "start": 1,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC unrelated-queue"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "unrelated-queue"
+                  },
+                  "role": "user",
+                  "id": "d8f7fbc6-749f-4b96-90e7-004380e6d29f"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 15,
+            "time": 1790002579161,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": [],
+              "outcome": "canceled"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "unrelated active turn and queue survive",
+      "value": {
+        "calls": 1,
+        "aborted": 0,
+        "status": "running",
+        "queue": [
+          "unrelated-queue"
+        ],
+        "events": [
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 5,
+            "time": 1790002575652,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC manual-blocker"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "manual-blocker"
+                  },
+                  "role": "user",
+                  "id": "7b8b8d86-d93a-4223-8bcb-d779d4de76dc"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 6,
+            "time": 1790002575653,
+            "data": {
+              "turn": 1
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 7,
+            "time": 1790002575654,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 9,
+            "time": 1790002575667,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC manual-blocker"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "manual-blocker"
+              },
+              "role": "user",
+              "id": "7b8b8d86-d93a-4223-8bcb-d779d4de76dc"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "user/message",
+            "seq": 10,
+            "time": 1790002575670,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\n\nCurrent DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\tmp\\\\v004k\\\\final\\\\workspace\". Some platform temporary areas may also be writable.\n\nApproval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt",
+                "form": "snapshot",
+                "sections": [
+                  {
+                    "name": "sandbox:policy",
+                    "text": "Current DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\tmp\\\\v004k\\\\final\\\\workspace\". Some platform temporary areas may also be writable."
+                  },
+                  {
+                    "name": "approval:policy",
+                    "text": "Approval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                  }
+                ]
+              },
+              "role": "user",
+              "id": "a78aaad9-2731-4a7a-8c63-3ac795de093b"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 13,
+            "time": 1790002577444,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "请继续本分类的论文 title_87077309a633，现有任务 job_05de139bcc5e6150。先用 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+                    "clientTimeZone": "Asia/Shanghai"
+                  },
+                  "role": "user",
+                  "id": "a26dd740-da2a-47ed-8874-c3a4c0d779ed"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 14,
+            "time": 1790002577457,
+            "data": {
+              "target": "next-turn",
+              "start": 1,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC unrelated-queue"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "unrelated-queue"
+                  },
+                  "role": "user",
+                  "id": "d8f7fbc6-749f-4b96-90e7-004380e6d29f"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 15,
+            "time": 1790002579161,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": [],
+              "outcome": "canceled"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "exclusive active turn cancellation request",
+      "value": {
+        "folderId": "folder_04185149bee94d04af4346fadd396ceb",
+        "paperId": "title_0c7178f6b835",
+        "sessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+        "taskId": "task-cd984433-ecba-4a85-918d-792cfae7feef",
+        "requestDigest": "e9d26416d04a61e82cefeac7347455e26c87a07ff70926bb7dfd854120aeb431",
+        "status": "cancel_requested",
+        "jobId": "job_6be4fe3f1f96c4b5",
+        "dispatches": {
+          "52f1ce36fd7bfd21f3ad80094b871fa58f34519be2c4f3884d01ca1c1ed10f18": {
+            "rpcId": "bd715bee-95f3-4179-a354-ecf81d8e491a",
+            "status": "accepted"
+          }
+        },
+        "operations": {},
+        "createdAt": "2026-09-21T14:56:11.032Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_6be4fe3f1f96c4b5",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop-75fef934-5594-4d99-80d8-06f795994cb0",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-75fef934-5594-4d99-80d8-06f795994cb0": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_6be4fe3f1f96c4b5",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:11.740403+00:00",
+            "updated_at": "2026-09-21T14:56:14.504774+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_0c7178f6b835",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "title_0c7178f6b835",
+            "parent_job_id": "job_6be4fe3f1f96c4b5",
+            "current_stage": "ensure_pdf",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {},
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:12.689127+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": null,
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:56:11.750253+00:00",
+            "updated_at": "2026-09-21T14:56:12.955668+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "title_0c7178f6b835",
+          "status": "waiting_agent",
+          "job_id": "job_6be4fe3f1f96c4b5",
+          "foreground_elapsed_ms": 12,
+          "agent_required": true,
+          "next_action": "agent",
+          "detail": {
+            "job_id": "job_6be4fe3f1f96c4b5",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:11.740403+00:00",
+            "updated_at": "2026-09-21T14:56:14.504774+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_0c7178f6b835",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:12.689127+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T14:56:25.758Z",
+        "stopOperation": {
+          "requestId": "stop-75fef934-5594-4d99-80d8-06f795994cb0",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": true,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-75fef934-5594-4d99-80d8-06f795994cb0",
+          "result": {
+            "turn": "cancel_requested",
+            "removedQueued": 0
+          }
+        },
+        "cancellation": {
+          "turn": "cancel_requested",
+          "removedQueued": 0
+        }
+      }
+    },
+    {
+      "name": "mixed turn is not canceled",
+      "value": {
+        "folderId": "folder_04185149bee94d04af4346fadd396ceb",
+        "paperId": "title_87077309a633",
+        "sessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+        "taskId": "task-c42c3a3f-d206-4c1b-b226-028f0d808729",
+        "requestDigest": "d69186827440df3bca8cbeba7440127253a84e4ef7bcc66f5ad78c65eb0147ce",
+        "status": "cancel_requested",
+        "jobId": "job_05de139bcc5e6150",
+        "dispatches": {
+          "52f1ce36fd7bfd21f3ad80094b871fa58f34519be2c4f3884d01ca1c1ed10f18": {
+            "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+            "status": "accepted"
+          }
+        },
+        "operations": {},
+        "createdAt": "2026-09-21T14:56:05.867Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_05de139bcc5e6150",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "title_87077309a633",
+            "parent_job_id": "job_05de139bcc5e6150",
+            "current_stage": "ensure_pdf",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {},
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": null,
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:56:06.619287+00:00",
+            "updated_at": "2026-09-21T14:56:07.973203+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "title_87077309a633",
+          "status": "waiting_agent",
+          "job_id": "job_05de139bcc5e6150",
+          "foreground_elapsed_ms": 17,
+          "agent_required": true,
+          "next_action": "agent",
+          "detail": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T14:56:28.032Z",
+        "stopOperation": {
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": true,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "result": {
+            "turn": "not_targeted",
+            "removedQueued": 0
+          }
+        },
+        "cancellation": {
+          "turn": "not_targeted",
+          "removedQueued": 0
+        }
+      }
+    },
+    {
+      "name": "mixed active stream survives",
+      "value": {
+        "calls": 5,
+        "aborted": 1,
+        "status": "running",
+        "queue": [],
+        "events": [
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 5,
+            "time": 1790002575652,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC manual-blocker"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "manual-blocker"
+                  },
+                  "role": "user",
+                  "id": "7b8b8d86-d93a-4223-8bcb-d779d4de76dc"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 6,
+            "time": 1790002575653,
+            "data": {
+              "turn": 1
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 7,
+            "time": 1790002575654,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 9,
+            "time": 1790002575667,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC manual-blocker"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "manual-blocker"
+              },
+              "role": "user",
+              "id": "7b8b8d86-d93a-4223-8bcb-d779d4de76dc"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "user/message",
+            "seq": 10,
+            "time": 1790002575670,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Current runtime context. This snapshot supersedes earlier runtime-context snapshots.\n\nCurrent DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\tmp\\\\v004k\\\\final\\\\workspace\". Some platform temporary areas may also be writable.\n\nApproval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                }
+              ],
+              "source": {
+                "kind": "plugin",
+                "plugin": "@deepseek-ai/dsh-system-prompt",
+                "form": "snapshot",
+                "sections": [
+                  {
+                    "name": "sandbox:policy",
+                    "text": "Current DSH file policy: workspace-write. Any available operation enforced by the DSH file sandbox may modify files under the session workspace: \"C:\\\\tmp\\\\v004k\\\\final\\\\workspace\". Some platform temporary areas may also be writable."
+                  },
+                  {
+                    "name": "approval:policy",
+                    "text": "Approval policy: ask. Operations that require approval may ask through the configured answerers; without an available answerer, the request fails closed."
+                  }
+                ]
+              },
+              "role": "user",
+              "id": "a78aaad9-2731-4a7a-8c63-3ac795de093b"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 13,
+            "time": 1790002577444,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "请继续本分类的论文 title_87077309a633，现有任务 job_05de139bcc5e6150。先用 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+                    "clientTimeZone": "Asia/Shanghai"
+                  },
+                  "role": "user",
+                  "id": "a26dd740-da2a-47ed-8874-c3a4c0d779ed"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 14,
+            "time": 1790002577457,
+            "data": {
+              "target": "next-turn",
+              "start": 1,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC unrelated-queue"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "unrelated-queue"
+                  },
+                  "role": "user",
+                  "id": "d8f7fbc6-749f-4b96-90e7-004380e6d29f"
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 15,
+            "time": 1790002579161,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": [],
+              "outcome": "canceled"
+            }
+          },
+          {
+            "type": "turn/end",
+            "seq": 22,
+            "time": 1790002581357,
+            "data": {
+              "turn": 1,
+              "reason": {
+                "kind": "completed"
+              }
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 23,
+            "time": 1790002581358,
+            "data": {
+              "turn": 2
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 24,
+            "time": 1790002581358,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 26,
+            "time": 1790002581372,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC unrelated-queue"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "unrelated-queue"
+              },
+              "role": "user",
+              "id": "d8f7fbc6-749f-4b96-90e7-004380e6d29f"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "turn/end",
+            "seq": 33,
+            "time": 1790002581483,
+            "data": {
+              "turn": 2,
+              "reason": {
+                "kind": "completed"
+              }
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 34,
+            "time": 1790002583032,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "请继续本分类的论文 title_0c7178f6b835，现有任务 job_6be4fe3f1f96c4b5。先用 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "bd715bee-95f3-4179-a354-ecf81d8e491a",
+                    "clientTimeZone": "Asia/Shanghai"
+                  },
+                  "role": "user",
+                  "id": "7edf097c-31b3-4fde-8642-94ffcbb22437"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 35,
+            "time": 1790002583033,
+            "data": {
+              "turn": 3
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 36,
+            "time": 1790002583033,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 38,
+            "time": 1790002583051,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "请继续本分类的论文 title_0c7178f6b835，现有任务 job_6be4fe3f1f96c4b5。先用 sr_job_status 读取真实状态；需要翻译/复核时用 csr_read_job_input 读取当前 gate 的材料，按原合同提交。不要重新建立同篇任务。遇到需要用户的 PDF、密钥、阅读确认或失败时报告具体状态并等待。"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "bd715bee-95f3-4179-a354-ecf81d8e491a",
+                "clientTimeZone": "Asia/Shanghai"
+              },
+              "role": "user",
+              "id": "7edf097c-31b3-4fde-8642-94ffcbb22437"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "turn/end",
+            "seq": 40,
+            "time": 1790002584688,
+            "data": {
+              "turn": 3,
+              "reason": {
+                "kind": "aborted",
+                "reason": {
+                  "kind": "user"
+                }
+              }
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 41,
+            "time": 1790002585767,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "inserted": [
+                {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC mixed-blocker"
+                    }
+                  ],
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "mixed-blocker"
+                  },
+                  "role": "user",
+                  "id": "07b23925-a092-4193-9243-1134322562bb"
+                }
+              ]
+            }
+          },
+          {
+            "type": "turn/start",
+            "seq": 42,
+            "time": 1790002585768,
+            "data": {
+              "turn": 4
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 43,
+            "time": 1790002585768,
+            "data": {
+              "target": "next-turn",
+              "start": 0,
+              "removedCount": 1,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 45,
+            "time": 1790002585776,
+            "data": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC mixed-blocker"
+                }
+              ],
+              "source": {
+                "kind": "user",
+                "rpcId": "mixed-blocker"
+              },
+              "role": "user",
+              "id": "07b23925-a092-4193-9243-1134322562bb"
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 46,
+            "time": 1790002585886,
+            "data": {
+              "target": "next-step",
+              "start": 0,
+              "inserted": [
+                {
+                  "id": "60001766-3b8a-472b-a784-f5be71d334de",
+                  "role": "user",
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "60001766-3b8a-472b-a784-f5be71d334de"
+                  },
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC 60001766-3b8a-472b-a784-f5be71d334de"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 47,
+            "time": 1790002585888,
+            "data": {
+              "target": "next-step",
+              "start": 1,
+              "inserted": [
+                {
+                  "id": "mixed-other",
+                  "role": "user",
+                  "source": {
+                    "kind": "user",
+                    "rpcId": "mixed-other"
+                  },
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SYNTHETIC mixed-other"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "agent/inbox/spliced",
+            "seq": 54,
+            "time": 1790002585907,
+            "data": {
+              "target": "next-step",
+              "start": 0,
+              "removedCount": 2,
+              "inserted": []
+            }
+          },
+          {
+            "type": "user/message",
+            "seq": 56,
+            "time": 1790002585922,
+            "data": {
+              "id": "60001766-3b8a-472b-a784-f5be71d334de",
+              "role": "user",
+              "source": {
+                "kind": "user",
+                "rpcId": "60001766-3b8a-472b-a784-f5be71d334de"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC 60001766-3b8a-472b-a784-f5be71d334de"
+                }
+              ]
+            },
+            "surfaceOp": "append"
+          },
+          {
+            "type": "user/message",
+            "seq": 57,
+            "time": 1790002585923,
+            "data": {
+              "id": "mixed-other",
+              "role": "user",
+              "source": {
+                "kind": "user",
+                "rpcId": "mixed-other"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SYNTHETIC mixed-other"
+                }
+              ]
+            },
+            "surfaceOp": "append"
+          }
+        ]
+      }
+    },
+    {
+      "name": "restart 1 no redispatch",
+      "value": {
+        "folderId": "folder_04185149bee94d04af4346fadd396ceb",
+        "paperId": "title_87077309a633",
+        "sessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+        "taskId": "task-c42c3a3f-d206-4c1b-b226-028f0d808729",
+        "requestDigest": "d69186827440df3bca8cbeba7440127253a84e4ef7bcc66f5ad78c65eb0147ce",
+        "status": "cancel_requested",
+        "jobId": "job_05de139bcc5e6150",
+        "dispatches": {
+          "52f1ce36fd7bfd21f3ad80094b871fa58f34519be2c4f3884d01ca1c1ed10f18": {
+            "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+            "status": "accepted"
+          }
+        },
+        "operations": {},
+        "createdAt": "2026-09-21T14:56:05.867Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_05de139bcc5e6150",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "title_87077309a633",
+            "parent_job_id": "job_05de139bcc5e6150",
+            "current_stage": "ensure_pdf",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {},
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": null,
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:56:06.619287+00:00",
+            "updated_at": "2026-09-21T14:56:07.973203+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "title_87077309a633",
+          "status": "waiting_agent",
+          "job_id": "job_05de139bcc5e6150",
+          "foreground_elapsed_ms": 17,
+          "agent_required": true,
+          "next_action": "agent",
+          "detail": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T14:56:46.812Z",
+        "stopOperation": {
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": true,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "result": {
+            "turn": "not_targeted",
+            "removedQueued": 0
+          }
+        },
+        "cancellation": {
+          "turn": "not_targeted",
+          "removedQueued": 0
+        }
+      }
+    },
+    {
+      "name": "restart 2 no redispatch",
+      "value": {
+        "folderId": "folder_04185149bee94d04af4346fadd396ceb",
+        "paperId": "title_87077309a633",
+        "sessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+        "taskId": "task-c42c3a3f-d206-4c1b-b226-028f0d808729",
+        "requestDigest": "d69186827440df3bca8cbeba7440127253a84e4ef7bcc66f5ad78c65eb0147ce",
+        "status": "cancel_requested",
+        "jobId": "job_05de139bcc5e6150",
+        "dispatches": {
+          "52f1ce36fd7bfd21f3ad80094b871fa58f34519be2c4f3884d01ca1c1ed10f18": {
+            "rpcId": "60001766-3b8a-472b-a784-f5be71d334de",
+            "status": "accepted"
+          }
+        },
+        "operations": {},
+        "createdAt": "2026-09-21T14:56:05.867Z",
+        "control": {
+          "contract": "reading-control-v1",
+          "parentJobId": "job_05de139bcc5e6150",
+          "revision": 1,
+          "stopRequested": true,
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "acknowledgedRevision": 1,
+          "effectiveBoundary": "between_stages",
+          "activeStage": null,
+          "worker": null,
+          "operations": {
+            "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879": {
+              "kind": "stop",
+              "expectedRevision": 0,
+              "revision": 1
+            }
+          },
+          "status": "acknowledged",
+          "businessStatus": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            }
+          },
+          "pipelineState": {
+            "paper_id": "title_87077309a633",
+            "parent_job_id": "job_05de139bcc5e6150",
+            "current_stage": "ensure_pdf",
+            "state": "waiting_agent",
+            "stage_jobs": {},
+            "stage_outputs": {},
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            },
+            "source_pdf_sha256": null,
+            "reader_source_sha256": null,
+            "required_action": {
+              "reason_code": "translate_full_read"
+            },
+            "last_error": null,
+            "created_at": "2026-09-21T14:56:06.619287+00:00",
+            "updated_at": "2026-09-21T14:56:07.973203+00:00",
+            "completed_at": null,
+            "contract_version": "reading-pipeline-v1"
+          },
+          "independentChildrenStopped": false,
+          "compatibility": "cooperative_boundary",
+          "replayedOperation": null
+        },
+        "controlError": null,
+        "job": {
+          "paper_id": "title_87077309a633",
+          "status": "waiting_agent",
+          "job_id": "job_05de139bcc5e6150",
+          "foreground_elapsed_ms": 18,
+          "agent_required": true,
+          "next_action": "agent",
+          "detail": {
+            "job_id": "job_05de139bcc5e6150",
+            "state": "waiting_agent",
+            "created_at": "2026-09-21T14:56:06.597015+00:00",
+            "updated_at": "2026-09-21T14:56:09.256683+00:00",
+            "pid": null,
+            "heartbeat_at": null,
+            "reason_code": "translate_full_read",
+            "required_input": {},
+            "result": {},
+            "error": null,
+            "scope": {
+              "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+              "scopeSessionId": "session-aeeef543-18dc-45bf-94c7-219a3eb4188e",
+              "scopeFolderId": "folder_04185149bee94d04af4346fadd396ceb",
+              "scopePaperId": "title_87077309a633",
+              "scopePaperRevision": 1
+            },
+            "stage_timings": {
+              "ensure_pdf": {
+                "started_at": "2026-09-21T14:56:07.646359+00:00",
+                "finished_at": null
+              }
+            }
+          }
+        },
+        "error": null,
+        "checkedAt": "2026-09-21T14:57:05.574Z",
+        "stopOperation": {
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "status": "acknowledged",
+          "expectedRevision": 0,
+          "revision": 1,
+          "error": null
+        },
+        "cancelRequested": true,
+        "hostCancellation": {
+          "status": "received",
+          "requestId": "stop-b9371e50-900e-4945-9c27-f6ed6f4a1879",
+          "result": {
+            "turn": "not_targeted",
+            "removedQueued": 0
+          }
+        },
+        "cancellation": {
+          "turn": "not_targeted",
+          "removedQueued": 0
+        }
+      }
+    }
+  ],
+  "boots": [
+    {
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+      "root": "C:\\tmp\\v004k\\final",
+      "version": "0.2.0-dev.4",
+      "candidate": true,
+      "status": "running",
+      "launchId": "ba03cd93-0344-405b-af18-1c3b9b71999b",
+      "supervisorPid": 17496,
+      "startedAt": 1790002552980,
+      "pid": 14404,
+      "url": "http://127.0.0.1:62475"
+    },
+    {
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+      "root": "C:\\tmp\\v004k\\final",
+      "version": "0.2.0-dev.4",
+      "candidate": true,
+      "status": "running",
+      "launchId": "1e637c59-3498-41fa-8650-24b660519ed7",
+      "supervisorPid": 37616,
+      "startedAt": 1790002588716,
+      "pid": 28872,
+      "url": "http://127.0.0.1:62509"
+    },
+    {
+      "product": "codex-scientific-reading",
+      "schema": 1,
+      "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+      "root": "C:\\tmp\\v004k\\final",
+      "version": "0.2.0-dev.4",
+      "candidate": true,
+      "status": "running",
+      "launchId": "2a141cad-deee-4ced-80b9-cf8e4cb56394",
+      "supervisorPid": 34496,
+      "startedAt": 1790002607320,
+      "pid": 6140,
+      "url": "http://127.0.0.1:62524"
+    }
+  ],
+  "status": "passed",
+  "finalStatus": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+    "root": "C:\\tmp\\v004k\\final",
+    "status": "stopped",
+    "startedAt": 1790002607320
+  },
+  "finishedAt": "2026-09-21T14:57:05.821Z"
+}
