@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-21T15:20:16.629Z",
-    "lastHeartbeatCompletedAt": "2026-09-21T15:23:59.843Z",
+    "lastHeartbeatCompletedAt": "2026-09-21T15:35:36.392Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -283,14 +283,14 @@
       "nextCheckpointAt": "2026-09-21T16:52:49Z",
       "startedAt": "2026-09-21T15:22:49Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with active turn and actual designated worktree commands",
-      "lastDispatchCheckAt": "2026-09-21T15:23:59.843Z",
+      "lastDispatchCheckAt": "2026-09-21T15:35:36.392Z",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-21T15:23:59.843Z",
+        "checkedAt": "2026-09-21T15:35:36.392Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c490-094e-7ed3-a6da-88a7d3dd7e09"
       },
-      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:1"
+      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:2"
     },
     {
       "id": "V02-006",
