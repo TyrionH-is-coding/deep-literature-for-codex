@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-21T15:20:16.629Z",
-    "lastHeartbeatCompletedAt": "2026-09-21T15:20:16.629Z",
+    "lastHeartbeatCompletedAt": "2026-09-21T15:23:59.843Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -47,12 +47,7 @@
         "resumedAt": "2026-09-21T14:20:11.388Z",
         "resumeAuthorization": "User: 请继续 (2026-09-21)"
       }
-    ],
-    "remoteSync": {
-      "state": "pending",
-      "reason": "K integration and acceptance/005 reservation awaiting branch push",
-      "at": "2026-09-21T15:20:16.629Z"
-    }
+    ]
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -246,7 +241,7 @@
       "id": "V02-005",
       "title": "Reader 样例与首次完整流程演示",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "engine",
         "bridge"
@@ -255,13 +250,13 @@
         "V02-004"
       ],
       "card": "docs/project/tasks/V02-005.md",
-      "ownerSession": null,
+      "ownerSession": "01a0c490-060f-7401-9e30-df31331d1d84",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005",
       "branch": "codex/v02-005-reader-demo",
       "commits": [],
       "evidence": [],
       "notes": "先用已验收ZIP验证最小完整演示；已有Excel/可信CLI入口，不预设网页编辑/停止按钮；生产修改需总控按具体缺陷修订允许范围。",
-      "dispatchState": "reserved",
+      "dispatchState": "started",
       "baseCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
       "engineBaseCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
@@ -279,7 +274,23 @@
       "reviewRoundsBeforeRescope": 2,
       "dispatchReservedAt": "2026-09-21T15:20:16.629Z",
       "independence": "Only active development task; unique worktree/branch/instance/outputs; A and prior K evidence read-only; serial integration",
-      "exitCriteria": "Existing installed full normal flow plus representative browser Reader and explicit failure recovery, persisted Excel records after restart, qualified evidence/limitations; no forced new feature"
+      "exitCriteria": "Existing installed full normal flow plus representative browser Reader and explicit failure recovery, persisted Excel records after restart, qualified evidence/limitations; no forced new feature",
+      "contextCommit": "28278cd0bc1c6983a727361a4bd95198090b5db1",
+      "clientThreadId": "client-new-thread:8c864036-bdf1-44b8-a638-b72f6f0a00a2",
+      "hostId": "local",
+      "dispatchRequestedAt": "2026-09-21T15:23:05.508Z",
+      "dispatchMarker": "DL-V02-005-28278cd-20260921",
+      "nextCheckpointAt": "2026-09-21T16:52:49Z",
+      "startedAt": "2026-09-21T15:22:49Z",
+      "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with active turn and actual designated worktree commands",
+      "lastDispatchCheckAt": "2026-09-21T15:23:59.843Z",
+      "lastThreadSnapshot": {
+        "checkedAt": "2026-09-21T15:23:59.843Z",
+        "status": "active",
+        "turnStatus": "inProgress",
+        "turnId": "01a0c490-094e-7ed3-a6da-88a7d3dd7e09"
+      },
+      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:1"
     },
     {
       "id": "V02-006",
@@ -1636,7 +1647,7 @@
     {
       "id": "first-main-flow",
       "ownerTask": "V02-005",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "V02-004"
       ],
