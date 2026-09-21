@@ -1468,15 +1468,11 @@
       "nextCheckpointAt": "2026-09-21T15:50:11.388Z",
       "receiptPhase": "resumed-environment-preparation",
       "progressSnapshot": {
-        "checkedAt": "2026-09-21T14:31:42.942Z",
+        "checkedAt": "2026-09-21T14:45:54.944Z",
         "engineHead": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
-        "workbenchHead": "89ba17918a57622c2971ba76e1cfcb1fd82688fb",
+        "workbenchHead": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
         "deliveryReady": false,
-        "observation": "A ci/build/offline/assets/pack run index reports exit 0; B installation acceptance scripts are still being prepared. No acceptance or dependency unlock.",
-        "evidence": [
-          "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k/outputs/v02-004k/runs.json",
-          "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/docs/project/evidence/V02-004K-receipt.json"
-        ]
+        "observation": "Startup fix independently reviewed and five targeted tests pass; developer is validating new installed final instance, no release gate closed."
       },
       "findings": [
         {
@@ -1493,7 +1489,34 @@
           "observation": "18 requests at 8–4452ms after start completion returned 405/empty; first 200 response completed at 9880ms. Response time is not exact route registration time. No damage/requeue observed.",
           "cause": "identity timer announces workbench-ready from webServer.port before bridge Handoff.open/route registration; CLI immediately parses empty response as JSON",
           "reviewedAt": "2026-09-21T14:36:42.469Z",
-          "uiEvidence": "Identity page claims started early; native DSH UI failure not yet directly verified"
+          "uiEvidence": "Identity page claims started early; native DSH UI failure not yet directly verified",
+          "sourceReview": {
+            "at": "2026-09-21T14:45:54.944Z",
+            "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+            "result": "accepted for full host-process start/restart scope; installed acceptance still pending",
+            "independentTests": {
+              "passed": 5,
+              "failed": 0,
+              "skipped": 0,
+              "index": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-004k-control-review/startup-readiness-572fee5.json",
+              "logSha256": "6558385a85a5f09ae750bfd8cfe06fa33be3a9f64ed6a3389157c762bf237ed3"
+            },
+            "codeReview": "Synchronous apply avoids loader self-wait; loopback ready handshake checks successful parse and instance; failed/disposed identity does not announce; no extra write capability"
+          }
+        },
+        {
+          "id": "004K-O2",
+          "status": "open",
+          "classification": "later-improvement",
+          "title": "进程内bridge卸载/重载时HTTP路由未清理",
+          "blocksTaskAcceptance": false,
+          "blocksV02Release": false,
+          "followup": null,
+          "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+          "evidence": "src/modules/bridge/plugin.mjs:121,137; fixed DSH WebServer.register requires returned disposer",
+          "basis": "Static independent review: new ready route discards disposer, as existing API route already does; no live hot-reload test performed",
+          "decision": "Current card covers full host process stop/start which destroys route map. Plugin hot reload is not claimed; record for later, do not expand this card.",
+          "notCovered": "Real bridge route disposal/reload; handshake-time disposal is guarded by source but not directly covered by five identity tests"
         }
       ],
       "scopeAmendments": [
