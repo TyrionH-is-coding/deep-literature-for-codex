@@ -37,3 +37,6 @@
 可信 HTTP resume 原有路径把 `resumeStopped: true`、安全整数 `expectedRevision`、input 与幂等键传给 Handoff。分类工具清单未扩大；`sr_start_full_read`/`sr_continue_full_read` 在实际 session 范围内通过 Handoff 串行守卫后执行，避免尚未送达 A 的本地取消被推进工具绕过。A 的最终控制守卫继续生效。其他论文和读取不被全局冻结；没有强杀 worker/provider。
 
 控制事实及恢复语义见 [workflow](workflow.md)，当前验证与最终安装限制见 [J 报告](../project/evidence/V02-004J-report.md)。
+
+## 0.1.3：启动握手（V02-004K）
+完成 Handoff 恢复、工具守卫和可信 API 注册后，才注册只读 GET /__workbench/ready。回传实例 ID，供 identity 核实，不执行任务推进。

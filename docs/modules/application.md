@@ -20,6 +20,9 @@ CLI 参数问题先看 `cli.mjs` 与涉及模块；安装问题看 `install.mjs`
 
 ## 验证边界
 
-`npm run modules -- test application` 运行目标及下游；登记测试为 `tests/install.test.mjs`、`tests/lifecycle.test.mjs`，结果需另记。
+`npm run modules -- test application` 运行目标及下游；登记测试为 `tests/install.test.mjs`、`tests/lifecycle.test.mjs`、`tests/v02-startup-readiness.test.mjs`，结果需另记。
 
 改变安装复制路径、相对导入、依赖锁、启动参数或平台脚本时，需要对应平台的打包与隔离安装验收。改变 launcher/卸载路径还应核对完整发布回退和数据保留。安装测试通过不代表真实登录、模型调用或论文质量通过。
+
+## 0.1.1：可信操作就绪（V02-004K）
+identity 的 apply 同步返回；loader 稳定后验证 bridge 就绪握手才发送 ready。仅端口或身份接口可用不报告已启动。初始化失败页面为 503，宿主不收到成功 IPC。

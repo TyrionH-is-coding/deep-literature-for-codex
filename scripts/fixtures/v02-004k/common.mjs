@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {pathToFileURL} from 'node:url';import {execFileSync} from 'node:child_process';
-export const root='C:/tmp/v004k/instance',out='C:/tmp/v004k/evidence';await fs.mkdir(out,{recursive:true});
+export const root=process.env.V004K_INSTANCE||'C:/tmp/v004k/instance',out=root.endsWith('/final')?'C:/tmp/v004k/evidence-final':'C:/tmp/v004k/evidence';assert.ok(['C:/tmp/v004k/instance','C:/tmp/v004k/final'].includes(root));await fs.mkdir(out,{recursive:true});
 export const read=async f=>JSON.parse(await fs.readFile(f,'utf8')),installed=await read(path.join(root,'installation.json'));
 assert.equal(await fs.readFile(path.join(root,'.v02-004k-test-instance'),'utf8'),'synthetic-only');
 export const from=f=>import(pathToFileURL(path.join(installed.app,'src',f)).href);
