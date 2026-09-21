@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
-    "lastReviewAt": "2026-09-21T15:20:16.629Z",
+    "lastReviewAt": "2026-09-21T15:44:32.746Z",
     "lastHeartbeatCompletedAt": "2026-09-21T15:35:36.392Z",
     "workingMethod": {
       "revision": 2,
@@ -283,14 +283,66 @@
       "nextCheckpointAt": "2026-09-21T16:52:49Z",
       "startedAt": "2026-09-21T15:22:49Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with active turn and actual designated worktree commands",
-      "lastDispatchCheckAt": "2026-09-21T15:35:36.392Z",
+      "lastDispatchCheckAt": "2026-09-21T15:44:32.746Z",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-21T15:35:36.392Z",
+        "checkedAt": "2026-09-21T15:44:32.746Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c490-094e-7ed3-a6da-88a7d3dd7e09"
       },
-      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:2"
+      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:3",
+      "progressSnapshot": {
+        "checkedAt": "2026-09-21T15:44:32.746Z",
+        "sourceCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+        "deliveryReady": false,
+        "observation": "Developer reports three synthetic Reader browser samples, Excel import/refresh and restart persistence, explicit recovery to same-parent translation gate. Result files exist; full delivery/provenance review still pending."
+      },
+      "findings": [
+        {
+          "id": "005-O1",
+          "status": "open",
+          "classification": "current-task-verification-gap",
+          "title": "空分类会话隐藏原生文献标签，库界面及定位Excel尚未实测",
+          "blocksFinalUiClaim": true,
+          "releaseClassification": "pending actual native-entry check; no product fix authorized",
+          "basis": "Read-only independent reviewer found four category session caches blank=true,lastPromptAt=null,turns=0; host blank UI hides tabs/views and excludes search. Draft text does not change phase; formal prompt attempt does.",
+          "sourceEvidence": [
+            {
+              "path": "C:/tmp/v005/instance/releases/a4182a78f1e4dc50/runtime/npm/node_modules/@deepseek-ai/dsh-client-ui-workspace/lib/client.js",
+              "sha256": "2df5e06d97b8279fac1ee02c7d743440519c8dda7a7bebe9b988a224371449bf",
+              "lines": "99-108"
+            },
+            {
+              "path": "C:/tmp/v005/instance/releases/a4182a78f1e4dc50/runtime/npm/node_modules/@deepseek-ai/dsh-client-ui-conversation/lib/client.js",
+              "sha256": "0980922f58332dea0ff18079d2da728f7a81136079babf0278776d6897a45d80",
+              "lines": "6994,7074"
+            },
+            {
+              "path": "C:/tmp/v005/instance/releases/a4182a78f1e4dc50/runtime/npm/node_modules/@deepseek-ai/dsh-client-runtime/lib/client.js",
+              "sha256": "87f524f2dd26d899b9be08aded3a4b5c2e68639e8ceddd3b4295984057fef765",
+              "lines": "7196-7209,7718,7761-7763"
+            }
+          ],
+          "failedUiEvidence": [
+            "C:/tmp/v005/evidence/browser-library-route.txt",
+            "C:/tmp/v005/screenshots/06-session-search-gap.png"
+          ],
+          "decision": "Reuse existing local synthetic model fixture for one successful no-tool native turn, then check actual literature tab/Reader/locate-Excel UI. No real model/account, no manual state changes, no new framework.",
+          "reviewedAt": "2026-09-21T15:44:32.746Z"
+        }
+      ],
+      "scopeClarifications": [
+        {
+          "at": "2026-09-21T15:44:32.746Z",
+          "purpose": "Verify existing native library entry after normal synthetic session initialization",
+          "scopeChanged": false,
+          "checkpointMinutes": 20,
+          "nextCheckpointAt": "2026-09-21T16:04:32.746Z",
+          "allowedPathsUnchanged": true,
+          "card": "docs/project/tasks/V02-005.md",
+          "exit": "One successful local mock turn and actual UI entry, or precise blocker/qualified untested claim"
+        }
+      ]
     },
     {
       "id": "V02-006",
