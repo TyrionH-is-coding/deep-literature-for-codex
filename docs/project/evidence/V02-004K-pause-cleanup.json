@@ -1,0 +1,55 @@
+{
+  "remainingTaskExecutables": [],
+  "at": "2026-09-18T12:47:31.8806570Z",
+  "ownedStopped": [
+    {
+      "ProcessId": 34500,
+      "ParentProcessId": 20836,
+      "Name": "pwsh.exe",
+      "ExecutablePath": "C:\\Users\\15694\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+      "CommandLine": "\"C:\\Users\\15694\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\n$env:PATH='C:/tmp/v004k/build/node-v22.22.2-win-x64;'+$env:PATH; New-Item -ItemType Directory -Force outputs/v02-004k | Out-Null; npm ci --ignore-scripts --no-audit --no-fund *> outputs/v02-004k/npm-ci.log; Write-Output \\\"ci=$LASTEXITCODE\\\"; npm run modules -- list; npm run modules -- context engine; npm run modules -- context workflow; npm run modules -- context bridge\""
+    },
+    {
+      "ProcessId": 28868,
+      "ParentProcessId": 20836,
+      "Name": "pwsh.exe",
+      "ExecutablePath": "C:\\Users\\15694\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+      "CommandLine": "\"C:\\Users\\15694\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\n& 'C:/tmp/v004k/build/python/python.exe' -m venv C:/tmp/v004k/build/venv; & 'C:/tmp/v004k/build/venv/Scripts/python.exe' -m pip install -r docs/codex-v02/evidence/audit-python-requirements.txt *> C:/tmp/v004k/logs/build-python-install.log; Write-Output \\\"pip=$LASTEXITCODE\\\"; & 'C:/tmp/v004k/build/venv/Scripts/python.exe' -m pip freeze --all\""
+    },
+    {
+      "ProcessId": 33768,
+      "ParentProcessId": 28868,
+      "Name": "python.exe",
+      "ExecutablePath": "C:\\tmp\\v004k\\build\\python\\python.exe",
+      "CommandLine": "\"C:\\tmp\\v004k\\build\\python\\python.exe\" -m venv C:/tmp/v004k/build/venv"
+    },
+    {
+      "ProcessId": 11588,
+      "ParentProcessId": 33768,
+      "Name": "python.exe",
+      "ExecutablePath": "C:\\tmp\\v004k\\build\\venv\\Scripts\\python.exe",
+      "CommandLine": "C:\\tmp\\v004k\\build\\venv\\Scripts\\python.exe -m ensurepip --upgrade --default-pip"
+    },
+    {
+      "ProcessId": 35616,
+      "ParentProcessId": 11588,
+      "Name": "python.exe",
+      "ExecutablePath": "C:\\tmp\\v004k\\build\\python\\python.exe",
+      "CommandLine": "\"C:\\tmp\\v004k\\build\\python\\python.exe\" -m ensurepip --upgrade --default-pip"
+    },
+    {
+      "ProcessId": 31616,
+      "ParentProcessId": 35616,
+      "Name": "python.exe",
+      "ExecutablePath": "C:\\tmp\\v004k\\build\\venv\\Scripts\\python.exe",
+      "CommandLine": "C:\\tmp\\v004k\\build\\venv\\Scripts\\python.exe -W ignore::DeprecationWarning -c \"\nimport runpy\nimport sys\nsys.path = ['C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\tmpcinjjw7m\\\\setuptools-79.0.1-py3-none-any.whl', 'C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\tmpcinjjw7m\\\\pip-24.0-py3-none-any.whl'] + sys.path\nsys.argv[1:] = ['install', '--no-cache-dir', '--no-index', '--find-links', 'C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\tmpcinjjw7m', '--upgrade', 'setuptools', 'pip']\nrunpy.run_module(\\\"pip\\\", run_name=\\\"__main__\\\", alter_sys=True)\n\""
+    },
+    {
+      "ProcessId": 34532,
+      "ParentProcessId": 31616,
+      "Name": "python.exe",
+      "ExecutablePath": "C:\\tmp\\v004k\\build\\python\\python.exe",
+      "CommandLine": "\"C:\\tmp\\v004k\\build\\python\\python.exe\" -W ignore::DeprecationWarning -c \"\nimport runpy\nimport sys\nsys.path = ['C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\tmpcinjjw7m\\\\setuptools-79.0.1-py3-none-any.whl', 'C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\tmpcinjjw7m\\\\pip-24.0-py3-none-any.whl'] + sys.path\nsys.argv[1:] = ['install', '--no-cache-dir', '--no-index', '--find-links', 'C:\\\\Users\\\\15694\\\\AppData\\\\Local\\\\Temp\\\\tmpcinjjw7m', '--upgrade', 'setuptools', 'pip']\nrunpy.run_module(\\\"pip\\\", run_name=\\\"__main__\\\", alter_sys=True)\n\""
+    }
+  ]
+}

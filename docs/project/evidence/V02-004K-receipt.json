@@ -1,0 +1,29 @@
+{
+  "task": "V02-004K",
+  "dispatch": "V02-004K-context-2bbc9cec",
+  "sessionId": "01a0b471-26e1-7fd1-ae92-c6aa053824f4",
+  "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f",
+  "startedAt": "2026-09-18T12:17:10.4585373Z",
+  "phase": "resumed-environment-preparation",
+  "A": {
+    "base": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+    "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k",
+    "initialClean": true
+  },
+  "B": {
+    "base": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+    "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k",
+    "initialClean": true
+  },
+  "risk": "R2",
+  "goal": "Traceable dev.4 isolated installation; persistent stop, two restarts, explicit same-parent resume, committed asset protection",
+  "firstCheckpointMinutes": 90,
+  "pausedAt": "2026-09-18T12:41:03.9347545Z",
+  "pauseReason": "User requested computer restart; no further build/install/test until explicit resume",
+  "resumeNote": "A identity commit created; dependency installs may be interrupted. Check task-only process cleanup and dependency completeness before resuming. No candidate ZIP or product installation created.",
+  "resumedAt": "2026-09-21T14:20:18.8078835Z",
+  "nextCheckpointAt": "2026-09-21T15:50:18.8078835Z",
+  "resumedAHead": "b398a6a10c498aee7c527a83d586c99244ec231f",
+  "resumedBHead": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+  "resumeProcessCheck": "No node/python executable under C:/tmp/v004k at resume"
+}

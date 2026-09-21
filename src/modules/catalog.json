@@ -205,7 +205,7 @@
     },
     {
       "id": "engine",
-      "version": "0.2.0-dev.3",
+      "version": "0.2.0-dev.4",
       "purpose": "外部文献引擎，业务代码不在本仓库",
       "ownedPaths": [
         "runtime/pins.json",
@@ -374,8 +374,8 @@
   ],
   "externalEngine": {
     "name": "@dsh-external/dsh-scientific-reading",
-    "version": "0.2.0-dev.3",
-    "sourceCommit": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
-    "sha256": "a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44"
+    "version": "0.2.0-dev.4",
+    "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+    "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9"
   }
 }

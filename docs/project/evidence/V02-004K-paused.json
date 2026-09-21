@@ -1,0 +1,19 @@
+{
+  "pausedAt": "2026-09-18T12:41:03.9347545Z",
+  "AHead": "b398a6a10c498aee7c527a83d586c99244ec231f",
+  "AStatus": [
+    "?? scripts/v02-004k-source-audit.mjs"
+  ],
+  "BHead": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+  "BStatus": [
+    "?? docs/project/evidence/V02-004K-receipt.json",
+    "?? scripts/v02-004k-run.mjs"
+  ],
+  "taskRoot": "C:/tmp/v004k",
+  "startedCommands": [
+    "A node scripts/v02-004k-run.mjs ci",
+    "B npm ci --ignore-scripts --no-audit --no-fund followed by modules list/context",
+    "C:/tmp/v004k/build/python/python.exe -m venv C:/tmp/v004k/build/venv followed by pip install -r docs/codex-v02/evidence/audit-python-requirements.txt"
+  ],
+  "next": "Verify only task-owned processes are stopped; inspect installs/logs; run source byte audit; commit additional task-only scripts; build clean A, pack, then update B identities. No behavior acceptance done."
+}

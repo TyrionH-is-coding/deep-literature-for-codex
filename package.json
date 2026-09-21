@@ -1,6 +1,6 @@
 {
   "name": "deep-literature-for-codex",
-  "version": "0.2.0-dev.3",
+  "version": "0.2.0-dev.4",
   "private": true,
   "type": "module",
   "description": "Deep Literature for Codex：Codex 指挥的独立文献工作台",
