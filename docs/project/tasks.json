@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-18T12:11:35.822Z",
-    "lastHeartbeatCompletedAt": "2026-09-18T12:11:35.822Z",
+    "lastHeartbeatCompletedAt": "2026-09-21T14:31:42.942Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -1434,10 +1434,10 @@
       "dispatchRequestedAt": "2026-09-18T12:15:23.0281648Z",
       "startedAt": "2026-09-18T12:15:13.000Z",
       "startConfirmedBy": "official-read-thread-active-and-start-commentary",
-      "lastDispatchCheckAt": "2026-09-21T14:20:11.388Z",
+      "lastDispatchCheckAt": "2026-09-21T14:31:42.942Z",
       "waitCursor": "e17fc9f2-0203-46dd-b627-af31fc401edc:2",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-21T14:20:11.388Z",
+        "checkedAt": "2026-09-21T14:31:42.942Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c456-1de5-7ac3-bafd-63be6a050721"
@@ -1455,7 +1455,19 @@
       ],
       "resumedAt": "2026-09-21T14:20:11.388Z",
       "checkpointBasis": "90 minutes after resumedAt; user pause excluded from development time",
-      "nextCheckpointAt": "2026-09-21T15:50:11.388Z"
+      "nextCheckpointAt": "2026-09-21T15:50:11.388Z",
+      "receiptPhase": "resumed-environment-preparation",
+      "progressSnapshot": {
+        "checkedAt": "2026-09-21T14:31:42.942Z",
+        "engineHead": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+        "workbenchHead": "89ba17918a57622c2971ba76e1cfcb1fd82688fb",
+        "deliveryReady": false,
+        "observation": "A ci/build/offline/assets/pack run index reports exit 0; B installation acceptance scripts are still being prepared. No acceptance or dependency unlock.",
+        "evidence": [
+          "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k/outputs/v02-004k/runs.json",
+          "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/docs/project/evidence/V02-004K-receipt.json"
+        ]
+      }
     }
   ],
   "developmentBaseline": {
