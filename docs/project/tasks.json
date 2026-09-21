@@ -1414,7 +1414,17 @@
         "scripts/acceptance-v02-004k*",
         "scripts/v02-004k-*",
         "scripts/fixtures/v02-004k/",
-        "docs/project/evidence/V02-004K*"
+        "docs/project/evidence/V02-004K*",
+        "src/identity.mjs#startup-readiness-only",
+        "src/modules/bridge/plugin.mjs#startup-readiness-handshake-only",
+        "tests/v02-startup-readiness.test.mjs",
+        "tests/lifecycle.test.mjs#related-startup-only",
+        "tests/bridge.test.mjs#related-ready-handshake-only",
+        "docs/modules/application.md",
+        "docs/modules/changes/application.md",
+        "docs/modules/bridge.md#readiness-only",
+        "docs/modules/changes/bridge.md#readiness-only",
+        "src/modules/catalog.json#application-bridge-version-and-related-test-registration-only"
       ],
       "engineWritePaths": [
         "package.json#version",
@@ -1467,7 +1477,35 @@
           "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k/outputs/v02-004k/runs.json",
           "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/docs/project/evidence/V02-004K-receipt.json"
         ]
-      }
+      },
+      "findings": [
+        {
+          "id": "004K-R1",
+          "status": "open",
+          "classification": "current-task-required-fix",
+          "title": "启动返回 running/已启动 时业务 API 尚未注册，立即调用返回405空体并导致CLI失败",
+          "followup": "V02-004K",
+          "blocksTaskAcceptance": true,
+          "blocksV02Release": true,
+          "scope": "Startup readiness contract only; no Handoff performance or UI redesign",
+          "evidence": "C:/tmp/v004k/evidence/readiness-1790001190131.json",
+          "evidenceSha256": "22ede5954abd05f820720dcf057c1e5b09f2e4e1c661bd33525a7c9c23dfbab0",
+          "observation": "18 requests at 8–4452ms after start completion returned 405/empty; first 200 response completed at 9880ms. Response time is not exact route registration time. No damage/requeue observed.",
+          "cause": "identity timer announces workbench-ready from webServer.port before bridge Handoff.open/route registration; CLI immediately parses empty response as JSON",
+          "reviewedAt": "2026-09-21T14:36:42.469Z",
+          "uiEvidence": "Identity page claims started early; native DSH UI failure not yet directly verified"
+        }
+      ],
+      "scopeAmendments": [
+        {
+          "at": "2026-09-21T14:36:42.469Z",
+          "finding": "004K-R1",
+          "reason": "Installed restart must not advertise ready before trusted operations are callable",
+          "authorization": "Coordinator within user-authorized stable v0.2 scope",
+          "change": "Minimal B startup handshake and meaningful targeted regression; A product bytes and dependency locks unchanged",
+          "validation": "Repackage B and verify fresh start plus both installed restarts accept immediate trusted calls without fixture-only readiness wait; retain old failed evidence and rerun affected candidate checks"
+        }
+      ]
     }
   ],
   "developmentBaseline": {
