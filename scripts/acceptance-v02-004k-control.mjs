@@ -1,4 +1,5 @@
-import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {root,out,installed,start,stop,status,action,py,read,poll,taskGate} from './fixtures/v02-004k/common.mjs';
+import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import {root,out,installed,start,stop,status,action as installedAction,py,read,poll,taskGate} from './fixtures/v02-004k/common.mjs';
+const runKey=Date.now()+'-',action=(name,payload={})=>installedAction(name,{...payload,...(payload.idempotencyKey?{idempotencyKey:runKey+payload.idempotencyKey}:{})});
 const fixture=path.join(import.meta.dirname,'fixtures/v02-004k'),probe=(mode,...args)=>py(path.join(fixture,'stage.py'),root,mode,...args);
 const report={startedAt:new Date().toISOString(),installed,mode:'installed trusted B HTTP -> installed A JS/CLI/default worker; synthetic PDF, parser and translation seed only',rows:[],boots:[]};
 const record=(name,value)=>{report.rows.push({name,value});console.log('OBSERVED '+name);return value;};let held=false;
@@ -18,7 +19,7 @@ try{
  seed=record('prepare new source generation; preserve old committed assets',probe('prepare'));
  req={folderId:seed.folder,paperId:seed.paper,idempotencyKey:'stage-original',runAgent:false};
  task=record('submit installed real worker',await action('submit',req));original=task.taskId;parent=task.jobId;
- await poll(()=>read(path.join(root,'v004k-stage/held.json')).catch(()=>null),Boolean);held=true;
+ await poll(()=>read(path.join(seed.control,'held.json')).catch(()=>null),Boolean);held=true;
  task=await action('task',{taskId:original});assert.equal(task.job.status,'running');
  before=record('running stage snapshot',probe('snapshot',parent));
  alias=record('second alias shares parent',await action('submit',{...req,idempotencyKey:'stage-alias'}));assert.equal(alias.jobId,parent);

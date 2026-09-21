@@ -7,6 +7,7 @@ import hashlib
 import json
 import sqlite3
 import sys
+import time
 import zipfile
 from pathlib import Path
 
@@ -32,7 +33,8 @@ def notes():
         return list(c.execute('SELECT personal_thoughts,understanding_level,user_notes FROM items WHERE paper_id=?', (info['paper_id'],)).fetchone())
 if mode == 'seed':
     payload = json.loads(Path(__file__).with_name('formula-outline.json').read_text(encoding='utf-8'))
-    metadata = PaperMetadata.from_dict(payload['metadata'])
+    run_id=str(time.time_ns())
+    metadata = PaperMetadata.from_dict({**payload['metadata'],'doi':'10.5555/v004k-seed-'+run_id})
     lib = LibraryService(data)
     paper = lib.ingest(metadata)['paper_id']
     lib.close()
@@ -77,7 +79,7 @@ if mode == 'seed':
     expected=['合成个人思考','部分理解','V02 saved note']
     for col,value in zip(['个人思考','个人理解程度','用户笔记'],expected): s.cell(row,h[col]).value=value
     w.save(xlsx); w.close(); assert XlsxSnapshotService(data).refresh()['status']=='success'
-    info={'paper_id':paper, 'expected':expected, 'xlsx':str(xlsx), 'reader':str(reader), 'pdf_sha256':sha(ws.source_pdf), 'reader_sha256':sha(reader), 'normalized_blocks':len(normalized.blocks)}
+    info={'run_id':run_id,'paper_id':paper, 'expected':expected, 'xlsx':str(xlsx), 'reader':str(reader), 'pdf_sha256':sha(ws.source_pdf), 'reader_sha256':sha(reader), 'normalized_blocks':len(normalized.blocks)}
     meta_file.write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8'); assert notes()==expected
     print(json.dumps(info,ensure_ascii=False))
 else:

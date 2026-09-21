@@ -18,6 +18,7 @@ try{
  await prompt(one.sessionId,'manual-blocker');await waitFor(one.sessionId,s=>s.calls===1);
  const queued=await action('dispatch',{taskId:one.taskId}),ownedRpc=queued.dispatch.rpcId;await prompt(one.sessionId,'unrelated-queue');
  const canceled=record('trusted cancel removes only target queue',await action('cancel',{taskId:one.taskId}));assert.equal(canceled.cancellation.removedQueued,1);assert.equal(canceled.cancellation.turn,'not_targeted');assert.equal(canceled.control.independentChildrenStopped,false);
+ const guard=record('installed category continuation guard',await json('/v4j-probe',{sessionId:one.sessionId,action:'advance',jobId:one.jobId}));assert.equal(guard.toolResult.isError,true);assert.match(JSON.stringify(guard.toolResult),/reading_stop_requested/);assert.equal((await action('task',{taskId:one.taskId})).control.stopRequested,true);
  let state=record('unrelated active turn and queue survive',await probe(one.sessionId));assert.equal(state.aborted,0);assert.ok(state.queue.includes('unrelated-queue'));assert.ok(!state.queue.includes(ownedRpc));
  await probe(one.sessionId,'release');await waitFor(one.sessionId,s=>s.calls===2);await probe(one.sessionId,'release');await waitFor(one.sessionId,s=>s.status!=='running');
  await action('dispatch',{taskId:other.taskId});await waitFor(one.sessionId,s=>s.calls===3);
