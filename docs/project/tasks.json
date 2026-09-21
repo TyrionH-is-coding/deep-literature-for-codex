@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
-    "lastReviewAt": "2026-09-18T12:11:35.822Z",
-    "lastHeartbeatCompletedAt": "2026-09-21T14:31:42.942Z",
+    "lastReviewAt": "2026-09-21T15:20:16.629Z",
+    "lastHeartbeatCompletedAt": "2026-09-21T15:20:16.629Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -47,7 +47,12 @@
         "resumedAt": "2026-09-21T14:20:11.388Z",
         "resumeAuthorization": "User: 请继续 (2026-09-21)"
       }
-    ]
+    ],
+    "remoteSync": {
+      "state": "pending",
+      "reason": "K integration and acceptance/005 reservation awaiting branch push",
+      "at": "2026-09-21T15:20:16.629Z"
+    }
   },
   "scope": "稳定现有主流程、逐步模块化、建立恢复证据；旧 v0.2 新功能不默认纳入",
   "codeBaseline": {
@@ -202,7 +207,7 @@
       "id": "V02-004",
       "title": "精读阶段边界与续接",
       "kind": "workstream",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "workflow"
@@ -214,9 +219,13 @@
       "ownerSession": null,
       "worktree": null,
       "branch": null,
-      "commits": [],
-      "evidence": [],
-      "notes": "J源码闭环已验收；K固定dev.4隔离安装组合验证停止/恢复与资产保护，004A-G1/004D-O1仍待安装证据，005等待。",
+      "commits": [
+        "ce5fd9aac20985f3f80ca675b8781e40006a227e"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004K-control-review.md"
+      ],
+      "notes": "dev.4 安装控制链通过，004A-G1/004D-O1关闭；解除005依赖，O2/O3为明确保留的非阻断改进。",
       "children": [
         "V02-004A",
         "V02-004B",
@@ -229,13 +238,15 @@
         "V02-004I",
         "V02-004J",
         "V02-004K"
-      ]
+      ],
+      "integrationCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+      "integratedAt": "2026-09-21T23:12:06+08:00"
     },
     {
       "id": "V02-005",
-      "title": "Reader 与资产合同",
-      "kind": "workstream",
-      "status": "planned",
+      "title": "Reader 样例与首次完整流程演示",
+      "kind": "task",
+      "status": "ready",
       "modules": [
         "engine",
         "bridge"
@@ -243,13 +254,32 @@
       "dependsOn": [
         "V02-004"
       ],
-      "card": null,
+      "card": "docs/project/tasks/V02-005.md",
       "ownerSession": null,
-      "worktree": null,
-      "branch": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005",
+      "branch": "codex/v02-005-reader-demo",
       "commits": [],
       "evidence": [],
-      "notes": "004安装验收后检查代表性Reader样例并交完整主流程演示；未复现缺陷可直接验收结束，不强制实现新层或新主题。"
+      "notes": "先用已验收ZIP验证最小完整演示；已有Excel/可信CLI入口，不预设网页编辑/停止按钮；生产修改需总控按具体缺陷修订允许范围。",
+      "dispatchState": "reserved",
+      "baseCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+      "engineBaseCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "writePaths": [
+        "scripts/v02-005-*",
+        "scripts/acceptance-v02-005-*",
+        "scripts/fixtures/v02-005/",
+        "docs/project/evidence/V02-005*"
+      ],
+      "receipt": "docs/project/evidence/V02-005-receipt.json",
+      "instanceRoot": "C:/tmp/v005/",
+      "risk": "R2",
+      "checkpointMinutes": 90,
+      "reviewRounds": 0,
+      "reviewRoundsBeforeRescope": 2,
+      "dispatchReservedAt": "2026-09-21T15:20:16.629Z",
+      "independence": "Only active development task; unique worktree/branch/instance/outputs; A and prior K evidence read-only; serial integration",
+      "exitCriteria": "Existing installed full normal flow plus representative browser Reader and explicit failure recovery, persisted Excel records after restart, qualified evidence/limitations; no forced new feature"
     },
     {
       "id": "V02-006",
@@ -773,11 +803,15 @@
         },
         {
           "id": "004A-G1",
-          "status": "open",
+          "status": "closed",
           "title": "宿主取消与独立引擎worker取消职责未闭合",
           "followup": "V02-004F",
           "blocksV02Release": true,
-          "notes": "先A权威停止控制，再B工具接入及最终组合；004E只关闭宿主持久意图C1。"
+          "notes": "A权威控制+B可信入口+安装默认worker/真实DSH取消作用域均已验；不宣称独立child连带停止。",
+          "closedBy": "V02-004K",
+          "closedAt": "2026-09-21T15:20:16.629Z",
+          "installedAcceptance": "passed on fixed dev.4 ZIP 862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105",
+          "closureEvidence": "docs/project/evidence/V02-004K-control-review.md"
         }
       ]
     },
@@ -971,13 +1005,17 @@
       "findings": [
         {
           "id": "004D-O1",
-          "status": "open",
+          "status": "closed",
           "title": "failed后直接advance导致状态校验失败，支持边界与根因待核实",
           "followup": "V02-004",
           "classification": "confirmed-direct-service-lifecycle-guard-defect",
           "evidence": "docs/project/evidence/V02-004H-control-review.md",
           "sourceFix": "V02-004H",
-          "sourceAcceptance": "passed; installed recheck pending"
+          "sourceAcceptance": "passed; installed recheck pending",
+          "closedBy": "V02-004K",
+          "closedAt": "2026-09-21T15:20:16.629Z",
+          "installedAcceptance": "passed on fixed dev.4 ZIP 862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105",
+          "closureEvidence": "docs/project/evidence/V02-004K-control-review.md"
         }
       ]
     },
@@ -1374,7 +1412,7 @@
       "title": "安装组合中的停止与安全恢复",
       "kind": "task",
       "parent": "V02-004",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "workflow",
@@ -1393,12 +1431,12 @@
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k",
       "branch": "codex/v02-004k-installed-control",
       "engineBranch": "codex/v02-004k-installed-control",
-      "dispatchState": "started",
+      "dispatchState": "completed",
       "dispatchReservedAt": "2026-09-18T12:11:35.822Z",
       "userConfirmed": true,
       "risk": "R2",
       "checkpointMinutes": 90,
-      "reviewRounds": 0,
+      "reviewRounds": 1,
       "expectedFirstEvidence": "固定制品来源/构建证据",
       "observableOutcome": "隔离安装中的停止→两次重启→明确恢复同parent，保护已提交资产",
       "writePaths": [
@@ -1435,21 +1473,29 @@
         "docs/codex-v02/V02-004K*"
       ],
       "receipt": "docs/project/evidence/V02-004K-receipt.json",
-      "commits": [],
-      "evidence": [],
-      "notes": "仅新候选身份与必要安装验收，不改生产算法/依赖；F2/真实模型/最终发布另验。",
+      "commits": [
+        "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+        "cded8181f86e8a512be83185304bd56bb6bbb25f"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-004K-report.md",
+        "docs/project/evidence/V02-004K-index.json",
+        "docs/project/evidence/V02-004K-control-review.md",
+        "docs/project/evidence/V02-004K-control-verification.json"
+      ],
+      "notes": "dev.4 同一隔离安装停止/重启/显式恢复、真实worker与资产/记录保护通过；启动R1修复通过；浏览器完整演示归005，F2/真实模型/最终发布另验。",
       "contextCommit": "2bbc9cec67f7dc8fa6fdc0857867440d9b18955f",
       "clientThreadId": "client-new-thread:b1a1a1fa-b189-4c2c-8b0c-c99119978944",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T12:15:23.0281648Z",
       "startedAt": "2026-09-18T12:15:13.000Z",
       "startConfirmedBy": "official-read-thread-active-and-start-commentary",
-      "lastDispatchCheckAt": "2026-09-21T14:31:42.942Z",
-      "waitCursor": "e17fc9f2-0203-46dd-b627-af31fc401edc:2",
+      "lastDispatchCheckAt": "2026-09-21T15:20:16.629Z",
+      "waitCursor": "e17fc9f2-0203-46dd-b627-af31fc401edc:3",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-21T14:31:42.942Z",
-        "status": "active",
-        "turnStatus": "inProgress",
+        "checkedAt": "2026-09-21T15:20:16.629Z",
+        "status": "idle",
+        "turnStatus": "completed",
         "turnId": "01a0c456-1de5-7ac3-bafd-63be6a050721"
       },
       "resumeHistory": [
@@ -1465,19 +1511,19 @@
       ],
       "resumedAt": "2026-09-21T14:20:11.388Z",
       "checkpointBasis": "90 minutes after resumedAt; user pause excluded from development time",
-      "nextCheckpointAt": "2026-09-21T15:50:11.388Z",
-      "receiptPhase": "resumed-environment-preparation",
+      "nextCheckpointAt": null,
+      "receiptPhase": "review",
       "progressSnapshot": {
-        "checkedAt": "2026-09-21T14:45:54.944Z",
-        "engineHead": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
-        "workbenchHead": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
-        "deliveryReady": false,
-        "observation": "Startup fix independently reviewed and five targeted tests pass; developer is validating new installed final instance, no release gate closed."
+        "checkedAt": "2026-09-21T15:20:16.629Z",
+        "engineHead": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+        "workbenchHead": "cded8181f86e8a512be83185304bd56bb6bbb25f",
+        "deliveryReady": true,
+        "observation": "Accepted and integrated; qualified installed control scope only."
       },
       "findings": [
         {
           "id": "004K-R1",
-          "status": "open",
+          "status": "closed",
           "classification": "current-task-required-fix",
           "title": "启动返回 running/已启动 时业务 API 尚未注册，立即调用返回405空体并导致CLI失败",
           "followup": "V02-004K",
@@ -1493,7 +1539,7 @@
           "sourceReview": {
             "at": "2026-09-21T14:45:54.944Z",
             "sourceCommit": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
-            "result": "accepted for full host-process start/restart scope; installed acceptance still pending",
+            "result": "accepted for full host-process start/restart; installed immediate calls now also passed",
             "independentTests": {
               "passed": 5,
               "failed": 0,
@@ -1502,7 +1548,11 @@
               "logSha256": "6558385a85a5f09ae750bfd8cfe06fa33be3a9f64ed6a3389157c762bf237ed3"
             },
             "codeReview": "Synchronous apply avoids loader self-wait; loopback ready handshake checks successful parse and instance; failed/disposed identity does not announce; no extra write capability"
-          }
+          },
+          "closedBy": "V02-004K",
+          "closedAt": "2026-09-21T15:20:16.629Z",
+          "installedAcceptance": "passed on fixed dev.4 ZIP 862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105",
+          "closureEvidence": "docs/project/evidence/V02-004K-control-review.md"
         },
         {
           "id": "004K-O2",
@@ -1549,27 +1599,39 @@
       ],
       "interruptionReview": {
         "at": "2026-09-21T15:04:10.736Z",
-        "result": "explicit-recovery-path-evidence-accepted; overall delivery not yet reviewed",
+        "result": "explicit-recovery-path-and-overall-delivery-accepted-with-documented-limits",
         "basis": "Independent code/probe review and both raw result files; previous004D used explicit inspect/requeue and did not prove automatic B alias recovery"
-      }
+      },
+      "engineCommits": [
+        "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+        "ad00bc5a84110346801dbb6e98c8b9e19135287d"
+      ],
+      "integrationCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+      "engineIntegrationCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+      "integratedAt": "2026-09-21T23:12:06+08:00",
+      "acceptedAt": "2026-09-21T15:20:16.629Z",
+      "acceptance": "installed-control-and-protection-accepted-with-explicit-limits",
+      "userVisibleResult": "可信停止区分请求与确认，重启保持停止，明确恢复同一任务；正式资产与个人记录受保护。"
     }
   ],
   "developmentBaseline": {
-    "engine": "b4a9ecc00a76b85c244a0167c79b5a3539e97415",
+    "engine": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "697dfc4718b7c984223cafc4479b4843fe17dffd",
+    "workbench": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
     "workbenchBranch": "codex/v02-control",
-    "candidate": "0.2.0-dev.3",
-    "engineAcceptance": "stop/lifecycle/API source accepted; final installed combination pending",
-    "workbenchAcceptance": "J source workflow accepted; K final installed combination pending"
+    "candidate": "0.2.0-dev.4",
+    "engineAcceptance": "installed stop/lifecycle/assets accepted; source Python baseline reused by exact installed hashes",
+    "workbenchAcceptance": "installed stop/restart/explicit resume and readiness accepted; browser/full-flow pending V02-005",
+    "installedEvidence": "docs/project/evidence/V02-004K-control-review.md",
+    "artifactSha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105"
   },
   "demonstrations": [
     {
       "id": "stop-resume",
-      "ownerTask": "V02-004J",
-      "status": "demonstrated-source-only",
-      "scope": "同一合成任务停止→独立进程重开→普通推进受阻→明确恢复同parent",
-      "evidence": "docs/project/evidence/V02-004J-report.md"
+      "ownerTask": "V02-004K",
+      "status": "demonstrated-installed-trusted-api",
+      "scope": "同一隔离dev.4安装停止→两次完整宿主重启→普通推进受阻→明确恢复同parent；非浏览器UI验收",
+      "evidence": "docs/project/evidence/V02-004K-report.md"
     },
     {
       "id": "first-main-flow",

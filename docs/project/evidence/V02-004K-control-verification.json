@@ -1,0 +1,106 @@
+{
+  "task": "V02-004K",
+  "reviewedAt": "2026-09-21T15:20:16.629Z",
+  "result": "accepted-for-installed-control-scope",
+  "integration": {
+    "A": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+    "B": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+    "noMergeConflict": true,
+    "productDiffAgainstDelivery": []
+  },
+  "source": {
+    "A": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+    "B": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+    "fixtureCommit": "8ecccf12960c2e5bef3acd1a8eb911da61ba08cd",
+    "AReportParent": "ad00bc5a84110346801dbb6e98c8b9e19135287d"
+  },
+  "zipSha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105",
+  "independentProvenance": {
+    "indexedUniqueFiles": 64,
+    "fixtureFiles": 10,
+    "zipManifestFiles": 560,
+    "appSourceAndInstalledFiles": 41,
+    "tgzAndInstalledFiles": 54,
+    "pythonSourceWheelInstalledAndBaselineFiles": 52
+  },
+  "gitLineEndings": {
+    "equivalentAfterCRLFNormalization": 105,
+    "explanation": "B catalog plus A/H Python source; archive-to-installed bytes are exact"
+  },
+  "independentInstalledRuntimeCheck": {
+    "node": "22.22.2",
+    "python": "3.11.16",
+    "npmPackageVersions": 536,
+    "pythonLockedPackageVersions": 14,
+    "at": "2026-09-21T15:20:16.629Z"
+  },
+  "pythonBaselineReuse": {
+    "sourceCommit": "2379f9341e872c900edf5258848f0c1bc603600a",
+    "record": {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine/docs/codex-v02/V02-004H-evidence/accepted/run.json",
+      "sha256": "080a159bd26731b8ac98ca370dcd410eeda0da84f985de198739f228c864d66e",
+      "bytes": 24814,
+      "availability": "local-only"
+    },
+    "installedFilesMatchOriginalRecordedBytes": 52,
+    "passed": 595,
+    "skipped": 3,
+    "rerun": false
+  },
+  "independentReadiness": {
+    "passed": 5,
+    "failed": 0,
+    "index": {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-004k-control-review/startup-readiness-572fee5.json",
+      "sha256": "4220939510a9ea50b50bccc9b8ac8b370fa2a2c4c0f44c118abc73ed37446a86",
+      "bytes": 1091,
+      "availability": "local-only"
+    },
+    "log": {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-004k-control-review/startup-readiness-572fee5.log",
+      "sha256": "6558385a85a5f09ae750bfd8cfe06fa33be3a9f64ed6a3389157c762bf237ed3",
+      "bytes": 960,
+      "availability": "local-only"
+    }
+  },
+  "independentRawProvenance": {
+    "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-004k-control-review/provenance-independent.json",
+    "sha256": "7b58ff02ff408081735cfc27c7291aabb8b8df4e437b824a690e4900e7feeeb6",
+    "bytes": 17419,
+    "availability": "local-only"
+  },
+  "provenanceScript": {
+    "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-004k-control-review/verify-delivery.py",
+    "sha256": "88ee40e486c8a878dae2317870d592099577ecad5c92a8a67193ddd4e3af73d8",
+    "bytes": 4810,
+    "availability": "local-only"
+  },
+  "controlFinalizationScript": {
+    "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-004k-control-review/finalize-control.py",
+    "sha256": "8e2d997678ed1c2fd4fa55d2924880393f6f8564ea9cc16b5cc9a645ea1084ba",
+    "bytes": 11177,
+    "availability": "local-only"
+  },
+  "independentReviewers": [
+    "installed_control_acceptance",
+    "native_cancel_acceptance",
+    "startup_readiness_review",
+    "interruption_recovery_review"
+  ],
+  "behaviorEvidenceNote": "Resolve exact tracked reviewCopy names through V02-004K-index.json; conclusions in V02-004K-control-review.md",
+  "integrationModuleCheck": {
+    "passed": true,
+    "modules": 10,
+    "sourceFiles": 47,
+    "imports": 152
+  },
+  "notCovered": [
+    "browser UI",
+    "real models/scientific quality",
+    "F2 three-domain recovery",
+    "other platforms",
+    "plugin hot reload",
+    "automatic worker crash recovery",
+    "final release"
+  ]
+}
