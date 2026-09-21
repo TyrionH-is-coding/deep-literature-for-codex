@@ -1517,6 +1517,24 @@
           "basis": "Static independent review: new ready route discards disposer, as existing API route already does; no live hot-reload test performed",
           "decision": "Current card covers full host process stop/start which destroys route map. Plugin hot reload is not claimed; record for later, do not expand this card.",
           "notCovered": "Real bridge route disposal/reload; handshake-time disposal is guarded by source but not directly covered by five identity tests"
+        },
+        {
+          "id": "004K-O3",
+          "status": "open",
+          "classification": "later-improvement",
+          "title": "worker崩溃后原持久running未自动校正，普通start/新alias不自动续接",
+          "blocksTaskAcceptance": false,
+          "blocksV02Release": false,
+          "followup": null,
+          "observation": "Registered PID/start identity confirmed exited; at 64.4s after last heartbeat B poll still returned persisted running. This is not proof of worker liveness and waiting longer does not trigger current B recovery.",
+          "failedEvidence": "C:/tmp/v004k/evidence-final/interruption-1790002721907.json",
+          "failedSha256": "2cc38f8b9459d14290602d63ab80059e358daa342145339273bbe639690c30d0",
+          "recoveryEvidence": "C:/tmp/v004k/evidence-final/interruption-1790002912838.json",
+          "recoverySha256": "05f53715f3f534e65bacf397fbf166dbeb1d6bb4d6dd5d667308a41b0c060489",
+          "recovery": "Official B cancel→acknowledged→resumeStopped reaches waiting_agent on same parent job_bd495bc3901361dc/PDF SHA/generation; control revision1→2; provider retry1→2; no manual state edit or internal inspect unlock",
+          "decision": "Explicit interruption continuation satisfies this card; no automatic restart requirement or A scope expansion. Keep stale-status/retry usability limit visible in handoff and first flow demonstration; final release/user acceptance still pending.",
+          "limitations": "This crash sample proves interrupted parse continuation only; existing committed assets/Reader/Excel protection uses other evidence from the same candidate. Raw businessStatus may remain stale even during stop acknowledgement.",
+          "reviewedAt": "2026-09-21T15:04:10.736Z"
         }
       ],
       "scopeAmendments": [
@@ -1528,7 +1546,12 @@
           "change": "Minimal B startup handshake and meaningful targeted regression; A product bytes and dependency locks unchanged",
           "validation": "Repackage B and verify fresh start plus both installed restarts accept immediate trusted calls without fixture-only readiness wait; retain old failed evidence and rerun affected candidate checks"
         }
-      ]
+      ],
+      "interruptionReview": {
+        "at": "2026-09-21T15:04:10.736Z",
+        "result": "explicit-recovery-path-evidence-accepted; overall delivery not yet reviewed",
+        "basis": "Independent code/probe review and both raw result files; previous004D used explicit inspect/requeue and did not prove automatic B alias recovery"
+      }
     }
   ],
   "developmentBaseline": {
