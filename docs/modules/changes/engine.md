@@ -23,3 +23,7 @@ A npm `0.2.0-dev.3` / Python `0.2.0.dev2`，来源 `a45aff9a6d5419c1b7a5cbc79543
 A tgz SHA256 `a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44`；wheel SHA256 `37f3da559ba74f022f4b73c3757b55299254ee50a75f04af49162b00749f4f83`。
 沿用已验收 004B 恢复修复，B 接口/schema/依赖和运行时未变；未包含并行 004E，取消与 F2 不宣称解决。
 固定 Node 22.22.2 / Python 3.11.16 / DSH rc.7。当前验证见 V02-004D 专属证据。回退候选身份不回退用户数据。
+
+## V02-004K 内部安装控制候选（未发布）
+
+A npm `0.2.0-dev.4` / Python `0.2.0.dev3`，来源 `2dcd068bf3cbdf4b601351ab0bda639873bc0359`；tgz SHA256 `a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9`。组合固定 A 停止/写前守卫/导出与 B 多别名工作流，生产 Python 字节未变。Node 22.22.2 / Python 3.11.16 / DSH rc.7 / schema4 与依赖不变。安装验收证据见 V02-004K；API、UI、科学质量分别报告，元数据本身不代表验收通过。回退须配套保留资产与停止记录，不能降级消除停止意图。

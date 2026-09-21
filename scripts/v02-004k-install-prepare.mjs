@@ -1,0 +1,7 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {pathToFileURL} from 'node:url';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
+const p=JSON.parse(await fs.readFile(new URL('../outputs/v02-004k/package.json',import.meta.url),'utf8')),root=process.argv[2]||'C:/tmp/v004k/instance';assert.ok(['C:/tmp/v004k/instance','C:/tmp/v004k/final'].includes(root));
+try{await fs.stat(root);throw Error('instance already exists');}catch(e){if(e.code!=='ENOENT')throw e;}
+const {initializeRoot}=await import(pathToFileURL(path.join(p.extractedRoot,'src/core.mjs')));await initializeRoot(root);await fs.writeFile(path.join(root,'.v02-004k-test-instance'),'synthetic-only');
+const pins=JSON.parse(await fs.readFile(path.join(p.extractedRoot,'runtime/pins.json'),'utf8'));await fs.mkdir(path.join(root,'runtime/downloads'),{recursive:true});const records=[];
+for(const [name,sha256] of [['node-22.22.2.zip',pins.node.sha256],['python-3.11.16-20260901.tar.gz',pins.python.sha256]]){const source='C:/tmp/v004k/downloads/'+name,target=path.join(root,'runtime/downloads',name);assert.equal(createHash('sha256').update(await fs.readFile(source)).digest('hex'),sha256);await fs.copyFile(source,target);records.push({source,target,sha256});}
+await fs.writeFile('C:/tmp/v004k/logs/install-preparation-'+path.basename(root)+'.json',JSON.stringify({root,extractedRoot:p.extractedRoot,records},null,2));console.log(root);

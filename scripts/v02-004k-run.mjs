@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync,execFileSync} from 'node:child_process';
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'outputs/v02-004k');fs.mkdirSync(out,{recursive:true});
+const commands={check:['scripts/modules.mjs','check'],test:['scripts/modules.mjs','test','all'],impact:['scripts/modules.mjs','impact','--base','697dfc4718b7c984223cafc4479b4843fe17dffd'],package:['scripts/package-release.mjs','C:/tmp/v004k/candidate',path.join(root,'inputs/scientific-reading.tgz')]};
+const id=process.argv[2];if(!commands[id])throw Error('unknown command');
+if(id==='package'&&process.argv[3])commands.package[1]=process.argv[3];
+const sourceCommit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8',cwd:root}).trim();
+const trackedStatus=execFileSync('git',['status','--porcelain','--untracked-files=no'],{encoding:'utf8',cwd:root}).trim();
+const startedAt=new Date().toISOString(),args=commands[id];
+const r=spawnSync(process.execPath,args,{cwd:root,encoding:'utf8',windowsHide:true,maxBuffer:64*1024*1024,env:{...process.env,PATH:path.dirname(process.execPath)+';'+process.env.PATH,TEMP:'C:/tmp/v004k/build',TMP:'C:/tmp/v004k/build'}});
+const log=path.join(out,id+'-'+Date.now()+'.log');fs.writeFileSync(log,(r.stdout||'')+(r.stderr||''));
+const index=path.join(out,'runs.json'),runs=fs.existsSync(index)?JSON.parse(fs.readFileSync(index)):[];
+runs.push({id,command:process.execPath,args,cwd:root,sourceCommit,trackedStatus,startedAt,finishedAt:new Date().toISOString(),exitCode:r.status,log});fs.writeFileSync(index,JSON.stringify(runs,null,2));
+if(id==='package'&&r.status===0)fs.writeFileSync(path.join(out,'package.json'),r.stdout);
+console.log(JSON.stringify(runs.at(-1)));console.log((r.stdout||'').slice(-2500)+(r.stderr||'').slice(-1500));process.exitCode=r.status??1;

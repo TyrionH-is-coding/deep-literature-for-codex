@@ -1,0 +1,693 @@
+{
+  "root": "C:/tmp/v004k/final",
+  "installed": {
+    "product": "codex-scientific-reading",
+    "version": "0.2.0-dev.4",
+    "appSha256": "a4182a78f1e4dc50bdf9286bcf05c2c301aa5c7327f9274c11781a41916d0653",
+    "slot": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50",
+    "app": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\app",
+    "profileModules": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\profile-modules",
+    "profilePackage": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\profile-package.json",
+    "dataFormat": 4,
+    "node": "C:\\tmp\\v004k\\final\\runtime\\node\\22.22.2\\node.exe",
+    "python": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Scripts\\python.exe",
+    "dsh": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\npm\\node_modules\\@deepseek-ai\\dsh\\lib\\bin.js",
+    "pins": {
+      "schema": 1,
+      "channel": "internal-development",
+      "platform": "win32-x64",
+      "node": {
+        "version": "22.22.2",
+        "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-win-x64.zip",
+        "sha256": "7c93e9d92bf68c07182b471aa187e35ee6cd08ef0f24ab060dfff605fcc1c57c"
+      },
+      "python": {
+        "version": "3.11.16",
+        "build": "20260901",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+        "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
+      },
+      "dsh": "0.1.0-rc.7",
+      "plugin": {
+        "name": "@dsh-external/dsh-scientific-reading",
+        "version": "0.2.0-dev.4",
+        "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9",
+        "source": "V02-004K internal installed-control candidate; local archive inputs/scientific-reading.tgz",
+        "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359"
+      },
+      "platforms": {
+        "darwin-arm64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-arm64.tar.gz",
+            "sha256": "db4b275b83736df67533529a18cc55de2549a8329ace6c7bcc68f8d22d3c9000"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-apple-darwin-install_only_stripped.tar.gz",
+            "sha256": "768f05cf200273bbdda9a5955a5a6892a4b22f2a0b1e4b0a9160f5c7fce86816"
+          }
+        },
+        "darwin-x64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-x64.tar.gz",
+            "sha256": "12a6abb9c2902cf48a21120da13f87fde1ed1b71a13330712949e8db818708ba"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-apple-darwin-install_only_stripped.tar.gz",
+            "sha256": "908b381433f78b832c8d64960ced0f85871893cc8779f413f963e0c9e293c258"
+          }
+        },
+        "linux-arm64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-arm64.tar.gz",
+            "sha256": "b2f3a96f31486bfc365192ad65ced14833ad2a3c2e1bcefec4846902f264fa28"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+            "sha256": "f9308ed57184fae73941c712ed847be420ce36d31ba73ce53f0508a1ee752f68"
+          }
+        },
+        "linux-x64": {
+          "node": {
+            "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-x64.tar.gz",
+            "sha256": "978978a635eef872fa68beae09f0aad0bbbae6757e444da80b570964a97e62a3"
+          },
+          "python": {
+            "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+            "sha256": "64427febea27864d136db46c8efe968eb6fa5ca2813ce1dca4bb95aec31cb2e4"
+          }
+        }
+      }
+    },
+    "candidate": true,
+    "browserCapability": "check_in_codex",
+    "installedAt": "2026-09-21T14:46:53.735Z"
+  },
+  "manifestSource": "572fee5c8fa28fd920221534ea28b3ce70051c0c",
+  "engineSource": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+  "manifestSha256": "f9bb8e2ab930249cfe9fcb0b585911f965cd298b2de303c1086bebee1dbfa56a",
+  "zip": "C:\\tmp\\v004k\\candidate-r1\\deep-literature-for-codex-0.2.0-dev.4-win-x64.zip",
+  "zipSha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105",
+  "appFiles": [
+    {
+      "name": "src/bootstrap-posix.mjs",
+      "sha256": "d48cc06022ab552eca6f3dd7c0d24a9ded10753ee1acccd832fce7bfe29880dc"
+    },
+    {
+      "name": "src/bridge-services.mjs",
+      "sha256": "efebe6130eb2eb38591bf59d7ce51ef04c846297dce60f64cbf79d3a60a1811d"
+    },
+    {
+      "name": "src/bridge.mjs",
+      "sha256": "58643c5a5fb52d262812dce5d27c2053d533017dcc3e01a1d3555c860cddb8cc"
+    },
+    {
+      "name": "src/cli.mjs",
+      "sha256": "9a628abd2eff11113362b426b90cab20063782f17ca50d11cdf1fe98643c9835"
+    },
+    {
+      "name": "src/client.mjs",
+      "sha256": "17878f825808a8cda682da90223c627a6bf8cf056422bce6438a302dc1d28185"
+    },
+    {
+      "name": "src/control.mjs",
+      "sha256": "008ee5bf807968c47ed293ef538edc6ea8b1d8b6edb0381f6ea4d1eea4d9b275"
+    },
+    {
+      "name": "src/core.mjs",
+      "sha256": "dd09bff7a4cd18a33c083ec17a626987017b0899485c21078dfded3016077be0"
+    },
+    {
+      "name": "src/handoff.mjs",
+      "sha256": "1c7ddccc0b8617422fd6b4bb04f983e4346b57ad459cec235c0aa1ff0b5c256f"
+    },
+    {
+      "name": "src/identity.mjs",
+      "sha256": "3b71c58eb3f0c6bba24357577a95f62d58210bd0c54e8ce9986bb725efa4c07a"
+    },
+    {
+      "name": "src/install.mjs",
+      "sha256": "3eb5af3e707c3cbeba7bcfbbfceccdb20317221d16465b6bd3f737b047e178a0"
+    },
+    {
+      "name": "src/launcher.mjs",
+      "sha256": "fa581fa1cea632aebb26fc425c0b31461d9982a289bf6e111eb702108771cb14"
+    },
+    {
+      "name": "src/library-transfer.mjs",
+      "sha256": "c5f83b298f84effc41c72d255ddd2ab56f48747d03d81c5354460fdf7e99ca3b"
+    },
+    {
+      "name": "src/local-socket.mjs",
+      "sha256": "aeeeb771637cc517d88540ed293ef18efe9fb5afa3a6a39453ab2bfa47fbca4c"
+    },
+    {
+      "name": "src/modules/bridge/index.mjs",
+      "sha256": "b927ad3ab340832a02ffe813898a1768d87136a534a53b6f2e7688789becbf81"
+    },
+    {
+      "name": "src/modules/bridge/plugin.mjs",
+      "sha256": "4123d655bb0957e2c0c2546d29f3cafce87792bdeac51679c2baf0282ebbd7bf"
+    },
+    {
+      "name": "src/modules/bridge/services.mjs",
+      "sha256": "f6ada4e83de03a32c52fee6a0fbb9ee8d79fb4fad3c0bf54860fa071b0170795"
+    },
+    {
+      "name": "src/modules/catalog.json",
+      "sha256": "6bb0e2971b8e789a65f1762fef0f5b7ecf3071db8997bb2099a3072b8b5183ef"
+    },
+    {
+      "name": "src/modules/foundation/constants.mjs",
+      "sha256": "feb33bd06a59e66d39d2f2cf55568b74005dc426183bec48efc2bca55f2d93f2"
+    },
+    {
+      "name": "src/modules/foundation/environment.mjs",
+      "sha256": "f7f027d94955d41f3c7848d863199927a735eb14011d63a4f50749256cec4e08"
+    },
+    {
+      "name": "src/modules/foundation/index.mjs",
+      "sha256": "702f5aa30149a273eb53481354edc7aaf2123d58a078a31b1fbf19d7952f4343"
+    },
+    {
+      "name": "src/modules/foundation/instance.mjs",
+      "sha256": "12811b41947c657669fff7b223c6fad6106191aae1f40dab44408620a67afc93"
+    },
+    {
+      "name": "src/modules/foundation/integrity.mjs",
+      "sha256": "07a9c80712663860c9db2c58948350a1e5bbe8bbf7436c426e6b5841f8975c0d"
+    },
+    {
+      "name": "src/modules/foundation/json.mjs",
+      "sha256": "12cdd174c5a590eec2e62e9664a0c91c546868468fd909c1603978880bcac284"
+    },
+    {
+      "name": "src/modules/foundation/platform.mjs",
+      "sha256": "aa09f5a4e333513727b160e8decb46818393b088050e29d7cb2310b20d41bb79"
+    },
+    {
+      "name": "src/modules/lifecycle/control.mjs",
+      "sha256": "91e7c058335073ad10f509cdb24e520d82038ffb633140a4f1c535751c5b2502"
+    },
+    {
+      "name": "src/modules/lifecycle/index.mjs",
+      "sha256": "99b2470f47cca2ffd74a3977f1b892d3fb58a7f7052ae791ef696fbd2077f605"
+    },
+    {
+      "name": "src/modules/lifecycle/local-socket.mjs",
+      "sha256": "f3b01b103bac09bff281763b8ff6ba74e8d079407fd01e1d62710b5acd68fa4d"
+    },
+    {
+      "name": "src/modules/lifecycle/supervisor.mjs",
+      "sha256": "dd00d9f7bfe01cb9b435743a6ccf750df633b541f7044cbff23d2f21681bf16c"
+    },
+    {
+      "name": "src/modules/releases/index.mjs",
+      "sha256": "bec460be1b57ed3d921e89b1a99a85ffa542fc70b526504eb1dc2b549db71af8"
+    },
+    {
+      "name": "src/modules/releases/library-transfer.mjs",
+      "sha256": "ff680bf2025ce949307779c7035a5040bc95abd62549a5da9a327e39fecc33a0"
+    },
+    {
+      "name": "src/modules/releases/releases.mjs",
+      "sha256": "ac36a49ffa91f686769302fc5ea6b8a80d8cd00ec7a6cd30043939e1b5ebc054"
+    },
+    {
+      "name": "src/modules/skill/index.mjs",
+      "sha256": "b99482a5e2f7ee64e01bdff7fc3b4ade031f29681be4be2d4bc36be69ec7c826"
+    },
+    {
+      "name": "src/modules/skill/manager.mjs",
+      "sha256": "88670cb83ca17672a940a9d32997283159ea6993640fc6bad0140edb0c533107"
+    },
+    {
+      "name": "src/modules/workflow/handoff.mjs",
+      "sha256": "3bbb28e9bfdb823d85e19da24a8f86012cb901937798afbba28e497310a4f755"
+    },
+    {
+      "name": "src/modules/workflow/index.mjs",
+      "sha256": "568f2e7abc93271be035827ef306e8fe2a578ef45b57dfbba453e6ddfdc96523"
+    },
+    {
+      "name": "src/modules/workflow/workspace.mjs",
+      "sha256": "fb0d3e8bcb5f30a9dbadc2edc6ccd63224587270fe66b6a88047f06be1887673"
+    },
+    {
+      "name": "src/onboarding.mjs",
+      "sha256": "c22005140658258fc033f908687e58387b22c57be5a612324424502c045ab4c7"
+    },
+    {
+      "name": "src/platform.mjs",
+      "sha256": "990d55c7b153ae619b952b25a27909cd9e3a50ff5b902bb4f062c54f9a95c827"
+    },
+    {
+      "name": "src/releases.mjs",
+      "sha256": "be19dfba0c607d09ec91546161ed0225b0e481026d13cb12b5d1317ae3544df2"
+    },
+    {
+      "name": "src/supervisor.mjs",
+      "sha256": "40f8bd8bb31eb6dc510bb6d9760b1d97fda4407e3257cdedc9aadea1a0272255"
+    },
+    {
+      "name": "src/workspace.mjs",
+      "sha256": "444471daffe73cca4ce9ddcffd013e5bc369c5e196b2d087ab328486f683203e"
+    }
+  ],
+  "pluginFiles": [
+    {
+      "name": "cordis.patch.yml",
+      "sha256": "15ce3311a8292187f76e34bf960742f35bb668ddfcc78243911ffb8fd17d4e88"
+    },
+    {
+      "name": "dist/python/dsh_scientific_reading_engine-0.2.0.dev3-py3-none-any.whl",
+      "sha256": "300a1924f9253a6b9854cc3ea38f0172ff03146f52f3208537bed55cfc1764f6"
+    },
+    {
+      "name": "lib/cli.js",
+      "sha256": "b7185c97b9b3c3094f7f6b04b3d43fbe1cd8b93f3f44a983f6393c35c5fa5082"
+    },
+    {
+      "name": "lib/cli.js.map",
+      "sha256": "e763595def83be9b6871966fc898a87b8b6ab644738faa6ffd636f0896927e81"
+    },
+    {
+      "name": "lib/client.js",
+      "sha256": "f12776fef913d33cac917fe66b8cce50b7ded796ca58b8b3f81b63b5052b8c62"
+    },
+    {
+      "name": "lib/config.js",
+      "sha256": "bfdba61fe69afa1e04487776981e69671a7c84bef88954d011e908ad82e774bc"
+    },
+    {
+      "name": "lib/config.js.map",
+      "sha256": "8a2ca826b9d52a8c533c17961049080425a070369704ac53ffc2ced784c0e89b"
+    },
+    {
+      "name": "lib/download_batch.js",
+      "sha256": "efcc6aa866975e02125ad3bfa386f6ab489b0afccbfba086c10b2a80592babfc"
+    },
+    {
+      "name": "lib/download_batch.js.map",
+      "sha256": "d880e70bb4224001d21552ddb89d783276442f4505b7701012db80e61cdcd20c"
+    },
+    {
+      "name": "lib/engine_scope.js",
+      "sha256": "48fb8aad7cfbff3be8683f110bdda550f018ecc32619e553408bcbc05b267c36"
+    },
+    {
+      "name": "lib/engine_scope.js.map",
+      "sha256": "fde2d61b712c30d950aeb6f06085357163c005e6d0d2101fbf62f1cc2a97c04f"
+    },
+    {
+      "name": "lib/index.js",
+      "sha256": "a6453a843dc3ad955c79fc357229e46f4c865a2060b7faa0a876b9b2cd30af6e"
+    },
+    {
+      "name": "lib/index.js.map",
+      "sha256": "e622586f84f58585488a13043f4b3f52a7332071d7cac587e5d9e8d86fd6edaf"
+    },
+    {
+      "name": "lib/library_tools.js",
+      "sha256": "f4c683950463e2a3feb11d779414f2520dcc4c4eb3dbd271237b8d53a74c6780"
+    },
+    {
+      "name": "lib/library_tools.js.map",
+      "sha256": "8c852d2689a124d85777ba2da41c4f0c9352df483a927247d95f0a22e7a70b73"
+    },
+    {
+      "name": "lib/papers.js",
+      "sha256": "dc74c7aab0068749202f9e917f921ec70a359ca4fce9c87669ffafeab56a338e"
+    },
+    {
+      "name": "lib/papers.js.map",
+      "sha256": "6f3b9ad09fc049f915c162c4870ee9266f09066fc7635fdeff342ce3c7909f7d"
+    },
+    {
+      "name": "lib/preset.js",
+      "sha256": "1c05c3ee1259b63217ffb3b4e240693f06018dd445b37883f447309d83278e38"
+    },
+    {
+      "name": "lib/preset.js.map",
+      "sha256": "b9a42f8853b2222d2afa94399c44d274d2fe5bbbca6f201736ccbcbb378ac75f"
+    },
+    {
+      "name": "lib/review_sessions.js",
+      "sha256": "8457c98084ce9c950247a0b10d1aa563c500e4589e7ad96d224cdac93bb1584c"
+    },
+    {
+      "name": "lib/review_sessions.js.map",
+      "sha256": "ef3b761e76209152b8fe2ed4875bf3f102388eb9eed94c1b6c1c999e18646593"
+    },
+    {
+      "name": "lib/review_tools.js",
+      "sha256": "2a342bdfce5e9feed701a303efc7a5f7c5454ac884d5e9c5bb81d576dab702ab"
+    },
+    {
+      "name": "lib/review_tools.js.map",
+      "sha256": "8e355303711fc840e4f75ffa88307ffd0dfb416102c47dbf2da1d8bd47ce5c2a"
+    },
+    {
+      "name": "lib/routes.js",
+      "sha256": "18a5d61a82b310d03119d9b9900fd9476aa5989243344ce67f614f282601731d"
+    },
+    {
+      "name": "lib/routes.js.map",
+      "sha256": "4fa4ac3357780d1a24ae51179d7907b811a04f0a24393e2f8e932a243f579fd6"
+    },
+    {
+      "name": "lib/settings.js",
+      "sha256": "f3f3c518a2d3e681f4f53411a27e05bf99abf83a9175732ad316e306f01181e0"
+    },
+    {
+      "name": "lib/settings.js.map",
+      "sha256": "04a76c1a3fa3fd18c4adade128f72c72e6dae124fca699e4c5bc6c3845d3b0b4"
+    },
+    {
+      "name": "lib/status_routes.js",
+      "sha256": "c19e21168e21f6b430f4a38f7ba6014d50ea6479969a838d0a3998416c19be6c"
+    },
+    {
+      "name": "lib/status_routes.js.map",
+      "sha256": "959fb5bda51e6b1938d3f6e7ed0e7e52440f4e1b966f667166a3356b9b0c77e2"
+    },
+    {
+      "name": "lib/tools.js",
+      "sha256": "221ca3ac201fd86dc90ff4669fa8c089e70f90eec60960e3cf5554917b91cf9c"
+    },
+    {
+      "name": "lib/tools.js.map",
+      "sha256": "b5c7af06c3f6c0bc872302b1899e9f43d61f46f990a32d2f26e15dcb3dfde001"
+    },
+    {
+      "name": "lib/types/cli.d.ts",
+      "sha256": "6a0b295067ed8638a22e1b062e7a05929b012890f7821abfd97090af708b0061"
+    },
+    {
+      "name": "lib/types/config.d.ts",
+      "sha256": "8a32ca5c36661f4d1689013978987ccb0117bc65cc32f25b465330b9420d6626"
+    },
+    {
+      "name": "lib/types/download_batch.d.ts",
+      "sha256": "7900d6dfd1f17f9db2b5a92ec09bba5832f6a2c6b8a1851807f3fd0065921e4a"
+    },
+    {
+      "name": "lib/types/engine_scope.d.ts",
+      "sha256": "ce2989fdc4a3e512458a2ebe1a3fd83ecb8dec7f15f5546a3727d8a9ed709ad6"
+    },
+    {
+      "name": "lib/types/index.d.ts",
+      "sha256": "890288c1664d8b4aa22dac6c45d9061a7fc0ff1fbc54b36dd1e9bd1022983d08"
+    },
+    {
+      "name": "lib/types/library_tools.d.ts",
+      "sha256": "3507315a11625be7068ab3535bca81f0dbf7ef18a4c401150e3d6db9b7af7fa4"
+    },
+    {
+      "name": "lib/types/papers.d.ts",
+      "sha256": "3621dc1c455794f55e78fc8ae2a1a02beef4a6c068735c27b40d85e0bad6e409"
+    },
+    {
+      "name": "lib/types/preset.d.ts",
+      "sha256": "1b2a86e92ca8fa27247465205618b482f82ec9837af70cb250240615a88e6eda"
+    },
+    {
+      "name": "lib/types/review_sessions.d.ts",
+      "sha256": "88c098e6bd14daf17408b35179a81d8f7472a49e185e6221dc2c38b598c68114"
+    },
+    {
+      "name": "lib/types/review_tools.d.ts",
+      "sha256": "5086d460193a25d22294d42b5f98b87384a066649695398fb8f3a9e7ba69887b"
+    },
+    {
+      "name": "lib/types/routes.d.ts",
+      "sha256": "2cc1356134a78f465bcfd447c0d9221a82d94cc724bd3f31c5c8e101f1edf2e8"
+    },
+    {
+      "name": "lib/types/settings.d.ts",
+      "sha256": "df8ef24fa9cebd4cb0720c4d81fb95d70d96e0ee27c96398f084fc26850c1ea2"
+    },
+    {
+      "name": "lib/types/status_routes.d.ts",
+      "sha256": "db9c34c69b3ebc9a7bb56652218093e79cd045d16b65fa74558bee7b9e220ef1"
+    },
+    {
+      "name": "lib/types/tools.d.ts",
+      "sha256": "e992622d519829477f84102796a37d8a1fe198427e6f14002a94757e11a65447"
+    },
+    {
+      "name": "LICENSE",
+      "sha256": "3881fd99f7b626eaff470de1573c667c07ea2aca0015b8b21afa45dabbfd2c16"
+    },
+    {
+      "name": "MIGRATION.md",
+      "sha256": "7c957bb1acc14a19b696f49b037c171b014b356e4bd94aad0838c1b5028c5f8a"
+    },
+    {
+      "name": "package.json",
+      "sha256": "89444e2ccc8ce866e77fd89ca70a5d6819af48585f5024c9e3d2bce3ed5d676d"
+    },
+    {
+      "name": "preset/scientific-reading/agent.cordis.yml",
+      "sha256": "516c1799b32af4fd6babe003bd1a8b550460e0cc8ce068f287050665cc93f447"
+    },
+    {
+      "name": "preset/scientific-reading/preset.yml",
+      "sha256": "a3e2df0ca0b0c5b881717c470aa540aa0b2023b8d018d72ac8b26db03683c80f"
+    },
+    {
+      "name": "README.md",
+      "sha256": "ad83e8fec0fa14008d5c84ae70ace49642cf641d16a83341ae4dd5afad3d3ac9"
+    },
+    {
+      "name": "scripts/oa-requirements.txt",
+      "sha256": "74424a2cab5588f12440da0dfbdaa0b723db8b7a0280e27350f30f0a71bc6489"
+    },
+    {
+      "name": "scripts/scansci_wrap.py",
+      "sha256": "9304fd8e94676d1ebde1580902e2e88590f5f25aafc65ab53e15bfaba50471dd"
+    },
+    {
+      "name": "THIRD_PARTY_NOTICES.md",
+      "sha256": "9e1b643649839c38ecabb6f2eabe78daf89c36efabed6c64c90bbc816d7428ed"
+    }
+  ],
+  "python": {
+    "executable": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Scripts\\python.exe",
+    "engine": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Lib\\site-packages\\scientific_reading\\__init__.py",
+    "distributionVersion": "0.2.0.dev3",
+    "wheel": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\npm\\node_modules\\@dsh-external\\dsh-scientific-reading\\dist\\python\\dsh_scientific_reading_engine-0.2.0.dev3-py3-none-any.whl",
+    "wheelSha256": "300a1924f9253a6b9854cc3ea38f0172ff03146f52f3208537bed55cfc1764f6",
+    "files": [
+      {
+        "file": "reader/__init__.py",
+        "sha256": "e7b70422bb2ea4d755506496344904458b9a3f6673043abb5ffc2c260afe0718"
+      },
+      {
+        "file": "reader/build_reader.py",
+        "sha256": "7a02640dae2d04845854b0a30dca5f38b9330b5d045dc28642e27ed080aa021a"
+      },
+      {
+        "file": "scientific_reading/__init__.py",
+        "sha256": "7adb753da09c27232c8d7056824d35da13499510aef10d1fbdcddc1c0cdde8f0"
+      },
+      {
+        "file": "scientific_reading/__main__.py",
+        "sha256": "c7bfbb04febad7ca2554593400cc2948f7d579dc886f0e176d75c33e030da68f"
+      },
+      {
+        "file": "scientific_reading/abstract_read_models.py",
+        "sha256": "1fb51e097b7751c505460281649868265a2cb627f40280e966c1d7507edc32c0"
+      },
+      {
+        "file": "scientific_reading/abstract_read_service.py",
+        "sha256": "4eb024fa7f03021d25f29e265ee0629168bdcc69018d71acd64d22c271a0319e"
+      },
+      {
+        "file": "scientific_reading/assets.py",
+        "sha256": "33f1563a0a788c713396130d47fe802536bf6e18abfcc931d25ae086d4bfe06a"
+      },
+      {
+        "file": "scientific_reading/background_launcher.py",
+        "sha256": "94584c051af6be605d8c28aae75a74b8daac460a384440ec1ca9b9838ee25b47"
+      },
+      {
+        "file": "scientific_reading/background_models.py",
+        "sha256": "48c82d55ced38ad4b8464d173feb10fa5b9c741445fd8528ab56a3b13eba93f8"
+      },
+      {
+        "file": "scientific_reading/background_store.py",
+        "sha256": "94b6435ee5a826a80d4d07c876a30b37e60d9fd1f8a1e9b67b1518104aac8b52"
+      },
+      {
+        "file": "scientific_reading/batch_service.py",
+        "sha256": "277df8738dc5eb80cd8e457a0f5bb92ba0b948893a4e4e577aec4e7e0c4d9a11"
+      },
+      {
+        "file": "scientific_reading/candidate_rebuild.py",
+        "sha256": "9b77df59c0020df7718cf7e8aebbb39ce814a43342288db6710d50ae70c0b8c5"
+      },
+      {
+        "file": "scientific_reading/classification_service.py",
+        "sha256": "97bd30e3e37df5826a0d118392aae238f0987f4946a964cdb9c014c2f792d517"
+      },
+      {
+        "file": "scientific_reading/data_guard.py",
+        "sha256": "7a669642230d7c603599394847e35eaf54b6fdbd0269eaeac41d7cd0430e3230"
+      },
+      {
+        "file": "scientific_reading/derived_pipeline.py",
+        "sha256": "881129473b54b5fb3b242d0a7c51d8c49dd64d3bcd8caac115f1542ed09a2e9f"
+      },
+      {
+        "file": "scientific_reading/environment_status.py",
+        "sha256": "2805f1fa44720ffe2fe006429795a5d2ef4361d4807bbaeea3f82e6fd6e40563"
+      },
+      {
+        "file": "scientific_reading/evidence_locator.py",
+        "sha256": "5c8cbeb10a7493697e28e5ba1fc0013182086ff035d8c2fa96f96156cc0c24a0"
+      },
+      {
+        "file": "scientific_reading/export_service.py",
+        "sha256": "d4a1fd4a3d7e4aab2cecb7ed6cd94087712111b3a1bd6a7f1ab41f97a519f74a"
+      },
+      {
+        "file": "scientific_reading/foreground.py",
+        "sha256": "0dd1c776c026673104bec7dd78bc51c53b02b0faa893bc0cb5f1b2f77225e755"
+      },
+      {
+        "file": "scientific_reading/full_read_models.py",
+        "sha256": "85744805c154143bae05a4c8929be8c7f73bf8fb906765ceb8b66a25ad1e0c05"
+      },
+      {
+        "file": "scientific_reading/full_read_renderer.py",
+        "sha256": "6189c87ea4f889019b41362f06c44fb4e5ee7ff861ac1f2610cd9ba1feb4b601"
+      },
+      {
+        "file": "scientific_reading/full_read_service.py",
+        "sha256": "07868dd67716ad2b79dbc79574f7b2ddf91367271ff80e9f4ef5007b28b119ec"
+      },
+      {
+        "file": "scientific_reading/identifiers.py",
+        "sha256": "d5670563ce42dd5b6564f47072ab812df1fb2307524b107fb31306c303d4fd87"
+      },
+      {
+        "file": "scientific_reading/library_backup.py",
+        "sha256": "6a45ca116a1a2e19e1a43c7a373b88e73ce0ce0c1435ae900119eb3cb41c15f5"
+      },
+      {
+        "file": "scientific_reading/library_schema.py",
+        "sha256": "6daa518766f8c070cd6a1e2da93df9e1be6d7eb2cb874bbe6078c7216a02f8ad"
+      },
+      {
+        "file": "scientific_reading/library_search.py",
+        "sha256": "50652c303b78f95ee8c228dafbc407120e71738f4cec8fddb718ce59c96ba0e4"
+      },
+      {
+        "file": "scientific_reading/library_service.py",
+        "sha256": "de959f0f39bd1e27b7412e34d9c5e1ce2bd21e5dad79ad4512f4a53cc99c0b11"
+      },
+      {
+        "file": "scientific_reading/metadata_enrichment.py",
+        "sha256": "66bf1d4086c7b71cfa4e05966bad679239b5bb28995796b1da4f5e2f3e640695"
+      },
+      {
+        "file": "scientific_reading/mineru_api.py",
+        "sha256": "faf22b76797881972e5067bedf375f0489a3f67b1110fa1206dc94b066fd6e96"
+      },
+      {
+        "file": "scientific_reading/mineru_artifacts.py",
+        "sha256": "8d53fceb6412d39b1f971ce9b4b9f335cf48ea22d6cfe2d3bdf4ebbc84ae4c60"
+      },
+      {
+        "file": "scientific_reading/mineru_local.py",
+        "sha256": "fc570118302b8ff68c8cbed375202c1293e074b3127f37d81625665649c970db"
+      },
+      {
+        "file": "scientific_reading/mineru_models.py",
+        "sha256": "f781048a3687a8706ecf16dd7fa51d0c21b230e644167a42a3899a6b7d523132"
+      },
+      {
+        "file": "scientific_reading/mineru_normalizer.py",
+        "sha256": "8f20c7ebb10f0fbcfbc6d157384dd65f879f3973f987af926917adf0cbf1b487"
+      },
+      {
+        "file": "scientific_reading/mineru_provider.py",
+        "sha256": "56dbdabe7816eea39d4e14dffc19e01ed572a991a6709357a6ff80bd7e0c3eec"
+      },
+      {
+        "file": "scientific_reading/mineru_service.py",
+        "sha256": "451a0a17985782d4d1acfa74bb3902b80b83c7339c9140f3ca6be1dbea8c3f0a"
+      },
+      {
+        "file": "scientific_reading/models.py",
+        "sha256": "9d1e283cba034f7d6114f181b3283b71e9ffc505c8f48aa13a675b8954a60b33"
+      },
+      {
+        "file": "scientific_reading/normalization_upgrade.py",
+        "sha256": "ac9fca15fb876e6b53e4e31b8b343ad61ffd2bd018d98f49171b8ade9d0e60bb"
+      },
+      {
+        "file": "scientific_reading/package_manifest.py",
+        "sha256": "e771a4d972ac6324127a02232f28801b5e4251da5cd1562bf337cea716fd5101"
+      },
+      {
+        "file": "scientific_reading/parse_models.py",
+        "sha256": "ff9dfef4646c25248d3d7aeacb51926f846561787ffe834b9fa2588376402178"
+      },
+      {
+        "file": "scientific_reading/pdf_acquisition.py",
+        "sha256": "c9696fca35e4b9bfef7da6ae60cfb4d894fa20f1e536012e8fa090715f125a11"
+      },
+      {
+        "file": "scientific_reading/pdf_validation.py",
+        "sha256": "402807fd396894e91e89101a651905a6a1d3c2f1ca3127ac26426afae59e81f3"
+      },
+      {
+        "file": "scientific_reading/reading_control.py",
+        "sha256": "a3bdfe8562a923041280b428220d3564cff50d1baaac26249d89a9d523254579"
+      },
+      {
+        "file": "scientific_reading/reading_pipeline.py",
+        "sha256": "d7c0afd3b2c9bd0cb87f705db97454883d3cc9cb1545b2709b4eec183c0811f6"
+      },
+      {
+        "file": "scientific_reading/reading_pipeline_models.py",
+        "sha256": "4772fe31f5c9c5170762cf81a26a26ab3bf6180bf6a711481b93323e5c654e16"
+      },
+      {
+        "file": "scientific_reading/review_service.py",
+        "sha256": "aa8a702ebe992c0a3a13d1b5c2ebec5662aa7ab6d9acce96378f66bc12197c97"
+      },
+      {
+        "file": "scientific_reading/scope.py",
+        "sha256": "67c8ed79b94b5c2e7913b4b091fe070b2058039ce6fddf60a147c7f1f8b75d08"
+      },
+      {
+        "file": "scientific_reading/secret_store.py",
+        "sha256": "49f91b046f1dbe8a59f938e25aed869a46cd08c65f6e7c5fe4c183edc3d1fdf8"
+      },
+      {
+        "file": "scientific_reading/subprocess_utils.py",
+        "sha256": "63e221815874e22db6548a2bd904a3b69db1a52d9fb55c397b6f02623bd74ab4"
+      },
+      {
+        "file": "scientific_reading/worker.py",
+        "sha256": "efe7db9fb82eb8398253eacb9bb47e2cbfe279767bf3504c3b4239d2fc7f5558"
+      },
+      {
+        "file": "scientific_reading/workspace.py",
+        "sha256": "3d853838eab4b913b8108e2c4dd194073fd8614d43b6700ff78f5bda5156bc9d"
+      },
+      {
+        "file": "scientific_reading/xlsx_snapshot.py",
+        "sha256": "0ca976a4f308c8e27020953122e55888796ccb06d69196ab2d9f6a4498a7b7be"
+      },
+      {
+        "file": "scientific_reading/xlsx_user_fields.py",
+        "sha256": "880ad0319956d4e4fa1af0e9da231d62be964e01fcd45f70897c74c27f1d9ea5"
+      }
+    ],
+    "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "plugin": "C:\\tmp\\v004k\\final\\releases\\a4182a78f1e4dc50\\runtime\\npm\\node_modules\\@dsh-external\\dsh-scientific-reading"
+}

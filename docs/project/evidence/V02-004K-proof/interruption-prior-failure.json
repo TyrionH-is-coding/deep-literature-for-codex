@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-09-21T14:57:18.400Z",
+  "mode": "real installed worker process interruption; distinct from cooperative user cancellation",
+  "rows": [
+    {
+      "name": "registered worker interrupted",
+      "value": {
+        "fault": "forced registered worker exit; never a user-stop action",
+        "owner": {
+          "pid": 33016,
+          "identity": "windows:01dd49d989ce9367"
+        },
+        "before": {
+          "job_id": "job_bd495bc3901361dc",
+          "state": "running",
+          "created_at": "2026-09-21T14:57:35.852146+00:00",
+          "updated_at": "2026-09-21T14:57:37.126398+00:00",
+          "pid": 33016,
+          "heartbeat_at": "2026-09-21T14:57:37.126398+00:00",
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+            "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+            "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+            "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+            "scopePaperRevision": 1
+          }
+        },
+        "after": {
+          "job_id": "job_bd495bc3901361dc",
+          "state": "running",
+          "created_at": "2026-09-21T14:57:35.852146+00:00",
+          "updated_at": "2026-09-21T14:57:37.126398+00:00",
+          "pid": 33016,
+          "heartbeat_at": "2026-09-21T14:57:37.126398+00:00",
+          "reason_code": null,
+          "required_input": {},
+          "result": {},
+          "error": null,
+          "scope": {
+            "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+            "scopeSessionId": "session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77",
+            "scopeFolderId": "folder_143452e9e330465abbf55cf949a1527b",
+            "scopePaperId": "doi_10.5555_v004k-real-worker-interruption",
+            "scopePaperRevision": 1
+          }
+        },
+        "source": {
+          "paper": "doi_10.5555_v004k-real-worker-interruption",
+          "folder": "folder_143452e9e330465abbf55cf949a1527b",
+          "pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+          "provider_sha256": "02d58883beb0f2adde6cd498a371fc5d854c32711461d205453ce15fe8e8323f"
+        }
+      }
+    }
+  ],
+  "seed": {
+    "paper": "doi_10.5555_v004k-real-worker-interruption",
+    "folder": "folder_143452e9e330465abbf55cf949a1527b",
+    "pdf_sha256": "033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88",
+    "provider_sha256": "02d58883beb0f2adde6cd498a371fc5d854c32711461d205453ce15fe8e8323f"
+  },
+  "boot": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff",
+    "root": "C:\\tmp\\v004k\\final",
+    "version": "0.2.0-dev.4",
+    "candidate": true,
+    "status": "running",
+    "launchId": "7979550b-8ec5-4610-8626-06f4c140b89e",
+    "supervisorPid": 31240,
+    "startedAt": 1790002639037,
+    "pid": 19148,
+    "url": "http://127.0.0.1:57704"
+  },
+  "status": "failed",
+  "error": "Error: poll_timeout {\"folderId\":\"folder_143452e9e330465abbf55cf949a1527b\",\"paperId\":\"doi_10.5555_v004k-real-worker-interruption\",\"sessionId\":\"session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77\",\"taskId\":\"task-6f87711b-9658-48c8-b7e3-aea7ba9e1830\",\"requestDigest\":\"3efc761f6103860d6f641eb79d5296f41a5101f53e98d7e6ba4864078ed30a37\",\"status\":\"dispatched\",\"jobId\":\"job_bd495bc3901361dc\",\"dispatches\":{},\"operations\":{},\"createdAt\":\"2026-09-21T14:57:38.722Z\",\"control\":{\"contract\":\"reading-control-v1\",\"parentJobId\":\"job_bd495bc3901361dc\",\"revision\":0,\"stopRequested\":false,\"requestId\":null,\"acknowledgedRevision\":null,\"effectiveBoundary\":null,\"activeStage\":{\"pid\":33016,\"identity\":\"windows:01dd49d989ce9367\",\"stage\":\"parse_mineru\"},\"worker\":{\"pid\":33016,\"identity\":\"windows:01dd49d989ce9367\"},\"operations\":{},\"status\":\"active\",\"businessStatus\":{\"job_id\":\"job_bd495bc3901361dc\",\"state\":\"running\",\"created_at\":\"2026-09-21T14:57:35.852146+00:00\",\"updated_at\":\"2026-09-21T14:57:37.126398+00:00\",\"pid\":33016,\"heartbeat_at\":\"2026-09-21T14:57:37.126398+00:00\",\"reason_code\":null,\"required_input\":{},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff\",\"scopeSessionId\":\"session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77\",\"scopeFolderId\":\"folder_143452e9e330465abbf55cf949a1527b\",\"scopePaperId\":\"doi_10.5555_v004k-real-worker-interruption\",\"scopePaperRevision\":1}},\"pipelineState\":{\"paper_id\":\"doi_10.5555_v004k-real-worker-interruption\",\"parent_job_id\":\"job_bd495bc3901361dc\",\"current_stage\":\"parse_mineru\",\"state\":\"parse_mineru\",\"stage_jobs\":{},\"stage_outputs\":{\"ensure_pdf\":{\"status\":\"pdf_ready\",\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"source_path\":\"C:\\\\tmp\\\\v004k\\\\final\\\\library\\\\papers\\\\doi_10.5555_v004k-real-worker-interruption\\\\source.pdf\",\"page_count\":0,\"reused\":true}},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:57:36.996590+00:00\",\"finished_at\":\"2026-09-21T14:57:37.075066+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:57:37.154484+00:00\",\"finished_at\":null}},\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"reader_source_sha256\":null,\"required_action\":null,\"last_error\":null,\"created_at\":\"2026-09-21T14:57:35.875883+00:00\",\"updated_at\":\"2026-09-21T14:57:37.154484+00:00\",\"completed_at\":null,\"contract_version\":\"reading-pipeline-v1\"},\"independentChildrenStopped\":false,\"compatibility\":\"cooperative_boundary\",\"replayedOperation\":null},\"controlError\":null,\"job\":{\"paper_id\":\"doi_10.5555_v004k-real-worker-interruption\",\"status\":\"running\",\"job_id\":\"job_bd495bc3901361dc\",\"foreground_elapsed_ms\":14,\"agent_required\":false,\"next_action\":\"poll\",\"detail\":{\"job_id\":\"job_bd495bc3901361dc\",\"state\":\"running\",\"created_at\":\"2026-09-21T14:57:35.852146+00:00\",\"updated_at\":\"2026-09-21T14:57:37.126398+00:00\",\"pid\":33016,\"heartbeat_at\":\"2026-09-21T14:57:37.126398+00:00\",\"reason_code\":null,\"required_input\":{},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"e9f6df2b-7ff2-4ecf-afd3-4fb3dfee5eff\",\"scopeSessionId\":\"session-53b8c26f-747f-4e7b-aa04-62a2f8c51f77\",\"scopeFolderId\":\"folder_143452e9e330465abbf55cf949a1527b\",\"scopePaperId\":\"doi_10.5555_v004k-real-worker-interruption\",\"scopePaperRevision\":1},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:57:36.996590+00:00\",\"finished_at\":\"2026-09-21T14:57:37.075066+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:57:37.154484+00:00\",\"finished_at\":null}}}},\"error\":null,\"checkedAt\":\"2026-09-21T14:58:41.515Z\"}\n    at poll (file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/fixtures/v02-004k/common.mjs:12:201)\n    at async file:///C:/Users/15694/Documents/ChatGPT/deep-literature-v02-004k/scripts/acceptance-v02-004k-interruption.mjs:4:133",
+  "finishedAt": "2026-09-21T14:58:41.907Z"
+}

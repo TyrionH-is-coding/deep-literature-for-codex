@@ -1,0 +1,132 @@
+{
+  "boot": {
+    "product": "codex-scientific-reading",
+    "schema": 1,
+    "instanceId": "64ebf5c7-ec35-45a5-83de-5b547b72eb4d",
+    "root": "C:\\tmp\\v004k\\instance",
+    "version": "0.2.0-dev.4",
+    "candidate": true,
+    "status": "running",
+    "launchId": "42e9889c-19aa-449c-877e-e400a4c9b4cc",
+    "supervisorPid": 39828,
+    "startedAt": 1790001177368,
+    "pid": 21036,
+    "url": "http://127.0.0.1:63143"
+  },
+  "rows": [
+    {
+      "ms": 8,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 268,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 534,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 795,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 1061,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 1317,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 1575,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 1836,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 2093,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 2352,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 2608,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 2877,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 3141,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 3393,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 3660,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 3915,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 4186,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 4452,
+      "status": 405,
+      "type": null,
+      "body": ""
+    },
+    {
+      "ms": 9880,
+      "status": 200,
+      "type": "application/json; charset=utf-8",
+      "body": "{\"ok\":true,\"value\":{\"bindings\":[{\"folderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"sessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"active\":true}],\"tasks\":[{\"folderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"paperId\":\"title_d8b339a0356f\",\"sessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"taskId\":\"task-f40a42bb-a8a6-4b2a-97d2-1e469fed124c\",\"requestDigest\":\"ecf172db6f6783284bea4abd9047e3b6316e987ed42c835bbf7e674a3c4ac0e1\",\"status\":\"cancel_requested\",\"jobId\":\"job_68b4d570046cfb3d\",\"dispatches\":{},\"operations\":{},\"createdAt\":\"2026-09-21T14:30:02.691Z\",\"control\":{\"contract\":\"reading-control-v1\",\"parentJobId\":\"job_68b4d570046cfb3d\",\"revision\":2,\"stopRequested\":true,\"requestId\":\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\",\"acknowledgedRevision\":2,\"effectiveBoundary\":\"after:parse_mineru\",\"activeStage\":null,\"worker\":null,\"operations\":{\"stop-e5227faa-1b10-4404-97f5-6a2d7a326155\":{\"kind\":\"stop\",\"expectedRevision\":0,\"revision\":1},\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\":{\"kind\":\"stop\",\"expectedRevision\":1,\"revision\":2}},\"status\":\"acknowledged\",\"businessStatus\":{\"job_id\":\"job_68b4d570046cfb3d\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:04.352995+00:00\",\"updated_at\":\"2026-09-21T14:30:38.009586+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pipeline_stop_requested\",\"required_input\":{\"revision\":2},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_d8b339a0356f\",\"scopePaperRevision\":2}},\"pipelineState\":{\"paper_id\":\"title_d8b339a0356f\",\"parent_job_id\":\"job_68b4d570046cfb3d\",\"current_stage\":\"translate_full\",\"state\":\"queued\",\"stage_jobs\":{},\"stage_outputs\":{\"ensure_pdf\":{\"status\":\"pdf_ready\",\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"source_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\source.pdf\",\"page_count\":0,\"reused\":true},\"parse_mineru\":{\"status\":\"parsed_mineru\",\"source_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"output_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\033f7975bd4e9a7a\\\\parsed\\\\mineru\\\\full.md\",\"manifest_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\033f7975bd4e9a7a\\\\parsed\\\\mineru\\\\source_map.json\"}},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:05.587735+00:00\",\"finished_at\":\"2026-09-21T14:30:05.666179+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:30:05.729738+00:00\",\"finished_at\":\"2026-09-21T14:30:37.936437+00:00\"}},\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"reader_source_sha256\":null,\"required_action\":null,\"last_error\":null,\"created_at\":\"2026-09-21T14:30:04.382205+00:00\",\"updated_at\":\"2026-09-21T14:30:37.936437+00:00\",\"completed_at\":null,\"contract_version\":\"reading-pipeline-v1\"},\"independentChildrenStopped\":false,\"compatibility\":\"cooperative_boundary\",\"replayedOperation\":null},\"controlError\":null,\"job\":{\"paper_id\":\"title_d8b339a0356f\",\"status\":\"waiting_user\",\"job_id\":\"job_68b4d570046cfb3d\",\"foreground_elapsed_ms\":17,\"agent_required\":false,\"next_action\":\"user\",\"detail\":{\"job_id\":\"job_68b4d570046cfb3d\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:04.352995+00:00\",\"updated_at\":\"2026-09-21T14:30:38.009586+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pipeline_stop_requested\",\"required_input\":{\"revision\":2},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_d8b339a0356f\",\"scopePaperRevision\":2},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:05.587735+00:00\",\"finished_at\":\"2026-09-21T14:30:05.666179+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:30:05.729738+00:00\",\"finished_at\":\"2026-09-21T14:30:37.936437+00:00\"}}}},\"error\":null,\"checkedAt\":\"2026-09-21T14:33:05.939Z\",\"stopOperation\":{\"requestId\":\"stop-e5227faa-1b10-4404-97f5-6a2d7a326155\",\"status\":\"superseded\",\"expectedRevision\":0,\"revision\":1,\"error\":null},\"cancelRequested\":true,\"hostCancellation\":{\"status\":\"received\",\"requestId\":\"stop-e5227faa-1b10-4404-97f5-6a2d7a326155\",\"result\":{\"turn\":\"not_targeted\",\"removedQueued\":0}},\"cancellation\":{\"turn\":\"not_targeted\",\"removedQueued\":0}},{\"folderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"paperId\":\"title_d8b339a0356f\",\"sessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"taskId\":\"task-844739c2-4f30-4bb1-a2ef-d8477ee79f21\",\"requestDigest\":\"ecf172db6f6783284bea4abd9047e3b6316e987ed42c835bbf7e674a3c4ac0e1\",\"status\":\"cancel_requested\",\"jobId\":\"job_68b4d570046cfb3d\",\"dispatches\":{},\"operations\":{},\"createdAt\":\"2026-09-21T14:30:11.039Z\",\"control\":{\"contract\":\"reading-control-v1\",\"parentJobId\":\"job_68b4d570046cfb3d\",\"revision\":2,\"stopRequested\":true,\"requestId\":\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\",\"acknowledgedRevision\":2,\"effectiveBoundary\":\"after:parse_mineru\",\"activeStage\":null,\"worker\":null,\"operations\":{\"stop-e5227faa-1b10-4404-97f5-6a2d7a326155\":{\"kind\":\"stop\",\"expectedRevision\":0,\"revision\":1},\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\":{\"kind\":\"stop\",\"expectedRevision\":1,\"revision\":2}},\"status\":\"acknowledged\",\"businessStatus\":{\"job_id\":\"job_68b4d570046cfb3d\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:04.352995+00:00\",\"updated_at\":\"2026-09-21T14:30:38.009586+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pipeline_stop_requested\",\"required_input\":{\"revision\":2},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_d8b339a0356f\",\"scopePaperRevision\":2}},\"pipelineState\":{\"paper_id\":\"title_d8b339a0356f\",\"parent_job_id\":\"job_68b4d570046cfb3d\",\"current_stage\":\"translate_full\",\"state\":\"queued\",\"stage_jobs\":{},\"stage_outputs\":{\"ensure_pdf\":{\"status\":\"pdf_ready\",\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"source_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\source.pdf\",\"page_count\":0,\"reused\":true},\"parse_mineru\":{\"status\":\"parsed_mineru\",\"source_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"output_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\033f7975bd4e9a7a\\\\parsed\\\\mineru\\\\full.md\",\"manifest_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\033f7975bd4e9a7a\\\\parsed\\\\mineru\\\\source_map.json\"}},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:05.587735+00:00\",\"finished_at\":\"2026-09-21T14:30:05.666179+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:30:05.729738+00:00\",\"finished_at\":\"2026-09-21T14:30:37.936437+00:00\"}},\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"reader_source_sha256\":null,\"required_action\":null,\"last_error\":null,\"created_at\":\"2026-09-21T14:30:04.382205+00:00\",\"updated_at\":\"2026-09-21T14:30:37.936437+00:00\",\"completed_at\":null,\"contract_version\":\"reading-pipeline-v1\"},\"independentChildrenStopped\":false,\"compatibility\":\"cooperative_boundary\",\"replayedOperation\":null},\"controlError\":null,\"job\":{\"paper_id\":\"title_d8b339a0356f\",\"status\":\"waiting_user\",\"job_id\":\"job_68b4d570046cfb3d\",\"foreground_elapsed_ms\":17,\"agent_required\":false,\"next_action\":\"user\",\"detail\":{\"job_id\":\"job_68b4d570046cfb3d\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:04.352995+00:00\",\"updated_at\":\"2026-09-21T14:30:38.009586+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pipeline_stop_requested\",\"required_input\":{\"revision\":2},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_d8b339a0356f\",\"scopePaperRevision\":2},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:05.587735+00:00\",\"finished_at\":\"2026-09-21T14:30:05.666179+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:30:05.729738+00:00\",\"finished_at\":\"2026-09-21T14:30:37.936437+00:00\"}}}},\"error\":null,\"checkedAt\":\"2026-09-21T14:33:07.174Z\",\"stopOperation\":{\"requestId\":\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\",\"status\":\"acknowledged\",\"expectedRevision\":1,\"revision\":2,\"error\":null},\"cancelRequested\":true,\"hostCancellation\":{\"status\":\"received\",\"requestId\":\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\",\"result\":{\"turn\":\"not_targeted\",\"removedQueued\":0}},\"cancellation\":{\"turn\":\"not_targeted\",\"removedQueued\":0}},{\"folderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"paperId\":\"title_a7f5f992a87b_2\",\"sessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"taskId\":\"task-9b69c4b8-e5db-45df-b6ba-8c2c388e6b30\",\"requestDigest\":\"58e05127024e940e5d60a2523b278fabeadd2fd3e908660e7960180bd2d9c958\",\"status\":\"waiting_user\",\"jobId\":\"job_2eb5b4bcc3979c87\",\"dispatches\":{},\"operations\":{},\"createdAt\":\"2026-09-21T14:30:15.882Z\",\"control\":{\"contract\":\"reading-control-v1\",\"parentJobId\":\"job_2eb5b4bcc3979c87\",\"revision\":0,\"stopRequested\":false,\"requestId\":null,\"acknowledgedRevision\":null,\"effectiveBoundary\":null,\"activeStage\":null,\"worker\":null,\"operations\":{},\"status\":\"active\",\"businessStatus\":{\"job_id\":\"job_2eb5b4bcc3979c87\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:16.623374+00:00\",\"updated_at\":\"2026-09-21T14:30:18.536407+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pdf_required\",\"required_input\":{\"kind\":\"pdf\",\"options\":[\"local_pdf\"]},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_a7f5f992a87b_2\",\"scopePaperRevision\":1}},\"pipelineState\":{\"paper_id\":\"title_a7f5f992a87b_2\",\"parent_job_id\":\"job_2eb5b4bcc3979c87\",\"current_stage\":\"ensure_pdf\",\"state\":\"needs_user\",\"stage_jobs\":{},\"stage_outputs\":{},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:18.086377+00:00\",\"finished_at\":null}},\"source_pdf_sha256\":null,\"reader_source_sha256\":null,\"required_action\":{\"reason_code\":\"pdf_required\",\"kind\":\"pdf\",\"options\":[\"local_pdf\"]},\"last_error\":null,\"created_at\":\"2026-09-21T14:30:16.635710+00:00\",\"updated_at\":\"2026-09-21T14:30:18.490873+00:00\",\"completed_at\":null,\"contract_version\":\"reading-pipeline-v1\"},\"independentChildrenStopped\":false,\"compatibility\":\"cooperative_boundary\",\"replayedOperation\":null},\"controlError\":null,\"job\":{\"paper_id\":\"title_a7f5f992a87b_2\",\"status\":\"waiting_user\",\"job_id\":\"job_2eb5b4bcc3979c87\",\"foreground_elapsed_ms\":17,\"agent_required\":false,\"next_action\":\"user\",\"detail\":{\"job_id\":\"job_2eb5b4bcc3979c87\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:16.623374+00:00\",\"updated_at\":\"2026-09-21T14:30:18.536407+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pdf_required\",\"required_input\":{\"kind\":\"pdf\",\"options\":[\"local_pdf\"]},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_a7f5f992a87b_2\",\"scopePaperRevision\":1},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:18.086377+00:00\",\"finished_at\":null}}}},\"error\":null,\"checkedAt\":\"2026-09-21T14:33:08.495Z\"},{\"folderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"paperId\":\"title_d8b339a0356f\",\"sessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"taskId\":\"task-61a352cd-f574-4f9b-b31c-6e2ff9b86e1f\",\"requestDigest\":\"ecf172db6f6783284bea4abd9047e3b6316e987ed42c835bbf7e674a3c4ac0e1\",\"status\":\"cancel_requested\",\"jobId\":\"job_68b4d570046cfb3d\",\"dispatches\":{},\"operations\":{},\"createdAt\":\"2026-09-21T14:30:33.139Z\",\"control\":{\"contract\":\"reading-control-v1\",\"parentJobId\":\"job_68b4d570046cfb3d\",\"revision\":2,\"stopRequested\":true,\"requestId\":\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\",\"acknowledgedRevision\":2,\"effectiveBoundary\":\"after:parse_mineru\",\"activeStage\":null,\"worker\":null,\"operations\":{\"stop-e5227faa-1b10-4404-97f5-6a2d7a326155\":{\"kind\":\"stop\",\"expectedRevision\":0,\"revision\":1},\"stop-7b636f75-07b1-415a-af62-cafdf8594bb2\":{\"kind\":\"stop\",\"expectedRevision\":1,\"revision\":2}},\"status\":\"acknowledged\",\"businessStatus\":{\"job_id\":\"job_68b4d570046cfb3d\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:04.352995+00:00\",\"updated_at\":\"2026-09-21T14:30:38.009586+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pipeline_stop_requested\",\"required_input\":{\"revision\":2},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_d8b339a0356f\",\"scopePaperRevision\":2}},\"pipelineState\":{\"paper_id\":\"title_d8b339a0356f\",\"parent_job_id\":\"job_68b4d570046cfb3d\",\"current_stage\":\"translate_full\",\"state\":\"queued\",\"stage_jobs\":{},\"stage_outputs\":{\"ensure_pdf\":{\"status\":\"pdf_ready\",\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"source_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\source.pdf\",\"page_count\":0,\"reused\":true},\"parse_mineru\":{\"status\":\"parsed_mineru\",\"source_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"output_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\033f7975bd4e9a7a\\\\parsed\\\\mineru\\\\full.md\",\"manifest_path\":\"C:\\\\tmp\\\\v004k\\\\instance\\\\library\\\\papers\\\\title_d8b339a0356f\\\\generations\\\\033f7975bd4e9a7a\\\\parsed\\\\mineru\\\\source_map.json\"}},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:05.587735+00:00\",\"finished_at\":\"2026-09-21T14:30:05.666179+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:30:05.729738+00:00\",\"finished_at\":\"2026-09-21T14:30:37.936437+00:00\"}},\"source_pdf_sha256\":\"033f7975bd4e9a7ac6d79d54c1f2a2cda8600d57b1cbaf1df970be86e6eb5a88\",\"reader_source_sha256\":null,\"required_action\":null,\"last_error\":null,\"created_at\":\"2026-09-21T14:30:04.382205+00:00\",\"updated_at\":\"2026-09-21T14:30:37.936437+00:00\",\"completed_at\":null,\"contract_version\":\"reading-pipeline-v1\"},\"independentChildrenStopped\":false,\"compatibility\":\"cooperative_boundary\",\"replayedOperation\":null},\"controlError\":null,\"job\":{\"paper_id\":\"title_d8b339a0356f\",\"status\":\"waiting_user\",\"job_id\":\"job_68b4d570046cfb3d\",\"foreground_elapsed_ms\":17,\"agent_required\":false,\"next_action\":\"user\",\"detail\":{\"job_id\":\"job_68b4d570046cfb3d\",\"state\":\"waiting_user\",\"created_at\":\"2026-09-21T14:30:04.352995+00:00\",\"updated_at\":\"2026-09-21T14:30:38.009586+00:00\",\"pid\":null,\"heartbeat_at\":null,\"reason_code\":\"pipeline_stop_requested\",\"required_input\":{\"revision\":2},\"result\":{},\"error\":null,\"scope\":{\"instanceId\":\"64ebf5c7-ec35-45a5-83de-5b547b72eb4d\",\"scopeSessionId\":\"session-0fa71fc0-6927-4911-9d5c-7d8fbbba7eec\",\"scopeFolderId\":\"folder_a9aa5213a6934a34905af435232cf5c9\",\"scopePaperId\":\"title_d8b339a0356f\",\"scopePaperRevision\":2},\"stage_timings\":{\"ensure_pdf\":{\"started_at\":\"2026-09-21T14:30:05.587735+00:00\",\"finished_at\":\"2026-09-21T14:30:05.666179+00:00\"},\"parse_mineru\":{\"started_at\":\"2026-09-21T14:30:05.729738+00:00\",\"finished_at\":\"2026-09-21T14:30:37.936437+00:00\"}}}},\"error\":null,\"checkedAt\":\"2026-09-21T14:33:09.799Z\"}]}}"
+    }
+  ]
+}

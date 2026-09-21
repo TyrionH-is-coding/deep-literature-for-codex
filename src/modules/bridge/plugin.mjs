@@ -133,4 +133,10 @@ export async function apply(ctx, config) {
       send(400, { ok: false, error: /^[a-z0-9_-]+$/i.test(error.message) ? error.message : 'request_failed' });
     }
   } });
+  // Registered only after Handoff recovery, guards and the trusted API succeed.
+  ctx.webServer.register({ kind: 'exact', path: '/__workbench/ready', handler(request, response) {
+    if (request.method !== 'GET') { response.writeHead(405).end(); return; }
+    response.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+    response.end(JSON.stringify({ ready: true, instanceId: instance.instanceId }));
+  } });
 }

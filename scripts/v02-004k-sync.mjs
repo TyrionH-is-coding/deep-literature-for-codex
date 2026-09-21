@@ -1,0 +1,14 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
+const b=path.resolve(import.meta.dirname,'..'),a='C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-004k';
+const read=async f=>JSON.parse(await fs.readFile(f,'utf8')),write=async(f,v)=>fs.writeFile(f,JSON.stringify(v,null,2)+'\n');
+const sourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:a,encoding:'utf8'}).trim();
+if(execFileSync('git',['status','--porcelain'],{cwd:a,encoding:'utf8'}).trim())throw Error('A source not clean');
+const archive=path.join(a,'dsh-external-dsh-scientific-reading-0.2.0-dev.4.tgz'),bytes=await fs.readFile(archive),sha256=createHash('sha256').update(bytes).digest('hex');
+await fs.mkdir(path.join(b,'inputs'),{recursive:true});await fs.copyFile(archive,path.join(b,'inputs/scientific-reading.tgz'));
+for(const f of ['package.json','package-lock.json']){const p=path.join(b,f),v=await read(p);v.version='0.2.0-dev.4';if(v.packages?.[''])v.packages[''].version=v.version;await write(p,v);}
+const constants=path.join(b,'src/modules/foundation/constants.mjs');await fs.writeFile(constants,(await fs.readFile(constants,'utf8')).replace('0.2.0-dev.3','0.2.0-dev.4'));
+const pp=path.join(b,'runtime/pins.json'),pins=await read(pp);Object.assign(pins.plugin,{version:'0.2.0-dev.4',sourceCommit,sha256,source:'V02-004K internal installed-control candidate; local archive inputs/scientific-reading.tgz'});await write(pp,pins);
+const lp=path.join(b,'runtime/package-lock.json'),lock=await read(lp),entry=lock.packages['node_modules/@dsh-external/dsh-scientific-reading'];entry.version='0.2.0-dev.4';entry.integrity='sha512-'+createHash('sha512').update(bytes).digest('base64');await write(lp,lock);
+const cp=path.join(b,'src/modules/catalog.json'),catalog=await read(cp);catalog.modules.find(m=>m.id==='engine').version='0.2.0-dev.4';Object.assign(catalog.externalEngine,{version:'0.2.0-dev.4',sourceCommit,sha256});await write(cp,catalog);
+for(const f of ['docs/modules/engine.md','docs/modules/changes/engine.md']){const p=path.join(b,f);let s=await fs.readFile(p,'utf8');if(f.endsWith('/engine.md')&&!f.includes('changes'))s=s.replace('| `0.2.0-dev.3` |','| `0.2.0-dev.4` |').replace('| `a45aff9a6d5419c1b7a5cbc7954355176d56fac5` |','| `'+sourceCommit+'` |').replace('| `a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44` |','| `'+sha256+'` |');s+='\n## V02-004K 内部安装控制候选（未发布）\n\nA npm `0.2.0-dev.4` / Python `0.2.0.dev3`，来源 `'+sourceCommit+'`；tgz SHA256 `'+sha256+'`。组合固定 A 停止/写前守卫/导出与 B 多别名工作流，生产 Python 字节未变。Node 22.22.2 / Python 3.11.16 / DSH rc.7 / schema4 与依赖不变。安装验收证据见 V02-004K；API、UI、科学质量分别报告，元数据本身不代表验收通过。回退须配套保留资产与停止记录，不能降级消除停止意图。\n';await fs.writeFile(p,s);}
+await write(path.join(b,'outputs/v02-004k/a-artifact.json'),{sourceCommit,archive,sha256,integrity:entry.integrity});console.log(JSON.stringify({sourceCommit,sha256}));

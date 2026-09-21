@@ -140,7 +140,7 @@
     },
     {
       "id": "bridge",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "purpose": "DSH 工具和 HTTP 与任务/文献引擎适配",
       "ownedPaths": [
         "src/modules/bridge/",
@@ -205,7 +205,7 @@
     },
     {
       "id": "engine",
-      "version": "0.2.0-dev.3",
+      "version": "0.2.0-dev.4",
       "purpose": "外部文献引擎，业务代码不在本仓库",
       "ownedPaths": [
         "runtime/pins.json",
@@ -224,7 +224,7 @@
     },
     {
       "id": "application",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "purpose": "安装与 CLI 入口组合",
       "ownedPaths": [
         "src/cli.mjs",
@@ -248,7 +248,8 @@
         "runtime/posix-node.tsv",
         "tests/install.test.mjs",
         "docs/modules/application.md",
-        "docs/modules/changes/application.md"
+        "docs/modules/changes/application.md",
+        "tests/v02-startup-readiness.test.mjs"
       ],
       "dependencies": [
         "foundation",
@@ -271,7 +272,8 @@
       "changelog": "docs/modules/changes/application.md",
       "tests": [
         "tests/install.test.mjs",
-        "tests/lifecycle.test.mjs"
+        "tests/lifecycle.test.mjs",
+        "tests/v02-startup-readiness.test.mjs"
       ]
     },
     {
@@ -374,8 +376,8 @@
   ],
   "externalEngine": {
     "name": "@dsh-external/dsh-scientific-reading",
-    "version": "0.2.0-dev.3",
-    "sourceCommit": "a45aff9a6d5419c1b7a5cbc7954355176d56fac5",
-    "sha256": "a2e9e629140688df3fce947c4118e32157326a7e0a75c3d7952f6a67b413ba44"
+    "version": "0.2.0-dev.4",
+    "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
+    "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9"
   }
 }
