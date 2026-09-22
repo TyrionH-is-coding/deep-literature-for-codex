@@ -1,0 +1,28 @@
+{
+  "taskId": "V02-007",
+  "agentTaskId": "/root/v007_instance_setup",
+  "ownerSession": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
+  "phase": "bounded_installation_preparation",
+  "baseCommit": "7d53ab5b3c66fdee77820b64d94c8a49ea03ed97",
+  "contextCommit": "aecd648fa4207bb11b219a04ef2e9c068da6de20",
+  "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007",
+  "branch": "codex/v02-007-real-use",
+  "cleanAtInitialInspection": true,
+  "initialInspectionAt": null,
+  "startedAt": "2026-09-22T01:57:39.9770580+00:00",
+  "nextCheckpointAt": "2026-09-22T03:27:39.9770580+00:00",
+  "taskRoot": "C:/tmp/v007",
+  "packageRoot": "C:/tmp/v007/package/deep-literature-for-codex-0.2.0-dev.5-win-x64",
+  "instanceRoot": "C:/tmp/v007/instance",
+  "portPolicy": "OS-assigned loopback port",
+  "candidateArchive": "C:/tmp/v006/candidate-r4/deep-literature-for-codex-0.2.0-dev.5-win-x64.zip",
+  "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
+  "allowedPaths": [
+    "scripts/v02-007-*",
+    "scripts/fixtures/v02-007/",
+    "docs/project/evidence/V02-007*",
+    "C:/tmp/v007/"
+  ],
+  "boundary": "Preparation only; no old credentials, user Skill, login, ingest, submit, dispatch, model or MinerU calls.",
+  "packageContainer": "C:/tmp/v007/package"
+}

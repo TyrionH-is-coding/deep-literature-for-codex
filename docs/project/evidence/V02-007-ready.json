@@ -1,0 +1,29 @@
+{
+  "preparedAt": "2026-09-22T02:03:17.570Z",
+  "phase": "ready_awaiting_user_local_login",
+  "acceptancePassed": false,
+  "instanceRoot": "C:/tmp/v007/instance",
+  "instanceId": "60fac980-1b27-4960-a1c7-27c08964480b",
+  "launchId": "2159e600-ffdb-4c98-b96b-4bf4e17bacdb",
+  "url": "http://127.0.0.1:49686",
+  "identityPage": "http://127.0.0.1:49686/__workbench",
+  "loginUrl": "http://127.0.0.1:49686/api/codex-oauth/ui",
+  "appSha256": "bc4479d1e5a402f1a4f0d9d95e80142de65e0de25fec14a4a52366ef5fa92ee7",
+  "pluginSourceCommit": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+  "dsh": "0.1.0-rc.7",
+  "tasks": 0,
+  "folders": 0,
+  "bindings": 0,
+  "actions": [
+    "installed original package",
+    "start",
+    "identity",
+    "tasks",
+    "folders",
+    "status"
+  ],
+  "modelCalls": 0,
+  "mineruCalls": 0,
+  "credentialsConfiguredByAgent": false,
+  "skillInstalled": false
+}
