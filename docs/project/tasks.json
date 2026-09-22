@@ -407,7 +407,7 @@
       "id": "V02-006",
       "title": "三域备份恢复到独立新实例",
       "kind": "task",
-      "status": "in_progress",
+      "status": "review",
       "modules": [
         "foundation",
         "releases",
@@ -444,8 +444,24 @@
       "lastDispatchCheckAt": "2026-09-22T01:22:21Z",
       "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
-      "receiptPhase": "candidate_build",
-      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:6",
+      "receiptPhase": "review",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:8",
+      "deliveryReview": {
+        "startedAt": "2026-09-22T01:41:44Z",
+        "engineSourceAndDelivery": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+        "workbenchSource": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca",
+        "initialWorkbenchDelivery": "116e8c6a344a2141958e014e36a1060b85483bd1",
+        "result": "accepted-fixed-r4-installed-combination; serial integration pending",
+        "evidenceSupplementRounds": 1,
+        "finalWorkbenchDelivery": "974a75097401737b066a1bb3afa3560587564362",
+        "supplementVerifiedAt": "2026-09-22T01:48:32.2048283Z",
+        "indexSha256": "921b6acd53e324491f400ee039e83e03ee7f21826c6015c36c53123e653156cd",
+        "independentReviews": [
+          "control_plan_review: R1 and A identity/execution accepted; retry wording corrected",
+          "startup_readiness_review: R2 and failure-source abort accepted with freeze-before-marker qualification",
+          "installed_control_acceptance: three-domain relations, native prefix, assets and failure branches accepted with explicit coverage limits"
+        ]
+      },
       "preflightReviewRounds": 1,
       "preflightReview": {
         "at": "2026-09-22T00:57:40Z",
@@ -477,10 +493,10 @@
         }
       ],
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T01:22:21Z",
-        "status": "active",
-        "turnStatus": "inProgress",
-        "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
+        "checkedAt": "2026-09-22T01:48:57.3641081Z",
+        "status": "idle",
+        "turnStatus": "completed",
+        "turnId": "01a0c6c9-6012-7dd1-8c89-5c5f1b312dd8"
       },
       "progressSnapshot": {
         "checkedAt": "2026-09-22T01:09:13Z",
@@ -840,7 +856,7 @@
       ],
       "receipt": "docs/project/evidence/V02-003B-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
+      "dispatchReservedAt": "2026-09-17T14:27:06.758702+08:00",
       "userConfirmed": true,
       "commits": [
         "8c37fb13d7c6816c1de067d72ef8fef091097ac3"
@@ -860,7 +876,7 @@
         "scripts/v02-003b-*"
       ],
       "clientThreadId": "client-new-thread:0a34d81c-d4c2-48b4-8700-a981be8c430e",
-      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00",
+      "dispatchRequestedAt": "2026-09-17T14:28:28.345122+08:00",
       "startedAt": "2026-09-17T06:28:35.6940147Z",
       "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
       "engineCommits": [
@@ -902,7 +918,7 @@
       ],
       "receipt": "docs/project/evidence/V02-006B-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T06:27:06.758702+00:00",
+      "dispatchReservedAt": "2026-09-17T14:27:06.758702+08:00",
       "userConfirmed": true,
       "commits": [
         "bde0554dfee627465de92e6ca43f5ba0bc17eaf0"
@@ -913,7 +929,7 @@
       ],
       "notes": "只证明固定 DSH 文本历史/队列的限定可行性；产品持久门禁、媒体/插件状态与三域演练未完成，F2 保持开放。",
       "clientThreadId": "client-new-thread:dcc114ad-77a0-41db-b89f-d3c194e56334",
-      "dispatchRequestedAt": "2026-09-17T06:28:28.345122+00:00",
+      "dispatchRequestedAt": "2026-09-17T14:28:28.345122+08:00",
       "startedAt": "2026-09-17T06:28:32.6491475Z",
       "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
       "integrationCommit": "ec630612853ca4c6239fab2018038da76456817b",
@@ -952,7 +968,7 @@
       ],
       "receipt": "docs/project/evidence/V02-003C-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T06:46:55.001567+00:00",
+      "dispatchReservedAt": "2026-09-17T14:46:55.001567+08:00",
       "userConfirmed": true,
       "commits": [
         "5a3506aa8429af6ea1db27ecf096f85823fc914d",
@@ -964,7 +980,7 @@
       ],
       "notes": "安装数据保护、来源与14项conflict/12项smoke通过；详情页缺少冲突提示，F4另卡最小修复。B候选保持独立分支未合入，003整体未通过。 后续结案：003D 新候选完成缺失验收，整链合入；原 partial/失败记录保持。",
       "clientThreadId": "client-new-thread:98dffb4a-8310-4542-a2c3-ce233a86eb98",
-      "dispatchRequestedAt": "2026-09-17T06:47:19.321545+00:00",
+      "dispatchRequestedAt": "2026-09-17T14:47:19.321545+08:00",
       "startedAt": "2026-09-17T06:47:49.5028399Z",
       "startConfirmedBy": "fixed-worktree-receipt-and-git-state",
       "acceptance": "followup-resolved-and-chain-integrated",
@@ -1036,7 +1052,7 @@
       ],
       "receipt": "docs/project/evidence/V02-003D-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T07:04:19.656909+00:00",
+      "dispatchReservedAt": "2026-09-17T15:04:19.656909+08:00",
       "userConfirmed": true,
       "commits": [
         "bf9f4edbd9e7fc5f80e5fe074d8fed35db163b59"
@@ -1048,12 +1064,12 @@
       ],
       "notes": "dev.2 来源、安装、F1 数据保护与真实浏览器冲突提示已复核；F1/F4 关闭，F2 保留。",
       "clientThreadId": "client-new-thread:0f3f2493-3ca0-4240-b2b1-456b185e82c2",
-      "dispatchRequestedAt": "2026-09-17T07:04:51.549239+00:00",
+      "dispatchRequestedAt": "2026-09-17T15:04:51.549239+08:00",
       "startedAt": "2026-09-17T07:05:19.9546706Z",
       "receiptPhase": "review",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-git-state",
       "progressSnapshot": {
-        "checkedAt": "2026-09-17T08:01:07.106139+00:00",
+        "checkedAt": "2026-09-17T16:01:07.106139+08:00",
         "deliveryReady": true,
         "engineHead": "6283c02a690ff42585f064c1f764b999baa97d7e",
         "workbenchHead": "bf9f4edbd9e7fc5f80e5fe074d8fed35db163b59"
@@ -1092,7 +1108,7 @@
       ],
       "receipt": "docs/codex-v02/V02-004A-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T08:01:07.106139+00:00",
+      "dispatchReservedAt": "2026-09-17T16:01:07.106139+08:00",
       "userConfirmed": true,
       "commits": [
         "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea"
@@ -1105,13 +1121,13 @@
       "contextCommit": "23449d685b9fef92143d39034cc320af0bc64f96",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:95d6bf74-5302-4f6c-bc17-1cb5f6f020aa",
-      "dispatchRequestedAt": "2026-09-17T08:02:44.426189+00:00",
-      "lastDispatchCheckAt": "2026-09-17T08:03:45.012959+00:00",
+      "dispatchRequestedAt": "2026-09-17T16:02:44.426189+08:00",
+      "lastDispatchCheckAt": "2026-09-17T16:03:45.012959+08:00",
       "startedAt": "2026-09-17T08:03:31.8376084Z",
       "receiptPhase": "review",
       "startConfirmedBy": "fixed-worktree-receipt-and-test-evidence",
       "progressSnapshot": {
-        "checkedAt": "2026-09-17T08:30:01.538943+00:00",
+        "checkedAt": "2026-09-17T16:30:01.538943+08:00",
         "head": "dcdb8e6cb23dd8329ceabd4487db0a79fae470ea",
         "deliveryReady": true
       },
@@ -1175,7 +1191,7 @@
       ],
       "receipt": "docs/codex-v02/V02-004B-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T08:30:01.538943+00:00",
+      "dispatchReservedAt": "2026-09-17T16:30:01.538943+08:00",
       "userConfirmed": true,
       "commits": [
         "bf09c557bcedbba1d843579401d73b7beb65705d"
@@ -1187,8 +1203,8 @@
       "contextCommit": "ceea8aebc90f99e0daad9344e9a38d2cca4d7658",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:36f40b40-fd85-406a-b740-1f37278cae96",
-      "dispatchRequestedAt": "2026-09-17T08:31:26.019049+00:00",
-      "lastDispatchCheckAt": "2026-09-17T08:32:03.022934+00:00",
+      "dispatchRequestedAt": "2026-09-17T16:31:26.019049+08:00",
+      "lastDispatchCheckAt": "2026-09-17T16:32:03.022934+08:00",
       "receiptPhase": "review",
       "startedAt": "2026-09-17T08:31:54.4559692Z",
       "startConfirmedBy": "fixed-worktree-receipt",
@@ -1222,7 +1238,7 @@
       ],
       "receipt": "docs/project/evidence/V02-004C-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-17T08:30:01.538943+00:00",
+      "dispatchReservedAt": "2026-09-17T16:30:01.538943+08:00",
       "userConfirmed": true,
       "commits": [
         "2e4ef2cd1d9b302335e046ba8530e2e862222585"
@@ -1234,8 +1250,8 @@
       "contextCommit": "ceea8aebc90f99e0daad9344e9a38d2cca4d7658",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:7c3311a9-110b-4e96-b19a-c584016c9b7d",
-      "dispatchRequestedAt": "2026-09-17T08:31:26.019049+00:00",
-      "lastDispatchCheckAt": "2026-09-17T08:32:03.022934+00:00",
+      "dispatchRequestedAt": "2026-09-17T16:31:26.019049+08:00",
+      "lastDispatchCheckAt": "2026-09-17T16:32:03.022934+08:00",
       "receiptPhase": "review",
       "startedAt": "2026-09-17T08:31:43.5622298Z",
       "startConfirmedBy": "fixed-worktree-receipt",
@@ -1289,7 +1305,7 @@
       ],
       "receipt": "docs/project/evidence/V02-004D-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
+      "dispatchReservedAt": "2026-09-18T13:44:20.563418+08:00",
       "userConfirmed": true,
       "commits": [
         "865647f0fdcd4ec9164b44790823e8b66a7581e2"
@@ -1314,13 +1330,13 @@
       "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:a7acdab2-1460-4483-8978-0086153b59c9",
-      "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
-      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00",
+      "dispatchRequestedAt": "2026-09-18T13:45:53.50793+08:00",
+      "lastDispatchCheckAt": "2026-09-18T13:46:30.847608+08:00",
       "receiptPhase": "review",
       "startedAt": "2026-09-18T05:46:31.1927945Z",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-build-evidence",
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T06:27:28.877363+00:00",
+        "checkedAt": "2026-09-18T14:27:28.877363+08:00",
         "deliveryReady": true,
         "engineHead": "a37a415c4bec9a895f1dc1619cfa35081cf85d26",
         "workbenchHead": "865647f0fdcd4ec9164b44790823e8b66a7581e2"
@@ -1379,7 +1395,7 @@
       ],
       "receipt": "docs/project/evidence/V02-004E-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-18T05:44:20.563418+00:00",
+      "dispatchReservedAt": "2026-09-18T13:44:20.563418+08:00",
       "userConfirmed": true,
       "commits": [
         "d99577b77a0ecbf63dd19bca0fdf3cc6b4c5a299",
@@ -1394,8 +1410,8 @@
       "contextCommit": "11581f7f2b0530a11179f0b25b90de4cb6559f1d",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:aa0d2c0b-0e09-4759-bf8e-ce0740cc3cc2",
-      "dispatchRequestedAt": "2026-09-18T05:45:53.507930+00:00",
-      "lastDispatchCheckAt": "2026-09-18T05:46:30.847608+00:00",
+      "dispatchRequestedAt": "2026-09-18T13:45:53.50793+08:00",
+      "lastDispatchCheckAt": "2026-09-18T13:46:30.847608+08:00",
       "receiptPhase": "review",
       "startedAt": "2026-09-18T05:46:50.4054044Z",
       "startConfirmedBy": "fixed-worktree-receipt-and-final-commit",
@@ -1439,7 +1455,7 @@
       ],
       "receipt": "docs/codex-v02/V02-004F-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
+      "dispatchReservedAt": "2026-09-18T14:27:28.877363+08:00",
       "userConfirmed": true,
       "commits": [
         "cc61625df084ea483e62b3517a609fbc601118fc"
@@ -1451,13 +1467,13 @@
       "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:30599887-c834-4d31-8ed5-fb525e4ec463",
-      "dispatchRequestedAt": "2026-09-18T06:32:05.715608+00:00",
+      "dispatchRequestedAt": "2026-09-18T14:32:05.715608+08:00",
       "startedAt": "2026-09-18T06:30:20.0085554Z",
       "receiptPhase": "review",
       "startConfirmedBy": "fixed-worktree-receipt",
-      "lastDispatchCheckAt": "2026-09-18T07:02:36.560826+00:00",
+      "lastDispatchCheckAt": "2026-09-18T15:02:36.560826+08:00",
       "progressSnapshot": {
-        "checkedAt": "2026-09-18T07:29:27.619356+00:00",
+        "checkedAt": "2026-09-18T15:29:27.619356+08:00",
         "head": "cc61625df084ea483e62b3517a609fbc601118fc",
         "deliveryReady": true
       },
@@ -1491,7 +1507,7 @@
       ],
       "receipt": "docs/codex-v02/V02-004G-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-18T06:27:28.877363+00:00",
+      "dispatchReservedAt": "2026-09-18T14:27:28.877363+08:00",
       "userConfirmed": true,
       "commits": [
         "6d88f2bef88867c335ded9a5bcb443b7c6cf921d"
@@ -1503,11 +1519,11 @@
       "contextCommit": "fd1e08d2d35c13af8723a93b794187ea6d87a021",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "clientThreadId": "client-new-thread:68102028-58d1-4380-a736-5f9e2c7f685d",
-      "dispatchRequestedAt": "2026-09-18T06:32:05.715608+00:00",
+      "dispatchRequestedAt": "2026-09-18T14:32:05.715608+08:00",
       "startedAt": "2026-09-18T06:30:18.5414075Z",
       "receiptPhase": "review",
       "startConfirmedBy": "fixed-worktree-receipt",
-      "lastDispatchCheckAt": "2026-09-18T06:32:51.355119+00:00",
+      "lastDispatchCheckAt": "2026-09-18T14:32:51.355119+08:00",
       "integrationCommit": "6d88f2bef88867c335ded9a5bcb443b7c6cf921d",
       "integrationBranch": "codex/v02-engine-baseline",
       "acceptance": "diagnosis-accepted; direct advance defect remains",
@@ -1550,12 +1566,12 @@
       ],
       "receipt": "docs/codex-v02/V02-004H-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-18T07:29:27.619356+00:00",
+      "dispatchReservedAt": "2026-09-18T15:29:27.619356+08:00",
       "userConfirmed": true,
       "contextCommit": "76767f0cc5f5adeb9accb8a5aeec28bef6db45f4",
       "clientThreadId": "client-new-thread:fd184319-55e1-4d54-81c5-05f8f09f04cb",
-      "dispatchRequestedAt": "2026-09-18T07:30:44.579321+00:00",
-      "lastDispatchCheckAt": "2026-09-18T07:31:29.878571+00:00",
+      "dispatchRequestedAt": "2026-09-18T15:30:44.579321+08:00",
+      "lastDispatchCheckAt": "2026-09-18T15:31:29.878571+08:00",
       "receiptPhase": "review",
       "integrationCommit": "2720fac32cf2b989523079405abbd0e4f3698e07",
       "integrationBranch": "codex/v02-engine-baseline",
@@ -1605,7 +1621,7 @@
       ],
       "receipt": "docs/project/evidence/V02-004I-receipt.json",
       "dispatchState": "completed",
-      "dispatchReservedAt": "2026-09-18T07:48:50.476803+00:00",
+      "dispatchReservedAt": "2026-09-18T15:48:50.476803+08:00",
       "userConfirmed": true,
       "commits": [
         "f4c93517fa693c4232c252df9d0cb301d38f0c5d"
@@ -1616,15 +1632,15 @@
       "notes": "独立接口16项、合入调用方31项通过；6个来源哈希吻合。004A-G1仍开放。",
       "contextCommit": "d06be8e6367ef4debc758506574a4be9dfa01874",
       "clientThreadId": "client-new-thread:326232b5-8a1c-490e-a7be-fd47bddef567",
-      "dispatchRequestedAt": "2026-09-18T07:50:32.619057+00:00",
-      "lastDispatchCheckAt": "2026-09-18T10:20:26.748891+00:00",
+      "dispatchRequestedAt": "2026-09-18T15:50:32.619057+08:00",
+      "lastDispatchCheckAt": "2026-09-18T18:20:26.748891+08:00",
       "hostId": "local",
       "receiptPhase": "review",
       "startedAt": "2026-09-18T07:51:22.1684732Z",
       "startConfirmedBy": "fixed-double-worktree-receipt-and-real-thread",
       "resumeHistory": [
         {
-          "at": "2026-09-18T10:20:26.748891+00:00",
+          "at": "2026-09-18T18:20:26.748891+08:00",
           "reason": "Original turn interrupted after environment setup command; same thread resumed with existing edits.",
           "threadStatusBefore": "interrupted"
         }
@@ -1632,7 +1648,7 @@
       "controlProgressEvidence": "docs/project/evidence/V02-004I-control-resume.md",
       "waitCursor": "c2fd0a82-c54e-42db-bdf5-2e3034e0d86e:1",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-18T10:21:26.852840+00:00",
+        "checkedAt": "2026-09-18T18:21:26.85284+08:00",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0b408-197f-79a1-aee5-8f3d0e7ebc3c"
@@ -1703,7 +1719,7 @@
       "waitCursor": "1ece4d04-6415-4a12-80f5-b41b7dd29903:8",
       "startedAt": "2026-09-18T10:41:46Z",
       "startConfirmedBy": "official-read-thread-and-wait-snapshot",
-      "lastDispatchCheckAt": "2026-09-18T11:56:51.590Z",
+      "lastDispatchCheckAt": "2026-09-18T11:56:51.59Z",
       "receiptPhase": "review",
       "lastThreadSnapshot": {
         "checkedAt": "2026-09-18T12:11:35.822Z",
@@ -1817,7 +1833,7 @@
       "clientThreadId": "client-new-thread:b1a1a1fa-b189-4c2c-8b0c-c99119978944",
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-18T12:15:23.0281648Z",
-      "startedAt": "2026-09-18T12:15:13.000Z",
+      "startedAt": "2026-09-18T12:15:13Z",
       "startConfirmedBy": "official-read-thread-active-and-start-commentary",
       "lastDispatchCheckAt": "2026-09-21T15:20:16.629Z",
       "waitCursor": "e17fc9f2-0203-46dd-b627-af31fc401edc:3",
