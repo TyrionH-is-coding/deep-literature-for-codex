@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 const read = async f => JSON.parse((await fs.readFile(f, 'utf8')).replace(/^\uFEFF/, ''));
-const candidate = process.argv[4] ?? 'r3';
+const candidate = process.argv[4] ?? 'r4';
 const source = 'C:/tmp/v006/source', target = process.argv[3] ?? 'C:/tmp/v006/restored-' + candidate;
 const installed = await read(path.join(source, 'installation.json'));
 const api = await import(pathToFileURL(path.join(installed.app, 'src/modules/releases/index.mjs')).href);

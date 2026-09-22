@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
 export const name = 'v006-local-counter';
-export const inject = ['llm', 'tools'];
+export const inject = ['llm', 'tools', 'agents'];
 export async function apply(ctx, config) {
   const require = createRequire(config.entry);
   const { LlmAdapter } = await import(pathToFileURL(require.resolve('@deepseek-ai/dsh-llm')).href);
@@ -29,6 +29,7 @@ export async function apply(ctx, config) {
     }
   }());
   ctx.on('tools/execute', async (_exec, next) => { bump('tool'); return next(); });
+  let childLoaded = false;
   ctx.on('agent/created', async ({ agent }) => {
     bump('agent-created');
     if (!config.probe) return;
@@ -45,6 +46,10 @@ export async function apply(ctx, config) {
       catch (error) { attempts.push({ name, error: error.message }); }
     }
     fs.appendFileSync(config.counter, JSON.stringify({ kind: 'probe', sessionId: agent.session.id, before, after: pending(), attempts }) + '\n');
+    if (config.childId && !childLoaded) {
+      childLoaded = true;
+      await ctx.agents.resume({ resumeSessionId: config.childId });
+    }
   });
   bump('armed');
 }

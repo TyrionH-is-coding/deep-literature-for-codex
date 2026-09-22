@@ -22,6 +22,8 @@
 
 后续gate通过 `instance-stop ROOT REQUEST.json`（同一确认字段、taskId/idempotencyKey/expectedRevision，不带input）先明确停止，再以新停止revision和新幂等键执行instance-continue。`stopRecovery`仅授权已确认parent的精确停止请求。每代许可写入grantHistory；旧请求只读重放旧结果/操作，不替换当前许可、不清除新停止意图。派生许可重绑保留priorRequestIds；必须有前代许可审计。
 
+失败备份源可用 `instance-abort-backup ROOT TRANSACTION_ID` 明确中止：仅failed backup源，先停宿主并重新取得引擎冻结与独立写者静止证据，再写审计、清源门禁；保留partial和检查归档且不启动。恢复目标、错事务、其他phase及不能确认静止均拒绝。审计后清标记前中断，重试重新核验；已清标记后的重复请求只读回审计。
+
 首版只支持同平台/同完整制品、DSH rc.7单workspace和默认产品preset；媒体/spill/未知持久状态、外部执行输入、用户自定义profile/preset、库内解析器venv和待上传暂存拒绝。源码测试/适配层不是安装验收，证据见V02-006交付索引。
 
 ## 依赖与阅读范围

@@ -7,7 +7,7 @@ import { randomUUID, createHash } from 'node:crypto';
 import { initializeRoot, writeJson, readJson, assertRecoveryStart, recoveryFile } from '../src/modules/foundation/index.mjs';
 import { start } from '../src/modules/lifecycle/index.mjs';
 import { Handoff } from '../src/modules/workflow/index.mjs';
-import { verifyInstancePackage, restoreInstance, activateRelease } from '../src/modules/releases/index.mjs';
+import { verifyInstancePackage, restoreInstance, activateRelease, abortBackup } from '../src/modules/releases/index.mjs';
 import { scanSupported, validateSessions } from '../src/modules/releases/dsh-recovery.mjs';
 
 async function fixture() {
@@ -50,6 +50,16 @@ test('installation activation refuses generic maintenance bypass under persisten
   await assert.rejects(activateRelease(root, {}, { lifecycle: { start: () => { called = true; } } }), /install_blocked/);
   assert.equal(called, false);
 });
+
+test('abort never clears a restore target, wrong transaction or non-failed phase', async () => {
+  const { root, state } = await fixture();
+  await assert.rejects(abortBackup(root, randomUUID()), /abort_invalid/);
+  await assert.rejects(abortBackup(root, state.transactionId), /abort_invalid/);
+  state.phase = 'failed'; state.source = { root: 'source' }; state.partial = 'package.partial-' + state.transactionId;
+  await writeJson(recoveryFile(root), state);
+  await assert.rejects(abortBackup(root, state.transactionId), /abort_invalid/);
+  assert.deepEqual(await readJson(recoveryFile(root)), state);
+});
 test('structured secrets and unknown media are rejected without deleting content', () => {
   for (const item of [{ access_token: 'synthetic' }, { nested: { type: 'image' } }, { spill: { path: 'x' } }, 'SYNTHETIC_CREDENTIAL_CANARY']) {
     assert.throws(() => scanSupported(item), /recovery_/);
@@ -69,7 +79,9 @@ test('package missing domains/hash corruption/path entries refused; occupied tar
   const source = { instanceId: randomUUID(), root: path.join(root, 'source') };
   const manifest = { contract: 'deep-literature-instance-backup-v1', version: 1, source,
     domains: { library: true, native: true, handoff: true }, files: [] };
-  for (const [name, value] of Object.entries({ 'library.zip': 'synthetic', 'native.json': '{"sessions":[]}', 'handoff.json': JSON.stringify({ schema: 1, instanceId: source.instanceId, bindings: {}, children: {}, tasks: {} }) })) {
+  const native = { contract: 'deep-literature-dsh-rc7-v1', sessions: [], workspacePath: 'synthetic',
+    workspace: { unit: { version: 2 }, global: { workspaceIds: ['a'] }, tables: { workspaces: { a: { path: 'synthetic', sessionIds: [] } } } } };
+  for (const [name, value] of Object.entries({ 'library.zip': 'synthetic', 'native.json': JSON.stringify(native), 'handoff.json': JSON.stringify({ schema: 1, instanceId: source.instanceId, bindings: {}, children: {}, tasks: {} }) })) {
     await fs.writeFile(path.join(root, name), value);
     manifest.files.push({ path: name, size: Buffer.byteLength(value), sha256: createHash('sha256').update(value).digest('hex') });
   }

@@ -6,6 +6,14 @@ import { pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
 
 const headerKeys = new Set(['version', 'id', 'createdAt', 'cwd', 'parentSession', 'seedLength', 'origin', 'delegationDepth', 'agentPreset']);
+// Fixed rc.7 durable core vocabulary. Active goals/schedules/approval requests
+// and subagent descriptors remain outside the supported first recovery format.
+export const RECOVERY_EVENT_TYPES = new Set(['agent-preset/selected', 'agent/inbox/spliced', 'approval/policy', 'assistant/chunk', 'assistant/message',
+  'command/done', 'command/run', 'compaction/end', 'compaction/prune', 'compaction/start', 'compaction/summary', 'feedback/record',
+  'hook/invoked', 'hook/result', 'llm/retry', 'llm/retry-started', 'permission/preset', 'plan/mode', 'request/context', 'request/header', 'sandbox/mode',
+  'session/end-seed', 'session/title', 'session/title-llm-request', 'step/end', 'step/start', 'todo/write', 'tool-workflow/agent-end',
+  'tool-workflow/agent-start', 'tool-workflow/run-end', 'tool-workflow/run-start', 'tool/call', 'tool/code-dispatch', 'tool/code-dispatch-start',
+  'tool/result', 'turn/end', 'turn/start', 'user/message', 'web/deepseek-search-llm-request']);
 export function scanSupported(value) {
   if (!value || typeof value !== 'object') {
     if (typeof value === 'string' && /SYNTHETIC_(CREDENTIAL|SECRET)_CANARY/.test(value)) throw new Error('recovery_known_secret');
@@ -35,7 +43,7 @@ async function filesAt(root) {
   return result;
 }
 
-export function validateSessions(snapshot, knownTypes) {
+export function validateSessions(snapshot, knownTypes = RECOVERY_EVENT_TYPES) {
   if (snapshot.contract !== 'deep-literature-dsh-rc7-v1' || !Array.isArray(snapshot.sessions)) throw new Error('recovery_dsh_format');
   scanSupported(snapshot);
   const ids = new Set();

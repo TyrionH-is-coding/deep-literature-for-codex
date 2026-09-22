@@ -7,8 +7,8 @@ import { root, out, installed, read, start, stop, save } from './fixtures/v02-00
 const normal = await read(path.join(out, 'normal-formula-outline.json'));
 const patch = path.join(root, 'state/dsh-home/profiles/workbench/cordis.patch.yml');
 const original = await fs.readFile(patch);
-const counter = path.join(out, 'native-positive-counter.jsonl');
-const report = { synthetic: 'offline model adapter with actual DSH tool runtime', counter, calls: [] };
+const counter = path.join(out, 'native-positive-counter-' + Date.now() + '.jsonl');
+const report = { synthetic: 'offline model adapter with actual DSH tool runtime', installed, counter, calls: [] };
 await stop(root);
 try {
   await fs.writeFile(patch, JSON.stringify([{ insert: [{ id: 'v006-counter', name: pathToFileURL(path.join(import.meta.dirname, 'fixtures/v02-006/counter.mjs')).href,

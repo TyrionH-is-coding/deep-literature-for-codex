@@ -8,7 +8,7 @@ import { initializeRoot, readJson, writeJson, recoveryFile, readRecovery, isolat
 import { start, stop, status, pipeName, prepareLocalSocket } from '../lifecycle/index.mjs';
 import { Handoff } from '../workflow/index.mjs';
 import { runLibraryCommand } from './library-transfer.mjs';
-import { scanSupported } from './dsh-recovery.mjs';
+import { scanSupported, validateSessions } from './dsh-recovery.mjs';
 
 const CONTRACT = 'deep-literature-instance-backup-v1';
 export async function exclusiveMaintenance(root, action) {
@@ -93,6 +93,15 @@ async function dsh(mode, root, installed, input, output) {
 }
 async function engineJson(root, installed, args, input, scope) {
   const env = isolatedEnvironment(root, process.env, installed);
+  if (args[0] === 'full-read-pipeline-resume') {
+    // Preserve the parent's pinned provider profile without accepting an
+    // executable from the backup or request. Later stages still construct it.
+    const wrapper = path.join(installed.slot, 'runtime', 'npm', 'node_modules', '@dsh-external', 'dsh-scientific-reading', 'scripts', 'scansci_wrap.py');
+    await fs.access(wrapper);
+    env.SR_SCANSCI_PROVIDER_PYTHON = installed.python;
+    env.SR_SCANSCI_PROVIDER_WRAPPER = wrapper;
+    env.SR_SCANSCI_DISABLE_INSTITUTION = '1';
+  }
   if (scope) env.SR_SCOPE_CONTEXT = JSON.stringify(scope);
   const result = JSON.parse(await command(installed.python, ['-I', '-X', 'utf8', '-m', 'scientific_reading', '--data-root', path.join(root, 'library'), ...args],
     { cwd: root, env, input: input === undefined ? '' : JSON.stringify(input), acceptedCodes: args[0] === 'job-status' ? [0, 2, 3, 4] : [0] }));
@@ -148,7 +157,7 @@ export async function backupInstance(requestedRoot, requestedOutput) {
   return exclusiveMaintenance(root, async () => {
     if (await readRecovery(root)) throw new Error('instance_recovery_already_pending');
     const transaction = { contract: 'deep-literature-instance-recovery-v1', root, instanceId: instance.instanceId,
-      transactionId: randomUUID(), phase: 'backup', startedAt: now() };
+      transactionId: randomUUID(), phase: 'backup', operation: 'backup', startedAt: now() };
     await writeJson(recoveryFile(root), transaction);
     const stage = output + '.partial-' + transaction.transactionId;
     try {
@@ -169,8 +178,11 @@ export async function backupInstance(requestedRoot, requestedOutput) {
           consistency: { hostStopped: true, supportedEngineWritersFrozen: true, librarySha256: proof.sha256 },
           limitations: ['same-platform-and-artifact', 'single-workspace', 'no-media-spill-custom-presets', 'known-structured-secrets-only', 'restore-requires-explicit-parent-confirmation'] };
         await writeJson(path.join(stage, 'manifest.json'), manifest);
-        await verifyInstancePackage(stage);
       });
+      // A removes its private .sr-backup staging directory when the held
+      // snapshot closes. Domain bytes/digests were captured under the freeze;
+      // validate the final directory shape only after that private cleanup.
+      await verifyInstancePackage(stage);
       await fs.rename(stage, output);
       await fs.rm(recoveryFile(root));
       return { status: 'completed', path: output, manifestSha256: sha(await fs.readFile(path.join(output, 'manifest.json'))), backupId: manifest.backupId };
@@ -198,6 +210,7 @@ export async function verifyInstancePackage(requested) {
     if (sha(await fs.readFile(full)) !== record.sha256) throw new Error('recovery_package_digest');
   }
   const native = await readJson(path.join(archive, 'native.json')), handoff = await readJson(path.join(archive, 'handoff.json'));
+  validateSessions(native);
   relations(native, handoff, manifest.source.instanceId);
   return { archive, manifest, native, handoff, manifestSha256: sha(await fs.readFile(path.join(archive, 'manifest.json'))) };
 }
@@ -205,11 +218,24 @@ export async function verifyInstancePackage(requested) {
 export async function abortBackup(root, transactionId) {
   return exclusiveMaintenance(root, async () => {
     const value = await readRecovery(root);
-    if (!value || value.transactionId !== transactionId || value.phase !== 'failed' || !value.partial
+    if (!value) {
+      const previous = await readJson(path.join(root, 'state', 'backup-aborted-' + transactionId + '.json')).catch(() => null);
+      const instance = await readJson(path.join(root, '.workbench.json'));
+      if (previous?.transactionId === transactionId && previous.instanceId === instance.instanceId && previous.quiescence?.status === 'completed') {
+        return { status: 'aborted_source_stopped', transactionId, partialPreserved: previous.partial, replayed: true };
+      }
+      throw new Error('recovery_backup_abort_invalid');
+    }
+    if (value.transactionId !== transactionId || value.phase !== 'failed' || (value.operation !== undefined && value.operation !== 'backup')
+        || typeof value.partial !== 'string' || !value.partial.endsWith('.partial-' + transactionId)
         || value.source || value.steps || value.allowedParents) throw new Error('recovery_backup_abort_invalid');
     await stop(root);
     if ((await status(root)).status !== 'stopped') throw new Error('recovery_host_not_stopped');
-    await writeJson(path.join(root, 'state', 'backup-aborted-' + transactionId + '.json'), { ...value, explicitlyAbortedAt: now() });
+    const installed = await readJson(path.join(root, 'installation.json'));
+    const check = path.join(root, 'state', 'backup-abort-checks', transactionId + '-' + randomUUID() + '.zip');
+    await fs.mkdir(path.dirname(check), { recursive: true });
+    const quiescence = await frozenLibrary(root, installed, check, async () => {});
+    await writeJson(path.join(root, 'state', 'backup-aborted-' + transactionId + '.json'), { ...value, explicitlyAbortedAt: now(), quiescence });
     await fs.unlink(recoveryFile(root));
     return { status: 'aborted_source_stopped', transactionId, partialPreserved: value.partial };
   });

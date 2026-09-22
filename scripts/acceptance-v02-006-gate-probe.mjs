@@ -11,7 +11,7 @@ const gate = await read(path.join(root, 'state/instance-recovery.json'));
 const original = await read(path.join(root, 'state/recovery-original-native.json'));
 const normal = await read('C:/tmp/v006/evidence/source/normal-formula-outline.json');
 const patch = path.join(root, 'state/dsh-home/profiles/workbench/cordis.patch.yml'), originalPatch = await fs.readFile(patch);
-const counter = 'C:/tmp/v006/evidence/gate-counter-' + path.basename(root) + '.jsonl';
+const counter = 'C:/tmp/v006/evidence/gate-counter-' + path.basename(root) + '-' + Date.now() + '.jsonl';
 const report = { root, boots: [], counter };
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const handoffBefore = hash(await fs.readFile(path.join(root, 'state/handoff.json')));
@@ -19,7 +19,7 @@ try {
   await assert.rejects(lifecycle.start(root), /recovery_start_blocked/);
   await assert.rejects(lifecycle.start(root, { maintenance: true }), /recovery_start_blocked/);
   await fs.writeFile(patch, JSON.stringify([{ insert: [{ id: 'v006-counter', name: pathToFileURL(path.join(import.meta.dirname, 'fixtures/v02-006/counter.mjs')).href,
-    config: { entry: installed.dsh, counter, jobId: normal.jobId, probe: true } }] }]));
+    config: { entry: installed.dsh, counter, jobId: normal.jobId, probe: true, childId: 'v006-pending-child' } }] }]));
   for (let index = 0; index < 2; index++) {
     const live = await api.startRecovery(root, gate.transactionId), calls = [];
     const rpc = async (method, payload) => {
@@ -28,6 +28,7 @@ try {
       calls.push({ method, result }); return result;
     };
     for (const s of original.sessions) {
+      if (s.meta.origin === 'subagent') continue; // Native parent-owned registry resume is exercised by the observer plugin.
       const created = await rpc('session.create', { sessionId: s.meta.id, workspaceId: gate.mapping.workspaceId, agentPreset: 'scientific-reading' });
       assert.equal(created.result?.ok, true, JSON.stringify(created));
     }
