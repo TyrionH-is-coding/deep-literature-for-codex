@@ -15,10 +15,10 @@
       "id": "deep-literature-v0-2",
       "state": "PAUSED",
       "lastVerifiedAt": "2026-09-22T01:53:11.6772821Z",
-      "pauseReason": "006 integrated; 007 needs real-use paper/service input and user configuration; no independent development remains before this gate",
+      "pauseReason": "007 setup proceeding on user reply; keep timed loop paused until local login/parser gate is actionable",
       "resumeCondition": "Resume authorized loop after user supplies real-use conditions; login and human quality gates remain explicit"
     },
-    "lastReviewAt": "2026-09-22T01:53:11.6772821Z",
+    "lastReviewAt": "2026-09-22T01:56:15.3558841Z",
     "lastHeartbeatCompletedAt": "2026-09-22T01:53:11.6772821Z",
     "workingMethod": {
       "revision": 2,
@@ -696,8 +696,8 @@
     {
       "id": "V02-007",
       "title": "主流程使用验收",
-      "kind": "milestone",
-      "status": "ready",
+      "kind": "task",
+      "status": "in_progress",
       "modules": [
         "application"
       ],
@@ -705,22 +705,41 @@
         "V02-006"
       ],
       "card": "docs/project/tasks/V02-007.md",
-      "ownerSession": null,
-      "worktree": null,
-      "branch": null,
+      "ownerSession": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007",
+      "branch": "codex/v02-007-real-use",
       "commits": [],
       "evidence": [],
-      "notes": "One real paper on fixed dev.5 in a fresh isolated instance. Card ready; no session dispatched or paid calls made. Await paper/service scope, user-local model/MinerU setup, and later human quality feedback. Existing fixed-source regression/recovery evidence reused.",
+      "notes": "User selected Genome-scale perturb-seq in primary human CD4+ T cells... and GPT models. Prepare one isolated dev.5 instance and verified paper metadata. User-local model/MinerU setup and human quality still pending; no automatic repeated paid retries.",
       "risk": "R2",
-      "executionState": "waiting_for_user_inputs",
+      "executionState": "preparing_isolated_instance",
       "blockedBy": [
-        "Paper DOI/link or authorized topic",
-        "Real model/parser service usage scope or budget",
-        "User-local account and MinerU configuration; no secrets in chat",
+        "User-local ChatGPT subscription/model selection and MinerU configuration",
         "Final human content-quality and record-edit feedback"
       ],
       "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
-      "plannedInstanceRoot": "C:/tmp/v007/"
+      "plannedInstanceRoot": "C:/tmp/v007/",
+      "baseCommit": "7d53ab5b3c66fdee77820b64d94c8a49ea03ed97",
+      "dispatchState": "reserved",
+      "startedAt": "2026-09-22T01:56:15.3558841Z",
+      "nextCheckpointAt": "2026-09-22T03:26:15.3558841Z",
+      "allowedPaths": [
+        "scripts/v02-007-*",
+        "scripts/fixtures/v02-007/",
+        "docs/project/evidence/V02-007*",
+        "C:/tmp/v007/"
+      ],
+      "portPolicy": "OS-assigned loopback port; record live identity/url before browser use",
+      "instanceRoot": "C:/tmp/v007/instance",
+      "userInput": {
+        "title": "Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+        "modelFamily": "GPT",
+        "exactModel": "pending actual subscription model list",
+        "scope": "This one selected paper; no automatic additional paid retry",
+        "credentials": "user-local configuration only"
+      },
+      "independence": "Only active developer task; own worktree and fresh instance/output roots; bibliography reviewer read-only",
+      "exitCriteria": "Fixed dev.5 real-paper/model flow, Reader/source content review and personal record survives restart; user quality acceptance required"
     },
     {
       "id": "V02-008",
