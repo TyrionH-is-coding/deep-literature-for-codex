@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-22T00:28:06Z",
-    "lastHeartbeatCompletedAt": "2026-09-22T00:40:19Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T00:57:40Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -441,25 +441,54 @@
       "dispatchMarker": "DL-V02-006-ae2cb78-20260922",
       "startedAt": "2026-09-22T00:24:53.4247854Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
-      "lastDispatchCheckAt": "2026-09-22T00:39:49Z",
+      "lastDispatchCheckAt": "2026-09-22T00:54:53Z",
       "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
-      "receiptPhase": "implementation_identity_and_gate",
-      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:3",
+      "receiptPhase": "candidate_build",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:4",
+      "preflightReviewRounds": 1,
+      "preflightReview": {
+        "at": "2026-09-22T00:57:40Z",
+        "engineSource": "2226754c71f6a37fa5ec8c45bc34ad12e59d852f",
+        "workbenchSource": "ee2f471e806b9bf425702edf706fe03c5b38ba45",
+        "result": "same-task-repair-required; no installed acceptance",
+        "report": "docs/project/evidence/V02-006-control-preflight.md",
+        "fixedSourceOnly": true,
+        "productRetestedByCoordinator": false
+      },
+      "findings": [
+        {
+          "id": "006-R1",
+          "status": "open",
+          "classification": "current-task-necessary-repair",
+          "title": "首个parent/派生许可阻断后续输入和新停止恢复代",
+          "blocksTaskAcceptance": true,
+          "evidence": "docs/project/evidence/V02-006-control-preflight.md",
+          "handling": "Same task, existing allowed recovery/continue files and meaningful caller tests"
+        },
+        {
+          "id": "006-R2",
+          "status": "open",
+          "classification": "current-task-necessary-repair",
+          "title": "原生队列拦截与正常agent销毁路径冲突",
+          "blocksTaskAcceptance": true,
+          "evidence": "docs/project/evidence/V02-006-control-preflight.md",
+          "handling": "Same task, existing bridge/lifecycle paths; actual clean shutdown and preserved inbox proof required"
+        }
+      ],
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T00:39:49Z",
+        "checkedAt": "2026-09-22T00:54:53Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
       },
       "progressSnapshot": {
-        "checkedAt": "2026-09-22T00:40:19Z",
+        "checkedAt": "2026-09-22T00:57:40Z",
         "deliveryReady": false,
-        "sourceState": "A/B still on assigned bases with implementation changes, no fixed delivery yet",
-        "observation": "Healthy active execution within initial checkpoint; receipt and developer report show identity, persistent gates and three-domain transaction implementation",
-        "developerReported": "Directed same-parent continuation/replay and independent freeze/writer checks; B negative/related tests; Node --import pre-bootstrap rc7 native execution interception. A full regression running, new dev.5 installed gate counters and restarts pending.",
-        "verification": "Progress report only, not independently accepted test results; no running implementation retest or F2 closure",
-        "action": "Continue same task without intervention; retain initial checkpoint"
+        "sourceState": "First fixed A/B production commits exist; installed preparation and source correction ongoing",
+        "observation": "Active within initial checkpoint; A baseline-caller regression fixed in2226754 after597/2/3 result, directed10pass; final combined candidate evidence pending",
+        "verification": "Bounded independent fixed-source review found006-R1/R2; source/test progress does not establish installed acceptance",
+        "action": "Send both current-goal repairs to same task, no new task or product scope; retain initial checkpoint"
       },
       "scopeClarifications": [
         {
