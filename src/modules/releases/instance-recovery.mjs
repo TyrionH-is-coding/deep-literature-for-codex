@@ -202,6 +202,19 @@ export async function verifyInstancePackage(requested) {
   return { archive, manifest, native, handoff, manifestSha256: sha(await fs.readFile(path.join(archive, 'manifest.json'))) };
 }
 
+export async function abortBackup(root, transactionId) {
+  return exclusiveMaintenance(root, async () => {
+    const value = await readRecovery(root);
+    if (!value || value.transactionId !== transactionId || value.phase !== 'failed' || !value.partial
+        || value.source || value.steps || value.allowedParents) throw new Error('recovery_backup_abort_invalid');
+    await stop(root);
+    if ((await status(root)).status !== 'stopped') throw new Error('recovery_host_not_stopped');
+    await writeJson(path.join(root, 'state', 'backup-aborted-' + transactionId + '.json'), { ...value, explicitlyAbortedAt: now() });
+    await fs.unlink(recoveryFile(root));
+    return { status: 'aborted_source_stopped', transactionId, partialPreserved: value.partial };
+  });
+}
+
 export async function restoreInstance(requestedTarget, request) {
   const source = await verifyInstancePackage(request.archive);
   const target = await plainPath(requestedTarget, { absent: true });
@@ -245,6 +258,28 @@ export async function restoreInstance(requestedTarget, request) {
     await dsh('import', instance.root, installed, path.join(source.archive, 'native.json'), mappingFile);
     const mapping = await readJson(mappingFile);
     const handoff = { ...source.handoff, instanceId: instance.instanceId, workspace: { ...source.handoff.workspace, workspaceId: mapping.workspaceId, path: mapping.path } };
+    const handoffTransforms = [];
+    const pathKeys = new Set(['data_root', 'workspace_root', 'source_pdf', 'pdf_path', 'reader_html', 'reader_path', 'translations_json',
+      'source_map_json', 'full_read_md', 'reading_guide_json', 'highlights_json', 'output_dir', 'source_manifest_path', 'source_path', 'output_path', 'manifest_path']);
+    const sourceLibrary = path.join(source.manifest.source.root, 'library');
+    function relocateSnapshot(value, location) {
+      if (!value || typeof value !== 'object') return;
+      for (const [key, item] of Object.entries(value)) {
+        if (key === 'instanceId' && item === source.manifest.source.instanceId && value.scopeSessionId && value.scopeFolderId) {
+          value[key] = instance.instanceId; handoffTransforms.push(location + '.' + key);
+        } else if (pathKeys.has(key) && typeof item === 'string' && path.isAbsolute(item)) {
+          const relative = path.relative(sourceLibrary, item);
+          if (!relative.startsWith('..') && !path.isAbsolute(relative)) {
+            value[key] = path.join(instance.root, 'library', relative); handoffTransforms.push(location + '.' + key);
+          }
+        } else relocateSnapshot(item, location + '.' + key);
+      }
+    }
+    await writeJson(path.join(instance.root, 'state', 'recovery-original-handoff.json'), source.handoff);
+    for (const [key, task] of Object.entries(handoff.tasks)) {
+      relocateSnapshot(task.job, 'tasks.' + key + '.job'); relocateSnapshot(task.control, 'tasks.' + key + '.control');
+      if (task.artifacts?.readerUrl) { task.artifacts.readerUrl = '/sr/reader/' + encodeURIComponent(task.paperId); handoffTransforms.push('tasks.' + key + '.artifacts.readerUrl'); }
+    }
     await writeJson(path.join(instance.root, 'state', 'handoff.json'), handoff);
     await writeJson(path.join(instance.root, 'state', 'recovery-original-native.json'), source.native);
     const folders = await engineJson(instance.root, installed, ['folder-list']);
@@ -258,7 +293,7 @@ export async function restoreInstance(requestedTarget, request) {
       }
     }
     await verifyInstancePackage(source.archive); // Detect substitution throughout import.
-    transaction = { ...transaction, phase: 'validating', steps: [...transaction.steps, 'native', 'handoff'], mapping };
+    transaction = { ...transaction, phase: 'validating', steps: [...transaction.steps, 'native', 'handoff'], mapping, handoffTransforms };
     await writeJson(recoveryFile(instance.root), transaction);
     return { status: 'awaiting_validation', root: instance.root, transactionId: transaction.transactionId };
   } catch (error) {

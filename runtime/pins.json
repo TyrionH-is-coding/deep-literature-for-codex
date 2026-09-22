@@ -17,9 +17,9 @@
   "plugin": {
     "name": "@dsh-external/dsh-scientific-reading",
     "version": "0.2.0-dev.5",
-    "sha256": "45b96d0e384af5b5eb58b0908798b751ca6b83c90fae779549b54b83f5ee6afa",
+    "sha256": "65a6cefad45438542abf6547142ea043d26f5fb9e11e2e2382464184b3207d43",
     "source": "V02-006 internal three-domain recovery candidate; local archive inputs/scientific-reading.tgz",
-    "sourceCommit": "474daa11835caf5ddeb4387a3420e22667daedaa"
+    "sourceCommit": "92d1533d93dd9bc408d7d9c6674bca0baf1aa5c9"
   },
   "platforms": {
     "darwin-arm64": {

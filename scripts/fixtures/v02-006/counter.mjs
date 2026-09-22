@@ -29,6 +29,22 @@ export async function apply(ctx, config) {
     }
   }());
   ctx.on('tools/execute', async (_exec, next) => { bump('tool'); return next(); });
-  ctx.on('agent/created', () => bump('agent-created'));
+  ctx.on('agent/created', async ({ agent }) => {
+    bump('agent-created');
+    if (!config.probe) return;
+    const pending = () => ({ turn: agent.inbox.nextTurn.map(m => m.id), step: agent.inbox.nextStep.map(m => m.id) });
+    const before = pending(), attempts = [];
+    for (const [name, action] of [
+      ['send', () => agent.send({}, 'next-turn', true)], ['wakeDriver', () => agent.wakeDriver()],
+      ['maintenance', () => agent.runMaintenance(() => bump('maintenance-executed'))],
+      ['claim', () => agent.inbox.claim('next-turn', 1)], ['splice', () => agent.inbox.splice('next-turn', 0, 1, [])],
+      ['model', () => ctx.llm.stream({ provider: 'v006-local', model: 'counter' })],
+      ['tool', () => ctx.tools.execute({ name: 'sr_job_status', arguments: { job_id: config.jobId } })],
+    ]) {
+      try { await action(); attempts.push({ name, unexpectedlyAllowed: true }); }
+      catch (error) { attempts.push({ name, error: error.message }); }
+    }
+    fs.appendFileSync(config.counter, JSON.stringify({ kind: 'probe', sessionId: agent.session.id, before, after: pending(), attempts }) + '\n');
+  });
   bump('armed');
 }

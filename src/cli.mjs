@@ -2,7 +2,7 @@ import { installSkill } from './modules/skill/index.mjs';
 import path from 'node:path';
 import { start, status, stop } from './modules/lifecycle/index.mjs';
 import { readJson, SKILL_NAME } from './modules/foundation/index.mjs';
-import { rollbackRelease, recoverRelease, retireInstallation, backupInstance, restoreInstance, verifyInstancePackage, startRecovery, validateRecovery, continueRecovery, stopRecovery } from './modules/releases/index.mjs';
+import { rollbackRelease, recoverRelease, retireInstallation, backupInstance, abortBackup, restoreInstance, verifyInstancePackage, startRecovery, validateRecovery, continueRecovery, stopRecovery } from './modules/releases/index.mjs';
 import { call } from './client.mjs';
 import { defaultRoot } from './modules/foundation/index.mjs';
 import { setupSteps } from './onboarding.mjs';
@@ -18,6 +18,7 @@ try {
   else if (command === 'instance-validate') result = await validateRecovery(root, skillsRoot);
   else if (command === 'instance-continue') result = await continueRecovery(root, await readJson(skillsRoot));
   else if (command === 'instance-stop') result = await stopRecovery(root, await readJson(skillsRoot));
+  else if (command === 'instance-abort-backup') result = await abortBackup(root, skillsRoot);
   else if (command === 'call') {
     if (!skillsRoot) throw new Error('request_file_required');
     result = await call(root, await readJson(path.resolve(skillsRoot)));
