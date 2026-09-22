@@ -16,7 +16,7 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
-    "lastReviewAt": "2026-09-22T00:19:32.422Z",
+    "lastReviewAt": "2026-09-22T00:28:06Z",
     "lastHeartbeatCompletedAt": "2026-09-22T00:25:10Z",
     "workingMethod": {
       "revision": 2,
@@ -428,7 +428,7 @@
       "branch": "codex/v02-006-instance-recovery",
       "commits": [],
       "evidence": [],
-      "notes": "首个90分钟先复现新根parent/scope/control风险并给最小合同，再在同一卡实现/安装演练；F2未关闭，未知DSH状态严格拒绝，真实账号/科学质量归007。",
+      "notes": "首轮已复现parent身份冲突和冻结生命周期，最小合同复核后按原范围继续身份/门禁实现；scope与原生执行接点仍须取证。F2未关闭，未知DSH状态严格拒绝，真实账号/科学质量归007。",
       "children": [
         "V02-006A",
         "V02-006B"
@@ -441,17 +441,48 @@
       "dispatchMarker": "DL-V02-006-ae2cb78-20260922",
       "startedAt": "2026-09-22T00:24:53.4247854Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
-      "lastDispatchCheckAt": "2026-09-22T00:25:10Z",
+      "lastDispatchCheckAt": "2026-09-22T00:27:00Z",
       "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
       "receiptPhase": "in_progress",
-      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:1",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:2",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T00:25:10Z",
+        "checkedAt": "2026-09-22T00:27:00Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
       },
+      "checkpointReviews": [
+        {
+          "at": "2026-09-22T00:28:06Z",
+          "trigger": "Developer first-contract notification; healthy active task",
+          "result": "contract-within-authorized-scope-continue-implementation",
+          "scopeChanged": false,
+          "classification": "Parent identity conflict is necessary recovery repair within existing F2; sustained freeze is required three-domain integration, not a separate task",
+          "observedRuntime": "Restored parent job_ede7d54835f3b59d hashes to job_63f7d45523228962 at new root; ReadingControl.read rejects full_read_parent_mismatch. Stop operations retained, revision1/requestId v006-stop present. Library freeze ends at snapshot return; nesting snapshot inside freeze raises backup_inside_active_operation.",
+          "observedSourceOnly": "scope.instanceId rebinding and read/refresh/activate/maintenance side effects inspected; installed no-replay gates and scope behavior not yet verified",
+          "contract": {
+            "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006/docs/project/evidence/V02-006-contract.md",
+            "sha256AtReview": "33fe1a4545c3a56475dbe0a6c9c31dac3f6b74d598b6a422d258b585b0f8a448"
+          },
+          "probe": {
+            "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-006/scripts/v02-006-risk-probe.py",
+            "sha256AtReview": "b9ff809b0cf5653f8c5fcde776eb2a17c7548ef1c4e61a379b9907912ffada77"
+          },
+          "rawEvidence": {
+            "path": "C:/tmp/v006/checkpoint/risk-jmuybew7/risk.json",
+            "sha256": "570e4c82df80fe64a9c91eb97999e696451a6a6e69bfa0a9608d3d62e8fbf4ff"
+          },
+          "independentReview": "control_plan_review: no blocking design contradiction or scope expansion; no repeat probe needed",
+          "clarificationsSent": [
+            "Identity adapter must include ReadingPipeline.start(expected_parent_job_id), ReadingControl and worker while normal job hashing remains strict",
+            "Verification requires concrete restore transaction identity/phase, no maintenance or generic boolean bypass; explicit parent continuation must not release unrelated native queues"
+          ],
+          "nextEvidence": "Identity/gate negative cases and fixed DSH execution interception, then three-domain transaction and new installed candidate",
+          "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
+          "acceptance": "not-delivered; F2-open"
+        }
+      ],
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-006",
       "engineBranch": "codex/v02-006-instance-recovery",
       "baseCommit": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
