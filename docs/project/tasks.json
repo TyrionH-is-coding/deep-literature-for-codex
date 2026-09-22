@@ -13,11 +13,13 @@
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
-      "state": "ACTIVE",
-      "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
+      "state": "PAUSED",
+      "lastVerifiedAt": "2026-09-22T01:53:11.6772821Z",
+      "pauseReason": "006 integrated; 007 needs real-use paper/service input and user configuration; no independent development remains before this gate",
+      "resumeCondition": "Resume authorized loop after user supplies real-use conditions; login and human quality gates remain explicit"
     },
-    "lastReviewAt": "2026-09-22T00:28:06Z",
-    "lastHeartbeatCompletedAt": "2026-09-22T01:22:21Z",
+    "lastReviewAt": "2026-09-22T01:53:11.6772821Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T01:53:11.6772821Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -102,11 +104,14 @@
         },
         {
           "id": "F2",
-          "status": "open",
+          "status": "closed",
           "title": "库备份不覆盖原生会话及 handoff 的整实例恢复",
           "followup": "V02-006",
-          "blocksV02Release": true,
-          "blocksV02002Audit": false
+          "blocksV02Release": false,
+          "blocksV02002Audit": false,
+          "closedAt": "2026-09-22T01:53:11.6772821Z",
+          "closure": "V02-006 fixed dev.5 Windows x64 same-artifact, single-workspace three-domain new-root restore and no-replay accepted; unsupported native state is rejected; no cross-version/platform claim",
+          "evidence": "docs/project/evidence/V02-006-control-review.md"
         }
       ],
       "userConfirmed": true,
@@ -407,7 +412,7 @@
       "id": "V02-006",
       "title": "三域备份恢复到独立新实例",
       "kind": "task",
-      "status": "review",
+      "status": "integrated",
       "modules": [
         "foundation",
         "releases",
@@ -426,14 +431,22 @@
       "ownerSession": "01a0c67f-f32f-7b11-af79-2127db3da5dc",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006",
       "branch": "codex/v02-006-instance-recovery",
-      "commits": [],
-      "evidence": [],
-      "notes": "首轮已复现parent身份冲突和冻结生命周期，最小合同复核后按原范围继续身份/门禁实现；scope与原生执行接点仍须取证。F2未关闭，未知DSH状态严格拒绝，真实账号/科学质量归007。",
+      "commits": [
+        "974a75097401737b066a1bb3afa3560587564362"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-006-delivery.md",
+        "docs/project/evidence/V02-006-demo.md",
+        "docs/project/evidence/V02-006-evidence-index.json",
+        "docs/project/evidence/V02-006-control-review.md",
+        "docs/project/evidence/V02-006-control-verification.json"
+      ],
+      "notes": "Fixed dev.5 Windows x64 installed roundtrip accepted: library/assets, native history and handoff restored to new roots; restart gate and explicit same-parent continuation verified. F2 and 006-R1/R2 closed within fixed supported scope. Real parser/model/scientific quality remains 007.",
       "children": [
         "V02-006A",
         "V02-006B"
       ],
-      "dispatchState": "started",
+      "dispatchState": "completed",
       "contextCommit": "ae2cb788c35411416d9bd087bf713852ab66c274",
       "clientThreadId": "client-new-thread:83a5e069-7a31-4824-88cd-0f02e7121e56",
       "hostId": "local",
@@ -442,7 +455,7 @@
       "startedAt": "2026-09-22T00:24:53.4247854Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
       "lastDispatchCheckAt": "2026-09-22T01:22:21Z",
-      "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
+      "nextCheckpointAt": null,
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
       "receiptPhase": "review",
       "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:8",
@@ -451,7 +464,7 @@
         "engineSourceAndDelivery": "8b195c9109efd92ba74c37bb244b2c6b155060de",
         "workbenchSource": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca",
         "initialWorkbenchDelivery": "116e8c6a344a2141958e014e36a1060b85483bd1",
-        "result": "accepted-fixed-r4-installed-combination; serial integration pending",
+        "result": "accepted-and-integrated; evidence supplement verified; no production delta after fixed artifact source",
         "evidenceSupplementRounds": 1,
         "finalWorkbenchDelivery": "974a75097401737b066a1bb3afa3560587564362",
         "supplementVerifiedAt": "2026-09-22T01:48:32.2048283Z",
@@ -475,21 +488,25 @@
       "findings": [
         {
           "id": "006-R1",
-          "status": "open",
+          "status": "closed",
           "classification": "current-task-necessary-repair",
           "title": "首个parent/派生许可阻断后续输入和新停止恢复代",
-          "blocksTaskAcceptance": true,
+          "blocksTaskAcceptance": false,
           "evidence": "docs/project/evidence/V02-006-control-preflight.md",
-          "handling": "Same task, existing allowed recovery/continue files and meaningful caller tests"
+          "handling": "Same task, existing allowed recovery/continue files and meaningful caller tests",
+          "closedAt": "2026-09-22T01:53:11.6772821Z",
+          "closureEvidence": "docs/project/evidence/V02-006-control-review.md"
         },
         {
           "id": "006-R2",
-          "status": "open",
+          "status": "closed",
           "classification": "current-task-necessary-repair",
           "title": "原生队列拦截与正常agent销毁路径冲突",
-          "blocksTaskAcceptance": true,
+          "blocksTaskAcceptance": false,
           "evidence": "docs/project/evidence/V02-006-control-preflight.md",
-          "handling": "Same task, existing bridge/lifecycle paths; actual clean shutdown and preserved inbox proof required"
+          "handling": "Same task, existing bridge/lifecycle paths; actual clean shutdown and preserved inbox proof required",
+          "closedAt": "2026-09-22T01:53:11.6772821Z",
+          "closureEvidence": "docs/project/evidence/V02-006-control-review.md"
         }
       ],
       "lastThreadSnapshot": {
@@ -499,12 +516,12 @@
         "turnId": "01a0c6c9-6012-7dd1-8c89-5c5f1b312dd8"
       },
       "progressSnapshot": {
-        "checkedAt": "2026-09-22T01:09:13Z",
-        "deliveryReady": false,
-        "sourceState": "A92d1533 clean after474daa1 grant-generation fix; Bf75ca38 plus ongoing abort/relocation changes. Final combination not fixed.",
-        "observation": "Developer reports populated isolated source and27 directed passes; raw backup-r2 fails recovery_independent_writer_unconfirmed, failed partial and explicit-abort receipt retained",
-        "verification": "Read-only92d1533 review accepts historical-launch distinction under sustained freeze for supported lock-respecting writers. R1/R2 fixes await new installed evidence; no closure.",
-        "action": "Continue same task; authorize narrowly scoped failed-source backup abort with independent-writer proof before clearing gate; initial checkpoint unchanged"
+        "checkedAt": "2026-09-22T01:53:11.6772821Z",
+        "deliveryReady": true,
+        "state": "accepted-and-integrated",
+        "sourceState": "A8b195c9/B058afb0 production fixed; delivery B974a750 only evidence supplement",
+        "verification": "Independent three-domain, R1/R2, source/archive/installed verification accepted",
+        "action": "Prepare 007 real-use card and pause affected chain for user inputs"
       },
       "scopeClarifications": [
         {
@@ -584,7 +601,7 @@
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
       "risk": "R2",
       "checkpointMinutes": 90,
-      "reviewRounds": 0,
+      "reviewRounds": 1,
       "reviewRoundsBeforeRescope": 2,
       "dispatchReservedAt": "2026-09-22T00:19:32.422Z",
       "receipt": "docs/project/evidence/V02-006-receipt.json",
@@ -650,26 +667,60 @@
         "engine/pyproject.toml#version"
       ],
       "independence": "Only active development task; dual isolated worktrees and own source/target/build roots. Prior instances/evidence read-only. Cross-module dependencies kept in one task; serial integration.",
-      "exitCriteria": "Fixed new candidate proves stopped consistent three-domain backup, separate-root restore with persistent no-replay gate, two restarts and explicit same-parent idempotent continuation, plus failure isolation/source preservation."
+      "exitCriteria": "Fixed new candidate proves stopped consistent three-domain backup, separate-root restore with persistent no-replay gate, two restarts and explicit same-parent idempotent continuation, plus failure isolation/source preservation.",
+      "integratedAt": "2026-09-22T09:49:01+08:00",
+      "integrationCommit": "a81aa94d0dce98d1e97b660e899c36a2300def3d",
+      "engineIntegrationCommit": "d55d4e91893945c94b6f61c7fcc138a932933b8d",
+      "engineCommits": [
+        "8b195c9109efd92ba74c37bb244b2c6b155060de"
+      ],
+      "sourceCommits": {
+        "engine": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+        "workbench": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca"
+      },
+      "userVisibleResult": "Stopped three-domain backup restores to ASCII/Chinese new root; original history, assets and personal records preserved; two restarts do not execute queued work; explicit confirmation continues original parent.",
+      "metrics": {
+        "productReworkRounds": 1,
+        "evidenceSupplementRounds": 1,
+        "activeDevelopmentDuration": "unknown; receipt-to-integration wall time is not active development time",
+        "reusedFixedSourceFullRegression": true
+      },
+      "residualLimitations": [
+        "Windows x64, same complete artifact, DSH rc.7, single workspace and supported state types only",
+        "Synthetic inputs do not prove actual parser/model/scientific quality",
+        "Client repeat retains durable receipts; no receipt deletion/network drop injected",
+        "Last seven failure branches use controlled clones and live-owner sentinels",
+        "Abort freeze verification ends before marker unlink; persistent execution gate remains"
+      ]
     },
     {
       "id": "V02-007",
       "title": "主流程使用验收",
       "kind": "milestone",
-      "status": "planned",
+      "status": "ready",
       "modules": [
         "application"
       ],
       "dependsOn": [
         "V02-006"
       ],
-      "card": null,
+      "card": "docs/project/tasks/V02-007.md",
       "ownerSession": null,
       "worktree": null,
       "branch": null,
       "commits": [],
       "evidence": [],
-      "notes": "最终真实使用与内容质量验收；复用前阶段反馈，但合成模型/演示不冒充用户通过。"
+      "notes": "One real paper on fixed dev.5 in a fresh isolated instance. Card ready; no session dispatched or paid calls made. Await paper/service scope, user-local model/MinerU setup, and later human quality feedback. Existing fixed-source regression/recovery evidence reused.",
+      "risk": "R2",
+      "executionState": "waiting_for_user_inputs",
+      "blockedBy": [
+        "Paper DOI/link or authorized topic",
+        "Real model/parser service usage scope or budget",
+        "User-local account and MinerU configuration; no secrets in chat",
+        "Final human content-quality and record-edit feedback"
+      ],
+      "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
+      "plannedInstanceRoot": "C:/tmp/v007/"
     },
     {
       "id": "V02-008",
@@ -1960,15 +2011,19 @@
     }
   ],
   "developmentBaseline": {
-    "engine": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+    "engine": "d55d4e91893945c94b6f61c7fcc138a932933b8d",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
+    "workbench": "a81aa94d0dce98d1e97b660e899c36a2300def3d",
     "workbenchBranch": "codex/v02-control",
-    "candidate": "0.2.0-dev.4",
-    "engineAcceptance": "installed stop/lifecycle/assets accepted; source Python baseline reused by exact installed hashes",
-    "workbenchAcceptance": "Installed stop/restart/explicit resume plus synthetic normal/Reader/browser/record flow accepted; production source unchanged from 572fee5",
-    "installedEvidence": "docs/project/evidence/V02-004K-control-review.md",
-    "artifactSha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105"
+    "candidate": "0.2.0-dev.5",
+    "engineAcceptance": "Fixed-source full engine regression and installed recovery identity, current-revision admission, derived-child interruption/resume accepted",
+    "workbenchAcceptance": "Same-artifact Windows x64 three-domain new-root recovery, native history, gate, explicit same-parent continuation and clean shutdown accepted; real use remains 007",
+    "installedEvidence": "docs/project/evidence/V02-006-control-review.md",
+    "artifactSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
+    "sourceCommits": {
+      "engine": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+      "workbench": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca"
+    }
   },
   "demonstrations": [
     {

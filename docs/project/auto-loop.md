@@ -2,6 +2,8 @@
 
 当前总控位于 C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex，分支 codex/v02-control；A 位于 C:/Users/15694/Documents/ChatGPT/deep-literature-engine。应用默认旧 dsh reader 不可作为开发基线。用户授权在 v0.2 稳定范围内自动派发、复核、集成与继续；每 10 分钟检查，无需逐卡确认。
 
+2026-09-22 当前停点：006 已验收集成，007 卡已备妥，等待用户论文、真实模型/MinerU 配置与用量范围，随后还需人工内容反馈。heartbeat 已暂停；满足条件后恢复同一路线，不重复派发006或扩展新功能。恢复自动执行不代表用户已完成登录/质量验收。
+
 ## 每轮最小检查
 
 1. 读 PROJECT、tasks.json 中活动任务/依赖、本文件及活动卡；按需读取相关差异/报告，不重新载入所有历史材料。检查 Git 状态并保留用户修改。

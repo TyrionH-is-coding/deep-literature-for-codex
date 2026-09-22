@@ -1,0 +1,67 @@
+{
+  "task": "V02-006",
+  "checkedAt": "2026-09-22T01:53:11.6772821Z",
+  "result": "accepted",
+  "sourceA": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+  "sourceB": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca",
+  "deliveryB": "974a75097401737b066a1bb3afa3560587564362",
+  "integration": {
+    "checkedAt": "2026-09-22T01:53:11.6772821Z",
+    "engineIntegration": "d55d4e91893945c94b6f61c7fcc138a932933b8d",
+    "workbenchIntegration": "a81aa94d0dce98d1e97b660e899c36a2300def3d",
+    "engineDeliveryTreeEqual": true,
+    "workbenchProductionTreeEqual": true,
+    "mergeConflicts": false,
+    "moduleCheck": {
+      "ok": true,
+      "modules": 10,
+      "sourceFiles": 50,
+      "imports": 178,
+      "source": "Actual postmerge modules.mjs check command, exit 0"
+    }
+  },
+  "evidenceIndexSha256": "921b6acd53e324491f400ee039e83e03ee7f21826c6015c36c53123e653156cd",
+  "evidenceChecks": 198,
+  "zipFilesVerified": 628,
+  "installedRootsVerified": 5,
+  "pythonSourceQualification": "Git comparison normalizes CRLF/LF only; wheel-to-install exact bytes",
+  "independentReviewers": [
+    "control_plan_review",
+    "startup_readiness_review",
+    "installed_control_acceptance"
+  ],
+  "fullRegressionReused": true,
+  "localEvidenceOnly": true,
+  "files": [
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-006-control-review\\verification-116e8c6.json",
+      "archivedPath": "C:\\tmp\\v006\\candidate-r4\\review\\control\\verification-116e8c6.json",
+      "bytes": 48927,
+      "sha256": "5977ae368d48bf93047197912df9ad79c3508b987a9bbe520247146496d1c00b"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-006-control-review\\processes.json",
+      "archivedPath": "C:\\tmp\\v006\\candidate-r4\\review\\control\\processes.json",
+      "bytes": 102,
+      "sha256": "53d080a8f11a0c01d3e57ad5cd2341d93477ebadb5eccdfd7d521c31e3488771"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-006-control-review\\supplement-974a750.json",
+      "archivedPath": "C:\\tmp\\v006\\candidate-r4\\review\\control\\supplement-974a750.json",
+      "bytes": 955,
+      "sha256": "e77f3d39c87a4106d93dfc6c2a1acc725063dc5fea454b676a6bdb38ff3ee3a0"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-006-control-review\\integration.json",
+      "archivedPath": "C:\\tmp\\v006\\candidate-r4\\review\\control\\integration.json",
+      "bytes": 473,
+      "sha256": "48af6932f0d503cc668161716f00f3850ce74d1cea66c35a4c0e0c52111eee09"
+    },
+    {
+      "path": "C:\\Users\\15694\\Documents\\ChatGPT\\deep-literature-for-codex\\outputs\\v02-006-control-review\\verify.py",
+      "archivedPath": "C:\\tmp\\v006\\candidate-r4\\review\\control\\verify.py",
+      "bytes": 5485,
+      "sha256": "e749f7e0171d015ecc5a1bd5e82c4d3d4f6c09f7cc65b4919b9125ea6124cd9e"
+    }
+  ]
+}
