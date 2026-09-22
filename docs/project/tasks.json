@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-22T00:19:32.422Z",
-    "lastHeartbeatCompletedAt": "2026-09-22T00:19:32.422Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T00:25:10Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -407,7 +407,7 @@
       "id": "V02-006",
       "title": "三域备份恢复到独立新实例",
       "kind": "task",
-      "status": "ready",
+      "status": "in_progress",
       "modules": [
         "foundation",
         "releases",
@@ -423,7 +423,7 @@
         "V02-006B"
       ],
       "card": "docs/project/tasks/V02-006.md",
-      "ownerSession": null,
+      "ownerSession": "01a0c67f-f32f-7b11-af79-2127db3da5dc",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006",
       "branch": "codex/v02-006-instance-recovery",
       "commits": [],
@@ -433,7 +433,25 @@
         "V02-006A",
         "V02-006B"
       ],
-      "dispatchState": "reserved",
+      "dispatchState": "started",
+      "contextCommit": "ae2cb788c35411416d9bd087bf713852ab66c274",
+      "clientThreadId": "client-new-thread:83a5e069-7a31-4824-88cd-0f02e7121e56",
+      "hostId": "local",
+      "dispatchRequestedAt": "2026-09-22T00:24:27Z",
+      "dispatchMarker": "DL-V02-006-ae2cb78-20260922",
+      "startedAt": "2026-09-22T00:24:53.4247854Z",
+      "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
+      "lastDispatchCheckAt": "2026-09-22T00:25:10Z",
+      "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
+      "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
+      "receiptPhase": "in_progress",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:1",
+      "lastThreadSnapshot": {
+        "checkedAt": "2026-09-22T00:25:10Z",
+        "status": "active",
+        "turnStatus": "inProgress",
+        "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
+      },
       "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-006",
       "engineBranch": "codex/v02-006-instance-recovery",
       "baseCommit": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
