@@ -441,11 +441,11 @@
       "dispatchMarker": "DL-V02-006-ae2cb78-20260922",
       "startedAt": "2026-09-22T00:24:53.4247854Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
-      "lastDispatchCheckAt": "2026-09-22T00:54:53Z",
+      "lastDispatchCheckAt": "2026-09-22T01:09:13Z",
       "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
       "receiptPhase": "candidate_build",
-      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:4",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:5",
       "preflightReviewRounds": 1,
       "preflightReview": {
         "at": "2026-09-22T00:57:40Z",
@@ -477,18 +477,18 @@
         }
       ],
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T00:54:53Z",
+        "checkedAt": "2026-09-22T01:09:13Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
       },
       "progressSnapshot": {
-        "checkedAt": "2026-09-22T00:57:40Z",
+        "checkedAt": "2026-09-22T01:09:13Z",
         "deliveryReady": false,
-        "sourceState": "First fixed A/B production commits exist; installed preparation and source correction ongoing",
-        "observation": "Active within initial checkpoint; A baseline-caller regression fixed in2226754 after597/2/3 result, directed10pass; final combined candidate evidence pending",
-        "verification": "Bounded independent fixed-source review found006-R1/R2; source/test progress does not establish installed acceptance",
-        "action": "Send both current-goal repairs to same task, no new task or product scope; retain initial checkpoint"
+        "sourceState": "A92d1533 clean after474daa1 grant-generation fix; Bf75ca38 plus ongoing abort/relocation changes. Final combination not fixed.",
+        "observation": "Developer reports populated isolated source and27 directed passes; raw backup-r2 fails recovery_independent_writer_unconfirmed, failed partial and explicit-abort receipt retained",
+        "verification": "Read-only92d1533 review accepts historical-launch distinction under sustained freeze for supported lock-respecting writers. R1/R2 fixes await new installed evidence; no closure.",
+        "action": "Continue same task; authorize narrowly scoped failed-source backup abort with independent-writer proof before clearing gate; initial checkpoint unchanged"
       },
       "scopeClarifications": [
         {
@@ -512,6 +512,21 @@
           ],
           "validation": "Meaningful negative no-side-effect checks plus actual launcher continuation through required derived stage, idempotent repeat and unrelated job rejection; installed candidate still pending",
           "allowedAdditionalProductionFiles": 1,
+          "card": "docs/project/tasks/V02-006.md"
+        },
+        {
+          "at": "2026-09-22T01:09:13Z",
+          "classification": "Current-task-necessary-failure-recovery",
+          "path": "Existing CLI/releases and engine recovery paths only",
+          "basis": "Actual failed backup source retains durable gate and partial. New abort entry currently checks correct failed-source shape/transaction and stopped host, but independent writer proof is also required before clearing gate.",
+          "decision": "Allow explicit failed-backup-source abort within same task; preserve partial/audit, no start/deletion, reject restore targets and other phases; require independent-writer/freeze confirmation before marker removal",
+          "validation": "Wrong transaction/type/phase, active writers, repeated request and interruption around audit/marker clearing; new installed candidate evidence required",
+          "pidReview": "control_plan_review:92d1533 historical launch skip is limited to quiescent status+pid null under sustained freeze; supported workers hold operation lock. Other claims/owners/running/control writers still checked. No guarantee for arbitrary unregistered external process.",
+          "rawEvidence": [
+            "C:/tmp/v006/logs/backup-r2.txt",
+            "C:/tmp/v006/evidence/backup-r2-explicit-abort.json"
+          ],
+          "allowedAdditionalProductionFiles": 0,
           "card": "docs/project/tasks/V02-006.md"
         }
       ],
