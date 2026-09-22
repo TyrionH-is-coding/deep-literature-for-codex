@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as delay } from 'node:timers/promises';
-import { initializeRoot, isolatedEnvironment, readJson } from '../foundation/index.mjs';
+import { initializeRoot, isolatedEnvironment, readJson, assertRecoveryStart } from '../foundation/index.mjs';
 
 function canonicalRoot(root) {
   const absolute = path.resolve(root);
@@ -91,9 +91,10 @@ export async function assertStartAllowed(root) {
   if (maintenance) throw new Error('maintenance_in_progress');
 }
 
-export async function start(root, { maintenance = false } = {}) {
+export async function start(root, { maintenance = false, recoveryId } = {}) {
   const attemptStarted = Date.now();
   const instance = await initializeRoot(root);
+  await assertRecoveryStart(instance.root, recoveryId);
   const installation = await readJson(path.join(instance.root, 'installation.json'));
   if (!maintenance) await assertStartAllowed(instance.root);
   const current = await request(instance.root);
@@ -102,6 +103,7 @@ export async function start(root, { maintenance = false } = {}) {
     const log = await fs.open(path.join(instance.root, 'state', 'logs', 'supervisor.log'), 'a');
     const env = isolatedEnvironment(instance.root, process.env, installation);
     if (maintenance) env.CSR_MAINTENANCE = '1';
+    if (recoveryId) env.CSR_RECOVERY_ID = recoveryId;
     const supervisor = installation.app ? path.join(installation.app, 'src', 'supervisor.mjs') : fileURLToPath(new URL('./supervisor.mjs', import.meta.url));
     const child = spawn(installation.node, [supervisor, instance.root], {
       cwd: path.join(instance.root, 'workspace'), env,

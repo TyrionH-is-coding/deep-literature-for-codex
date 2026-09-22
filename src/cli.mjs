@@ -2,7 +2,7 @@ import { installSkill } from './modules/skill/index.mjs';
 import path from 'node:path';
 import { start, status, stop } from './modules/lifecycle/index.mjs';
 import { readJson, SKILL_NAME } from './modules/foundation/index.mjs';
-import { rollbackRelease, recoverRelease, retireInstallation } from './modules/releases/index.mjs';
+import { rollbackRelease, recoverRelease, retireInstallation, backupInstance, restoreInstance, verifyInstancePackage, startRecovery, validateRecovery, continueRecovery } from './modules/releases/index.mjs';
 import { call } from './client.mjs';
 import { defaultRoot } from './modules/foundation/index.mjs';
 import { setupSteps } from './onboarding.mjs';
@@ -11,7 +11,13 @@ try {
   const [command = 'status', requested, skillsRoot] = process.argv.slice(2);
   const root = path.resolve(requested || defaultRoot());
   let result;
-  if (command === 'call') {
+  if (command === 'instance-backup') result = await backupInstance(root, skillsRoot);
+  else if (command === 'instance-verify') result = await verifyInstancePackage(root);
+  else if (command === 'instance-restore') result = await restoreInstance(root, await readJson(skillsRoot));
+  else if (command === 'instance-start-validation') result = await startRecovery(root, skillsRoot);
+  else if (command === 'instance-validate') result = await validateRecovery(root, skillsRoot);
+  else if (command === 'instance-continue') result = await continueRecovery(root, await readJson(skillsRoot));
+  else if (command === 'call') {
     if (!skillsRoot) throw new Error('request_file_required');
     result = await call(root, await readJson(path.resolve(skillsRoot)));
   } else if (command === 'install-skill') {

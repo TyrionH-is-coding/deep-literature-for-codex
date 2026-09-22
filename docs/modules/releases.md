@@ -12,6 +12,16 @@
 
 拥有活动 `installation.json`、`state/release-transition.json`、发布历史/失败/恢复/退役记录、profile 的托管模块链接，以及 `state/library-backups/`、`state/library-migration.json`。发布描述由安装器生成，本模块核对并选择。回退代码不会回退 SQLite、论文、会话或凭据；不同 `dataFormat` 不能直接切换。
 
+## V02-006 整实例恢复
+
+公共入口增加 `backupInstance`、`verifyInstancePackage`、`restoreInstance`、`startRecovery`、`validateRecovery`、`continueRecovery`；CLI分别为 `instance-backup ROOT OUTPUT`、`instance-verify PACKAGE`、`instance-restore NEW_ROOT REQUEST.json`、`instance-start-validation ROOT TRANSACTION_ID`、`instance-validate ROOT TRANSACTION_ID`、`instance-continue ROOT REQUEST.json`。
+
+恢复请求包含 archive（三域目录包）、packageRoot（同完整制品解包目录），可选已校验runtimeCache。包固定manifest/library.zip/native.json/handoff.json，文件数/摘要/大小严格核对，不是旧library ZIP。恢复只接受不存在的新根；失败保留隔离标记、重试另一个新根。引擎保持单次冻结握手直到三域复制校验完毕。releases拥有恢复事务写入；foundation只读门禁，lifecycle及维护启动必须核对具体transactionId与phase。安装准备阶段禁止自动启动。
+
+`validateRecovery`执行两次实际验证宿主重启并核对原生历史前缀和Reader，完成后仍保留待核对门禁。确认请求必须包含transactionId、confirmManifestSha256、taskId、idempotencyKey、expectedRevision、input；仅指定parent获得现有停止恢复合同的许可。原生队列/模型/工具继续保持禁止；必要xlsx派生由A逐项审计授权。prepared/uncertain、取消、coveredStops不删除或隐式重发。
+
+首版只支持同平台/同完整制品、DSH rc.7单workspace和默认产品preset；媒体/spill/未知持久状态、外部执行输入、用户自定义profile/preset、库内解析器venv和待上传暂存拒绝。源码测试/适配层不是安装验收，证据见V02-006交付索引。
+
 ## 依赖与阅读范围
 
 静态上游为 `foundation`、`skill`、`lifecycle`；备份通过所选 release 的 Python 调用外部引擎。下游为 `application` 安装器与 CLI。切换问题读 `releases.mjs`，库备份/迁移问题读 `library-transfer.mjs`；只有涉及进程恢复时再看 lifecycle。

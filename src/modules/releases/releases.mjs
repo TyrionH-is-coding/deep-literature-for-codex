@@ -1,28 +1,16 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import net from 'node:net';
-import { initializeRoot, readJson, writeJson, directoryLinkType } from '../foundation/index.mjs';
+import { initializeRoot, readJson, writeJson, directoryLinkType, readRecovery } from '../foundation/index.mjs';
 import { removeManagedSkill } from '../skill/index.mjs';
 import * as control from '../lifecycle/index.mjs';
 import { snapshotLibrary } from './library-transfer.mjs';
-import { prepareLocalSocket } from '../lifecycle/index.mjs';
+import { exclusiveMaintenance as exclusive } from './instance-recovery.mjs';
 
 const transitionFile = root => path.join(root, 'state', 'release-transition.json');
 export const maintenancePipe = root => `${control.pipeName(root)}-maintenance`;
 
 async function optionalJson(file) {
   try { return await readJson(file); } catch (error) { if (error.code !== 'ENOENT') throw error; return null; }
-}
-
-async function exclusive(root, action) {
-  await prepareLocalSocket(maintenancePipe(root));
-  const server = net.createServer(socket => { socket.on('error', () => {}); socket.end('maintenance'); });
-  await new Promise((resolve, reject) => {
-    server.once('error', error => reject(new Error(error.code === 'EADDRINUSE' ? 'maintenance_in_progress' : error.message)));
-    server.listen(maintenancePipe(root), resolve);
-  });
-  try { return await action(); }
-  finally { await new Promise(resolve => server.close(resolve)); }
 }
 
 function sameDeclaredPath(actual, parent, name) {
@@ -65,11 +53,15 @@ async function select(root, release) {
 
 // Slots contain code only. A's SQLite, papers, sessions and credentials remain in
 // their stable directories; selecting an old executable must never restore old data.
-export async function activateRelease(requestedRoot, candidate, { lifecycle = control, snapshot = snapshotLibrary } = {}) {
+export async function activateRelease(requestedRoot, candidate, { lifecycle = control, snapshot = snapshotLibrary, recoveryId } = {}) {
   const { root } = await initializeRoot(requestedRoot);
   return exclusive(root, async () => {
+    const recovery = await readRecovery(root);
+    if (recovery && (recovery.phase !== 'preparing' || recovery.transactionId !== recoveryId)) throw new Error('instance_recovery_install_blocked');
+    if (!recovery && recoveryId) throw new Error('instance_recovery_transaction_mismatch');
     if (await optionalJson(transitionFile(root))) throw new Error('release_recovery_required');
     const previous = await optionalJson(path.join(root, 'installation.json'));
+    if (recovery && previous) throw new Error('instance_recovery_install_requires_new_root');
     if (previous && previous.dataFormat !== candidate.dataFormat) throw new Error('incompatible_data_format: migration is required');
     await validateRelease(root, candidate);
     if (previous?.appSha256 === candidate.appSha256) return { status: 'unchanged', release: previous };
@@ -81,7 +73,7 @@ export async function activateRelease(requestedRoot, candidate, { lifecycle = co
       if (previous) transition.backup = await snapshot(root, previous);
       await writeJson(transitionFile(root), transition);
       await select(root, candidate);
-      await lifecycle.start(root, { maintenance: true });
+      if (!recovery) await lifecycle.start(root, { maintenance: true });
       if (!wasRunning) await lifecycle.stop(root);
       const historyFile = path.join(root, 'state', 'release-history.json');
       const history = await optionalJson(historyFile) ?? [];

@@ -3,41 +3,27 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
-import { initializeRoot, isolatedEnvironment, runtimePaths, readJson, writeJson, verifyFile, VERSION, SKILL_NAME } from './modules/foundation/index.mjs';
-import { activateRelease, recoverRelease } from './modules/releases/index.mjs';
+
+import { initializeRoot, isolatedEnvironment, runtimePaths, readJson, writeJson, verifyFile, VERSION, SKILL_NAME, readRecovery } from './modules/foundation/index.mjs';
+import { activateRelease, recoverRelease, hashInstallSource } from './modules/releases/index.mjs';
 import { restoreNewLibrary } from './modules/releases/index.mjs';
 import { selectPlatformPins, venvPython, npmCli, directoryLinkType } from './modules/foundation/index.mjs';
 import { setupSteps } from './onboarding.mjs';
 
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const [requestedRoot, archive, requestedSkills, requestedBackup] = process.argv.slice(2);
+const [requestedRoot, archive, requestedSkills, requestedBackup, requestedRecoveryId] = process.argv.slice(2);
+const recoveryId = requestedRecoveryId ?? process.env.CSR_RECOVERY_INSTALL_ID;
 const skillsRoot = requestedSkills === '-' ? null : requestedSkills;
 const libraryBackup = requestedBackup === '-' ? null : requestedBackup;
 const pins = selectPlatformPins(await readJson(path.join(source, 'runtime', 'pins.json')));
 await verifyFile(archive, pins.plugin.sha256);
 const instance = await initializeRoot(requestedRoot);
 const root = instance.root;
+const recovery = await readRecovery(root);
+if (recovery && (recovery.phase !== 'preparing' || recovery.transactionId !== recoveryId)) throw new Error('instance_recovery_install_blocked');
+if (!recovery && recoveryId) throw new Error('instance_recovery_transaction_mismatch');
 const { node, pythonBase } = runtimePaths(root, pins);
-const sourceHash = createHash('sha256');
-sourceHash.update(pins.platform);
-async function hashTree(directory) {
-  for (const item of (await fs.readdir(directory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
-    if (['node_modules', '.git', '.gitignore', '.work', 'tests', 'test-results'].includes(item.name)) continue;
-    const file = path.join(directory, item.name);
-    if (item.isDirectory()) await hashTree(file);
-    else if (item.isFile()) { sourceHash.update(path.relative(source, file).replaceAll('\\', '/')); sourceHash.update(await fs.readFile(file)); }
-    else throw new Error('source_link_not_supported');
-  }
-}
-for (const directory of ['src', 'skills', 'oauth']) await hashTree(path.join(source, directory));
-for (const file of ['install.ps1', 'workbench.ps1', 'uninstall.ps1', 'install.sh', 'workbench.sh', 'uninstall.sh', 'package.json']) {
-  sourceHash.update(file); sourceHash.update(await fs.readFile(path.join(source, file)));
-}
-for (const file of ['pins.json', 'posix-node.tsv', 'package.json', 'package-lock.json', 'requirements.lock']) {
-  sourceHash.update(file); sourceHash.update(await fs.readFile(path.join(source, 'runtime', file)));
-}
-const appSha256 = sourceHash.digest('hex');
+const appSha256 = await hashInstallSource(source, pins.platform);
 // Short directory names keep Python's bundled pip below Windows MAX_PATH.
 // The descriptor still checks the complete SHA, including prefix collisions.
 const slot = path.join(root, 'releases', appSha256.slice(0, 16));
@@ -125,7 +111,7 @@ if (!release) {
   await writeJson(path.join(slot, 'release.json'), release);
 }
 const migration = libraryBackup ? await restoreNewLibrary(root, release, libraryBackup) : null;
-const selected = await activateRelease(root, release);
+const selected = await activateRelease(root, release, { recoveryId });
 for (const file of ['workbench.ps1', 'uninstall.ps1', 'workbench.sh', 'uninstall.sh']) await fs.copyFile(path.join(source, file), path.join(root, file));
 await fs.copyFile(path.join(source, 'src', 'launcher.mjs'), path.join(root, 'launcher.mjs'));
 await fs.writeFile(path.join(root, '.workbench-node'), node + '\n', { mode: 0o600 });

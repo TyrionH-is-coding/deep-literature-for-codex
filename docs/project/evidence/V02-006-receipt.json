@@ -1,0 +1,19 @@
+{
+  "taskId": "V02-006",
+  "dispatch": "DL-V02-006-ae2cb78-20260922",
+  "sessionId": "01a0c67f-f32f-7b11-af79-2127db3da5dc",
+  "contextCommit": "ae2cb788c35411416d9bd087bf713852ab66c274",
+  "baseB": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
+  "baseA": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+  "pathB": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006",
+  "pathA": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-006",
+  "outputs": "C:/tmp/v006",
+  "startedAt": "2026-09-22T00:24:53.4247854Z",
+  "phase": "candidate_build",
+  "checkpoint": {
+    "status": "A_fixed_9ea7c7d_B_directed_and_compat_pass",
+    "next": "Build dev.5 artifact, install owned source, seed product sessions and exercise three domains",
+    "name": "initial-contract",
+    "dueMinutes": 90
+  }
+}
