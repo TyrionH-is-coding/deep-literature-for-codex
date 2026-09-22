@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-22T00:28:06Z",
-    "lastHeartbeatCompletedAt": "2026-09-22T00:25:10Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T00:40:19Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -441,17 +441,35 @@
       "dispatchMarker": "DL-V02-006-ae2cb78-20260922",
       "startedAt": "2026-09-22T00:24:53.4247854Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
-      "lastDispatchCheckAt": "2026-09-22T00:27:00Z",
+      "lastDispatchCheckAt": "2026-09-22T00:39:49Z",
       "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
-      "receiptPhase": "in_progress",
-      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:2",
+      "receiptPhase": "implementation_identity_and_gate",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:3",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T00:27:00Z",
+        "checkedAt": "2026-09-22T00:39:49Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
       },
+      "progressSnapshot": {
+        "checkedAt": "2026-09-22T00:40:19Z",
+        "deliveryReady": false,
+        "sourceState": "A/B still on assigned bases with implementation changes, no fixed delivery yet",
+        "observation": "Healthy active execution within initial checkpoint; receipt and developer report show identity, persistent gates and three-domain transaction implementation",
+        "developerReported": "Directed same-parent continuation/replay and independent freeze/writer checks; B negative/related tests; Node --import pre-bootstrap rc7 native execution interception. A full regression running, new dev.5 installed gate counters and restarts pending.",
+        "verification": "Progress report only, not independently accepted test results; no running implementation retest or F2 closure",
+        "action": "Continue same task without intervention; retain initial checkpoint"
+      },
+      "scopeClarifications": [
+        {
+          "at": "2026-09-22T00:40:19Z",
+          "classification": "Necessary metadata consistency within already authorized Python0.2.0.dev4 candidate",
+          "path": "engine/src/scientific_reading/__init__.py#__version__",
+          "observedDiff": "Only __version__ constant 0.1.0 to 0.2.0.dev4, matching authorized pyproject version",
+          "decision": "Explicitly include version constant in allowed paths; no runtime/schema/dependency expansion"
+        }
+      ],
       "checkpointReviews": [
         {
           "at": "2026-09-22T00:28:06Z",
@@ -534,6 +552,7 @@
         "engine/src/scientific_reading/library_backup.py",
         "engine/src/scientific_reading/data_guard.py",
         "engine/src/scientific_reading/__main__.py",
+        "engine/src/scientific_reading/__init__.py#__version__",
         "engine/src/scientific_reading/recovery_identity.py",
         "engine/src/scientific_reading/background_store.py#recovery-identity",
         "engine/src/scientific_reading/reading_control.py#recovery-identity",
