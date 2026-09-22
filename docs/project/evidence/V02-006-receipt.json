@@ -9,11 +9,17 @@
   "pathA": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-006",
   "outputs": "C:/tmp/v006",
   "startedAt": "2026-09-22T00:24:53.4247854Z",
-  "phase": "candidate_build",
+  "phase": "review",
   "checkpoint": {
-    "status": "A_fixed_9ea7c7d_B_directed_and_compat_pass",
-    "next": "Build dev.5 artifact, install owned source, seed product sessions and exercise three domains",
+    "status": "r4_installed_three_domain_roundtrip_and_failure_acceptance_passed",
+    "next": "Control review of exact r4 combination; F2 decision remains with control",
     "name": "initial-contract",
     "dueMinutes": 90
-  }
+  },
+  "sourceA": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+  "sourceB": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca",
+  "reviewedAt": "2026-09-22T01:40:44.2573382Z",
+  "report": "docs/project/evidence/V02-006-delivery.md",
+  "evidenceIndex": "docs/project/evidence/V02-006-evidence-index.json",
+  "candidateReview": "C:/tmp/v006/candidate-r4/review"
 }
