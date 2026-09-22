@@ -50,10 +50,25 @@ const index = { task: 'V02-006', generatedAt: new Date().toISOString(),
  sourceA: '8b195c9109efd92ba74c37bb244b2c6b155060de', sourceB: '058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca',
  delivery: 'review/delivery-commits.json (created after the delivery commit; intentionally outside its own commit)',
  artifacts, archived, rawLogs,
+ evidenceClaims: {
+  engineAdmission: {
+   file: 'C:/tmp/v006/evidence/gate-chinese-after-confirm-r4.json',
+   sha256: 'aa7ad897f867895770f0f43d0c0a7d3dbbab135aa6623f305d99da861fda43fc',
+   pointers: ['/engineAdmission/results', '/engineAdmission/popen', '/jobsAndLaunchMarkersUnchanged'],
+   ungrantedParent: 'job_88b9c2bdce6e501c',
+   scope: 'Four installed A entry rejections, popen=0, jobs/launch markers unchanged. The two pre-confirmation gate reports do not contain this check.'
+  },
+  clientResponseRetry: {
+   file: 'C:/tmp/v006/evidence/continue-恢复 工作台 r4.json',
+   originalRowLabel: 'lost external receipt retry',
+   actualOperation: 'Repeated continueRecovery with the same request and durable receipts retained; simulates a client retry after not receiving its response. No persistent receipt was deleted and no network response-drop fault was injected.',
+   correction: 'The previous delivery report incorrectly claimed deletion of an external receipt. Raw evidence is retained unchanged.'
+  }
+ },
  limitations: ['r1/r2/r3 logs are development evidence, not final installed r4 acceptance',
  'A offline JS evidence is split original run plus corrected git-context tail; no claim of one green command',
- 'writer/abort failure branch uses a controlled library clone; actual restore and continuation use full installed products',
- 'native event prefix is preserved; rc7 appends interrupted cleanup events',
+ '27 failure branches include installed paths and controlled library clones; the final seven use cloned data and a synthetic live-owner sentinel, not seven fresh installs or actual concurrent workers',
+ 'native event prefix is preserved; rc7 appends verified cleanup and initialization events including ToolOutcomeUnknownError, step-end, turn-end, session/end-seed, child permission/preset, sandbox/mode and approval/policy',
  'independent keyring opt-in, POSIX-only tests and Windows symlink fixture skips remain explicit'],
  resolvedFailures: [
  { paths: ['logs/a-engine-all-1.txt','logs/test-runner-interruption.json'], reason: 'task runner lacked __main__; fixed runner, task-owned process cleanup, later full pass' },
@@ -65,6 +80,13 @@ const index = { task: 'V02-006', generatedAt: new Date().toISOString(),
  { paths: ['evidence/derived-crash-r4-harness-timeout.json'], reason: 'read-only job-status does not auto-mark dead worker interrupted; harness now observes dead PID then uses actual stop/resume' },
  { paths: ['scripts/fixtures/v02-006/verify-assets.py'], reason: 'initial byte check included relocated metadata; now asserts exactly three allowed fields and unchanged remainder' }
  ] };
+const admissionClaim = index.evidenceClaims.engineAdmission;
+assert.equal((await record(admissionClaim.file)).sha256, admissionClaim.sha256);
+const admissionEvidence = await read(admissionClaim.file);
+assert.deepEqual(admissionEvidence.engineAdmission.results.map(r => r.name), ['launch_existing', 'enqueue_parent', 'enqueue_unrelated', 'worker_entry']);
+assert.ok(admissionEvidence.engineAdmission.results.every(r => r.error === 'instance_recovery_execution_blocked'));
+assert.equal(admissionEvidence.engineAdmission.popen, 0);
+assert.equal(admissionEvidence.jobsAndLaunchMarkersUnchanged, true);
 const out = path.join(repo, 'docs/project/evidence/V02-006-evidence-index.json');
 await fs.writeFile(out, JSON.stringify(index, null, 2) + '\n');
 for (const name of ['V02-006-delivery.md', 'V02-006-demo.md', 'V02-006-receipt.json', 'V02-006-evidence-index.json'])

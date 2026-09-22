@@ -63,7 +63,9 @@ try {
   const completed = row('real worker completed', await wait(source.jobId));
   assert.equal(completed.status, 'completed');
   const marker = await fs.readFile(path.join(root, 'library/jobs', source.jobId, 'launch.json'));
-  row('lost external receipt retry', await api.continueRecovery(root, second));
+  // Models a client retrying the same request after not receiving its response.
+  // Durable receipts are retained; this is not a missing-persistent-receipt test.
+  row('client response retry simulation (durable receipts retained)', await api.continueRecovery(root, second));
   assert.deepEqual(await fs.readFile(path.join(root, 'library/jobs', source.jobId, 'launch.json')), marker);
   const controlBeforeOld = await fs.readFile(controlFile);
   row('superseded old request', await api.continueRecovery(root, first));

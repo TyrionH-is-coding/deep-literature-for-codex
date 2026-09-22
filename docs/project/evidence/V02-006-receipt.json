@@ -21,5 +21,12 @@
   "reviewedAt": "2026-09-22T01:40:44.2573382Z",
   "report": "docs/project/evidence/V02-006-delivery.md",
   "evidenceIndex": "docs/project/evidence/V02-006-evidence-index.json",
-  "candidateReview": "C:/tmp/v006/candidate-r4/review"
+  "candidateReview": "C:/tmp/v006/candidate-r4/review",
+  "evidenceAlignment": {
+    "retryCorrection": "Same request retry with durable receipts retained; no receipt deletion or network response-drop injection",
+    "at": "2026-09-22T01:45:44.2477321Z",
+    "engineAdmission": "Existing gate-chinese-after-confirm-r4.json: four rejections, popen=0, jobs/markers unchanged; original and archived bytes identical",
+    "execution": "Read existing evidence only; no product rerun or production change",
+    "previousDelivery": "116e8c6a344a2141958e014e36a1060b85483bd1"
+  }
 }

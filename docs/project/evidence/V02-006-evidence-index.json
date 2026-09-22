@@ -1,6 +1,6 @@
 {
   "task": "V02-006",
-  "generatedAt": "2026-09-22T01:40:47.290Z",
+  "generatedAt": "2026-09-22T01:45:59.562Z",
   "sourceA": "8b195c9109efd92ba74c37bb244b2c6b155060de",
   "sourceB": "058afb0fe8ebd5e39a4f9ca7e495011e4cde61ca",
   "delivery": "review/delivery-commits.json (created after the delivery commit; intentionally outside its own commit)",
@@ -882,11 +882,30 @@
       "sha256": "7d787d3363d2928cf80e0f4dfe031a7d6dcd64d772692b80f078b8239004c013"
     }
   ],
+  "evidenceClaims": {
+    "engineAdmission": {
+      "file": "C:/tmp/v006/evidence/gate-chinese-after-confirm-r4.json",
+      "sha256": "aa7ad897f867895770f0f43d0c0a7d3dbbab135aa6623f305d99da861fda43fc",
+      "pointers": [
+        "/engineAdmission/results",
+        "/engineAdmission/popen",
+        "/jobsAndLaunchMarkersUnchanged"
+      ],
+      "ungrantedParent": "job_88b9c2bdce6e501c",
+      "scope": "Four installed A entry rejections, popen=0, jobs/launch markers unchanged. The two pre-confirmation gate reports do not contain this check."
+    },
+    "clientResponseRetry": {
+      "file": "C:/tmp/v006/evidence/continue-恢复 工作台 r4.json",
+      "originalRowLabel": "lost external receipt retry",
+      "actualOperation": "Repeated continueRecovery with the same request and durable receipts retained; simulates a client retry after not receiving its response. No persistent receipt was deleted and no network response-drop fault was injected.",
+      "correction": "The previous delivery report incorrectly claimed deletion of an external receipt. Raw evidence is retained unchanged."
+    }
+  },
   "limitations": [
     "r1/r2/r3 logs are development evidence, not final installed r4 acceptance",
     "A offline JS evidence is split original run plus corrected git-context tail; no claim of one green command",
-    "writer/abort failure branch uses a controlled library clone; actual restore and continuation use full installed products",
-    "native event prefix is preserved; rc7 appends interrupted cleanup events",
+    "27 failure branches include installed paths and controlled library clones; the final seven use cloned data and a synthetic live-owner sentinel, not seven fresh installs or actual concurrent workers",
+    "native event prefix is preserved; rc7 appends verified cleanup and initialization events including ToolOutcomeUnknownError, step-end, turn-end, session/end-seed, child permission/preset, sandbox/mode and approval/policy",
     "independent keyring opt-in, POSIX-only tests and Windows symlink fixture skips remain explicit"
   ],
   "resolvedFailures": [
