@@ -1,0 +1,20 @@
+{
+  "taskId": "V02-005",
+  "dispatchId": "DL-V02-005-28278cd-20260921",
+  "sessionId": "01a0c490-060f-7401-9e30-df31331d1d84",
+  "baseCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+  "contextCommit": "28278cd0bc1c6983a727361a4bd95198090b5db1",
+  "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005",
+  "branch": "codex/v02-005-reader-demo",
+  "instanceRoot": "C:/tmp/v005/instance",
+  "startedAt": "2026-09-21T23:23:54.8693276+08:00",
+  "phase": "review",
+  "initialClean": true,
+  "modulesContext": "CLI attempted: missing acorn; static module documentation and public bridge exports read",
+  "supplementalContextCommit": "6a6c5963d43df546287ee1c621277a948b0dac72",
+  "nativeEntryStartedAt": "2026-09-21T23:46:41.7824882+08:00",
+  "finishedAt": "2026-09-22T00:11:52.3535406Z",
+  "evidenceRoot": "C:/tmp/v005",
+  "cleanup": "stopped; original profile byte-restored; zero task-owned Node/Python processes",
+  "reviewSummary": "3 normal completed; records and restart passed; same-parent failure recovered to legal gate; one native local mock turn completed; actual library Reader and Excel fallback checked"
+}

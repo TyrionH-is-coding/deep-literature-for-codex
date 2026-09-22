@@ -1,0 +1,1983 @@
+{
+  "schema": 1,
+  "task": "V02-005",
+  "collectedAt": "2026-09-22T00:12:58.843Z",
+  "receipt": {
+    "taskId": "V02-005",
+    "dispatchId": "DL-V02-005-28278cd-20260921",
+    "sessionId": "01a0c490-060f-7401-9e30-df31331d1d84",
+    "baseCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+    "contextCommit": "28278cd0bc1c6983a727361a4bd95198090b5db1",
+    "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005",
+    "branch": "codex/v02-005-reader-demo",
+    "instanceRoot": "C:/tmp/v005/instance",
+    "startedAt": "2026-09-21T23:23:54.8693276+08:00",
+    "phase": "review",
+    "initialClean": true,
+    "modulesContext": "CLI attempted: missing acorn; static module documentation and public bridge exports read",
+    "supplementalContextCommit": "6a6c5963d43df546287ee1c621277a948b0dac72",
+    "nativeEntryStartedAt": "2026-09-21T23:46:41.7824882+08:00",
+    "finishedAt": "2026-09-22T00:11:52.3535406Z",
+    "evidenceRoot": "C:/tmp/v005",
+    "cleanup": "stopped; original profile byte-restored; zero task-owned Node/Python processes",
+    "reviewSummary": "3 normal completed; records and restart passed; same-parent failure recovered to legal gate; one native local mock turn completed; actual library Reader and Excel fallback checked"
+  },
+  "retention": "Local evidence at C:/tmp/v005; keep until control review. SHA covers observed bytes, not a portable archive. Index excludes itself; Git commit is the delivery anchor.",
+  "source": {
+    "engineFixtureCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+    "installed": {
+      "product": "codex-scientific-reading",
+      "version": "0.2.0-dev.4",
+      "appSha256": "a4182a78f1e4dc50bdf9286bcf05c2c301aa5c7327f9274c11781a41916d0653",
+      "slot": "C:\\tmp\\v005\\instance\\releases\\a4182a78f1e4dc50",
+      "app": "C:\\tmp\\v005\\instance\\releases\\a4182a78f1e4dc50\\app",
+      "profileModules": "C:\\tmp\\v005\\instance\\releases\\a4182a78f1e4dc50\\profile-modules",
+      "profilePackage": "C:\\tmp\\v005\\instance\\releases\\a4182a78f1e4dc50\\profile-package.json",
+      "dataFormat": 4,
+      "node": "C:\\tmp\\v005\\instance\\runtime\\node\\22.22.2\\node.exe",
+      "python": "C:\\tmp\\v005\\instance\\releases\\a4182a78f1e4dc50\\runtime\\venv\\Scripts\\python.exe",
+      "dsh": "C:\\tmp\\v005\\instance\\releases\\a4182a78f1e4dc50\\runtime\\npm\\node_modules\\@deepseek-ai\\dsh\\lib\\bin.js",
+      "pins": {
+        "schema": 1,
+        "channel": "internal-development",
+        "platform": "win32-x64",
+        "node": {
+          "version": "22.22.2",
+          "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-win-x64.zip",
+          "sha256": "7c93e9d92bf68c07182b471aa187e35ee6cd08ef0f24ab060dfff605fcc1c57c"
+        },
+        "python": {
+          "version": "3.11.16",
+          "build": "20260901",
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+          "sha256": "06cbe479e039f5b9cb5640c286d790074d63f549f92a32d599a3748293bd4510"
+        },
+        "dsh": "0.1.0-rc.7",
+        "plugin": {
+          "name": "@dsh-external/dsh-scientific-reading",
+          "version": "0.2.0-dev.4",
+          "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9",
+          "source": "V02-004K internal installed-control candidate; local archive inputs/scientific-reading.tgz",
+          "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359"
+        },
+        "platforms": {
+          "darwin-arm64": {
+            "node": {
+              "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-arm64.tar.gz",
+              "sha256": "db4b275b83736df67533529a18cc55de2549a8329ace6c7bcc68f8d22d3c9000"
+            },
+            "python": {
+              "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-apple-darwin-install_only_stripped.tar.gz",
+              "sha256": "768f05cf200273bbdda9a5955a5a6892a4b22f2a0b1e4b0a9160f5c7fce86816"
+            }
+          },
+          "darwin-x64": {
+            "node": {
+              "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-darwin-x64.tar.gz",
+              "sha256": "12a6abb9c2902cf48a21120da13f87fde1ed1b71a13330712949e8db818708ba"
+            },
+            "python": {
+              "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-apple-darwin-install_only_stripped.tar.gz",
+              "sha256": "908b381433f78b832c8d64960ced0f85871893cc8779f413f963e0c9e293c258"
+            }
+          },
+          "linux-arm64": {
+            "node": {
+              "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-arm64.tar.gz",
+              "sha256": "b2f3a96f31486bfc365192ad65ced14833ad2a3c2e1bcefec4846902f264fa28"
+            },
+            "python": {
+              "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+              "sha256": "f9308ed57184fae73941c712ed847be420ce36d31ba73ce53f0508a1ee752f68"
+            }
+          },
+          "linux-x64": {
+            "node": {
+              "url": "https://nodejs.org/dist/v22.22.2/node-v22.22.2-linux-x64.tar.gz",
+              "sha256": "978978a635eef872fa68beae09f0aad0bbbae6757e444da80b570964a97e62a3"
+            },
+            "python": {
+              "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.11.16%2B20260901-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+              "sha256": "64427febea27864d136db46c8efe968eb6fa5ca2813ce1dca4bb95aec31cb2e4"
+            }
+          }
+        }
+      },
+      "candidate": true,
+      "browserCapability": "check_in_codex",
+      "installedAt": "2026-09-21T15:26:29.511Z"
+    }
+  },
+  "outcomes": {
+    "normal": "3 completed",
+    "translationBlocks": 38,
+    "recordsRestart": "passed",
+    "failure": "same parent/source resumed to waiting_agent/translate_full_read",
+    "native": "one completed local synthetic turn, no tool call",
+    "library": "actual category filter and Open HTML navigation passed",
+    "excel": "fallback feedback only; desktop edit/selected row not verified",
+    "cleanup": "stopped, original profile restored, zero task-owned Node/Python processes"
+  },
+  "commandHistory": {
+    "cwd": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005",
+    "notation": "Normalized PowerShell invocations; logs preserve actual outputs; earlier attempts used then-current fixture revisions. Do not replay against retained instance.",
+    "entries": [
+      {
+        "log": "C:/tmp/v005/logs/install.log",
+        "exitCode": 0,
+        "command": "powershell.exe -NoProfile -File C:/tmp/v005/package/deep-literature-for-codex-0.2.0-dev.4-win-x64/install.ps1 -Root C:/tmp/v005/instance -PluginArchive C:/tmp/v005/package/deep-literature-for-codex-0.2.0-dev.4-win-x64/inputs/scientific-reading.tgz",
+        "note": "original installer"
+      },
+      {
+        "log": "C:/tmp/v005/logs/normal-formula-outline.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs normal formula-outline",
+        "note": "old translation contract rejected"
+      },
+      {
+        "log": "C:/tmp/v005/logs/normal-formula-outline-continue.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs normal formula-outline continue",
+        "note": "corrected v3 contract; same task"
+      },
+      {
+        "log": "C:/tmp/v005/logs/normal-figures-captions.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs normal figures-captions",
+        "note": "completed"
+      },
+      {
+        "log": "C:/tmp/v005/logs/normal-superscript-text.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs normal superscript-text",
+        "note": "completed"
+      },
+      {
+        "log": "C:/tmp/v005/logs/xlsx-inspect.log",
+        "exitCode": 0,
+        "command": "& 'C:/Users/15694/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' scripts/v02-005-records.mjs inspect",
+        "note": "read/render"
+      },
+      {
+        "log": "C:/tmp/v005/logs/xlsx-edit.log",
+        "exitCode": 0,
+        "command": "& 'C:/Users/15694/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' scripts/v02-005-records.mjs edit",
+        "note": "three synthetic values authored; later hidden-sheet guard rejected export"
+      },
+      {
+        "log": "C:/tmp/v005/logs/records-restart.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-records-restart.mjs",
+        "note": "hidden sheet mismatch; before import"
+      },
+      {
+        "log": "C:/tmp/v005/logs/xlsx-preserve.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/releases/a4182a78f1e4dc50/runtime/venv/Scripts/python.exe' -I -X utf8 scripts/fixtures/v02-005/preserve-xlsx.py",
+        "note": "self-closing cell regex corrected"
+      },
+      {
+        "log": "C:/tmp/v005/logs/xlsx-preserve-r2.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/releases/a4182a78f1e4dc50/runtime/venv/Scripts/python.exe' -I -X utf8 scripts/fixtures/v02-005/preserve-xlsx.py",
+        "note": "only three text values merged into original ZIP"
+      },
+      {
+        "log": "C:/tmp/v005/logs/records-restart-r2.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-records-restart.mjs",
+        "note": "import/refresh/full stop-start/persistence passed"
+      },
+      {
+        "log": "C:/tmp/v005/logs/failure-formula-outline.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs failure formula-outline",
+        "note": "provider exit19; assertion expected canceled instead of terminal"
+      },
+      {
+        "log": "C:/tmp/v005/logs/failure-formula-outline-continue.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs failure formula-outline continue",
+        "note": "synthetic parser title mismatch; identity guard rejected"
+      },
+      {
+        "log": "C:/tmp/v005/logs/failure-formula-outline-continue-r2.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-demo.mjs failure formula-outline continue",
+        "note": "actual gate reached; final assertion used wrong field name"
+      },
+      {
+        "log": "C:/tmp/v005/logs/failure-final-readonly.log",
+        "exitCode": 0,
+        "command": null,
+        "note": "historical inline read-only assertion correction: pipelineState; exact shell text not retained; no worker operation repeated"
+      },
+      {
+        "log": "C:/tmp/v005/logs/assets-verified.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-assets.mjs",
+        "note": "fixture/source/Reader/package/assets hashes and current gates"
+      },
+      {
+        "log": "C:/tmp/v005/logs/reopen-command.log",
+        "exitCode": 0,
+        "command": "powershell.exe -NoProfile -File scripts/v02-005-reopen.ps1",
+        "note": "three trusted Reader URLs"
+      },
+      {
+        "log": "C:/tmp/v005/logs/native-entry.log",
+        "exitCode": 1,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-native-entry.mjs",
+        "note": "legacy bridge import failed before prompt"
+      },
+      {
+        "log": "C:/tmp/v005/logs/native-entry-continue.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/acceptance-v02-005-native-entry.mjs continue",
+        "note": "one completed native local mock turn; no tool call"
+      },
+      {
+        "log": "C:/tmp/v005/logs/cleanup.log",
+        "exitCode": 0,
+        "command": "& 'C:/tmp/v005/instance/runtime/node/22.22.2/node.exe' scripts/v02-005-cleanup.mjs",
+        "note": "normal stop and byte-exact original profile restoration"
+      },
+      {
+        "log": "C:/tmp/v005/logs/static-checks.log",
+        "exitCode": 0,
+        "command": null,
+        "note": "node --check each task mjs; Python AST parse; PowerShell parser; no acceptance rerun"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "C:/tmp/v005/evidence/assets-verified.json",
+      "role": "evidence",
+      "bytes": 4550,
+      "sha256": "0d7c2e8a03ebcfb4cf8ead4a9156ba1afb75a1d9e6ad4954ff7928ac136f739a"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-focus.txt",
+      "role": "evidence",
+      "bytes": 2546,
+      "sha256": "3ec5805d91872371468ad9e398db7e7522255e8c292253efb72781d3c7fb3506"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-formula.txt",
+      "role": "evidence",
+      "bytes": 5544,
+      "sha256": "f7ed3675a92a74f1e8f32b86ede4b4d57394269ad811fcd7a5536ffa1048ab33"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-library-excel.txt",
+      "role": "evidence",
+      "bytes": 4408,
+      "sha256": "bd1d4582cf38b4ebdb9aa122ff40c4d8373050c41097c527d9ff7dcc4779dd15"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-library-route.txt",
+      "role": "evidence",
+      "bytes": 294,
+      "sha256": "ab760047a65b962b3475bbf7be85a0ce90eb72637402ed84becc1b49279d0725"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-native-turn.txt",
+      "role": "evidence",
+      "bytes": 3023,
+      "sha256": "04370dcf69c787ab6716db32255f55333db63e7a9699a0f1507d1fb604534d5d"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-reader-from-library.txt",
+      "role": "evidence",
+      "bytes": 6107,
+      "sha256": "768bce11e2dbb55177684f1f5f20d94ea390e859594b8e6d24e17fa9317fba0a"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-reopened.txt",
+      "role": "evidence",
+      "bytes": 5358,
+      "sha256": "f4e58be1ccd1042e8ae7d42d7aae02c2bcd62b82a27a608c5a7c26cede17003f"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-session-search.txt",
+      "role": "evidence",
+      "bytes": 241,
+      "sha256": "b37036873b6aa946ef821ba2aed67ab6056b6e2dea7ee3eda3f76db066318fb8"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-superscript.txt",
+      "role": "evidence",
+      "bytes": 4092,
+      "sha256": "8e9249891eea5b64106d57d4acb7d7e7123e033175206cc03bfa91617bcf2d6b"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/browser-unsent-draft.txt",
+      "role": "evidence",
+      "bytes": 1949,
+      "sha256": "03bf1befedec4fa00bf54b68db03103a65344807ef1bcbd4f780836c4161faab"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/calls.jsonl",
+      "role": "evidence",
+      "bytes": 294872,
+      "sha256": "9d6b0cf1eee308b251af0c291a29f38c04648f410ccb8f597eeab7af2b2a0bbf"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/cleanup-processes.json",
+      "role": "evidence",
+      "bytes": 185,
+      "sha256": "fed8c1cfd2a0392e6c24f759923d87b1732cb8dc85992d703edcca9e9a0d5d0d"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/cleanup.json",
+      "role": "evidence",
+      "bytes": 806,
+      "sha256": "d77b6bffce4cb79908ade49393d04854aa266a845d555133dc8f2bea9aea70d2"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/failure-formula-outline-attempt1.json",
+      "role": "evidence",
+      "bytes": 27819,
+      "sha256": "5a0ee718c6e74e41774c6071da1272eb1c3666fa03e740677cc2294d451df410"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/failure-formula-outline-prior-1790005108604.json",
+      "role": "evidence",
+      "bytes": 48946,
+      "sha256": "a3530fe23bd171a77059f364c8912d9797dbaf44a5b9ba4adc0d7a037c065b9c"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/failure-formula-outline-prior-1790005179046.json",
+      "role": "evidence",
+      "bytes": 75904,
+      "sha256": "a50b1f38852144966ccbc8b2293e731d1d39648da4a731dcaa1ce18b8dba40fc"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/failure-formula-outline.json",
+      "role": "evidence",
+      "bytes": 85260,
+      "sha256": "bcfc936fbc2b8a196c0f87fc4de4264855c43f36f1894c4a76756632d39be5b0"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/figures-captions-package-manifest.json",
+      "role": "evidence",
+      "bytes": 811,
+      "sha256": "7315068310c6d6f9447878bd478a51cec0dc2cbc21cb2833dc8f654bbada5622"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/figures-captions-reader-manifest.json",
+      "role": "evidence",
+      "bytes": 4280,
+      "sha256": "ba13d7ef5b6da856c28a1216a554b5344a5fcdc8e27a3905a9f8cb7fa18d55f1"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/formula-outline-package-manifest.json",
+      "role": "evidence",
+      "bytes": 811,
+      "sha256": "053cf897efbf80a74e1dd4e835664fe30d3c20bb18767bfeaaf1d71266bf8e25"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/formula-outline-reader-manifest.json",
+      "role": "evidence",
+      "bytes": 3618,
+      "sha256": "ced85704e13d1288ed03935f2968dd1facd073d019df1838471ad4084bb455a9"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/native-entry-attempt1.json",
+      "role": "evidence",
+      "bytes": 1013,
+      "sha256": "75f7f4aceda12086eabe01e7495b856ec71b6dfdbb5b81d0afd76d5418bf5801"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/native-entry.json",
+      "role": "evidence",
+      "bytes": 23628,
+      "sha256": "3a31b4d34c64cac1a145f796c1e4a37ca83ec0691a615147d9436e3e43f4644f"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/native-original-profile-patch.json",
+      "role": "evidence",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/native-synthetic-profile.json",
+      "role": "evidence",
+      "bytes": 889,
+      "sha256": "5ad055a9a8747757f89feb524ae140e1528f6a930e51109b76a9af541b33fc4f"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/normal-figures-captions.json",
+      "role": "evidence",
+      "bytes": 84191,
+      "sha256": "071875f11fd1616e7a4f700558779e8e7e292b802c1e611c60a5221a54617107"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/normal-formula-outline-attempt1.json",
+      "role": "evidence",
+      "bytes": 25178,
+      "sha256": "0bcd8b9e4c0efb9dc1e2a2805ddae3a245dee7e2bdb58ac2b03f6fb62cd818d8"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/normal-formula-outline.json",
+      "role": "evidence",
+      "bytes": 88157,
+      "sha256": "0f2ead2d1701fff8f040480d5af2c37901914036091681879a40121216230210"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/normal-superscript-text.json",
+      "role": "evidence",
+      "bytes": 85024,
+      "sha256": "797239f942b764810eb1c3e20e9056de9c9d8abdb32c9dea67c48669e79b5bc6"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/records-restart-attempt1.json",
+      "role": "evidence",
+      "bytes": 1248,
+      "sha256": "2128ecdb75b1925832ff0f7dd02f7576ec08bc1cc24936f61cedafeeeaa17617"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/records-restart.json",
+      "role": "evidence",
+      "bytes": 34623,
+      "sha256": "cd2e72337d35456291d3ec3e1dfc3af1b925808b487e61856dff387c075aeba7"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/superscript-text-package-manifest.json",
+      "role": "evidence",
+      "bytes": 811,
+      "sha256": "3f05348f8e213da17b10a571ff6c6ad4a41eedca6b479a259fd920b9fd6c5849"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/superscript-text-reader-manifest.json",
+      "role": "evidence",
+      "bytes": 3058,
+      "sha256": "01a427f748be31ff7cae592ab878c52d99f77ae7c98409c7dedffd6faa185eee"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-artifact-export.xlsx",
+      "role": "evidence",
+      "bytes": 11348,
+      "sha256": "9ec68831069cc4c0bedf459232857de622c34c474dd8a119683d7c3a80fd4967"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-before.xlsx",
+      "role": "evidence",
+      "bytes": 12502,
+      "sha256": "6974ce200cc9aabbbc8433c431bc7229e37f1c1428b292bd760fc68b5e47aeb1"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-edit.json",
+      "role": "evidence",
+      "bytes": 678,
+      "sha256": "69bd96806adc94e5d47c9ed9ce80d80d512f3e9d69f1de4c2f7d5b13adb506f1"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-edit.png",
+      "role": "evidence",
+      "bytes": 18910,
+      "sha256": "ec581525ed9735267795355b53cd03b863deba3b4e120e37d072d255182b7c4b"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-edited.xlsx",
+      "role": "evidence",
+      "bytes": 12583,
+      "sha256": "c7ff948c4bdb27de2c6d7e462d2ad6ef737501a6a4dd481ccc39ee306df72d28"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-inspect.json",
+      "role": "evidence",
+      "bytes": 605,
+      "sha256": "729a1613d14977ddac2f55542fcc28071fc38e918b0f9917d418c1d8fcdd2603"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-inspect.png",
+      "role": "evidence",
+      "bytes": 8379,
+      "sha256": "a5b6bb11f978f173c561dc31e2ad26de36e49a3dff691b4ebb203825bed99ea7"
+    },
+    {
+      "path": "C:/tmp/v005/evidence/xlsx-preserved.xlsx",
+      "role": "evidence",
+      "bytes": 12583,
+      "sha256": "c7ff948c4bdb27de2c6d7e462d2ad6ef737501a6a4dd481ccc39ee306df72d28"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/01-formula-reader.png",
+      "role": "screenshots",
+      "bytes": 62893,
+      "sha256": "cc667a8110f3e8a7066257cb33a78f85cb0ae599d96f223035af80627a834357"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/02-formula-bilingual-source.png",
+      "role": "screenshots",
+      "bytes": 58555,
+      "sha256": "14f70b41349894d2f035b4c9b0dfb36dd72f2c3f12b0973b762b9b4091127daa"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/03-formula-target.png",
+      "role": "screenshots",
+      "bytes": 53439,
+      "sha256": "3d8361253244a74817867ccf34b720db0494c06a2721bb9461051221010ef0fb"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/04-figure-modal.png",
+      "role": "screenshots",
+      "bytes": 46881,
+      "sha256": "b350928e5c331a6c1b39f4c3866a4f65b3d48bdc5cb79f3cd3e1dceaee4c7401"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/05-table-modal.png",
+      "role": "screenshots",
+      "bytes": 44503,
+      "sha256": "8367997dc9473f6db8016a28049d9ceb5d449f26f1971847c78ebcf6ece353b5"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/06-session-search-gap.png",
+      "role": "screenshots",
+      "bytes": 28910,
+      "sha256": "e487c8e1efd97ad99f59d00e63f70296c6643d5045fc75f66b4bb9df21422da8"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/07-superscript-bilingual.png",
+      "role": "screenshots",
+      "bytes": 67172,
+      "sha256": "518cd74e9a352e8b39151588f0aea428a4c5d2a82d4d85e78494bff13de4da08"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/08-reopened-formula.png",
+      "role": "screenshots",
+      "bytes": 53439,
+      "sha256": "3d8361253244a74817867ccf34b720db0494c06a2721bb9461051221010ef0fb"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/09-unsent-draft-no-tabs.png",
+      "role": "screenshots",
+      "bytes": 29798,
+      "sha256": "d56d20cc7493d1c56c723883f0d74862074c7dc3793dee9ba9c33095029c5fd4"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/10-native-synthetic-turn.png",
+      "role": "screenshots",
+      "bytes": 45212,
+      "sha256": "a60d6a60896b62954478f489e2d7d00d127dc61d67a46d3f91446203c3a7b866"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/11-library-one-paper.png",
+      "role": "screenshots",
+      "bytes": 65210,
+      "sha256": "d63db8983cf719e56538dc09a20884945b6f09794afcaa2b8257cccb8a1749a2"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/12-excel-locate-feedback.png",
+      "role": "screenshots",
+      "bytes": 67355,
+      "sha256": "e40fc32e12286b4233f4b03d3bda5dc45ec67615936ce2cd8e4e638641e3114b"
+    },
+    {
+      "path": "C:/tmp/v005/screenshots/13-reader-from-library.png",
+      "role": "screenshots",
+      "bytes": 62893,
+      "sha256": "cc667a8110f3e8a7066257cb33a78f85cb0ae599d96f223035af80627a834357"
+    },
+    {
+      "path": "C:/tmp/v005/logs/assets-verified.log",
+      "role": "logs",
+      "bytes": 4666,
+      "sha256": "8b8aee02b03bc32ca5c05c14e8c87e1f588675e43eb1279e45ee75443760b500"
+    },
+    {
+      "path": "C:/tmp/v005/logs/cleanup.log",
+      "role": "logs",
+      "bytes": 833,
+      "sha256": "94b967f7ec96f809e27cc50bdb8431f6553703f2da3251b99e2ad100a3569f67"
+    },
+    {
+      "path": "C:/tmp/v005/logs/failure-final-readonly.log",
+      "role": "logs",
+      "bytes": 440,
+      "sha256": "695daf294d95f83803fa073a0e9b6aefc5ec8766d3fe57a99dfe84a41920dc83"
+    },
+    {
+      "path": "C:/tmp/v005/logs/failure-formula-outline-continue-r2.log",
+      "role": "logs",
+      "bytes": 1771,
+      "sha256": "0c43a37141f18a9c73084e91b66c346753ee087e5f371c338276b419d6c08399"
+    },
+    {
+      "path": "C:/tmp/v005/logs/failure-formula-outline-continue.log",
+      "role": "logs",
+      "bytes": 1975,
+      "sha256": "d2c5b333253a2e526349723d80b02c6fe6bfd44db649acee236b2a851487f4ef"
+    },
+    {
+      "path": "C:/tmp/v005/logs/failure-formula-outline.log",
+      "role": "logs",
+      "bytes": 3209,
+      "sha256": "c961cc87da43981f85c1e727e28ade86251620ba99e79583d29b15f4bdf68635"
+    },
+    {
+      "path": "C:/tmp/v005/logs/install.log",
+      "role": "logs",
+      "bytes": 2441,
+      "sha256": "57f8d9867b23e8d9dfd10ad2d5d4337ab6216432669c2d1f79bb94bdec7be365"
+    },
+    {
+      "path": "C:/tmp/v005/logs/native-entry-continue.log",
+      "role": "logs",
+      "bytes": 24269,
+      "sha256": "342ce5756e8a3a046de9d8987884c6e761c5d68af32f974f2ffc8d75f72968d1"
+    },
+    {
+      "path": "C:/tmp/v005/logs/native-entry.log",
+      "role": "logs",
+      "bytes": 1041,
+      "sha256": "f7ea27c185b06b4929d14e7cd5b84bc2ce8339cf78fdc247f21a6cc272b05ac9"
+    },
+    {
+      "path": "C:/tmp/v005/logs/normal-figures-captions.log",
+      "role": "logs",
+      "bytes": 4560,
+      "sha256": "c64fbf987004e0931fed71eae36f903bd011a81054c49dc07793644a4dd6abbb"
+    },
+    {
+      "path": "C:/tmp/v005/logs/normal-formula-outline-continue.log",
+      "role": "logs",
+      "bytes": 2557,
+      "sha256": "6f12369b24e85919bdb14b4edb56b40db499396f51424c9a26c376f6f311f885"
+    },
+    {
+      "path": "C:/tmp/v005/logs/normal-formula-outline.log",
+      "role": "logs",
+      "bytes": 3279,
+      "sha256": "ad77e31f8b07a85134612d19be217e56e1180b6eba9d30983fdfe3c989335624"
+    },
+    {
+      "path": "C:/tmp/v005/logs/normal-superscript-text.log",
+      "role": "logs",
+      "bytes": 4560,
+      "sha256": "fe1fddf74f4a23810fc9f1045541ecf558ba1a3b61a38596c077a703153c0986"
+    },
+    {
+      "path": "C:/tmp/v005/logs/records-restart-r2.log",
+      "role": "logs",
+      "bytes": 35407,
+      "sha256": "71244ed3761935d0b10f0d41bd38a4ee7c8622985ec6dc434ed158d560c577f7"
+    },
+    {
+      "path": "C:/tmp/v005/logs/records-restart.log",
+      "role": "logs",
+      "bytes": 1571,
+      "sha256": "51afacc7ddc6c21f1e61f7474adaeb16423f53bc7d14c1fcbe1af9b07c1a9745"
+    },
+    {
+      "path": "C:/tmp/v005/logs/reopen-command.log",
+      "role": "logs",
+      "bytes": 1274,
+      "sha256": "5c804f219431d8bcb1ea7b26946fce837b7ae8246a4b04e85c6a77adc0b19c07"
+    },
+    {
+      "path": "C:/tmp/v005/logs/static-checks.log",
+      "role": "logs",
+      "bytes": 512,
+      "sha256": "98d16c86797514334df75e3058f205de034b77f006dc68c9a2b64bb21cb46b04"
+    },
+    {
+      "path": "C:/tmp/v005/logs/xlsx-edit.log",
+      "role": "logs",
+      "bytes": 551,
+      "sha256": "0a18cf417dc71654b245996dca440e7a00d643bacd69ae1b72fb919a48b199d1"
+    },
+    {
+      "path": "C:/tmp/v005/logs/xlsx-inspect.log",
+      "role": "logs",
+      "bytes": 369,
+      "sha256": "11100cb1c64715c3ecf849e3b28dd7e328c827cfd9c2958810d0d07053841b45"
+    },
+    {
+      "path": "C:/tmp/v005/logs/xlsx-preserve-r2.log",
+      "role": "logs",
+      "bytes": 174,
+      "sha256": "a010d4f9c8181abf30fb2e31ed48f02f35fc43086327d105ceb800f13c1e355d"
+    },
+    {
+      "path": "C:/tmp/v005/logs/xlsx-preserve.log",
+      "role": "logs",
+      "bytes": 228,
+      "sha256": "cc922e26d9ddb9ab4c48fc00e19417d758a4836c3107f8d01d3b5975b3557de7"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/calls.jsonl",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 2265,
+      "sha256": "87092c3f938420793d3f222b71b015943712be779ec549a825ad92dc8d2bfb65"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/failed-once",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 38,
+      "sha256": "8bcec90184c8361d776556c0914f14855938c796982bc2f2b926af4185f8221b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/figures-captions.json",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 6325,
+      "sha256": "9bc5aee7a9a0112f0d72eb7784f6f1acff6e8c743a6542f19489eae28876442f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/figures-captions.pdf",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 1904,
+      "sha256": "ef09d2cb72a338215c9520f40ed96bc5187582575d6306f2c6064054275358d1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/formula-outline.json",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 6809,
+      "sha256": "a2708064de706218803bb7429f33622823113c5cb8f32c7e341848bfb9a1e66e"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/formula-outline.pdf",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 1695,
+      "sha256": "8d63d012b941c836b20f0ff5f8508c72f40822fbbe3c8084567df6f15b7cccc1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/mode.json",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 43,
+      "sha256": "58c36bf775dd7be53fb8f618f97c1d6041dde949f6da865a1710517cd62d579f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/superscript-text.json",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 3950,
+      "sha256": "59375bd28d0d28b5977054339375fde0abb6ddf1c0f0cf3b72851130f31e747a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/v005-provider/superscript-text.pdf",
+      "role": "synthetic provider inputs and calls",
+      "bytes": 1517,
+      "sha256": "0c467b69d019bcc3c5324aa5b690add402e9f45a93612b7c4fc326a7b505387b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_4cb02a72d4051196/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "eaa6748b0eb7f3310e283efa2f320d35ab51a7624f11373f43af2c19bf617154"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_4cb02a72d4051196/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 131,
+      "sha256": "71c05ed7938fa5ba4474eb6a47e9df536cdcd8ee6f04b02d0d7cb91486c4da77"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_4cb02a72d4051196/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 735,
+      "sha256": "f9d3e361aeb3fc2e20464c70675d81163afecff5a82dfecb772f9c1b9433d7e0"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_4cb02a72d4051196/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 500,
+      "sha256": "55f8af05fa98cbbf24d14e7bca2944c2e615620c6242bd9d7eb7ae63d1873743"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_4cb02a72d4051196/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_536e900dc43afc79/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "dc86abc9cd4f001f2958fd367393276a31849dc92ec5449d9ee4ba8750aeca88"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_536e900dc43afc79/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "9eaddede0c0882803bc919bb51b5942f835fa5e7470bf5addaee0a9fed999b8d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_536e900dc43afc79/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 757,
+      "sha256": "78c5849e915075d2139dfe58e0adc02fe258dd84fc40ca305bca3d8a2f0c5ac9"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_536e900dc43afc79/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 464,
+      "sha256": "ba780109b47955b23d9093fdd1c8576f6373f610415222e2be65d4d7d7a14f27"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_536e900dc43afc79/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/control.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 278,
+      "sha256": "09f237a3a2f0415e362375d210e10904fa67a6083b854657779ffce5f1492336"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1432,
+      "sha256": "d94ee442ef9840fc1dffc5a0c21daec5a3e0d8f5b777cf6434aa4cee9d0c3925"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 157,
+      "sha256": "f851fdbbb06c895ce45318f21aefe426e61cf4f987d3df6b61198899f0be9350"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/reading_pipeline.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 3083,
+      "sha256": "c8db09f2dc5385ad76b3d5c55cee23859ee1b3348c1d00cd1f1fe47c890576b7"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 279,
+      "sha256": "0f54a8bbe1842602741032934556de3c29ab9e202cef7c4aa3945334c6565cb8"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/resume.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1047,
+      "sha256": "8c8f116ac9f20a9b38a4aeea541a38269fe541c0c3c3b736fe0c20aecc4c2498"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 3800,
+      "sha256": "ba44419d8b51279a5f003bfe9c0c317522f54aa76c008aa70672a8e09078feba"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_59008ac3daae08c4/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_5a51f3c78511e37e/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "327e1ee46c2de71475e380c162e268ab2653e274cc07ea942d3211370f2783c1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_5a51f3c78511e37e/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "dd68d4768ca8c25a45c55176b0ee9c6e3e96473c74ff8af1068f022b655b4e86"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_5a51f3c78511e37e/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 708,
+      "sha256": "76f9c1dd3626ba449ee1c99aa0660a3aabb848d0ed4fa997063e08c7291930bd"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_5a51f3c78511e37e/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 552,
+      "sha256": "0b1d7de59b0492548d20e95096709c3f323d9c0f13da10835c08e49879ae9327"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_5a51f3c78511e37e/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_63808338e69e4a4e/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "aab40267f56ecfb5c97c9b3bc0a2d7c164c2c69f65748dc3a5d1ea2c5510d4d1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_63808338e69e4a4e/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "d22b5a168dc9dfaf3db63883921ea758dd104753bd18a37184e8c873f6022116"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_63808338e69e4a4e/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 686,
+      "sha256": "1b4f12db30a37f257667440e1024ea7f293e27133e8e6391ed5b93149efbd5d3"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_63808338e69e4a4e/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 552,
+      "sha256": "5d2dcf85d5d8eb1ce6c123429d19a42d866db7a0d794bd0cc434714acd07ae96"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_63808338e69e4a4e/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/control.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 278,
+      "sha256": "7b2674bc8770b8ee685bc06e05992ff2c50e8cd4e71fcd9f037359da23b50c82"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1432,
+      "sha256": "0b0e420aa352054775d991c130748de7a5e3cc93d7524c918cbc25f5cb59de0e"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 157,
+      "sha256": "399eaf693a91c72f77a65b47fcce17f6a7765242d63a0fd7648583b9f841cfbd"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/reading_pipeline.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 3083,
+      "sha256": "ffb52ac0847c7ee81281a06530bf2b9594407fa6798bd2e61ece813c5e9ab707"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 279,
+      "sha256": "2d3960004eb19075146683831e8e242414e7a199e00ba961b4d128fb1c62eb06"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/resume.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1062,
+      "sha256": "ffcd6ae20fba35b8303b25a1499129291ef349e8bbd166f82e1d64c94fba190b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 3800,
+      "sha256": "b1bf9347d2ec067dde850eebe8e16e4509262249e524520b20aa085cc63bac7d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_670a9974111813f0/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_719db4e6198dea60/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "16814d77617a1795595eb5c10101cc017c1beb96d57ca87fb02287a0f336c70b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_719db4e6198dea60/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "5707da5de8912104d5e0a6f84812db400d88a57344c505844a7648e3eb624efe"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_719db4e6198dea60/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 730,
+      "sha256": "48c456c9792d75f6662a83dd9a7d97186416a2ac8d1b9abd85f51980630c355d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_719db4e6198dea60/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 500,
+      "sha256": "98c731fee67758326d9b27c705b58bcad09941aa2ad5e16e33e540ccd99ecfcb"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_719db4e6198dea60/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_a12d6b1f3c949686/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "f8b589ae5b83ae25dcf701a84982420369d7ae71f9aa98bc21539e4dc90eeb79"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_a12d6b1f3c949686/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "9cff65e5e819fbab632bbb5d0ad1cdf5eb9d3c0911fa6a7024272491bdcdb5ba"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_a12d6b1f3c949686/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 238,
+      "sha256": "3b91f3b85ab695c7c5a9f88db451a30021d4e08de8e0339a43c72d9044ccdec5"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_a12d6b1f3c949686/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 713,
+      "sha256": "a4393c99677ef6ad401a35cee2836ea7f6d6a83b3c023e630b1515b5af8363f5"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_a12d6b1f3c949686/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b31c14405ceabb0d/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "0de42ce382e1969d4dfdacc5a3c097f6b256d55ff7d51fb54c401e34974b8a99"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b31c14405ceabb0d/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "53a42cd77b2b0005e24da7727c29d2613ac353cbb3bffebd879051795c8db919"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b31c14405ceabb0d/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 757,
+      "sha256": "ec597760c93b659237e04e4f14d0cc5a0dc9d046244d83baf48337b98c9c8bb7"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b31c14405ceabb0d/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 500,
+      "sha256": "22ee7870e17987403ea02984726a62cfb3a0d72c6965c7df2e09944d453a419e"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b31c14405ceabb0d/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b352c5c641cf2358/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "bcf5a90ac55269e4967babb08146efc8ed55e3df0a35c57a0c4248bd99a65978"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b352c5c641cf2358/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "7f300bf6c09a367792313efc2b52e36274bad582062d0ce389b5a08fae86761a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b352c5c641cf2358/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 735,
+      "sha256": "366eb39b2fb801482d58afdcd01ef85c1c49a10632d8b19acc107824db47f447"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b352c5c641cf2358/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 464,
+      "sha256": "2ba33aa97eeb08b1dda42698e83dcabfde5662f01a0f12079f6bf0fc24673910"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_b352c5c641cf2358/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bbc2709a7ffb817e/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "f4484dfe76f13a59f16e00825381ae937e6714729a67b28566659614a7cff573"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bbc2709a7ffb817e/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "b3d3549d2caef99b74573ca53a619c786027bad78ab3d6dc60418a30600ed9a1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bbc2709a7ffb817e/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 238,
+      "sha256": "498c954625ad85b6f1b82c446aa5d300a5bcd7d576aa0b9deba5a96b87921a9e"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bbc2709a7ffb817e/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 713,
+      "sha256": "34e7f99adfa9c21a2a299b5b798f95e9da9bf8ffdee7a37ccea036e993ab5d0f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bbc2709a7ffb817e/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bcee5b03eeb517f5/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "19375f0cef00a8cacec24ad957c6fe3a2da1b61cfb6c7315da7f4ce8b1ba6bad"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bcee5b03eeb517f5/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "664dff376f9303e5934c1082c8057597115b566a949e86f1b8d5f2b63ccd189f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bcee5b03eeb517f5/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 681,
+      "sha256": "f0d16156777906ab35da0039a587ceeb82fd19960a6e79b4fe7be9fd812a5537"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bcee5b03eeb517f5/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 552,
+      "sha256": "4741c8658ecd71c5270d81f9c4ac1911e37b6afc8cb6232215ee69255c5ce85b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_bcee5b03eeb517f5/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_cd3ff8be9fcaf345/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "5f68f1e460664726cbe46dd563dd86f87a6ea500c603a5feef2ad598d2acabf0"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_cd3ff8be9fcaf345/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "347eaa5a240a3d0b9256466b05d88ea882d8b2b921c37bc875bfb2adaac1b9d1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_cd3ff8be9fcaf345/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 238,
+      "sha256": "4490fea93cbc1e7025572748a69dde2c83f609c04ef9bbb42e6a3b4798ff382f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_cd3ff8be9fcaf345/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 713,
+      "sha256": "21992d2adb7554f4137b60f2a00da8f73824dde4b20d9a1dcc6b8a18dce7f562"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_cd3ff8be9fcaf345/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/control.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1044,
+      "sha256": "806fb8182db7578fc779ad8bd3b01c67043156ee8e82c35229c07c2b4b0d00b8"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1408,
+      "sha256": "962981b2c51aa9863db576c5f2a58208768ed3efef20c698da3c4e47175d373d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 157,
+      "sha256": "5ea385c8795ab29dcc5f37b8f01ecbbde9cac9564f22d080ea7845ed788e00e4"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/reading_pipeline.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 2104,
+      "sha256": "5c4575916491de6aad66d0050eeccfab5d9002b2a5f1b7c930326945559cc558"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 279,
+      "sha256": "1a78626f2733da079ac4d40d1be0948c7977032173313fb3212a855d0237e2d5"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/resume.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 4,
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 934,
+      "sha256": "fb863c6f6d53b33fb36b140bf671a40d1502090b78d00f6589fe53f3a277312f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_d3cbdf77f2ed271b/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_da6ccf73854d6cc5/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "4fb2cb5cf86ec058b763fe8d4d8db133bca868425aeba46d932658fb99d9f04a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_da6ccf73854d6cc5/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "fca025ff6c00ff1756fe62c8967ce8d3c47702c4be7baaba2c80431ed9bc4581"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_da6ccf73854d6cc5/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 735,
+      "sha256": "fe3b0965797211bff6270f17b3ee41026ed75b109da0cadf8409f5676d648b6b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_da6ccf73854d6cc5/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 464,
+      "sha256": "2388e551f83fbf6c6ee2c217e4473a2f24c79eba01976009f5a90364326947c4"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_da6ccf73854d6cc5/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_e260181d6af71853/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "1ba70ad3f0f332a2485204709a486f7c58ba14d5f00a036d9252cf2082b1baa6"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_e260181d6af71853/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 131,
+      "sha256": "4d75217c0298857a60867a40e48dd3a0e95cf777a7a9eca88cd1296d27b99947"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_e260181d6af71853/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 730,
+      "sha256": "571827a709798089083c0d0eed1d254613eb8365fcb8e1f084281bc0d2f30be8"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_e260181d6af71853/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 464,
+      "sha256": "e6abffb4d0225735f403cfd7e62485d4ed32098fbe1985b2f54ff40a9372f273"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_e260181d6af71853/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f18bb23108187f57/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "8d0942c47ade491d465b9e113becfedb88c35ee5cf8c985901d21cca4f40f135"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f18bb23108187f57/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "61159d71248432e4c2f4971933d818e79184b75a0391492cb116b2d639ae9c5a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f18bb23108187f57/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 686,
+      "sha256": "a45a4c941097a8cb336ad699d5f1d9cf6bb347f5531422a58208d37b9b1f1949"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f18bb23108187f57/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 552,
+      "sha256": "45f93795a62eeaca3402267441935dad07f683a4567ed33fd3f932a7d0d5272c"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f18bb23108187f57/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/control.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 278,
+      "sha256": "cbdb21608f7291f04387761faa4884bc953fab156521d68b95fc0283dbbd958f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1432,
+      "sha256": "1f7fdc3bb3b61132ba9ab7ee4f82f57aa6ef0c7d7a095aa8698eedda2b4de2f0"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 157,
+      "sha256": "2f2ec738b49ccf8fdf6e019de1c2e650efcc9ff67c99c722f5db245c6ed4a4f8"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/reading_pipeline.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 3083,
+      "sha256": "83d4aff9e76588c2b4c7283e4d265b50ea6a543fe7cc5b6fb5211fa2b7f59d35"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 279,
+      "sha256": "a363a048f12c3d308ba1b27b6ab635ab7fcbb50f054e9de71100169528c1746b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/resume.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 1008,
+      "sha256": "545c0de982a33938a6b6b622358b35bb7e10d47fd761dc0d2fa4e216fda5cc64"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 3800,
+      "sha256": "156fe04634a3833c3967aa147de601bb9e696acf2230199d8555162578d0ef95"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_f7f3079fdccf0c20/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_fee6c8a8e8ee2230/events.jsonl",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 252,
+      "sha256": "7b5621d561893e5ec2cd8ed78250dae4b8564ee8944c3f46901be4cd5ab94c5f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_fee6c8a8e8ee2230/launch.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 132,
+      "sha256": "9b72b4d963c242355598afa29cedb924102d0e2eb54164186568a17dde7af55a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_fee6c8a8e8ee2230/request.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 735,
+      "sha256": "95d9882419dbfff4c9788b5a008545181662cb26810e9e22871d4245b2287229"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_fee6c8a8e8ee2230/status.json",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 500,
+      "sha256": "ad6770a1d207619d814c334eaf22ad023f65a6868dd89d30dc2ff190ce88ddba"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/jobs/job_fee6c8a8e8ee2230/worker.log",
+      "role": "installed job state/logs (frozen after stop)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/job.json",
+      "role": "installed normal-generation assets",
+      "bytes": 4317,
+      "sha256": "716c0292fcd3c5a22fd1763d37865563aac4c9808424bf23e32c5dcafdebb10d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 39,
+      "sha256": "2e4a4b2b6047ddd30189b473f3236d76a0ce10b5874fd989e5cf02cc02d4413a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/metadata.json",
+      "role": "installed normal-generation assets",
+      "bytes": 333,
+      "sha256": "c99822e5d5d90cc15d63ac2ba18d4e60c7bb913f8254b51977db254ac5197e9c"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/output/reader_full.html",
+      "role": "installed normal-generation assets",
+      "bytes": 62022,
+      "sha256": "9748001ab7e9aaacf725b34a173f1fde9c6933e269cef0070cbd285031cc1468"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/package-manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 811,
+      "sha256": "053cf897efbf80a74e1dd4e835664fe30d3c20bb18767bfeaaf1d71266bf8e25"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/parsed/.mineru-publish.lock",
+      "role": "installed normal-generation assets",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/parsed/mineru/full.md",
+      "role": "installed normal-generation assets",
+      "bytes": 1202,
+      "sha256": "30e15b7b45539fcd09b8dfcfeb8219d53994ec9da9f033f0279659316e4852f7"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/parsed/mineru/parse_report.json",
+      "role": "installed normal-generation assets",
+      "bytes": 755,
+      "sha256": "03e38a71909346a569f81aef0fd3fc7fc98d523c30e6a2eacba0c372fd7037bb"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/parsed/mineru/raw/fixture_content_list.json",
+      "role": "installed normal-generation assets",
+      "bytes": 1990,
+      "sha256": "b86e7f05b73f69a98d58d0dfea5368e90baceece3b2ca14360fc2b4569d14e97"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/parsed/mineru/source_map.json",
+      "role": "installed normal-generation assets",
+      "bytes": 6562,
+      "sha256": "eb4c70ab75d1e493f8cb06b36bd60bda78e5ead1ceb7e06a2aa4070d00719b40"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/.reader-publish.lock",
+      "role": "installed normal-generation assets",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/batches/batch-0001.source.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3037,
+      "sha256": "343c4729934f297d2c61927799c44df12ca3edecfc857765beb505c46ad9cb7e"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/batches/batch-0001.translation.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3257,
+      "sha256": "7138d26e87ddc49af2ec2faf5729f89dccfa90ee112c8326126561f15d43b409"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/full_read.md",
+      "role": "installed normal-generation assets",
+      "bytes": 1497,
+      "sha256": "2c06e99c676c30b73c4484388e5540997336fa8ba1e6b25e325cb0b794919d6f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/highlights.json",
+      "role": "installed normal-generation assets",
+      "bytes": 172,
+      "sha256": "504229f6a1c6ae953c6544a92ba4bb6cb8dce0245c12b718cef2f07f9e9e6348"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/reading_guide.json",
+      "role": "installed normal-generation assets",
+      "bytes": 939,
+      "sha256": "ffa1d09683fd3ca70bf4d8454dd73583f88ae72fdfadfc3815836b1ad08c1b15"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/translation_notes.md",
+      "role": "installed normal-generation assets",
+      "bytes": 23,
+      "sha256": "e509b3aa707725f71d333933bbc7472f2bccb3de4fec0e143b3b0800cdb0d421"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/translation_plan.json",
+      "role": "installed normal-generation assets",
+      "bytes": 1156,
+      "sha256": "e41aed333e9b17814f4aaffdf72a740ee50b53e3a58a693037b2ada258f04294"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/full/translations.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3229,
+      "sha256": "80c6c01976d79c267178c858b4d638bbe75b8252ffe11de619348fdb2e000c14"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/reader-manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3618,
+      "sha256": "ced85704e13d1288ed03935f2968dd1facd073d019df1838471ad4084bb455a9"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/reading/reader.html",
+      "role": "installed normal-generation assets",
+      "bytes": 62016,
+      "sha256": "d2612164b1e84795b276879904b2d5eb171e68936d8778598f7eada5170b3b37"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_d8b339a0356f/generations/8d63d012b941c836/source.pdf",
+      "role": "installed normal-generation assets",
+      "bytes": 1695,
+      "sha256": "8d63d012b941c836b20f0ff5f8508c72f40822fbbe3c8084567df6f15b7cccc1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/job.json",
+      "role": "installed normal-generation assets",
+      "bytes": 4377,
+      "sha256": "3d3cad5bb2a28229fd4b9c502caa97cb8ea72a5d2cf005724aa3fa1f5f0de3a2"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2206,
+      "sha256": "7797bbab0aa1d678b725f4277d8a444b44ad1e3b5cb4dc647cd15fe045dbd94d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/metadata.json",
+      "role": "installed normal-generation assets",
+      "bytes": 338,
+      "sha256": "024302a971fb33c29e0fd734f2bcaf4de1cf7c330d19158374bb6a2a050af822"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/output/reader_full.html",
+      "role": "installed normal-generation assets",
+      "bytes": 62716,
+      "sha256": "606ca8374a0b6ede165b8cac02be9983e963049eacf3136ab5b160c03c19d69c"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/package-manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 811,
+      "sha256": "7315068310c6d6f9447878bd478a51cec0dc2cbc21cb2833dc8f654bbada5622"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/.mineru-publish.lock",
+      "role": "installed normal-generation assets",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/full.md",
+      "role": "installed normal-generation assets",
+      "bytes": 1035,
+      "sha256": "892d59e01bc1cb4bf469f6ba7c1641bf24307ed0e9d605102690c16341180d15"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/images/mineru-p0001-img0001.svg",
+      "role": "installed normal-generation assets",
+      "bytes": 635,
+      "sha256": "fdf7d877273a69507d26584a7a1448c83127a6ecc479654626d6af3cbd2e9a04"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/parse_report.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2922,
+      "sha256": "339b80de64b402fd9a030490c6ca6338ba5fcece1446a4f4672b616352051784"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/raw/assets/figure.svg",
+      "role": "installed normal-generation assets",
+      "bytes": 635,
+      "sha256": "fdf7d877273a69507d26584a7a1448c83127a6ecc479654626d6af3cbd2e9a04"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/raw/assets/table.svg",
+      "role": "installed normal-generation assets",
+      "bytes": 345,
+      "sha256": "acdfc553a14928bc9016dfec635dd52aa2b3f424ec5a04ef4ec3f88830548da1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/raw/fixture_content_list.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2377,
+      "sha256": "e7703226d5654faf4de730fd255e3422db331001fc570e865fb0b3d531976c4e"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/source_map.json",
+      "role": "installed normal-generation assets",
+      "bytes": 4653,
+      "sha256": "9dcc2878c194ecd77fc02f32ec3b085a232481b1931a822465f9e4656087def1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/tables/mineru-p0001-table0001.html",
+      "role": "installed normal-generation assets",
+      "bytes": 201,
+      "sha256": "6c11e6ac282a16d393e8deb9030bfc8a9ab834089b396a134bf1ba99e10fa9cf"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/parsed/mineru/tables/mineru-p0001-table0001.svg",
+      "role": "installed normal-generation assets",
+      "bytes": 345,
+      "sha256": "acdfc553a14928bc9016dfec635dd52aa2b3f424ec5a04ef4ec3f88830548da1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/.reader-publish.lock",
+      "role": "installed normal-generation assets",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/batches/batch-0001.source.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2996,
+      "sha256": "2b67911959f07c26a84294b35d98096a828d979832134ad0a7b48fa5f5278e24"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/batches/batch-0001.translation.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3419,
+      "sha256": "bc68bfba5d8cd7e1051fd3b0244a3ae37340f3e18d83e5c620e68829570f35b0"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/full_read.md",
+      "role": "installed normal-generation assets",
+      "bytes": 1660,
+      "sha256": "147b1ef981dc49ca5e12c00ab9ac5ca6653b8325e719b7e126a504c458bb230b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/highlights.json",
+      "role": "installed normal-generation assets",
+      "bytes": 172,
+      "sha256": "c42738ae57a948b90aef98d0e85aa8a12b86b661fd6cf89add2c5325714f8fcf"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/reading_guide.json",
+      "role": "installed normal-generation assets",
+      "bytes": 990,
+      "sha256": "593294def6bf6ff5a1d7c05cda0e936839897d3a616e9916a751e18e416f6293"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/translation_notes.md",
+      "role": "installed normal-generation assets",
+      "bytes": 23,
+      "sha256": "e509b3aa707725f71d333933bbc7472f2bccb3de4fec0e143b3b0800cdb0d421"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/translation_plan.json",
+      "role": "installed normal-generation assets",
+      "bytes": 1110,
+      "sha256": "a74d346c7317e4a22b149ad268cc1e7e2329da54c6f1c093cfa1040b75a08ae7"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/full/translations.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3391,
+      "sha256": "43d4a7ba2090dbbdee5e66eace403b53e8b39bc3f207ff8d9e721e166678c31f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/reader-manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 4280,
+      "sha256": "ba13d7ef5b6da856c28a1216a554b5344a5fcdc8e27a3905a9f8cb7fa18d55f1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/reading/reader.html",
+      "role": "installed normal-generation assets",
+      "bytes": 62710,
+      "sha256": "473ff54f76296be8a8edcec3d06c0e315b81095f870cd0aa781ffdafb709718b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_7f6d8e6af6fb/generations/ef09d2cb72a33821/source.pdf",
+      "role": "installed normal-generation assets",
+      "bytes": 1904,
+      "sha256": "ef09d2cb72a338215c9520f40ed96bc5187582575d6306f2c6064054275358d1"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/job.json",
+      "role": "installed normal-generation assets",
+      "bytes": 4362,
+      "sha256": "ac158ca40bf9b25c494a37ba07decbb0cf1a430b2da77c1ff54c4a038cedadc6"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 39,
+      "sha256": "2e4a4b2b6047ddd30189b473f3236d76a0ce10b5874fd989e5cf02cc02d4413a"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/metadata.json",
+      "role": "installed normal-generation assets",
+      "bytes": 338,
+      "sha256": "5a95cee25bfdb8c20fd45ad099d9c55badc4ec2b487d7db7c622b4e71bf87982"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/output/reader_full.html",
+      "role": "installed normal-generation assets",
+      "bytes": 59014,
+      "sha256": "e30fc11f37c8f53a302de5b556651f6471d15c42da82ccf6dc97943fe8b208e6"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/package-manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 811,
+      "sha256": "3f05348f8e213da17b10a571ff6c6ad4a41eedca6b479a259fd920b9fd6c5849"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/parsed/.mineru-publish.lock",
+      "role": "installed normal-generation assets",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/parsed/mineru/full.md",
+      "role": "installed normal-generation assets",
+      "bytes": 1049,
+      "sha256": "7942aaf1070efe5f63b7c2a39a46364e8a65f111a9b4971e1c7a89954aadec8d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/parsed/mineru/parse_report.json",
+      "role": "installed normal-generation assets",
+      "bytes": 755,
+      "sha256": "932e6b209e692609cb595edcee9c30e0846589de04dce256a68ba7412174ee0c"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/parsed/mineru/raw/fixture_content_list.json",
+      "role": "installed normal-generation assets",
+      "bytes": 1559,
+      "sha256": "58cdb8a0bca42e4f93fa1bf8e041b8a97883f47699cd22cb7a6b5b5366584b03"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/parsed/mineru/source_map.json",
+      "role": "installed normal-generation assets",
+      "bytes": 4418,
+      "sha256": "d77ff97d052a780152340cf3232cbcae14dc19a7a9159900f5aa82819eb4187c"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/.reader-publish.lock",
+      "role": "installed normal-generation assets",
+      "bytes": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/batches/batch-0001.source.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2343,
+      "sha256": "926bf2f766243ab8598e92faab110efc26a6ae9e9b19f82dc8e78754a0c0560f"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/batches/batch-0001.translation.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2686,
+      "sha256": "67ab95873b034bae50ba42b666f5b3aa6cc809ab1b893ec4ec5e2219b42e85c9"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/full_read.md",
+      "role": "installed normal-generation assets",
+      "bytes": 1369,
+      "sha256": "f3b30a3c96ab4ada519616ec476666e55bb50e29d0ffe8976adecd1c0e3d60b5"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/highlights.json",
+      "role": "installed normal-generation assets",
+      "bytes": 172,
+      "sha256": "4f762657e3bd4abe085d0e48f807c0948ec9dd0bf6c38a9fdce6ad3ccc50e1dc"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/reading_guide.json",
+      "role": "installed normal-generation assets",
+      "bytes": 975,
+      "sha256": "8c41b7da67df38d34ef4f27e2528aa3a8d9e84c779deecb7d56fde2ddf238f83"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/translation_notes.md",
+      "role": "installed normal-generation assets",
+      "bytes": 23,
+      "sha256": "e509b3aa707725f71d333933bbc7472f2bccb3de4fec0e143b3b0800cdb0d421"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/translation_plan.json",
+      "role": "installed normal-generation assets",
+      "bytes": 1041,
+      "sha256": "11c8ec70453bf989eff22dec124339d72526b64923490a1f562f72c268f6326d"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/full/translations.json",
+      "role": "installed normal-generation assets",
+      "bytes": 2658,
+      "sha256": "cb5076ab954dab370d51e25e789404d4eb61a651a83d70eb4cceb34eebf33ba6"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/reader-manifest.json",
+      "role": "installed normal-generation assets",
+      "bytes": 3058,
+      "sha256": "01a427f748be31ff7cae592ab878c52d99f77ae7c98409c7dedffd6faa185eee"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/reading/reader.html",
+      "role": "installed normal-generation assets",
+      "bytes": 59008,
+      "sha256": "23cec7d6604be57474e34c2400af89671eb6c700f2b6753e81d0c5dbec3c63ed"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/papers/title_a28e4c422f5c/generations/0c467b69d019bcc3/source.pdf",
+      "role": "installed normal-generation assets",
+      "bytes": 1517,
+      "sha256": "0c467b69d019bcc3c5324aa5b690add402e9f45a93612b7c4fc326a7b505387b"
+    },
+    {
+      "path": "C:/tmp/v005/instance/installation.json",
+      "role": "installed identity/restored profile",
+      "bytes": 4080,
+      "sha256": "00901b86f8e2be55919e577516568ef3fc2fbda0c9e4d14f5d14e17bf4902955"
+    },
+    {
+      "path": "C:/tmp/v005/instance/.workbench.json",
+      "role": "installed identity/restored profile",
+      "bytes": 152,
+      "sha256": "81ecd0e6de65aa2bf1b4bbbe470639770e391636d76161457ec0cfa79c6078a8"
+    },
+    {
+      "path": "C:/tmp/v005/instance/state/dsh-home/profiles/workbench/cordis.patch.yml",
+      "role": "installed identity/restored profile",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "C:/tmp/v005/instance/library/library/scientific-reading.xlsx",
+      "role": "current native workbook",
+      "bytes": 12917,
+      "sha256": "0544ef91bd7e4d98716bc8b616d1243c54f24dda9b06664b5933352a98465666"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/common.mjs",
+      "role": "task source",
+      "bytes": 1815,
+      "sha256": "54ab3103911c5fdf034bcc2317897600297b81646f4da6a484e3730117ae31e4"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/figures-captions.json",
+      "role": "task source",
+      "bytes": 6325,
+      "sha256": "9bc5aee7a9a0112f0d72eb7784f6f1acff6e8c743a6542f19489eae28876442f"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/formula-outline.json",
+      "role": "task source",
+      "bytes": 4708,
+      "sha256": "d519f63c6ca5b3b9d715eeba29820add503cd8cf0924c2c82833f06415a3f43e"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/inspect-records.py",
+      "role": "task source",
+      "bytes": 1462,
+      "sha256": "388daba579cfb9802013744ee6dcd31421a2e4e438e310a37653f967d5eb4118"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/local-model.mjs",
+      "role": "task source",
+      "bytes": 1578,
+      "sha256": "f27ee72471c6c3bbb904f79b8d06df1c18fdd752c525fbaa6af88336a1d79acc"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/prepare.py",
+      "role": "task source",
+      "bytes": 3276,
+      "sha256": "36e99b98c2d1f1b2626d1b0285f8ae16c60ca913068143d95fd67b515c593104"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/preserve-xlsx.py",
+      "role": "task source",
+      "bytes": 1803,
+      "sha256": "16a0292bedea789ba27bb0a17e2eb30feaaf2c32fd9c051ef72356b6876cf72b"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/provider.py",
+      "role": "task source",
+      "bytes": 1271,
+      "sha256": "4219a6866c46dcb313027e670f65a83d0bb162b4ff3f52414b079dd1f9bf2dfb"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/fixtures/v02-005/superscript-text.json",
+      "role": "task source",
+      "bytes": 3950,
+      "sha256": "59375bd28d0d28b5977054339375fde0abb6ddf1c0f0cf3b72851130f31e747a"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/acceptance-v02-005-assets.mjs",
+      "role": "task source",
+      "bytes": 4038,
+      "sha256": "f559b3c6589ddc75b99c9b9de3db239dd4f9a99a9bf812479593d88da76a2aec"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/acceptance-v02-005-demo.mjs",
+      "role": "task source",
+      "bytes": 5951,
+      "sha256": "cfe457d8147a8311caa842fb3818161885909a28289f7f84e6dabdf45723b286"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/acceptance-v02-005-native-entry.mjs",
+      "role": "task source",
+      "bytes": 2864,
+      "sha256": "966cf499715bca508a94c7e1e1cbbe078bc48b76da87cb65a4ae026d9eac6287"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/acceptance-v02-005-records-restart.mjs",
+      "role": "task source",
+      "bytes": 1803,
+      "sha256": "fc28be1a773b08f6a051183f3a42a39dffcd3845ffd3097d9924a54a455c294c"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/v02-005-cleanup.mjs",
+      "role": "task source",
+      "bytes": 1031,
+      "sha256": "494bfe2e568ece710eddeb0ab1fa12943101cde7d5ad2239af38d3b7e0ee8210"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/v02-005-collect.mjs",
+      "role": "task source",
+      "bytes": 7764,
+      "sha256": "f44cfb3635d5aa6fa4687da4aa802a267b66d9cdaafb15fb942771aab4b0d6b7"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/v02-005-records.mjs",
+      "role": "task source",
+      "bytes": 1834,
+      "sha256": "28039c62f7a0258c957288511f7a01b143e11453e6dd6838cde1d0f3d802b2cc"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/scripts/v02-005-reopen.ps1",
+      "role": "task source",
+      "bytes": 999,
+      "sha256": "174ea446a5a0f76222ab634fc8f1e92439df4c39adb513a4cf0b668f713819e9"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/docs/project/evidence/V02-005-report.md",
+      "role": "delivery",
+      "bytes": 5418,
+      "sha256": "19191dd32b8271f47647c94d6b299a58490caa2a208d88d9c8780f5ff7abdd2e"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/docs/project/evidence/V02-005-demo.md",
+      "role": "delivery",
+      "bytes": 4058,
+      "sha256": "e078e30ec85723dfe8a4eb28751ae0100387c6216d03c289b8040ba05a36f07b"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005/docs/project/evidence/V02-005-receipt.json",
+      "role": "delivery",
+      "bytes": 1133,
+      "sha256": "f41c4c466726ba894ae4e0d203b474d0561bf276174a3fabe28d8053c94bd7c9"
+    },
+    {
+      "path": "C:/tmp/v004k/candidate-r1/deep-literature-for-codex-0.2.0-dev.4-win-x64.zip",
+      "role": "original approved candidate",
+      "bytes": 1597255,
+      "sha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105"
+    }
+  ]
+}

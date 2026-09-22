@@ -1,0 +1,31 @@
+import fs from 'node:fs/promises';
+import {createRequire} from 'node:module';
+import {pathToFileURL} from 'node:url';
+import assert from 'node:assert/strict';
+const require=createRequire('C:/tmp/v005/author/package.json');
+const {FileBlob,SpreadsheetFile}=await import(pathToFileURL(require.resolve('@oai/artifact-tool')));
+const file='C:/tmp/v005/instance/library/library/scientific-reading.xlsx';
+const out='C:/tmp/v005/evidence';
+const wb=await SpreadsheetFile.importXlsx(await FileBlob.load(file));
+const sheet=wb.worksheets.getItem('文献');
+const values=sheet.getUsedRange().values, headers=values[0];
+const row=values.findIndex(r=>r[headers.indexOf('文献 ID')]==='title_d8b339a0356f');
+assert.ok(row>0);
+const columns=['个人思考','个人理解程度','用户笔记'];
+const expected=['合成思考：公式与目录已核对','部分理解','V02-005：重启后继续阅读'];
+const cells=columns.map((name,i)=>({name,row:row+1,col:headers.indexOf(name)+1,value:expected[i]}));
+assert.ok(cells.every(c=>c.col>0));
+const mode=process.argv[2]??'inspect';
+if(mode==='edit') {
+ await fs.copyFile(file,out+'/xlsx-before.xlsx');
+ for(const c of cells) sheet.getCell(c.row-1,c.col-1).values=[[c.value]];
+ wb.recalculate();
+ const exported=await SpreadsheetFile.exportXlsx(wb);await exported.save(file);
+ await fs.copyFile(file,out+'/xlsx-edited.xlsx');
+}
+const firstCol=Math.min(...cells.map(c=>c.col))-1;
+const range=sheet.getRangeByIndexes(0,firstCol,Math.max(row+1,3),3);
+console.log(JSON.stringify({mode,cells,values:range.values}));
+const preview=await wb.render({sheetName:'文献',range:range.address,scale:1.5,format:'png'});
+await fs.writeFile(out+'/xlsx-'+mode+'.png',new Uint8Array(await preview.arrayBuffer()));
+await fs.writeFile(out+'/xlsx-'+mode+'.json',JSON.stringify({mode,cells,values:range.values},null,2));
