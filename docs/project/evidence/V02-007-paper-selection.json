@@ -1,0 +1,63 @@
+{
+  "task": "V02-007",
+  "selectedBy": "User title and GPT preference",
+  "formal": {
+    "title": "Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+    "doi": "10.1016/j.cell.2026.08.002",
+    "pmid": "42664972",
+    "journal": "Cell",
+    "onlineDate": "2026-08-28",
+    "authors": [
+      "Ronghui Zhu",
+      "Emma Dann",
+      "Jun Yan",
+      "Justine Reyes Retana",
+      "Ryunosuke Goto",
+      "Reese C. Guitche",
+      "Lillian Brixi",
+      "Mineto Ota",
+      "Austin Hartman",
+      "Theodore L. Roth",
+      "Ansuman T. Satpathy",
+      "Jonathan K. Pritchard",
+      "Alexander Marson"
+    ],
+    "source": "https://pubmed.ncbi.nlm.nih.gov/42664972/",
+    "fulltext": "https://www.cell.com/cell/fulltext/S0092-8674(26)00929-3",
+    "access": "Metadata/abstract verified; publisher browser displays security verification; version-of-record PDF not acquired"
+  },
+  "preprint": {
+    "title": "Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+    "authors": "Zhu, R.; Dann, E.; Yan, J.; Reyes Retana, J.; Goto, R.; Guitche, R. C.; Petersen, L. K.; Ota, M.; Pritchard, J. K.; Marson, A.",
+    "date": "2025-12-24",
+    "version": "1",
+    "doi": "10.64898/2025.12.23.696273",
+    "license": "cc_by",
+    "published": "10.1016/j.cell.2026.08.002"
+  },
+  "pdf": {
+    "title": "Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+    "version": "bioRxiv v1 preprint",
+    "doi": "10.64898/2025.12.23.696273",
+    "versionDate": "2025-12-24",
+    "publishedDoi": "10.1016/j.cell.2026.08.002",
+    "pmid": "42664972",
+    "sourceUrl": "https://www.biorxiv.org/content/10.64898/2025.12.23.696273v1.full.pdf",
+    "retrievedAt": "2026-09-22T01:57:55.683934Z",
+    "httpStatus": 200,
+    "contentType": "application/pdf",
+    "path": "C:\\tmp\\v007\\papers\\Zhu-2025-CD4-Perturb-seq-bioRxiv-v1.pdf",
+    "bytes": 7214585,
+    "sha256": "4ea1f4e517c2c96d615955c5d3c375e0791676817665841cb4f347094b77c55a",
+    "pdfMagicVerified": true,
+    "license": "CC BY per official bioRxiv API",
+    "limitation": "Not the Cell version of record; formal site shows access verification. Model and parser not called."
+  },
+  "selection": "Use separately identified bioRxiv v1 as available real-paper sample; retain formal citation relationship; do not attach it as the Cell version of record",
+  "model": {
+    "family": "GPT",
+    "route": "Worktable-local ChatGPT subscription authorization; exact model pending actual available selector",
+    "scope": "one paper; no automatic additional paid retry"
+  },
+  "checkedAt": "2026-09-22T01:58:45.4689651Z"
+}

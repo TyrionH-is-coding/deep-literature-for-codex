@@ -720,7 +720,7 @@
       "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
       "plannedInstanceRoot": "C:/tmp/v007/",
       "baseCommit": "7d53ab5b3c66fdee77820b64d94c8a49ea03ed97",
-      "dispatchState": "reserved",
+      "dispatchState": "started",
       "startedAt": "2026-09-22T01:56:15.3558841Z",
       "nextCheckpointAt": "2026-09-22T03:26:15.3558841Z",
       "allowedPaths": [
@@ -739,7 +739,17 @@
         "credentials": "user-local configuration only"
       },
       "independence": "Only active developer task; own worktree and fresh instance/output roots; bibliography reviewer read-only",
-      "exitCriteria": "Fixed dev.5 real-paper/model flow, Reader/source content review and personal record survives restart; user quality acceptance required"
+      "exitCriteria": "Fixed dev.5 real-paper/model flow, Reader/source content review and personal record survives restart; user quality acceptance required",
+      "contextCommit": "aecd648fa4207bb11b219a04ef2e9c068da6de20",
+      "setupAgent": "/root/v007_instance_setup",
+      "sourceReviewer": "/root/v007_paper_sources",
+      "selectedPaper": {
+        "formalDoi": "10.1016/j.cell.2026.08.002",
+        "sampleDoi": "10.64898/2025.12.23.696273",
+        "sampleVersion": "bioRxiv v1",
+        "sourceRecord": "docs/project/evidence/V02-007-paper-selection.json",
+        "pdfSha256": "4ea1f4e517c2c96d615955c5d3c375e0791676817665841cb4f347094b77c55a"
+      }
     },
     {
       "id": "V02-008",
