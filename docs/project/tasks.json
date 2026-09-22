@@ -468,6 +468,22 @@
           "path": "engine/src/scientific_reading/__init__.py#__version__",
           "observedDiff": "Only __version__ constant 0.1.0 to 0.2.0.dev4, matching authorized pyproject version",
           "decision": "Explicitly include version constant in allowed paths; no runtime/schema/dependency expansion"
+        },
+        {
+          "at": "2026-09-22T00:42:50Z",
+          "classification": "Necessary current-task repair: prevent worker process creation before recovery authorization",
+          "path": "engine/src/scientific_reading/background_launcher.py#recovery-execution-guard",
+          "basis": "Read-only source review confirms enqueue creates job before _start; launch_existing can change state/write launch marker/popen before worker.run_job gate. File was unchanged when proposed.",
+          "decision": "Approve local pre-side-effect guards using existing recovery helper; preserve ordinary scheduling/hash/schema and avoid broad data_root_operation gate",
+          "independentReview": "control_plan_review agrees; actual restored parent and necessary xlsx_snapshot child compatibility must be preserved",
+          "constraints": [
+            "Verify mapped original parent before enqueue; no new-root hash substitution or duplicate parent",
+            "For schedule_derived_updates verify persistent parent authorization and exact paper/stage/derived request hash; audit necessary child permission, no same-paper/general queue exemption",
+            "Reject before create_or_get/state transitions/launch marker/popen; retain worker execution guard"
+          ],
+          "validation": "Meaningful negative no-side-effect checks plus actual launcher continuation through required derived stage, idempotent repeat and unrelated job rejection; installed candidate still pending",
+          "allowedAdditionalProductionFiles": 1,
+          "card": "docs/project/tasks/V02-006.md"
         }
       ],
       "checkpointReviews": [
@@ -555,6 +571,7 @@
         "engine/src/scientific_reading/__init__.py#__version__",
         "engine/src/scientific_reading/recovery_identity.py",
         "engine/src/scientific_reading/background_store.py#recovery-identity",
+        "engine/src/scientific_reading/background_launcher.py#recovery-execution-guard",
         "engine/src/scientific_reading/reading_control.py#recovery-identity",
         "engine/src/scientific_reading/reading_pipeline.py#recovery-identity",
         "engine/src/scientific_reading/worker.py#recovery-identity",
