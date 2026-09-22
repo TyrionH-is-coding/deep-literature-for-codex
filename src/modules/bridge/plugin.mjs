@@ -32,6 +32,13 @@ if (process.env.CSR_RECOVERY_ROOT) {
       if (typeof prepared.agent.inbox[method] !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
       prepared.agent.inbox[method] = deny;
     }
+    // rc.7 lifecycle disposal calls cancel -> inbox.clear. Preserve the durable
+    // inbox while allowing cancellation, idle drain and scope disposal to finish.
+    const cancel = prepared.agent.cancel;
+    if (typeof cancel !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
+    prepared.agent.cancel = function (cause, options) {
+      return cancel.call(this, cause, { ...options, keepInbox: true });
+    };
     return prepared;
   };
   LlmRuntime.prototype.stream = deny;

@@ -76,13 +76,14 @@ function separate(a, b) {
   if (left === right || left.startsWith(right + path.sep) || right.startsWith(left + path.sep)) throw new Error('recovery_roots_overlap');
 }
 async function command(exe, args, options = {}) {
+  const { acceptedCodes = [0], ...spawnOptions } = options;
   return new Promise((resolve, reject) => {
-    const child = spawn(exe, args, { windowsHide: true, shell: false, stdio: ['pipe', 'pipe', 'pipe'], ...options });
+    const child = spawn(exe, args, { windowsHide: true, shell: false, stdio: ['pipe', 'pipe', 'pipe'], ...spawnOptions });
     let output = '', errors = '';
     child.stdout.on('data', data => { output += data; });
     child.stderr.on('data', data => { errors = (errors + data).slice(-16000); });
     child.once('error', reject);
-    child.once('close', code => code ? reject(new Error(`recovery_command_failed:${code}:${errors || output}`)) : resolve(output));
+    child.once('close', code => !acceptedCodes.includes(code) ? reject(new Error(`recovery_command_failed:${code}:${errors || output}`)) : resolve(output));
     child.stdin.end(options.input ?? '');
   });
 }
@@ -93,8 +94,10 @@ async function dsh(mode, root, installed, input, output) {
 async function engineJson(root, installed, args, input, scope) {
   const env = isolatedEnvironment(root, process.env, installed);
   if (scope) env.SR_SCOPE_CONTEXT = JSON.stringify(scope);
-  return JSON.parse(await command(installed.python, ['-I', '-X', 'utf8', '-m', 'scientific_reading', '--data-root', path.join(root, 'library'), ...args],
-    { cwd: root, env, input: input === undefined ? '' : JSON.stringify(input) }));
+  const result = JSON.parse(await command(installed.python, ['-I', '-X', 'utf8', '-m', 'scientific_reading', '--data-root', path.join(root, 'library'), ...args],
+    { cwd: root, env, input: input === undefined ? '' : JSON.stringify(input), acceptedCodes: args[0] === 'job-status' ? [0, 2, 3, 4] : [0] }));
+  if (result.error != null) throw new Error(result.error);
+  return result;
 }
 async function frozenLibrary(root, installed, output, copyDomains) {
   const child = spawn(installed.python, ['-I', '-X', 'utf8', '-m', 'scientific_reading', '--data-root', path.join(root, 'library'),
@@ -331,12 +334,22 @@ export async function continueRecovery(root, request) {
     const key = digest(request.idempotencyKey), requestId = 'resume-' + digest({ taskId: task.taskId, key });
     const control = await readJson(path.join(root, 'library', 'jobs', task.jobId, 'control.json'));
     const previous = transaction.allowedParents[task.jobId];
-    if (!previous && (!control.stopRequested || control.acknowledgedRevision !== request.expectedRevision || control.revision !== request.expectedRevision)) throw new Error('recovery_stop_confirmation_required');
+    const grant = { requestId, expectedRevision: request.expectedRevision, inputDigest: digest(request.input), taskId: task.taskId, idempotencyKey: request.idempotencyKey };
+    const history = (transaction.grantHistory ??= {})[task.jobId] ??= {};
+    const old = history[requestId];
+    if (old && !same(old.grant, grant)) throw new Error('recovery_parent_confirmation_conflict');
+    if (old && previous?.requestId !== requestId) return { status: 'replayed_superseded', parentJobId: task.jobId, requestId,
+      result: old.result ?? null, operation: control.operations[requestId] ?? null, currentRevision: control.revision, nativeQueuesRemainBlocked: true };
+    if (!previous || previous.requestId !== requestId) {
+      if (!control.stopRequested || control.acknowledgedRevision !== request.expectedRevision || control.revision !== request.expectedRevision
+          || (previous && request.expectedRevision <= previous.expectedRevision)) throw new Error('recovery_stop_confirmation_required');
+      if (previous && !history[previous.requestId]) history[previous.requestId] = { grant: previous };
+    }
     for (const alias of Object.values(handoff.tasks).filter(t => t.jobId === task.jobId && t.cancelRequested)) {
       if (!control.operations[alias.stopOperation?.requestId]) throw new Error('recovery_unresolved_stop');
     }
-    const grant = { requestId, expectedRevision: request.expectedRevision, inputDigest: digest(request.input), taskId: task.taskId, idempotencyKey: request.idempotencyKey };
-    if (previous && !same(previous, grant)) throw new Error('recovery_parent_confirmation_conflict');
+    if (previous?.requestId === requestId && !same(previous, grant)) throw new Error('recovery_parent_confirmation_conflict');
+    history[requestId] ??= { grant };
     transaction.allowedParents[task.jobId] = grant;
     await writeJson(recoveryFile(root), transaction);
     const service = new Handoff(root, { instance: await readJson(path.join(root, '.workbench.json')),
@@ -345,12 +358,52 @@ export async function continueRecovery(root, request) {
         if (!['library-item-v2', 'job-status', 'full-read-pipeline-control', 'full-read-pipeline-resume'].includes(args[0])) throw new Error('recovery_operation_not_authorized');
         if (args.includes('--job-id') && args[args.indexOf('--job-id') + 1] !== task.jobId) throw new Error('recovery_other_parent_blocked');
         return engineJson(root, installed, args, input, scope);
-      }, rpc: () => { throw new Error('recovery_native_dispatch_blocked'); }, reader: async () => ({ recovery: 'read_via_validation_host' }) });
+      }, rpc: () => { throw new Error('recovery_native_dispatch_blocked'); }, reader: async (paperId, scope) => {
+        const artifact = await engineJson(root, installed, ['artifact-resolve', '--paper-id', paperId, '--kind', 'reader'], undefined, scope);
+        const paper = path.join(root, 'library', 'papers', paperId);
+        const file = await plainPath(path.resolve(paper, artifact.rel_path));
+        if (!file.startsWith(paper + path.sep) || sha(await fs.readFile(file)) !== artifact.manifest?.reader_sha256) throw new Error('recovery_reader_digest');
+        return { readerPath: file, sha256: artifact.manifest.reader_sha256, sourcePdfSha256: artifact.manifest.source_pdf_sha256,
+          verification: 'local_manifest_verified_http_pending' };
+      } });
     service.data = handoff;
     const result = await service.operate(task.taskId, request.idempotencyKey, 'resume', {
       resumeStopped: true, expectedRevision: request.expectedRevision, input: request.input });
+    history[requestId].result = result;
+    await writeJson(recoveryFile(root), transaction);
     await writeJson(path.join(root, 'state', 'recovery-continue-' + digest(requestId) + '.json'), {
       transactionId: transaction.transactionId, request: grant, parentJobId: task.jobId, result, at: now() });
     return { status: 'continued', parentJobId: task.jobId, requestId, task: result, nativeQueuesRemainBlocked: true };
+  });
+}
+
+export async function stopRecovery(root, request) {
+  return exclusiveMaintenance(root, async () => {
+    const transaction = await readRecovery(root);
+    if (!transaction || transaction.phase !== 'ready' || transaction.transactionId !== request.transactionId
+        || request.confirmManifestSha256 !== transaction.manifestSha256) throw new Error('recovery_confirmation_required');
+    const handoff = await readJson(path.join(root, 'state', 'handoff.json'));
+    const task = Object.values(handoff.tasks).find(t => t.taskId === request.taskId);
+    if (!task?.jobId || !transaction.allowedParents[task.jobId] || typeof request.idempotencyKey !== 'string' || !request.idempotencyKey.trim()
+        || !Number.isSafeInteger(request.expectedRevision) || request.expectedRevision < 0) throw new Error('recovery_stop_request_invalid');
+    const requestId = 'stop-' + digest({ taskId: task.taskId, key: request.idempotencyKey });
+    const installed = await readJson(path.join(root, 'installation.json'));
+    await stop(root);
+    const control = await readJson(path.join(root, 'library', 'jobs', task.jobId, 'control.json'));
+    const old = control.operations[requestId];
+    if (old) {
+      if (old.kind !== 'stop' || old.expectedRevision !== request.expectedRevision) throw new Error('recovery_stop_request_conflict');
+      return { status: 'replayed', parentJobId: task.jobId, requestId, operation: old, currentRevision: control.revision };
+    }
+    if (control.revision !== request.expectedRevision) throw new Error('recovery_stop_revision_conflict');
+    (transaction.allowedStops ??= {})[task.jobId] = { requestId, expectedRevision: request.expectedRevision };
+    await writeJson(recoveryFile(root), transaction);
+    const binding = Object.values(handoff.bindings).find(b => b.sessionId === task.sessionId && b.folderId === task.folderId && b.active);
+    if (!binding) throw new Error('recovery_stop_binding_invalid');
+    const result = await engineJson(root, installed, ['full-read-pipeline-stop', '--job-id', task.jobId, '--request-id', requestId,
+      '--expected-revision', String(request.expectedRevision)], undefined,
+      { instanceId: transaction.instanceId, scopeSessionId: task.sessionId, scopeFolderId: task.folderId });
+    await writeJson(path.join(root, 'state', 'recovery-stop-' + digest(requestId) + '.json'), { request, requestId, result, at: now() });
+    return result;
   });
 }

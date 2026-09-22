@@ -27,7 +27,7 @@ async function shutdown() {
     if (host && host.exitCode === null) {
       if (host.connected) host.send({ type: 'workbench-stop', launchId: state.launchId });
       // The timeout refers to our live ChildProcess handle, never a PID from disk.
-      const timer = setTimeout(() => host.kill(), 10000);
+      const timer = setTimeout(() => { state.shutdownForced = true; host.kill(); }, 10000);
       timer.unref();
       await hostClosed;
       clearTimeout(timer);
@@ -103,7 +103,10 @@ control.listen(pipeName(root), async () => {
       cwd: path.join(root, 'workspace'), env, windowsHide: true, shell: false,
       stdio: ['ignore', log.fd, log.fd, 'ipc'],
     });
-    hostClosed = new Promise(resolve => host.once('close', resolve));
+    hostClosed = new Promise(resolve => host.once('close', (code, signal) => {
+      state.hostExit = { code, signal, forced: state.shutdownForced === true };
+      resolve();
+    }));
     host.on('message', async message => {
       if (message?.type !== 'workbench-ready' || message.launchId !== state.launchId ||
           message.instanceId !== state.instanceId || message.pid !== host.pid || stopping) return;

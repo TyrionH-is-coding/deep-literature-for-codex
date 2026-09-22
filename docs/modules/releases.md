@@ -20,6 +20,8 @@
 
 `validateRecovery`执行两次实际验证宿主重启并核对原生历史前缀和Reader，完成后仍保留待核对门禁。确认请求必须包含transactionId、confirmManifestSha256、taskId、idempotencyKey、expectedRevision、input；仅指定parent获得现有停止恢复合同的许可。原生队列/模型/工具继续保持禁止；必要xlsx派生由A逐项审计授权。prepared/uncertain、取消、coveredStops不删除或隐式重发。
 
+后续gate通过 `instance-stop ROOT REQUEST.json`（同一确认字段、taskId/idempotencyKey/expectedRevision，不带input）先明确停止，再以新停止revision和新幂等键执行instance-continue。`stopRecovery`仅授权已确认parent的精确停止请求。每代许可写入grantHistory；旧请求只读重放旧结果/操作，不替换当前许可、不清除新停止意图。派生许可重绑保留priorRequestIds；必须有前代许可审计。
+
 首版只支持同平台/同完整制品、DSH rc.7单workspace和默认产品preset；媒体/spill/未知持久状态、外部执行输入、用户自定义profile/preset、库内解析器venv和待上传暂存拒绝。源码测试/适配层不是安装验收，证据见V02-006交付索引。
 
 ## 依赖与阅读范围

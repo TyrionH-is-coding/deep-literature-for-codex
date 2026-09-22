@@ -417,7 +417,7 @@
   "externalEngine": {
     "name": "@dsh-external/dsh-scientific-reading",
     "version": "0.2.0-dev.5",
-    "sourceCommit": "9ea7c7dfe766e7435e27c0794690a9e93f830863",
-    "sha256": "43decaee0b0806fbb81c10ad81aaf5c2a08995da98ee73454fecb517bd25227c"
+    "sourceCommit": "474daa11835caf5ddeb4387a3420e22667daedaa",
+    "sha256": "45b96d0e384af5b5eb58b0908798b751ca6b83c90fae779549b54b83f5ee6afa"
   }
 }

@@ -47,8 +47,8 @@ export function validateSessions(snapshot, knownTypes) {
     ids.add(meta.id);
     let seq = -1;
     for (const event of events) {
-      if (!knownTypes.has(event.type) || /goal|schedule|approval|subagent/.test(event.type)
-          || !Number.isInteger(event.seq) || event.seq <= seq) throw new Error('recovery_dsh_event_unsupported');
+      if (!knownTypes.has(event.type) || /goal|schedule|subagent/.test(event.type) || (event.type.startsWith('approval/') && event.type !== 'approval/policy')
+          || !Number.isInteger(event.seq) || event.seq <= seq) throw new Error('recovery_dsh_event_unsupported:' + event.type + ':' + event.seq);
       seq = event.seq;
     }
   }
@@ -81,14 +81,31 @@ async function main() {
   const require = createRequire(installation.dsh);
   if (mode === 'export') {
     const profile = path.join(home, 'profiles', 'workbench');
-    if (JSON.stringify((await fs.readdir(path.join(home, 'profiles'))).sort()) !== '["workbench"]') throw new Error('recovery_custom_profile_unsupported');
+    const profiles = await fs.readdir(path.join(home, 'profiles'));
+    if (!profiles.includes('workbench') || profiles.some(name => !['workbench', 'node_modules'].includes(name))) throw new Error('recovery_custom_profile_unsupported');
+    // rc.7 creates an ancestor resolution cache of links to the fixed runtime.
+    if (profiles.includes('node_modules')) {
+      const cache = path.join(home, 'profiles', 'node_modules');
+      const modules = path.join(installation.slot, 'runtime', 'npm', 'node_modules');
+      async function verifyCache(dir) {
+        for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+          const file = path.join(dir, entry.name), stat = await fs.lstat(file);
+          if (stat.isSymbolicLink()) {
+            if (await fs.realpath(file) !== await fs.realpath(path.join(modules, path.relative(cache, file)))) throw new Error('recovery_custom_module_unsupported');
+          } else if (stat.isDirectory() && dir === cache && entry.name.startsWith('@')) await verifyCache(file);
+          else throw new Error('recovery_custom_module_unsupported');
+        }
+      }
+      await verifyCache(cache);
+    }
+    if (await fs.realpath(path.join(profile, 'node_modules')) !== await fs.realpath(installation.profileModules)) throw new Error('recovery_custom_module_unsupported');
     if ((await fs.readFile(path.join(profile, 'cordis.patch.yml'), 'utf8')).trim() !== '[]') throw new Error('recovery_custom_profile_unsupported');
     const composition = (await fs.readFile(path.join(profile, 'cordis.yml'), 'utf8')).split(/\r?\n/).filter(line => line.trim() && !line.trim().startsWith('#')).join('').trim();
     if (composition !== '[]' || (await fs.readFile(path.join(profile, 'package.json'), 'utf8')) !== (await fs.readFile(installation.profilePackage, 'utf8'))) throw new Error('recovery_custom_profile_unsupported');
     const packageRoot = path.dirname(require.resolve('@dsh-external/dsh-scientific-reading/package.json'));
     for (const file of ['preset.yml', 'agent.cordis.yml']) {
       const actual = await fs.readFile(path.join(home, '.agent-presets', 'scientific-reading', file));
-      const expected = await fs.readFile(path.join(packageRoot, 'preset', file));
+      const expected = await fs.readFile(path.join(packageRoot, 'preset', 'scientific-reading', file));
       if (!actual.equals(expected)) throw new Error('recovery_custom_preset_unsupported');
     }
   }

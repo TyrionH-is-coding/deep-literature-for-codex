@@ -14,4 +14,3 @@
 ## V02-006 恢复门禁与三域事务
 
 模块 application 0.1.2：仅固定同制品新根恢复，持久事务身份和phase约束早于启动/对账；恢复验证禁止原生执行，显式确认只允许指定parent。普通schema和调度算法不变。恢复接口/取证见 docs/project/evidence/V02-006-contract.md；安装结果尚待候选验证。
-
