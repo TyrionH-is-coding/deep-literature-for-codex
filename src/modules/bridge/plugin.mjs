@@ -1,15 +1,60 @@
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
-import { readJson } from '../foundation/index.mjs';
+import { readJson, readRecovery, readRecoverySync, assertRecoveryStart, assertRecoveryWrite } from '../foundation/index.mjs';
 import { Handoff } from '../workflow/index.mjs';
 import { engineAdapter, dshRpc, verifyReader, readJobInput, categoryGuard, cancelOwnedDispatch, inspectDispatchEvidence, CATEGORY_TOOLS } from './services.mjs';
 
 export const name = 'codex-scientific-reading-bridge';
 export const inject = ['tools', 'webServer', 'systemPrompt', 'agents'];
 
+// Node --import executes before DSH constructs services or configured agents.
+// This adapter is deliberately bound to rc.7, and remains active for the entire
+// validation host lifetime (including explicitly allowed Python parent resumes).
+if (process.env.CSR_RECOVERY_ROOT) {
+  const root = process.env.CSR_RECOVERY_ROOT;
+  await assertRecoveryStart(root, process.env.CSR_RECOVERY_ID);
+  const installation = await readJson(path.join(root, 'installation.json'));
+  if (installation.pins.dsh !== '0.1.0-rc.7') throw new Error('recovery_dsh_version_unsupported');
+  const require = createRequire(installation.dsh);
+  const load = name => import(pathToFileURL(require.resolve('@deepseek-ai/' + name)).href);
+  const [{ AgentLoop }, { LlmRuntime }, { ToolRuntime }] = await Promise.all([load('dsh-agent-loop'), load('dsh-llm'), load('dsh-tools')]);
+  const deny = () => { throw new Error('instance_recovery_execution_blocked'); };
+  const prepare = AgentLoop.prototype.prepare;
+  if (typeof prepare !== 'function' || typeof LlmRuntime.prototype.stream !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
+  AgentLoop.prototype.prepare = function (...args) {
+    const prepared = prepare.apply(this, args);
+    for (const method of ['send', 'wakeDriver', 'runMaintenance']) {
+      if (typeof prepared.agent[method] !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
+      prepared.agent[method] = deny;
+    }
+    for (const method of ['splice', 'claim']) {
+      if (typeof prepared.agent.inbox[method] !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
+      prepared.agent.inbox[method] = deny;
+    }
+    // rc.7 lifecycle disposal calls cancel -> inbox.clear. Preserve the durable
+    // inbox while allowing cancellation, idle drain and scope disposal to finish.
+    const cancel = prepared.agent.cancel;
+    if (typeof cancel !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
+    prepared.agent.cancel = function (cause, options) {
+      return cancel.call(this, cause, { ...options, keepInbox: true });
+    };
+    return prepared;
+  };
+  LlmRuntime.prototype.stream = deny;
+  LlmRuntime.prototype.adapterStream = deny;
+  for (const method of ['execute', 'prepareExecution', 'dispatchScheduledExecution']) {
+    if (typeof ToolRuntime.prototype[method] !== 'function') throw new Error('recovery_dsh_adapter_mismatch');
+    ToolRuntime.prototype[method] = deny;
+  }
+}
+
 export async function apply(ctx, config) {
   const { root, engineConfig } = config;
+  const recovery = await readRecovery(root);
+  if (recovery && (process.env.CSR_RECOVERY_ROOT !== root || process.env.CSR_RECOVERY_ID !== recovery.transactionId)) {
+    throw new Error('instance_recovery_bootstrap_required');
+  }
   const instance = await readJson(path.join(root, '.workbench.json'));
   const installed = await readJson(path.join(root, 'installation.json'));
   const require = createRequire(installed.dsh);
@@ -30,7 +75,7 @@ export async function apply(ctx, config) {
       return cancelOwnedDispatch(agent, task, claims.get(agent));
     },
     reader: (paper, scope) => verifyReader(engine, url(), paper, scope) });
-  await service.prepareHost().catch(() => {});
+  if (!recovery) await service.prepareHost().catch(() => {});
   async function sessionAgent(sessionId) {
     // Native session.create restores a persisted inbox without sending a prompt.
     if (!ctx.agents.get(sessionId)) {
@@ -49,6 +94,7 @@ export async function apply(ctx, config) {
     return { ...assembly, tools: bound ? assembly.tools.filter(tool => CATEGORY_TOOLS.has(tool.name)) : [] };
   });
   ctx.on('tools/execute', async (exec, next) => {
+    assertRecoveryWrite(root);
     const scope = service.scopeFor(exec.agent?.session?.id);
     if (!scope || !CATEGORY_TOOLS.has(exec.name)) throw new Error('scope_command_forbidden');
     if (['sr_start_full_read', 'sr_continue_full_read'].includes(exec.name)) return service.serial(() => {
@@ -62,6 +108,7 @@ export async function apply(ctx, config) {
     return api.withEngineScope(scope, next);
   });
   ctx.on('agent/created', ({ agent }) => {
+    if (readRecoverySync(root)) return;
     service.observeSession(agent.session.id, agent.session.header.parentSession);
     service.serial(() => service.save()).catch(() => {});
   });
@@ -78,6 +125,7 @@ export async function apply(ctx, config) {
     return value;
   };
   async function action(action, p = {}) {
+    if (!['task', 'tasks', 'folders', 'item', 'list', 'reader'].includes(action)) assertRecoveryWrite(root);
     switch (action) {
       case 'bind': return service.bind(p.folderId);
       case 'submit': return service.submit(p);

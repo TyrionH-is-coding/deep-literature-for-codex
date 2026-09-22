@@ -4,7 +4,7 @@
   "modules": [
     {
       "id": "foundation",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "purpose": "实例身份、隔离环境、JSON、校验和与平台路径",
       "ownedPaths": [
         "src/modules/foundation/",
@@ -52,7 +52,7 @@
     },
     {
       "id": "lifecycle",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "purpose": "宿主进程启动、控制、身份验证与停止",
       "ownedPaths": [
         "src/modules/lifecycle/",
@@ -83,7 +83,7 @@
     },
     {
       "id": "releases",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "purpose": "安装代激活、回退、恢复与文献备份",
       "ownedPaths": [
         "src/modules/releases/",
@@ -91,12 +91,14 @@
         "src/library-transfer.mjs",
         "tests/releases.test.mjs",
         "docs/modules/releases.md",
-        "docs/modules/changes/releases.md"
+        "docs/modules/changes/releases.md",
+        "tests/instance-recovery.test.mjs"
       ],
       "dependencies": [
         "foundation",
         "skill",
-        "lifecycle"
+        "lifecycle",
+        "workflow"
       ],
       "runtimeDependencies": [],
       "publicEntries": [
@@ -106,12 +108,16 @@
       "changelog": "docs/modules/changes/releases.md",
       "tests": [
         "tests/releases.test.mjs",
-        "tests/install.test.mjs"
+        "tests/install.test.mjs",
+        "tests/instance-recovery.test.mjs"
+      ],
+      "externalPackages": [
+        "@dsh-external/dsh-scientific-reading"
       ]
     },
     {
       "id": "workflow",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "purpose": "分类会话绑定、任务幂等、交接与恢复",
       "ownedPaths": [
         "src/modules/workflow/",
@@ -140,7 +146,7 @@
     },
     {
       "id": "bridge",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "purpose": "DSH 工具和 HTTP 与任务/文献引擎适配",
       "ownedPaths": [
         "src/modules/bridge/",
@@ -205,7 +211,7 @@
     },
     {
       "id": "engine",
-      "version": "0.2.0-dev.4",
+      "version": "0.2.0-dev.5",
       "purpose": "外部文献引擎，业务代码不在本仓库",
       "ownedPaths": [
         "runtime/pins.json",
@@ -224,7 +230,7 @@
     },
     {
       "id": "application",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "purpose": "安装与 CLI 入口组合",
       "ownedPaths": [
         "src/cli.mjs",
@@ -309,7 +315,11 @@
         "docs/modules/tooling.md",
         "docs/modules/changes/tooling.md",
         "docs/modules/acceptance-2026-09-17.md",
-        "docs/project/"
+        "docs/project/",
+        "scripts/acceptance-v02-006*",
+        "scripts/v02-006-*",
+        "scripts/fixtures/v02-006/",
+        "docs/project/evidence/V02-006*"
       ],
       "dependencies": [],
       "runtimeDependencies": [
@@ -372,12 +382,42 @@
       "file": "oauth/app-server.mjs",
       "expression": "createRequire(import.meta.url)",
       "reason": "Locate the pinned native Codex CLI package, preserving the existing OAuth loader."
+    },
+    {
+      "file": "src/modules/bridge/plugin.mjs",
+      "expression": "createRequire(installation.dsh)",
+      "reason": "V02-006 fixed rc.7 recovery bootstrap resolves only selected isolated runtime."
+    },
+    {
+      "file": "src/modules/bridge/plugin.mjs",
+      "expression": "import(pathToFileURL(require.resolve('@deepseek-ai/' + name)).href)",
+      "reason": "V02-006 pre-bootstrap adapter loads fixed rc.7 AgentLoop, LlmRuntime and ToolRuntime before host services."
+    },
+    {
+      "file": "src/modules/releases/dsh-recovery.mjs",
+      "expression": "createRequire(installation.dsh)",
+      "reason": "V02-006 isolated offline rc.7 persistence adapter."
+    },
+    {
+      "file": "src/modules/releases/dsh-recovery.mjs",
+      "expression": "import(pathToFileURL(require.resolve('@deepseek-ai/' + name)).href)",
+      "reason": "V02-006 isolated offline adapter loads fixed Cordis/session persistence from selected runtime."
+    },
+    {
+      "file": "src/modules/bridge/plugin.mjs",
+      "expression": "require.resolve('@deepseek-ai/' + name)",
+      "reason": "Fixed rc.7 adapter resolves the explicit local package-name allowlist."
+    },
+    {
+      "file": "src/modules/releases/dsh-recovery.mjs",
+      "expression": "require.resolve('@deepseek-ai/' + name)",
+      "reason": "Fixed rc.7 adapter resolves the explicit local package-name allowlist."
     }
   ],
   "externalEngine": {
     "name": "@dsh-external/dsh-scientific-reading",
-    "version": "0.2.0-dev.4",
-    "sourceCommit": "2dcd068bf3cbdf4b601351ab0bda639873bc0359",
-    "sha256": "a21bf875178c5e5a5fad8fd005ad2fc7f4490aff99c2aa9d33c8e0a4367ef7b9"
+    "version": "0.2.0-dev.5",
+    "sourceCommit": "8b195c9109efd92ba74c37bb244b2c6b155060de",
+    "sha256": "1c034c3e2e8f4b212a35fc0b03a614ef64843488d1daf4e604bc2820d0381c65"
   }
 }

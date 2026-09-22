@@ -4,12 +4,13 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
-import { initializeRoot, isolatedEnvironment, readJson, writeJson } from '../foundation/index.mjs';
+import { initializeRoot, isolatedEnvironment, readJson, writeJson, assertRecoveryStart } from '../foundation/index.mjs';
 import { pipeName, assertStartAllowed } from './control.mjs';
 import { prepareLocalSocket } from './local-socket.mjs';
 
 const instance = await initializeRoot(process.argv[2]);
 const root = instance.root;
+const recovery = await assertRecoveryStart(root, process.env.CSR_RECOVERY_ID);
 const installed = await readJson(path.join(root, 'installation.json'));
 if (process.env.CSR_MAINTENANCE !== '1') await assertStartAllowed(root);
 let state = { ...instance, version: installed.version, candidate: installed.candidate,
@@ -26,7 +27,7 @@ async function shutdown() {
     if (host && host.exitCode === null) {
       if (host.connected) host.send({ type: 'workbench-stop', launchId: state.launchId });
       // The timeout refers to our live ChildProcess handle, never a PID from disk.
-      const timer = setTimeout(() => host.kill(), 10000);
+      const timer = setTimeout(() => { state.shutdownForced = true; host.kill(); }, 10000);
       timer.unref();
       await hostClosed;
       clearTimeout(timer);
@@ -71,6 +72,7 @@ control.on('error', error => {
 });
 control.listen(pipeName(root), async () => {
   try {
+    await assertRecoveryStart(root, process.env.CSR_RECOVERY_ID);
     await writeJson(stateFile, state);
     const patch = path.join(root, 'state', 'launch.patch.json');
     const app = installed.app ?? path.join(root, 'app');
@@ -87,17 +89,24 @@ control.listen(pipeName(root), async () => {
       ] },
     ]);
     const env = isolatedEnvironment(root, process.env, installed);
+    if (recovery) {
+      env.CSR_RECOVERY_ROOT = root;
+      env.CSR_RECOVERY_ID = recovery.transactionId;
+    }
     env.CSR_IDENTITY = JSON.stringify({ product: state.product, instanceId: state.instanceId,
       launchId: state.launchId, version: state.version, candidate: state.candidate });
     if (stopping) return;
     const log = await fs.open(path.join(root, 'state', 'logs', 'dsh.log'), 'a');
     if (stopping) { await log.close(); return; }
-    host = spawn(installed.node, [installed.dsh, '--profile', 'workbench', '--patch', patch,
+    host = spawn(installed.node, [...(recovery ? ['--import', pathToFileURL(path.join(app, 'src', 'modules', 'bridge', 'plugin.mjs')).href] : []), installed.dsh, '--profile', 'workbench', '--patch', patch,
       '--host', '127.0.0.1', '--port', '0'], {
       cwd: path.join(root, 'workspace'), env, windowsHide: true, shell: false,
       stdio: ['ignore', log.fd, log.fd, 'ipc'],
     });
-    hostClosed = new Promise(resolve => host.once('close', resolve));
+    hostClosed = new Promise(resolve => host.once('close', (code, signal) => {
+      state.hostExit = { code, signal, forced: state.shutdownForced === true };
+      resolve();
+    }));
     host.on('message', async message => {
       if (message?.type !== 'workbench-ready' || message.launchId !== state.launchId ||
           message.instanceId !== state.instanceId || message.pid !== host.pid || stopping) return;

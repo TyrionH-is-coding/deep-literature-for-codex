@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
-import { readJson, writeJson } from '../foundation/index.mjs';
+import { readJson, writeJson, readRecoverySync, assertRecoveryWrite } from '../foundation/index.mjs';
 import { ensureInstanceWorkspace, ensureLiteratureDefault } from './workspace.mjs';
 
 function canonical(value) {
@@ -38,7 +38,7 @@ export class Handoff {
     this.pending = result.catch(() => {});
     return result;
   }
-  save() { return writeJson(this.file, this.data); }
+  save() { assertRecoveryWrite(this.root, this.recoveryPermit); return writeJson(this.file, this.data); }
   sameScopePaper(a, b) { return a.sessionId === b.sessionId && a.folderId === b.folderId && a.paperId === b.paperId; }
   aliases(task) {
     return Object.values(this.data.tasks).filter(other => this.sameScopePaper(task, other)
@@ -212,6 +212,7 @@ export class Handoff {
     });
   }
   async _refresh(task) {
+    if (readRecoverySync(this.root) && task.jobId !== this.recoveryPermit?.parentJobId) return task;
     try {
       const { scope } = await this.checkedTask(task.taskId);
       if (!task.jobId) { if (this.stopped(task)) task.status = 'cancel_requested'; await this.save(); return task; }
@@ -261,6 +262,7 @@ export class Handoff {
     });
   }
   async _dispatch(task, retryKey) {
+    assertRecoveryWrite(this.root);
     if (this.stopped(task) || task.status !== 'waiting_agent') return { ...structuredClone(task), dispatch: { status: 'not_needed' } };
     const gate = digest({ reason: task.job.detail?.reason_code, input: task.job.detail?.required_input, retryKey });
     let dispatch = task.dispatches[gate];
