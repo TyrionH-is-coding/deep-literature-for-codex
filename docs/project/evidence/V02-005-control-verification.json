@@ -1,0 +1,70 @@
+{
+  "task": "V02-005",
+  "acceptedAt": "2026-09-22T00:19:32.422Z",
+  "result": "accepted-installed-synthetic-flow-and-browser-scope",
+  "deliveryCommit": "dce62d5f3d8c0aafc856a2c85e1d484e9dd428f2",
+  "integrationCommit": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
+  "archiveSha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105",
+  "noProductChange": true,
+  "noMergeConflict": true,
+  "sourceAndEvidenceVerification": [
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-005-control-review/provenance.json",
+      "sha256": "d7bd0330f17a2d17f104a9c11c9eeffc27f6aa0851c1c9df485788eb21a595ad",
+      "availability": "local-only"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-005-control-review/index-verification.json",
+      "sha256": "7ee76e94c6b32b464bba340443ec25cf03529f32a93eb505245012184f332312",
+      "availability": "local-only"
+    }
+  ],
+  "verificationScripts": [
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-005-control-review/verify-provenance.py",
+      "sha256": "40e03e6ea94cc0664a2740eec373ccfaf8ecfd045498b9b56fee5d25c5df0c75",
+      "availability": "local-only"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex/outputs/v02-005-control-review/verify-index.py",
+      "sha256": "05d8a49543fafc4eca81dcac9acba4155631c1bc680dd9159e9b1b4d806ffcec",
+      "availability": "local-only"
+    }
+  ],
+  "indexedFiles": 288,
+  "installedFileCounts": {
+    "B": 41,
+    "A": 54,
+    "python": 52
+  },
+  "independentReviewer": "installed_control_acceptance",
+  "reviewedScriptHashes": {
+    "scripts/acceptance-v02-005-demo.mjs": "cfe457d8147a8311caa842fb3818161885909a28289f7f84e6dabdf45723b286",
+    "scripts/acceptance-v02-005-records-restart.mjs": "fc28be1a773b08f6a051183f3a42a39dffcd3845ffd3097d9924a54a455c294c",
+    "scripts/acceptance-v02-005-assets.mjs": "f559b3c6589ddc75b99c9b9de3db239dd4f9a99a9bf812479593d88da76a2aec",
+    "scripts/fixtures/v02-005/common.mjs": "54ab3103911c5fdf034bcc2317897600297b81646f4da6a484e3730117ae31e4",
+    "scripts/fixtures/v02-005/provider.py": "4219a6866c46dcb313027e670f65a83d0bb162b4ff3f52414b079dd1f9bf2dfb",
+    "scripts/fixtures/v02-005/prepare.py": "36e99b98c2d1f1b2626d1b0285f8ae16c60ca913068143d95fd67b515c593104",
+    "scripts/fixtures/v02-005/inspect-records.py": "388daba579cfb9802013744ee6dcd31421a2e4e438e310a37653f967d5eb4118",
+    "scripts/fixtures/v02-005/preserve-xlsx.py": "16a0292bedea789ba27bb0a17e2eb30feaaf2c32fd9c051ef72356b6876cf72b",
+    "scripts/v02-005-records.mjs": "28039c62f7a0258c957288511f7a01b143e11453e6dd6838cde1d0f3d802b2cc"
+  },
+  "browserReviewed": [
+    "02-formula-bilingual-source.png",
+    "05-table-modal.png",
+    "12-excel-locate-feedback.png",
+    "browser-native-turn.txt",
+    "browser-library-excel.txt",
+    "browser-reader-from-library.txt"
+  ],
+  "browserReviewScope": "Read screenshots/AX and official recorded CUA clicks; no redundant instance start",
+  "cleanupObservedAt": "2026-09-22T00:12:35.888Z",
+  "ownedNodePythonProcesses": 0,
+  "originalProfileRestoredBytes": true,
+  "remainingLimits": [
+    "synthetic parsing/translation/review, no scientific quality claim",
+    "desktop Excel editing and selected row untested",
+    "F2 recovery still open",
+    "no other platform or final user acceptance"
+  ]
+}

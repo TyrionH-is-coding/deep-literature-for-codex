@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
-    "lastReviewAt": "2026-09-22T00:08:40.198Z",
-    "lastHeartbeatCompletedAt": "2026-09-22T00:08:40.198Z",
+    "lastReviewAt": "2026-09-22T00:19:32.422Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T00:19:32.422Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -241,7 +241,7 @@
       "id": "V02-005",
       "title": "Reader 样例与首次完整流程演示",
       "kind": "task",
-      "status": "in_progress",
+      "status": "integrated",
       "modules": [
         "engine",
         "bridge"
@@ -253,10 +253,18 @@
       "ownerSession": "01a0c490-060f-7401-9e30-df31331d1d84",
       "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-005",
       "branch": "codex/v02-005-reader-demo",
-      "commits": [],
-      "evidence": [],
-      "notes": "先用已验收ZIP验证最小完整演示；已有Excel/可信CLI入口，不预设网页编辑/停止按钮；生产修改需总控按具体缺陷修订允许范围。",
-      "dispatchState": "started",
+      "commits": [
+        "dce62d5f3d8c0aafc856a2c85e1d484e9dd428f2"
+      ],
+      "evidence": [
+        "docs/project/evidence/V02-005-report.md",
+        "docs/project/evidence/V02-005-index.json",
+        "docs/project/evidence/V02-005-demo.md",
+        "docs/project/evidence/V02-005-control-review.md",
+        "docs/project/evidence/V02-005-control-verification.json"
+      ],
+      "notes": "同一dev.4安装合成主流程/Reader浏览器/Excel记录重启/显式失败恢复通过；一次正常本地原生turn补齐库入口。无生产修复；桌面Excel/真实模型/F2另验。",
+      "dispatchState": "completed",
       "baseCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
       "engineBaseCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
       "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
@@ -280,31 +288,31 @@
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-21T15:23:05.508Z",
       "dispatchMarker": "DL-V02-005-28278cd-20260921",
-      "nextCheckpointAt": "2026-09-22T00:38:40.198Z",
+      "nextCheckpointAt": null,
       "startedAt": "2026-09-21T15:22:49Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with active turn and actual designated worktree commands",
-      "lastDispatchCheckAt": "2026-09-22T00:08:40.198Z",
+      "lastDispatchCheckAt": "2026-09-22T00:19:32.422Z",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T00:08:40.198Z",
-        "status": "active",
-        "turnStatus": "inProgress",
+        "checkedAt": "2026-09-22T00:19:32.422Z",
+        "status": "idle",
+        "turnStatus": "completed",
         "turnId": "01a0c490-094e-7ed3-a6da-88a7d3dd7e09"
       },
-      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:4",
+      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:6",
       "progressSnapshot": {
-        "checkedAt": "2026-09-22T00:08:40.198Z",
-        "sourceCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
-        "deliveryReady": false,
-        "observation": "Native synthetic turn completed and browser library/locate-Excel feedback evidenced. Last artifact update 2026-09-21T15:48:48Z; source task remains officially active without a completed delivery. Preserve existing results, finish Reader-click check/index/cleanup/commit; no full rerun."
+        "checkedAt": "2026-09-22T00:19:32.422Z",
+        "sourceCommit": "dce62d5f3d8c0aafc856a2c85e1d484e9dd428f2",
+        "deliveryReady": true,
+        "observation": "Independent review accepted; integrated. Evidence preserved and owned instance stopped."
       },
       "findings": [
         {
           "id": "005-O1",
-          "status": "open",
+          "status": "closed",
           "classification": "current-task-verification-gap",
           "title": "空分类会话隐藏原生文献标签，库界面及定位Excel尚未实测",
-          "blocksFinalUiClaim": true,
-          "releaseClassification": "pending actual native-entry check; no product fix authorized",
+          "blocksFinalUiClaim": false,
+          "releaseClassification": "No product defect established; supported native entry verified after one synthetic normal turn",
           "basis": "Read-only independent reviewer found four category session caches blank=true,lastPromptAt=null,turns=0; host blank UI hides tabs/views and excludes search. Draft text does not change phase; formal prompt attempt does.",
           "sourceEvidence": [
             {
@@ -350,7 +358,10 @@
               }
             ],
             "observed": "One local synthetic model turn completed without tools; literature tab/list/Reader link and locate-Excel feedback visible. Actual desktop Excel interaction not verified; library-to-Reader navigation still awaiting final handoff."
-          }
+          },
+          "closedBy": "V02-005",
+          "closedAt": "2026-09-22T00:19:32.422Z",
+          "closureEvidence": "docs/project/evidence/V02-005-control-review.md"
         }
       ],
       "scopeClarifications": [
@@ -365,7 +376,7 @@
           "exit": "One successful local mock turn and actual UI entry, or precise blocker/qualified untested claim"
         }
       ],
-      "receiptPhase": "in_progress_native_ui",
+      "receiptPhase": "review",
       "checkpointBasis": "Coordinator reassessment after stale progress; no confirmed interruption or product failure, wall-clock gap not counted as development time",
       "checkpointReviews": [
         {
@@ -375,35 +386,126 @@
           "lastArtifactAt": "2026-09-21T15:48:48.333Z",
           "action": "One follow-up sent to same real thread, requesting remaining handoff/cleanup from saved results, or precise waiting dependency. No re-dispatch, no intervention in its live instance.",
           "nextCheckpointAt": "2026-09-22T00:38:40.198Z",
-          "ownedInstanceObservation": "Read-only reviewer: trusted identity reachable at51011, supervisor9388 and DSH30088 identity/start match; no task Python process; synthetic profile patch still active. Cleanup pending, no completion claim."
+          "ownedInstanceObservation": "Read-only reviewer: trusted identity reachable at51011, supervisor9388 and DSH30088 identity/start match; no task Python process; synthetic profile patch still active. Cleanup pending, no completion claim.",
+          "resolvedAt": "2026-09-22T00:19:32.422Z",
+          "resolution": "Same task resumed handoff; no actual tool blocker, remaining browser evidence saved, profile/process cleanup and fixed delivery completed. No matrix rerun."
         }
-      ]
+      ],
+      "integrationCommit": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
+      "integratedAt": "2026-09-22T08:14:45+08:00",
+      "acceptedAt": "2026-09-22T00:19:32.422Z",
+      "acceptance": "installed-synthetic-main-flow-and-browser-demonstration-accepted",
+      "evidenceSupplementRounds": 1,
+      "userVisibleResult": "从库内打开正式Reader，保存记录后重启保持；失败任务通过明确停止与恢复续接同parent。",
+      "metrics": {
+        "productReworkRounds": 0,
+        "evidenceSupplementRounds": 1,
+        "activeDevelopmentDuration": "unknown; overnight wait excluded, do not use full turn duration"
+      }
     },
     {
       "id": "V02-006",
-      "title": "完整恢复与升级验收",
-      "kind": "workstream",
-      "status": "planned",
+      "title": "三域备份恢复到独立新实例",
+      "kind": "task",
+      "status": "ready",
       "modules": [
+        "foundation",
         "releases",
         "lifecycle",
         "workflow",
+        "bridge",
+        "application",
         "engine"
       ],
       "dependsOn": [
         "V02-005",
-        "V02-006A"
+        "V02-006A",
+        "V02-006B"
       ],
-      "card": null,
+      "card": "docs/project/tasks/V02-006.md",
       "ownerSession": null,
-      "worktree": null,
-      "branch": null,
+      "worktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-006",
+      "branch": "codex/v02-006-instance-recovery",
       "commits": [],
       "evidence": [],
-      "notes": "保留F2三域恢复发布门槛；005形成早期完整演示后推进最小实现/演练，早期用户反馈不替代本门槛。",
+      "notes": "首个90分钟先复现新根parent/scope/control风险并给最小合同，再在同一卡实现/安装演练；F2未关闭，未知DSH状态严格拒绝，真实账号/科学质量归007。",
       "children": [
+        "V02-006A",
         "V02-006B"
-      ]
+      ],
+      "dispatchState": "reserved",
+      "engineWorktree": "C:/Users/15694/Documents/ChatGPT/deep-literature-engine-v02-006",
+      "engineBranch": "codex/v02-006-instance-recovery",
+      "baseCommit": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
+      "engineBaseCommit": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
+      "contextRepository": "C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex",
+      "risk": "R2",
+      "checkpointMinutes": 90,
+      "reviewRounds": 0,
+      "reviewRoundsBeforeRescope": 2,
+      "dispatchReservedAt": "2026-09-22T00:19:32.422Z",
+      "receipt": "docs/project/evidence/V02-006-receipt.json",
+      "instanceRoot": "C:/tmp/v006/",
+      "writePaths": [
+        "src/modules/releases/instance-recovery.mjs",
+        "src/modules/releases/dsh-recovery.mjs",
+        "src/modules/releases/index.mjs",
+        "src/modules/releases/library-transfer.mjs",
+        "src/modules/releases/releases.mjs",
+        "src/cli.mjs",
+        "src/install.mjs",
+        "src/modules/lifecycle/control.mjs",
+        "src/modules/lifecycle/supervisor.mjs",
+        "src/modules/lifecycle/index.mjs",
+        "src/modules/workflow/handoff.mjs",
+        "src/modules/bridge/plugin.mjs",
+        "src/modules/foundation/recovery-state.mjs",
+        "src/modules/foundation/index.mjs",
+        "tests/*recovery*.test.mjs",
+        "tests/releases.test.mjs#recovery",
+        "tests/install.test.mjs#recovery",
+        "tests/lifecycle.test.mjs#recovery",
+        "tests/bridge.test.mjs#recovery",
+        "tests/v02-control-adapter.test.mjs#recovery",
+        "scripts/acceptance-v02-006*",
+        "scripts/v02-006-*",
+        "scripts/fixtures/v02-006/",
+        "docs/project/evidence/V02-006*",
+        "src/modules/catalog.json#affected-modules",
+        "docs/modules/#affected-modules-only",
+        "docs/modules/changes/#affected-modules-only",
+        "package.json#self-version",
+        "package-lock.json#self-version",
+        "src/modules/foundation/constants.mjs#VERSION",
+        "runtime/pins.json#plugin-channel",
+        "runtime/package-lock.json#local-plugin",
+        "inputs/scientific-reading.tgz#generated"
+      ],
+      "engineWritePaths": [
+        "engine/src/scientific_reading/library_backup.py",
+        "engine/src/scientific_reading/data_guard.py",
+        "engine/src/scientific_reading/__main__.py",
+        "engine/src/scientific_reading/recovery_identity.py",
+        "engine/src/scientific_reading/background_store.py#recovery-identity",
+        "engine/src/scientific_reading/reading_control.py#recovery-identity",
+        "engine/src/scientific_reading/reading_pipeline.py#recovery-identity",
+        "engine/src/scientific_reading/worker.py#recovery-identity",
+        "engine/tests/*recovery*.py",
+        "engine/tests/test_library_backup.py",
+        "engine/tests/test_data_guard*.py",
+        "engine/tests/test_reading_control*.py",
+        "engine/tests/test_reading_pipeline*.py",
+        "engine/tests/test_background_launcher.py#recovery",
+        "engine/tests/test_worker_full_read.py#recovery",
+        "scripts/v02-006-*",
+        "scripts/fixtures/v02-006/",
+        "docs/codex-v02/V02-006*",
+        "package.json#self-version",
+        "package-lock.json#self-version",
+        "engine/pyproject.toml#version"
+      ],
+      "independence": "Only active development task; dual isolated worktrees and own source/target/build roots. Prior instances/evidence read-only. Cross-module dependencies kept in one task; serial integration.",
+      "exitCriteria": "Fixed new candidate proves stopped consistent three-domain backup, separate-root restore with persistent no-replay gate, two restarts and explicit same-parent idempotent continuation, plus failure isolation/source preservation."
     },
     {
       "id": "V02-007",
@@ -1715,11 +1817,11 @@
   "developmentBaseline": {
     "engine": "ad00bc5a84110346801dbb6e98c8b9e19135287d",
     "engineBranch": "codex/v02-engine-baseline",
-    "workbench": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
+    "workbench": "0b512ab25955e9f7dd3ddae3f15e88c14d0e03c1",
     "workbenchBranch": "codex/v02-control",
     "candidate": "0.2.0-dev.4",
     "engineAcceptance": "installed stop/lifecycle/assets accepted; source Python baseline reused by exact installed hashes",
-    "workbenchAcceptance": "installed stop/restart/explicit resume and readiness accepted; browser/full-flow pending V02-005",
+    "workbenchAcceptance": "Installed stop/restart/explicit resume plus synthetic normal/Reader/browser/record flow accepted; production source unchanged from 572fee5",
     "installedEvidence": "docs/project/evidence/V02-004K-control-review.md",
     "artifactSha256": "862e08c5ba85b399f6530d468298cfc7d3866675eae4b5ebe09e8b950610d105"
   },
@@ -1734,14 +1836,15 @@
     {
       "id": "first-main-flow",
       "ownerTask": "V02-005",
-      "status": "in_progress",
+      "status": "demonstrated-installed-synthetic",
       "dependsOn": [
         "V02-004"
       ],
       "beforeImplementationOf": "V02-006",
       "scope": "同一隔离候选入库→PDF→精读→Reader→记录→重启继续；正常及失败恢复路径",
-      "evidence": null,
-      "userFeedback": "not requested yet; final user acceptance remains V02-007"
+      "evidence": "docs/project/evidence/V02-005-demo.md",
+      "userFeedback": "Demo available; real user/model acceptance remains V02-007",
+      "acceptedBy": "docs/project/evidence/V02-005-control-review.md"
     }
   ]
 }
