@@ -1,0 +1,130 @@
+{
+  "taskId": "V02-007",
+  "phase": "ready_awaiting_user_local_login",
+  "acceptancePassed": false,
+  "generatedAt": "2026-09-22T02:03:28.051Z",
+  "baseCommit": "7d53ab5b3c66fdee77820b64d94c8a49ea03ed97",
+  "contextCommit": "aecd648fa4207bb11b219a04ef2e9c068da6de20",
+  "evidenceAvailability": "Raw logs and detailed hashes are local-only and must be retained for review.",
+  "commandSequence": [
+    "powershell.exe -NoProfile -File scripts/v02-007-prepare.ps1",
+    "node scripts/v02-007-verify-and-cache.mjs",
+    "powershell.exe -NoProfile -File scripts/v02-007-install.ps1",
+    "node scripts/v02-007-start-and-probe.mjs",
+    "node scripts/v02-007-index-evidence.mjs"
+  ],
+  "records": [
+    {
+      "path": "C:/tmp/v007/evidence/receipt.json",
+      "bytes": 1289,
+      "sha256": "534fab19de87312e9475d5d90e2a33e9388983727738be808fce85d827613eaf"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/preflight.json",
+      "bytes": 822,
+      "sha256": "7bd51f8182b364ae00a08c01930e12b044a3d185865479382019d27c79687b28"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/archive.json",
+      "bytes": 303,
+      "sha256": "b4e6ad393d462679ed469c9edcbd95f0b77b6b0fcde116fc1f3f7395d42df9b5"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/build-manifest-verification.json",
+      "bytes": 110796,
+      "sha256": "1caf98576a182a89fd1635f2246d4c0432beaef025e6c23331974bbd177d5bd1"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/install-cache.json",
+      "bytes": 822,
+      "sha256": "02d0c1c3f90b303a314d63135c328d8f050b2f4aa52d68e83bb5c9bf9bff7701"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/install-result.json",
+      "bytes": 884,
+      "sha256": "abd59a10413a146d6ccf2276a7f175ea5e1cbed622255c5253afcad3a8cef184"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/install-wrapper-observation.json",
+      "bytes": 617,
+      "sha256": "16ba4bc1f6722255aab497fd7647f8517c4a5ea1d4c3f8668d32a048429c3170"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/install.stdout.log",
+      "bytes": 1139,
+      "sha256": "5e39fb866eb2f10fa473efcd6c0b4045dd0176f2fdc78334bf5a7207480b760e"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/install.stderr.log",
+      "bytes": 1400,
+      "sha256": "749ced316c95cfffa52d63dcae29c94f6e1c75fd5429442504899bd23a20145a"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/start.json",
+      "bytes": 589,
+      "sha256": "3a41d0181bb0d95f332b6da91769d0364e006a93b665ac4e4e28ff57f896596d"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/identity.json",
+      "bytes": 217,
+      "sha256": "8e6bbc840f2f6d4de0dcdd830005801e1b30d1b0fd7a9b27a911b2591ee2c170"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/tasks-request.json",
+      "bytes": 31,
+      "sha256": "0d3d65db90d11a6afc6e960150395eaf3e56e3b89d222cf24e919ccec11acd6e"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/tasks.json",
+      "bytes": 296,
+      "sha256": "3a3b2a5921140c3042d4f03e460b80dc29306a22e6f308fe6259305ecef822dd"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/folders-request.json",
+      "bytes": 33,
+      "sha256": "89d9eb5d190a6cfae7b2f36c5da67f15b112592645375b648b47c46d9e5eb262"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/folders.json",
+      "bytes": 253,
+      "sha256": "be8a43e7ae0460689b2c148a5c0044f9f50e545ff909e1edab4f7c0b8d24c895"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/status.json",
+      "bytes": 590,
+      "sha256": "867e9ec1d9fabdee44e065ad197131200897c99d2e56b5134d36d1181d6b8f6e"
+    },
+    {
+      "path": "C:/tmp/v007/evidence/ready.json",
+      "bytes": 875,
+      "sha256": "de998545e13686859e82e8f0406db4425e6f6ccc5088b40281c52bce4305e5f3"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007/scripts/v02-007-index-evidence.mjs",
+      "bytes": 7700,
+      "sha256": "cd342c900f5603fc2a19202d412ce962c0c56f0b154ce9c94069489992f4b6bb"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007/scripts/v02-007-install.ps1",
+      "bytes": 1530,
+      "sha256": "b4286ed782eb24a3b2fe4a95d996687e363e009c633cc05d39ba64b25912fe1a"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007/scripts/v02-007-prepare.ps1",
+      "bytes": 2730,
+      "sha256": "c8dcba92fab0d4470283ad03cbe1bf48d47586a5b71f641e5e2c0002e701bd3a"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007/scripts/v02-007-start-and-probe.mjs",
+      "bytes": 3761,
+      "sha256": "f9c35e9feadfd8336c6f00e09cb13ceed4b87c9e0b689e179d5c3fdeafd2ceef"
+    },
+    {
+      "path": "C:/Users/15694/Documents/ChatGPT/deep-literature-v02-007/scripts/v02-007-verify-and-cache.mjs",
+      "bytes": 3533,
+      "sha256": "aaba5a614bd56e5404b30d0c21fc958e125a402cb0455be592359477367cce95"
+    }
+  ]
+}
