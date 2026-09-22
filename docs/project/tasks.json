@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-09-21",
+  "updated": "2026-09-22",
   "coordinator": {
     "taskTitle": "Deep Literature 项目总控",
     "taskId": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
@@ -16,8 +16,8 @@
       "state": "ACTIVE",
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
-    "lastReviewAt": "2026-09-21T15:44:32.746Z",
-    "lastHeartbeatCompletedAt": "2026-09-21T15:35:36.392Z",
+    "lastReviewAt": "2026-09-22T00:08:40.198Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T00:08:40.198Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -280,22 +280,22 @@
       "hostId": "local",
       "dispatchRequestedAt": "2026-09-21T15:23:05.508Z",
       "dispatchMarker": "DL-V02-005-28278cd-20260921",
-      "nextCheckpointAt": "2026-09-21T16:52:49Z",
+      "nextCheckpointAt": "2026-09-22T00:38:40.198Z",
       "startedAt": "2026-09-21T15:22:49Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with active turn and actual designated worktree commands",
-      "lastDispatchCheckAt": "2026-09-21T15:44:32.746Z",
+      "lastDispatchCheckAt": "2026-09-22T00:08:40.198Z",
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-21T15:44:32.746Z",
+        "checkedAt": "2026-09-22T00:08:40.198Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c490-094e-7ed3-a6da-88a7d3dd7e09"
       },
-      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:3",
+      "waitCursor": "cd5b61d2-a5d5-4e54-afeb-b83bdffc3456:4",
       "progressSnapshot": {
-        "checkedAt": "2026-09-21T15:44:32.746Z",
+        "checkedAt": "2026-09-22T00:08:40.198Z",
         "sourceCommit": "ce5fd9aac20985f3f80ca675b8781e40006a227e",
         "deliveryReady": false,
-        "observation": "Developer reports three synthetic Reader browser samples, Excel import/refresh and restart persistence, explicit recovery to same-parent translation gate. Result files exist; full delivery/provenance review still pending."
+        "observation": "Native synthetic turn completed and browser library/locate-Excel feedback evidenced. Last artifact update 2026-09-21T15:48:48Z; source task remains officially active without a completed delivery. Preserve existing results, finish Reader-click check/index/cleanup/commit; no full rerun."
       },
       "findings": [
         {
@@ -327,8 +327,30 @@
             "C:/tmp/v005/evidence/browser-library-route.txt",
             "C:/tmp/v005/screenshots/06-session-search-gap.png"
           ],
-          "decision": "Reuse existing local synthetic model fixture for one successful no-tool native turn, then check actual literature tab/Reader/locate-Excel UI. No real model/account, no manual state changes, no new framework.",
-          "reviewedAt": "2026-09-21T15:44:32.746Z"
+          "decision": "Initial blank-session observation resolved by normal synthetic native turn without product changes. Preserve evidence and qualify desktop Excel; close verification finding only after complete delivery review.",
+          "reviewedAt": "2026-09-21T15:44:32.746Z",
+          "verificationProgress": {
+            "at": "2026-09-22T00:08:40.198Z",
+            "result": "Native-entry and locate-Excel UI evidence now collected, final review pending",
+            "evidence": [
+              {
+                "path": "C:/tmp/v005/evidence/native-entry.json",
+                "sha256": "3a31b4d34c64cac1a145f796c1e4a37ca83ec0691a615147d9436e3e43f4644f",
+                "lastModifiedAt": "2026-09-21T15:46:58.067Z"
+              },
+              {
+                "path": "C:/tmp/v005/evidence/browser-native-turn.txt",
+                "sha256": "04370dcf69c787ab6716db32255f55333db63e7a9699a0f1507d1fb604534d5d",
+                "lastModifiedAt": "2026-09-21T15:47:20.972Z"
+              },
+              {
+                "path": "C:/tmp/v005/evidence/browser-library-excel.txt",
+                "sha256": "bd1d4582cf38b4ebdb9aa122ff40c4d8373050c41097c527d9ff7dcc4779dd15",
+                "lastModifiedAt": "2026-09-21T15:48:48.333Z"
+              }
+            ],
+            "observed": "One local synthetic model turn completed without tools; literature tab/list/Reader link and locate-Excel feedback visible. Actual desktop Excel interaction not verified; library-to-Reader navigation still awaiting final handoff."
+          }
         }
       ],
       "scopeClarifications": [
@@ -341,6 +363,19 @@
           "allowedPathsUnchanged": true,
           "card": "docs/project/tasks/V02-005.md",
           "exit": "One successful local mock turn and actual UI entry, or precise blocker/qualified untested claim"
+        }
+      ],
+      "receiptPhase": "in_progress_native_ui",
+      "checkpointBasis": "Coordinator reassessment after stale progress; no confirmed interruption or product failure, wall-clock gap not counted as development time",
+      "checkpointReviews": [
+        {
+          "at": "2026-09-22T00:08:40.198Z",
+          "reason": "Original90-minute and native-entry20-minute checkpoints exceeded; inspect evidence and official active turn before deciding action",
+          "officialState": "active/inProgress; last tool completed, thread updatedAt 2026-09-21T15:48:58Z; bounded wait unchanged",
+          "lastArtifactAt": "2026-09-21T15:48:48.333Z",
+          "action": "One follow-up sent to same real thread, requesting remaining handoff/cleanup from saved results, or precise waiting dependency. No re-dispatch, no intervention in its live instance.",
+          "nextCheckpointAt": "2026-09-22T00:38:40.198Z",
+          "ownedInstanceObservation": "Read-only reviewer: trusted identity reachable at51011, supervisor9388 and DSH30088 identity/start match; no task Python process; synthetic profile patch still active. Cleanup pending, no completion claim."
         }
       ]
     },
