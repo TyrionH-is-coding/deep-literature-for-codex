@@ -1,0 +1,21 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {root,out,read,save,stop,status} from './fixtures/v02-005/common.mjs';
+
+const identity=await read(path.join(root,'.workbench.json'));
+assert.equal(identity.instanceId,'4495c8ba-c27b-4bdb-9bf8-54551fc0171f');
+const original=await fs.readFile(path.join(out,'native-original-profile-patch.json'));
+assert.equal(original.toString().trim(),'[]');
+const report={at:new Date().toISOString(),instanceId:identity.instanceId};
+report.stop=await stop(root);
+report.status=await status(root);
+assert.notEqual(report.status.status,'running');
+const patch=path.join(root,'state/dsh-home/profiles/workbench/cordis.patch.yml');
+await fs.writeFile(patch,original);
+assert.deepEqual(await fs.readFile(patch),original);
+report.profileRestored=true;
+report.profileSha256=createHash('sha256').update(original).digest('hex');
+await save('cleanup',report);
+console.log(JSON.stringify(report,null,2));
