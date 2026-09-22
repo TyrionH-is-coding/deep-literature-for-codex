@@ -17,7 +17,7 @@
       "lastVerifiedAt": "2026-09-21T14:20:11.388Z"
     },
     "lastReviewAt": "2026-09-22T00:28:06Z",
-    "lastHeartbeatCompletedAt": "2026-09-22T00:57:40Z",
+    "lastHeartbeatCompletedAt": "2026-09-22T01:22:21Z",
     "workingMethod": {
       "revision": 2,
       "approvedAt": "2026-09-18T11:15:27.987Z",
@@ -441,11 +441,11 @@
       "dispatchMarker": "DL-V02-006-ae2cb78-20260922",
       "startedAt": "2026-09-22T00:24:53.4247854Z",
       "startConfirmedBy": "exact-dispatch-session-meta plus official read_thread with designated dual-worktree commands and matching receipt",
-      "lastDispatchCheckAt": "2026-09-22T01:09:13Z",
+      "lastDispatchCheckAt": "2026-09-22T01:22:21Z",
       "nextCheckpointAt": "2026-09-22T01:54:53.4247854Z",
       "checkpointBasis": "Developer receipt startedAt plus initial90-minute contract checkpoint",
       "receiptPhase": "candidate_build",
-      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:5",
+      "waitCursor": "082db6e1-1640-4b6c-a91e-107d0fb7afe1:6",
       "preflightReviewRounds": 1,
       "preflightReview": {
         "at": "2026-09-22T00:57:40Z",
@@ -477,7 +477,7 @@
         }
       ],
       "lastThreadSnapshot": {
-        "checkedAt": "2026-09-22T01:09:13Z",
+        "checkedAt": "2026-09-22T01:22:21Z",
         "status": "active",
         "turnStatus": "inProgress",
         "turnId": "01a0c680-0241-7262-b890-71c4c25d4f34"
