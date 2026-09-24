@@ -1,0 +1,36 @@
+{
+  "task": "V02-007",
+  "selectedOn": "2026-09-25",
+  "reason": "User requested replacing the previous CD4 Perturb-seq paper with the Science CIMA study involving Shanxi Medical University.",
+  "title": "Chinese Immune Multi-Omics Atlas",
+  "journal": "Science",
+  "publicationDate": "2026-01-08",
+  "volume": "391",
+  "issue": "6781",
+  "articleNumber": "eadt3130",
+  "doi": "10.1126/science.adt3130",
+  "pmid": "41505528",
+  "sources": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41505528/",
+      "supports": "Title, journal, date, DOI, PMID and abstract; verified via indexed PubMed result."
+    },
+    {
+      "url": "https://www.genomics.cn/news/info_itemid_7757.html",
+      "supports": "Participating institutional announcement identifies Shanxi Medical University among collaborators."
+    }
+  ],
+  "publisherUrl": "https://www.science.org/doi/10.1126/science.adt3130",
+  "retrieval": {
+    "metadata": "verified",
+    "publisherPage": "web open failed; do not infer full-text access",
+    "pdf": "not obtained in this selection turn",
+    "pdfSha256": null,
+    "ingested": false
+  },
+  "modelFamily": "GPT",
+  "scope": "Only replacement paper; no automatic additional paid retry",
+  "supersedes": "docs/project/evidence/V02-007-paper-selection.json",
+  "historicalEvidencePolicy": "Retain previous PDF, metadata and preparation evidence; do not process the superseded paper.",
+  "verification": "R0: JSON parse, source/identity and relative-link checks, git diff --check; no production changes or model/MinerU calls."
+}

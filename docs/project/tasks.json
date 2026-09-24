@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-09-22",
+  "updated": "2026-09-25",
   "coordinator": {
     "taskTitle": "Deep Literature 项目总控",
     "taskId": "01a0acfe-116b-7870-a839-9cd0c36fbb89",
@@ -15,7 +15,7 @@
       "id": "deep-literature-v0-2",
       "state": "PAUSED",
       "lastVerifiedAt": "2026-09-22T01:53:11.6772821Z",
-      "pauseReason": "007 isolated setup and paper ready; waiting for user-local GPT login and MinerU setup, then human content review",
+      "pauseReason": "007 sample changed to CIMA; replacement full text/preparation and user-local GPT/MinerU configuration pending, then human content review",
       "resumeCondition": "Resume authorized loop after user supplies real-use conditions; login and human quality gates remain explicit"
     },
     "lastReviewAt": "2026-09-22T02:14:17.7689614Z",
@@ -717,11 +717,12 @@
         "docs/project/evidence/V02-007-preparation-report.md",
         "docs/project/evidence/V02-007-evidence-index.json",
         "docs/project/evidence/V02-007-control-preparation.json",
-        "docs/project/evidence/V02-007-handoff.md"
+        "docs/project/evidence/V02-007-handoff.md",
+        "docs/project/evidence/V02-007-cima-selection.json"
       ],
-      "notes": "Isolated dev.5 ready; user-selected paper retrieved as separately labeled bioRxiv v1 and ingested/bound. Preparation only integrated; no full-read task submitted, no GPT/MinerU calls. Await user-local GPT login, then actual model selection and MinerU configuration, then human quality acceptance.",
+      "notes": "2026-09-25 user replaced sample with CIMA (Science 10.1126/science.adt3130); GPT choice retained. Metadata verified; replacement PDF, ingestion and binding pending. Previous CD4 paper/evidence retained, excluded from further processing. Instance preparation is historical; verify current live identity before reuse. No model or MinerU calls initiated by this change.",
       "risk": "R2",
-      "executionState": "waiting_for_user_local_configuration",
+      "executionState": "sample_reselected_pending_fulltext_and_user_configuration",
       "blockedBy": [
         "User-local ChatGPT subscription/model selection and MinerU configuration",
         "Final human content-quality and record-edit feedback"
@@ -741,7 +742,7 @@
       "portPolicy": "OS-assigned loopback port; record live identity/url before browser use",
       "instanceRoot": "C:/tmp/v007/instance",
       "userInput": {
-        "title": "Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+        "title": "Chinese Immune Multi-Omics Atlas",
         "modelFamily": "GPT",
         "exactModel": "pending actual subscription model list",
         "scope": "This one selected paper; no automatic additional paid retry",
@@ -753,23 +754,48 @@
       "setupAgent": "/root/v007_instance_setup",
       "sourceReviewer": "/root/v007_paper_sources",
       "selectedPaper": {
-        "formalDoi": "10.1016/j.cell.2026.08.002",
-        "sampleDoi": "10.64898/2025.12.23.696273",
-        "sampleVersion": "bioRxiv v1",
-        "sourceRecord": "docs/project/evidence/V02-007-paper-selection.json",
-        "pdfSha256": "4ea1f4e517c2c96d615955c5d3c375e0791676817665841cb4f347094b77c55a"
+        "title": "Chinese Immune Multi-Omics Atlas",
+        "formalDoi": "10.1126/science.adt3130",
+        "sampleDoi": "10.1126/science.adt3130",
+        "sampleVersion": "Science published article; full-text PDF not yet obtained",
+        "pmid": "41505528",
+        "sourceRecord": "docs/project/evidence/V02-007-cima-selection.json",
+        "pdfSha256": null
       },
       "preparationIntegrationCommit": "a92f779c9f92c3e279f6e97452407d89bcc35d4f",
       "preparationAcceptedAt": "2026-09-22T02:14:17.5960902Z",
       "instanceId": "60fac980-1b27-4960-a1c7-27c08964480b",
       "launchId": "2159e600-ffdb-4c98-b96b-4bf4e17bacdb",
       "lastVerifiedUrl": "http://127.0.0.1:49686",
-      "paperId": "doi_10.64898_2025.12.23.696273",
-      "folderId": "folder_ec9d48c08fb84d7da496cc68900d719d",
-      "nativeSessionId": "session-48b54a9a-8f84-4761-83bf-174692391682",
+      "paperId": null,
+      "folderId": null,
+      "nativeSessionId": null,
       "setupAgentState": "completed",
       "modelOrMineruRequestsStarted": false,
-      "checkpointState": "Suspend active-execution checkpoint while waiting for user-local configuration; set next checkpoint on resumed execution"
+      "checkpointState": "Suspend active-execution checkpoint while waiting for user-local configuration; set next checkpoint on resumed execution",
+      "previousSamples": [
+        {
+          "supersededOn": "2026-09-25",
+          "reason": "User replaced acceptance sample with Chinese Immune Multi-Omics Atlas; retain prior evidence and do not submit the old sample.",
+          "userInput": {
+            "title": "Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+            "modelFamily": "GPT",
+            "exactModel": "pending actual subscription model list",
+            "scope": "This one selected paper; no automatic additional paid retry",
+            "credentials": "user-local configuration only"
+          },
+          "selectedPaper": {
+            "formalDoi": "10.1016/j.cell.2026.08.002",
+            "sampleDoi": "10.64898/2025.12.23.696273",
+            "sampleVersion": "bioRxiv v1",
+            "sourceRecord": "docs/project/evidence/V02-007-paper-selection.json",
+            "pdfSha256": "4ea1f4e517c2c96d615955c5d3c375e0791676817665841cb4f347094b77c55a"
+          },
+          "paperId": "doi_10.64898_2025.12.23.696273",
+          "folderId": "folder_ec9d48c08fb84d7da496cc68900d719d",
+          "nativeSessionId": "session-48b54a9a-8f84-4761-83bf-174692391682"
+        }
+      ]
     },
     {
       "id": "V02-008",
