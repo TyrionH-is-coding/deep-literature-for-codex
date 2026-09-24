@@ -1,6 +1,10 @@
 # V02-007 当前交接：验收样本已更换为 CIMA
 
-2026-09-25 当前指令：用户改选 **Chinese Immune Multi-Omics Atlas**（Science，DOI `10.1126/science.adt3130`，PMID `41505528`），仍用 GPT。[新题录与来源](V02-007-cima-selection.json)。新样本 PDF/入库/分类绑定尚未完成，当前 paperId/folderId/nativeSessionId 在台账置空；旧身份完整保留在 previousSamples。不得沿下列历史步骤继续处理旧 CD4 论文。后续先取得合法全文、核对身份与科学锚点，再查隔离实例实际状态并准备新题录/绑定；用户配置门槛不变。本次仅更换计划与题录，未启动实例或模型调用。
+2026-09-25 当前执行：用户要求使用工具生成 CIMA HTML。已重启同一隔离实例，当前 URL `http://127.0.0.1:58657`，launchId `639c87a3-c2be-49b4-8a5d-00d2ed5ae173`，CLI/浏览器身份一致。GPT Pro 登录已由用户完成；新会话选择器为 GPT-5.6-Sol，但必须在 CIMA 绑定会话核对后才能 dispatch。
+
+CIMA 已入库 `pmid_41505528`，分类“中国人群免疫多组学” `folder_415f41ea96f1426e8db703e623823f76`，原生会话 `session-250eee33-0d2a-4b53-9940-f5ca23485a73`。唯一 task `task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618` / parent `job_13384b8d8eb7151f`，提交键 `v02-007-cima-fullread-20260925-v1`、runAgent=false；实际终点 waiting_user/pdf_required。不要重复 submit。
+
+自动获取未取得 PDF；出版社浏览器遇访问验证。MinerU 本地 unavailable、API not_configured。等待用户提供正文 PDF/路径并在本机配置 MinerU Key，随后用原 task attach（codex_authorized 或 manual），按 gate 续接。不能把新会话模型选择等同绑定配置成功。尚无 GPT/MinerU 调用及 Reader HTML。[本轮回执](V02-007-cima-generation-start.json)。旧 CD4 样本仅保留历史。
 
 ## 2026-09-22 准备快照（已被换文指令部分取代）
 

@@ -1,0 +1,38 @@
+{
+  "recordedAt": "2026-09-24T17:39:26.235Z",
+  "request": "Generate CIMA HTML using our workbench",
+  "instanceId": "60fac980-1b27-4960-a1c7-27c08964480b",
+  "launchId": "639c87a3-c2be-49b4-8a5d-00d2ed5ae173",
+  "url": "http://127.0.0.1:58657",
+  "paperId": "pmid_41505528",
+  "folderId": "folder_415f41ea96f1426e8db703e623823f76",
+  "sessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
+  "taskId": "task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618",
+  "jobId": "job_13384b8d8eb7151f",
+  "submitKey": "v02-007-cima-fullread-20260925-v1",
+  "runAgent": false,
+  "actualStatus": "waiting_user",
+  "reason": "pdf_required",
+  "auth": {
+    "status": "authenticated",
+    "planType": "pro",
+    "credentialsRead": false
+  },
+  "model": {
+    "composer": "GPT-5.6-Sol",
+    "boundSessionVerified": false
+  },
+  "mineru": {
+    "local": "unavailable",
+    "api": "not_configured",
+    "apiCallVerified": false
+  },
+  "pdf": {
+    "obtained": false,
+    "publisher": "Access verification shown in browser",
+    "automatic": "pdf_required"
+  },
+  "readerGenerated": false,
+  "requestsRoot": "C:/tmp/v007/papers/requests/",
+  "productionChanges": false
+}

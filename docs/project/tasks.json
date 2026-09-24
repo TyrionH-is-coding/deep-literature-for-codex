@@ -15,7 +15,7 @@
       "id": "deep-literature-v0-2",
       "state": "PAUSED",
       "lastVerifiedAt": "2026-09-22T01:53:11.6772821Z",
-      "pauseReason": "007 sample changed to CIMA; replacement full text/preparation and user-local GPT/MinerU configuration pending, then human content review",
+      "pauseReason": "007 CIMA task waiting for PDF and MinerU configuration; GPT login completed; human content review remains pending",
       "resumeCondition": "Resume authorized loop after user supplies real-use conditions; login and human quality gates remain explicit"
     },
     "lastReviewAt": "2026-09-22T02:14:17.7689614Z",
@@ -718,13 +718,16 @@
         "docs/project/evidence/V02-007-evidence-index.json",
         "docs/project/evidence/V02-007-control-preparation.json",
         "docs/project/evidence/V02-007-handoff.md",
-        "docs/project/evidence/V02-007-cima-selection.json"
+        "docs/project/evidence/V02-007-cima-selection.json",
+        "docs/project/evidence/V02-007-cima-generation-start.json"
       ],
-      "notes": "2026-09-25 user replaced sample with CIMA (Science 10.1126/science.adt3130); GPT choice retained. Metadata verified; replacement PDF, ingestion and binding pending. Previous CD4 paper/evidence retained, excluded from further processing. Instance preparation is historical; verify current live identity before reuse. No model or MinerU calls initiated by this change.",
+      "notes": "User requested HTML generation with our tool. Restarted same isolated instance, verified CLI/browser identity; CIMA ingested/moved/bound and submitted with runAgent=false. Actual task waiting_user/pdf_required. User completed GPT Pro login. Composer selected GPT-5.6-Sol; bound CIMA session selection still requires verification before dispatch. MinerU local unavailable/API not_configured. Publisher browser shows access challenge; PDF not obtained. No GPT/MinerU processing calls yet.",
       "risk": "R2",
-      "executionState": "sample_reselected_pending_fulltext_and_user_configuration",
+      "executionState": "waiting_for_pdf_and_mineru_configuration",
       "blockedBy": [
-        "User-local ChatGPT subscription/model selection and MinerU configuration",
+        "Actual CIMA full-text PDF (automatic acquisition returned pdf_required; publisher browser access challenge)",
+        "User-local MinerU API key configuration; local parser unavailable",
+        "Verify GPT model on bound CIMA session before dispatch",
         "Final human content-quality and record-edit feedback"
       ],
       "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
@@ -744,7 +747,7 @@
       "userInput": {
         "title": "Chinese Immune Multi-Omics Atlas",
         "modelFamily": "GPT",
-        "exactModel": "pending actual subscription model list",
+        "exactModel": "GPT-5.6-Sol selected in new-session composer; bound CIMA session not yet verified",
         "scope": "This one selected paper; no automatic additional paid retry",
         "credentials": "user-local configuration only"
       },
@@ -765,11 +768,11 @@
       "preparationIntegrationCommit": "a92f779c9f92c3e279f6e97452407d89bcc35d4f",
       "preparationAcceptedAt": "2026-09-22T02:14:17.5960902Z",
       "instanceId": "60fac980-1b27-4960-a1c7-27c08964480b",
-      "launchId": "2159e600-ffdb-4c98-b96b-4bf4e17bacdb",
-      "lastVerifiedUrl": "http://127.0.0.1:49686",
-      "paperId": null,
-      "folderId": null,
-      "nativeSessionId": null,
+      "launchId": "639c87a3-c2be-49b4-8a5d-00d2ed5ae173",
+      "lastVerifiedUrl": "http://127.0.0.1:58657",
+      "paperId": "pmid_41505528",
+      "folderId": "folder_415f41ea96f1426e8db703e623823f76",
+      "nativeSessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
       "setupAgentState": "completed",
       "modelOrMineruRequestsStarted": false,
       "checkpointState": "Suspend active-execution checkpoint while waiting for user-local configuration; set next checkpoint on resumed execution",
@@ -795,7 +798,10 @@
           "folderId": "folder_ec9d48c08fb84d7da496cc68900d719d",
           "nativeSessionId": "session-48b54a9a-8f84-4761-83bf-174692391682"
         }
-      ]
+      ],
+      "fullReadTaskId": "task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618",
+      "parentJobId": "job_13384b8d8eb7151f",
+      "submitIdempotencyKey": "v02-007-cima-fullread-20260925-v1"
     },
     {
       "id": "V02-008",
