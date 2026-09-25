@@ -2,6 +2,8 @@
 
 2026-09-25 当前执行：用户提供的 CIMA Science 正文 PDF（25页、SHA256 `c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804`）已附入原 task；MinerU 配置经受支持入口保存在 secure_store，不采集密钥到证据，实际解析通过。绑定会话已验证 OpenAI Codex / GPT-5.6-Sol / medium。首次请求失败 `CODEX_ERROR: Reconnecting... 2/5`，尚无译文；用户仅批准额外重试一次，已通过固定 retryKey `v02-007-cima-user-approved-retry-1` 投递，仍等待结果。用户要求尝试 GPT-6-Sol，刷新列表与实际选择均不支持（`dsh_model-unavailable`），当前模型未改。不能额外失败重试或擅自升级固定制品。
 
+**04:53Z 新停点：自动循环已暂停。** 原 task 仍为 waiting_agent/translate_full_read（batch-0001）；原生会话 running=true，但最后事件仍是重试提示 seq20，与上轮一致，无新的 request/header、工具调用、输出或终态。没有取消原生 turn 或停止实例，不声称终态失败。先读[停点证据](V02-007-cima-stalled-retry.json)，诊断模型/恢复链；不能重复 dispatch、换键或付费重试。后文“正在跟踪/限定恢复”是本次暂停前的历史动作。
+
 唯一根 `C:/tmp/v007/instance`；当前 URL `http://127.0.0.1:58657/`，launchId `639c87a3-c2be-49b4-8a5d-00d2ed5ae173`。CIMA paper `pmid_41505528` / folder `folder_415f41ea96f1426e8db703e623823f76` / session `session-250eee33-0d2a-4b53-9940-f5ca23485a73`。原 task `task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618` / parent `job_13384b8d8eb7151f`，不要重复 submit、上传或解析。
 
 [实际处理证据](V02-007-cima-real-processing.json)。自动循环已限定恢复：只跟踪当前重试；新 gate 正常推进，失败则诊断并停下，不增失败重试。现有模型请求未到终态，不声称生成成功；HTML 后还需用户质量验收。已验证 API 模型配置后，浏览器对应分类会话同样显示 GPT-5.6-Sol/medium。

@@ -13,10 +13,10 @@
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
-      "state": "ACTIVE",
-      "lastVerifiedAt": "2026-09-25T04:42:09.254Z",
-      "pauseReason": null,
-      "resumeCondition": "User inputs supplied; follow current authorized model retry only, then normal stages on progress; pause on unresolved failure or human acceptance."
+      "state": "PAUSED",
+      "lastVerifiedAt": "2026-09-25T04:56:15.153Z",
+      "pauseReason": "CIMA retry remains native running but unchanged at seq20 across turns; no additional model retry authorization; preserve and diagnose",
+      "resumeCondition": "Resolve model/recovery stall; explicitly authorize any further model failure retry; no candidate upgrade without recorded validated scope"
     },
     "lastReviewAt": "2026-09-22T02:14:17.7689614Z",
     "lastHeartbeatCompletedAt": "2026-09-22T01:53:11.6772821Z",
@@ -720,12 +720,15 @@
         "docs/project/evidence/V02-007-handoff.md",
         "docs/project/evidence/V02-007-cima-selection.json",
         "docs/project/evidence/V02-007-cima-generation-start.json",
-        "docs/project/evidence/V02-007-cima-real-processing.json"
+        "docs/project/evidence/V02-007-cima-real-processing.json",
+        "docs/project/evidence/V02-007-cima-stalled-retry.json"
       ],
-      "notes": "PDF attached and actual MinerU parsing passed; bound GPT-5.6-Sol/medium verified. First model attempt ended CODEX_ERROR Reconnecting... 2/5 with no translation. User approved one extra retry; dispatched original task, current response pending. User requested GPT-6-Sol; refreshed model list lacks it and selection returned dsh_model-unavailable, model unchanged. Preserve PDF and parsed outputs; no additional failure retries authorized. Bounded heartbeat follows this task only. HTML and human acceptance pending.",
+      "notes": "2026-09-25 04:53Z heartbeat: same seq20 as prior turn; retry has no request/header, tool calls, output or terminal event, although native running=true. Pipeline still translate_full_read/batch-0001. No further paid retry authorized. Bounded read-only diagnosis did not establish root cause; possible error-notification handling weakness recorded without claiming causality. Automation paused; native turn and instance left intact; PDF and parsed assets retained. HTML absent, V007 not accepted.",
       "risk": "R2",
-      "executionState": "gpt_retry_running_after_connection_error",
+      "executionState": "stalled_model_retry_preserved_automation_paused",
       "blockedBy": [
+        "Model retry has no observable progress; native running state unresolved; diagnose transport/recovery before further attempt",
+        "One authorized extra model retry already dispatched; additional model failure retries require authorization",
         "Final human content-quality and record-edit feedback"
       ],
       "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
@@ -733,7 +736,7 @@
       "baseCommit": "7d53ab5b3c66fdee77820b64d94c8a49ea03ed97",
       "dispatchState": "preparation-delivered",
       "startedAt": "2026-09-22T01:56:15.3558841Z",
-      "nextCheckpointAt": "2026-09-25T06:04:37.709Z",
+      "nextCheckpointAt": null,
       "allowedPaths": [
         "scripts/v02-007-*",
         "scripts/fixtures/v02-007/",
@@ -773,7 +776,7 @@
       "nativeSessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
       "setupAgentState": "completed",
       "modelOrMineruRequestsStarted": true,
-      "checkpointState": "Active generation resumed; 90-minute review checkpoint",
+      "checkpointState": "Automatic cycle paused after consecutive no-progress evidence; native turn not canceled, no terminal state inferred",
       "previousSamples": [
         {
           "supersededOn": "2026-09-25",
@@ -820,7 +823,8 @@
           "gpt-5.6-luna",
           "gpt-5.5"
         ]
-      }
+      },
+      "lastCheckedAt": "2026-09-25T04:53:58.657Z"
     },
     {
       "id": "V02-008",

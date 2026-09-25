@@ -1,0 +1,169 @@
+{
+  "checkedAt": "2026-09-25T04:53:58.657Z",
+  "taskId": "task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618",
+  "jobId": "job_13384b8d8eb7151f",
+  "taskStatus": "waiting_agent",
+  "stage": "translate_full",
+  "reason": "translate_full_read",
+  "nativeSession": {
+    "sessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
+    "updatedAt": 1790311008880,
+    "running": true,
+    "blank": false,
+    "cwd": "C:\\tmp\\v007\\instance\\workspace",
+    "agentPreset": "scientific-reading",
+    "projections": {
+      "asOfSeq": 20,
+      "values": {
+        "sessionStats": {
+          "turns": 1,
+          "steps": 1,
+          "llmMs": 0,
+          "toolMs": 0,
+          "ttftMs": 0,
+          "ttftSteps": 0,
+          "decodeMs": 0,
+          "decodeTokens": 0
+        },
+        "title": "文献 · 中国人群免疫多组学",
+        "goal": null,
+        "tokenUsage": {
+          "uncachedInputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "contextPressure": {},
+        "contextBreakdown": {
+          "systemTokens": 675,
+          "toolsTokens": 925,
+          "messageTokens": 227
+        },
+        "subagentTiming": {
+          "settledMs": 0
+        },
+        "subagent": null,
+        "permissions": {
+          "options": [
+            {
+              "value": "read-only",
+              "name": "read-only"
+            },
+            {
+              "value": "workspace-write",
+              "name": "workspace-write"
+            },
+            {
+              "value": "danger-full-access",
+              "name": "danger-full-access"
+            }
+          ],
+          "currentValue": "workspace-write"
+        },
+        "sessionListMetadata": {
+          "blank": false,
+          "lastPromptAt": 1790311008880
+        },
+        "imageLimits": {
+          "maxImageBytes": 5242880,
+          "maxImagesPerMessage": 20,
+          "maxMessageImageBytes": 104857600,
+          "maxImagePixels": 40000000,
+          "mediaTypes": [
+            "image/png",
+            "image/jpeg",
+            "image/webp",
+            "image/gif"
+          ]
+        }
+      }
+    }
+  },
+  "lastEvents": [
+    {
+      "type": "assistant/chunk",
+      "seq": 13,
+      "time": 1790310891498,
+      "data": {
+        "turn": 1,
+        "step": 1,
+        "chunk": {
+          "type": "finish",
+          "reason": {
+            "kind": "error",
+            "failure": {
+              "message": "Reconnecting... 2/5",
+              "code": "CODEX_ERROR"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "step/end",
+      "seq": 14,
+      "time": 1790310891501
+    },
+    {
+      "type": "turn/end",
+      "seq": 15,
+      "time": 1790310891505,
+      "data": {
+        "turn": 1,
+        "reason": {
+          "kind": "error",
+          "error": {
+            "message": "Reconnecting... 2/5",
+            "code": "CODEX_ERROR"
+          }
+        }
+      }
+    },
+    {
+      "type": "agent/inbox/spliced",
+      "seq": 16,
+      "time": 1790311008864
+    },
+    {
+      "type": "turn/start",
+      "seq": 17,
+      "time": 1790311008865
+    },
+    {
+      "type": "agent/inbox/spliced",
+      "seq": 18,
+      "time": 1790311008866
+    },
+    {
+      "type": "step/start",
+      "seq": 19,
+      "time": 1790311008879
+    },
+    {
+      "type": "user/message",
+      "seq": 20,
+      "time": 1790311008880
+    }
+  ],
+  "interpretation": "No new request/header, tool call, translated output or terminal event after retry user/message seq20. Native running flag remains true; cannot establish terminal failure or healthy execution from it. Same evidence as previous turn; stop ineffective automatic polling, preserve pending native turn.",
+  "modelRetryBudget": {
+    "extraAllowed": 1,
+    "extraDispatched": 1,
+    "additionalAuthorized": 0
+  },
+  "sourceInspection": {
+    "file": "oauth/vendor/dsh-openai-oauth/adapter.js",
+    "lines": [
+      266,
+      268
+    ],
+    "observation": "Any error notification is converted directly to LlmError; no retryability check in this branch.",
+    "limitation": "Possible recovery-handling issue only. Native error payload/transport cause not captured; causal link to stalled retry not established."
+  },
+  "automation": "PAUSED",
+  "nativeTurnCanceled": false,
+  "instanceStopped": false,
+  "productionChanged": false,
+  "readerGenerated": false,
+  "nextStep": "Diagnose native model/retry recovery without new paid requests. Any candidate change must be separately recorded and validated; any additional model attempt needs user authorization."
+}
