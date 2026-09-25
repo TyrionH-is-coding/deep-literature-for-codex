@@ -13,9 +13,11 @@
 
 ## 当前等待与下一项可见结果
 
-**007 的 CIMA 正文已完成真实 MinerU 解析；GPT 重试未出现新进展，自动循环已暂停，HTML 尚未生成。** [007 任务卡](docs/project/tasks/V02-007.md)固定同一 dev.5 制品，目标为入库 → 获取 PDF → MinerU → 实际 GPT 模型 → Reader → 记录保存与重启读回。复用已有恢复和回归证据，不重复无变化源码全集。[当前交接](docs/project/evidence/V02-007-handoff.md)保存实例、论文和分类会话身份；007尚未通过。
+**CIMA 的独立 HTML 精读已由当前 Codex 直接生成，已打开供用户阅读；DSH 自动主流程尚未通过。** 用户要求不依赖 DSH 后，复用已解析的同一篇正文，交付中文精读、六幅主图导览、25页原版图像/可搜索英文原文及浏览器本地笔记。它不是逐句全文中文翻译，也未写入项目正式 Reader 资产。文件：`C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html`。[交付与校验证据](docs/project/evidence/V02-007-cima-direct.json)。
 
-2026-09-25 用户改选 **Chinese Immune Multi-Omics Atlas**（Science，DOI `10.1126/science.adt3130`，PMID `41505528`）；[新来源记录](docs/project/evidence/V02-007-cima-selection.json)。模型仍用 GPT，只处理替换后的这一篇，不自动增加付费重试。CIMA 已入库、正文已附入原任务，真实 MinerU 解析通过，绑定模型为 GPT-5.6-Sol/medium。首次模型请求报 Reconnecting... 2/5；用户批准的一次额外重试已投递，尚未生成译文或 HTML。刷新模型列表并实际尝试 GPT-6-Sol 返回 model-unavailable，模型未改。当前隔离工作台 `http://127.0.0.1:58657/`。04:53Z 核对仍停在重试提示 seq20，没有新的请求/工具调用/输出或终态，原生 running=true 不能证明健康执行。已暂停自动循环并保留原生 turn 和实例，不再追加重试；先诊断 GPT 调用/恢复链。[停点证据](docs/project/evidence/V02-007-cima-stalled-retry.json)。[本轮证据](docs/project/evidence/V02-007-cima-real-processing.json)。
+已实际核对原 PDF SHA、HTML/HTTP SHA、图六跳转、IKZF4跨页搜索及笔记刷新读回，测试笔记已清空；用户科学内容质量反馈仍待收集。DSH 原任务已通过支持入口请求停止，control acknowledged，原生会话现为 running=false / seq22；没有追加付费请求或重跑 MinerU。自动循环保持暂停，007产品主流程及008发布门槛未关闭。[007任务卡](docs/project/tasks/V02-007.md)与[当前交接](docs/project/evidence/V02-007-handoff.md)保留具体缺口。
+
+论文为 Chinese Immune Multi-Omics Atlas（Science，DOI `10.1126/science.adt3130`，PMID `41505528`）。用户提供的PDF已完成真实MinerU解析；DSH GPT首请求失败，唯一批准的额外重试无进展后停止。固定制品不提供用户要求的GPT-6-Sol，未升级或擅自更换模型。[历史处理证据](docs/project/evidence/V02-007-cima-real-processing.json)、[停止前停点](docs/project/evidence/V02-007-cima-stalled-retry.json)。
 
 最终制品交付/发布归 008，依赖 007 结论。main 仍为 rc.6 文件树 `e7160eb`，用户安装未升级，v0.2 未发布。当前恢复证据不能推广为跨平台/跨版本迁移；桌面 Excel 编辑及自动选中行仍按实际验收范围说明。
 

@@ -1,5 +1,13 @@
 # V02-007 当前交接：验收样本已更换为 CIMA
 
+## 当前：Codex直接交付，DSH任务已停止
+
+2026-09-25 用户要求不依赖DSH，由当前Codex完成。已交付 `C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html`：中文精读、6幅主图导览、25页原版图像和可检索英文原文、浏览器本地笔记。全部图像内嵌可离线阅读，中文部分不是逐句全文翻译；没有补充材料文件的独立核验。[SHA与实际验证](V02-007-cima-direct.json)。文件、HTTP内容一致；页面跳转、全文检索和笔记刷新读回已核对，测试笔记已清空。
+
+原任务通过受支持cancel入口停止：control acknowledged，随后session.list确认running=false，asOfSeq22。没有新模型/MinerU请求、没有改固定制品或伪造正式Reader完成状态。自动循环保持PAUSED；007主流程、用户科学质量、产品库内记录及重启门槛仍待验，不能推进008。用户可先阅读独立交付，再决定是否将直接Codex执行纳入产品路线；当前并未据此实施架构改造。
+
+## 历史：停止前处理快照（不再作为当前执行指令）
+
 2026-09-25 当前执行：用户提供的 CIMA Science 正文 PDF（25页、SHA256 `c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804`）已附入原 task；MinerU 配置经受支持入口保存在 secure_store，不采集密钥到证据，实际解析通过。绑定会话已验证 OpenAI Codex / GPT-5.6-Sol / medium。首次请求失败 `CODEX_ERROR: Reconnecting... 2/5`，尚无译文；用户仅批准额外重试一次，已通过固定 retryKey `v02-007-cima-user-approved-retry-1` 投递，仍等待结果。用户要求尝试 GPT-6-Sol，刷新列表与实际选择均不支持（`dsh_model-unavailable`），当前模型未改。不能额外失败重试或擅自升级固定制品。
 
 **04:53Z 新停点：自动循环已暂停。** 原 task 仍为 waiting_agent/translate_full_read（batch-0001）；原生会话 running=true，但最后事件仍是重试提示 seq20，与上轮一致，无新的 request/header、工具调用、输出或终态。没有取消原生 turn 或停止实例，不声称终态失败。先读[停点证据](V02-007-cima-stalled-retry.json)，诊断模型/恢复链；不能重复 dispatch、换键或付费重试。后文“正在跟踪/限定恢复”是本次暂停前的历史动作。

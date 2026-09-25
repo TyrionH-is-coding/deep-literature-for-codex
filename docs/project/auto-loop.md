@@ -2,7 +2,7 @@
 
 当前总控位于 C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex，分支 codex/v02-control；A 位于 C:/Users/15694/Documents/ChatGPT/deep-literature-engine。应用默认旧 dsh reader 不可作为开发基线。用户授权在 v0.2 稳定范围内自动派发、复核、集成与继续；每 10 分钟检查，无需逐卡确认。
 
-2026-09-25 04:53Z 当前停点：007 CIMA 解析已通过；GPT 首次失败后批准的一次额外重试在连续检查中仍停于 seq20，原生 running=true 但无新请求/输出/终态。已暂停 heartbeat，保留实例和原生 turn，不推断已终止。需要先诊断模型调用/恢复链，不能新增付费重试、重跑解析或擅自升级固定制品。HTML 与人工质量未通过，详见007最新停点证据。
+2026-09-25 当前停点：用户要求不依赖DSH，已由当前Codex直接交付CIMA独立HTML（中文精读+25页原文与原图）。支持入口cancel已acknowledged，原生session.list确认running=false / seq22。自动循环保持PAUSED；不要恢复原重试、重复解析或根据独立HTML推进008。007的固定制品DSH主流程、用户科学质量与正式库内记录重启验收仍未通过。详见[直接交付证据](evidence/V02-007-cima-direct.json)。
 
 ## 每轮最小检查
 

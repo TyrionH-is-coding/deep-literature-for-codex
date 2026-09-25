@@ -1,0 +1,53 @@
+{
+  "at": "2026-09-25T05:17:00.412471+00:00",
+  "request": "User asked Codex to generate directly without DSH",
+  "scope": "One standalone CIMA reading HTML; no production source change, no library asset/manifest insertion, no new DSH model/MinerU request",
+  "artifact": "C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html",
+  "sha256": "c77e2a5b1d34dd0d6638014fe460dd4a7dcab93af50b1454cad8917bb720ed77",
+  "bytes": 18557477,
+  "previewUrl": "http://127.0.0.1:62191/CIMA-%E7%B2%BE%E8%AF%BB.html",
+  "sourcePdfSha256": "c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804",
+  "contents": "Chinese critical reading guide, six main figure guides, 25 embedded original page images and searchable extracted English text, browser-local notes/export",
+  "coverage": "Chinese guide, not full sentence-by-sentence translation; standalone supplementary files not reviewed",
+  "verification": {
+    "ordered25Pages": true,
+    "sourceShaVerified": true,
+    "allFigurePagesEmbedded": true,
+    "httpShaMatches": true,
+    "durableCopyShaMatches": true,
+    "fragmentTargetsValid": true,
+    "pageReferencesValid": true,
+    "browserHomeVisualReviewed": true,
+    "figure6OpensPdfPage13": true,
+    "IKZF4SearchFindsPages": [
+      1,
+      10,
+      12
+    ],
+    "searchResultOpensPage10Text": true,
+    "browserNoteSurvivesReload": true
+  },
+  "testNotesCleared": true,
+  "nativeStop": {
+    "sessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
+    "running": false,
+    "asOfSeq": 22,
+    "checkedAt": "2026-09-25T05:14:54.783695+00:00",
+    "taskControl": "stop acknowledged; native cancel requested via supported cancel action",
+    "source": "session.list after supported workbench cancel"
+  },
+  "localEvidence": "C:/tmp/v007/codex-direct/build-evidence.json",
+  "buildScript": "C:/tmp/v007/codex-direct/build.py",
+  "buildScriptSha256": "21c5d8b8e413dee5829089b9b61d68a8b12a55422144b0ce16baa9fb5a263cb5",
+  "dshWorkflowAccepted": false,
+  "humanQualityAccepted": false,
+  "automation": "PAUSED; do not dispatch additional model retries or advance 008 based on direct HTML",
+  "limitations": [
+    "Chinese guide, not sentence-by-sentence full translation",
+    "Extracted text has OCR/formula/reading-order defects; original page images embedded",
+    "User scientific-quality acceptance pending",
+    "DSH workflow not accepted; no library record persistence claim",
+    "Notes export button implemented; downloaded file not inspected"
+  ],
+  "retention": "Local artifact and source retained; only metadata/evidence index committed, no paper content or credentials in repository"
+}

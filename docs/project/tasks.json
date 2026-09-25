@@ -721,15 +721,16 @@
         "docs/project/evidence/V02-007-cima-selection.json",
         "docs/project/evidence/V02-007-cima-generation-start.json",
         "docs/project/evidence/V02-007-cima-real-processing.json",
-        "docs/project/evidence/V02-007-cima-stalled-retry.json"
+        "docs/project/evidence/V02-007-cima-stalled-retry.json",
+        "docs/project/evidence/V02-007-cima-direct.json"
       ],
-      "notes": "2026-09-25 04:53Z heartbeat: same seq20 as prior turn; retry has no request/header, tool calls, output or terminal event, although native running=true. Pipeline still translate_full_read/batch-0001. No further paid retry authorized. Bounded read-only diagnosis did not establish root cause; possible error-notification handling weakness recorded without claiming causality. Automation paused; native turn and instance left intact; PDF and parsed assets retained. HTML absent, V007 not accepted.",
+      "notes": "User requested direct Codex generation without DSH. Standalone CIMA HTML delivered with Chinese guide, 25 source pages and local notes. Supported cancel acknowledged; native session running=false at seq22. No extra model/MinerU request. Automatic cycle remains paused; DSH workflow and human scientific-quality acceptance still not passed.",
       "risk": "R2",
-      "executionState": "stalled_model_retry_preserved_automation_paused",
+      "executionState": "direct_html_delivered_dsh_stopped_acceptance_pending",
       "blockedBy": [
-        "Model retry has no observable progress; native running state unresolved; diagnose transport/recovery before further attempt",
-        "One authorized extra model retry already dispatched; additional model failure retries require authorization",
-        "Final human content-quality and record-edit feedback"
+        "Fixed dev.5 DSH real-model generation chain remains unaccepted; direct HTML does not close this gate",
+        "Any additional DSH model retry needs applicable authorization",
+        "User scientific-quality feedback; product library record/restart acceptance remains outstanding"
       ],
       "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
       "plannedInstanceRoot": "C:/tmp/v007/",
@@ -776,7 +777,7 @@
       "nativeSessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
       "setupAgentState": "completed",
       "modelOrMineruRequestsStarted": true,
-      "checkpointState": "Automatic cycle paused after consecutive no-progress evidence; native turn not canceled, no terminal state inferred",
+      "checkpointState": "Direct artifact delivered; DSH turn stopped; no automatic additional retry or release advancement",
       "previousSamples": [
         {
           "supersededOn": "2026-09-25",
@@ -824,7 +825,13 @@
           "gpt-5.5"
         ]
       },
-      "lastCheckedAt": "2026-09-25T04:53:58.657Z"
+      "lastCheckedAt": "2026-09-25T05:17:00.412471+00:00",
+      "directArtifact": {
+        "path": "C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html",
+        "sha256": "c77e2a5b1d34dd0d6638014fe460dd4a7dcab93af50b1454cad8917bb720ed77",
+        "evidence": "docs/project/evidence/V02-007-cima-direct.json",
+        "kind": "standalone_codex_direct_not_dsh_reader"
+      }
     },
     {
       "id": "V02-008",
