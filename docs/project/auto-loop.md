@@ -2,7 +2,7 @@
 
 当前总控位于 C:/Users/15694/Documents/ChatGPT/deep-literature-for-codex，分支 codex/v02-control；A 位于 C:/Users/15694/Documents/ChatGPT/deep-literature-engine。应用默认旧 dsh reader 不可作为开发基线。用户授权在 v0.2 稳定范围内自动派发、复核、集成与继续；每 10 分钟检查，无需逐卡确认。
 
-2026-09-25 当前停点：006 已验收；007 CIMA 已入库并 submit，唯一 task 见台账，waiting_user/pdf_required。用户已完成 GPT Pro 登录；MinerU Key 未配置，等待正文 PDF。已有新实例 URL/launchId 和本轮生成回执；补齐后续接原 task，不重复提交、不处理旧 CD4 样本。绑定会话模型尚待核对；heartbeat 保持暂停，人工质量反馈仍待。
+2026-09-25 当前停点：007 CIMA 正文已附入且真实 MinerU 解析通过；GPT 首次连接错误后，用户批准一次额外重试，已投递且等待结果。GPT-6-Sol 列表/选择均不支持。循环已限定恢复，只跟踪原请求，进展后正常推进新 gate；不得再加失败重试、升级制品或重跑解析。失败无新证据则诊断后暂停并报告；HTML 后仍待人工验收。
 
 ## 每轮最小检查
 

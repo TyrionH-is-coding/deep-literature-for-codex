@@ -1,10 +1,10 @@
 # V02-007 当前交接：验收样本已更换为 CIMA
 
-2026-09-25 当前执行：用户要求使用工具生成 CIMA HTML。已重启同一隔离实例，当前 URL `http://127.0.0.1:58657`，launchId `639c87a3-c2be-49b4-8a5d-00d2ed5ae173`，CLI/浏览器身份一致。GPT Pro 登录已由用户完成；新会话选择器为 GPT-5.6-Sol，但必须在 CIMA 绑定会话核对后才能 dispatch。
+2026-09-25 当前执行：用户提供的 CIMA Science 正文 PDF（25页、SHA256 `c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804`）已附入原 task；MinerU 配置经受支持入口保存在 secure_store，不采集密钥到证据，实际解析通过。绑定会话已验证 OpenAI Codex / GPT-5.6-Sol / medium。首次请求失败 `CODEX_ERROR: Reconnecting... 2/5`，尚无译文；用户仅批准额外重试一次，已通过固定 retryKey `v02-007-cima-user-approved-retry-1` 投递，仍等待结果。用户要求尝试 GPT-6-Sol，刷新列表与实际选择均不支持（`dsh_model-unavailable`），当前模型未改。不能额外失败重试或擅自升级固定制品。
 
-CIMA 已入库 `pmid_41505528`，分类“中国人群免疫多组学” `folder_415f41ea96f1426e8db703e623823f76`，原生会话 `session-250eee33-0d2a-4b53-9940-f5ca23485a73`。唯一 task `task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618` / parent `job_13384b8d8eb7151f`，提交键 `v02-007-cima-fullread-20260925-v1`、runAgent=false；实际终点 waiting_user/pdf_required。不要重复 submit。
+唯一根 `C:/tmp/v007/instance`；当前 URL `http://127.0.0.1:58657/`，launchId `639c87a3-c2be-49b4-8a5d-00d2ed5ae173`。CIMA paper `pmid_41505528` / folder `folder_415f41ea96f1426e8db703e623823f76` / session `session-250eee33-0d2a-4b53-9940-f5ca23485a73`。原 task `task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618` / parent `job_13384b8d8eb7151f`，不要重复 submit、上传或解析。
 
-自动获取未取得 PDF；出版社浏览器遇访问验证。MinerU 本地 unavailable、API not_configured。等待用户提供正文 PDF/路径并在本机配置 MinerU Key，随后用原 task attach（codex_authorized 或 manual），按 gate 续接。不能把新会话模型选择等同绑定配置成功。尚无 GPT/MinerU 调用及 Reader HTML。[本轮回执](V02-007-cima-generation-start.json)。旧 CD4 样本仅保留历史。
+[实际处理证据](V02-007-cima-real-processing.json)。自动循环已限定恢复：只跟踪当前重试；新 gate 正常推进，失败则诊断并停下，不增失败重试。现有模型请求未到终态，不声称生成成功；HTML 后还需用户质量验收。已验证 API 模型配置后，浏览器对应分类会话同样显示 GPT-5.6-Sol/medium。
 
 ## 2026-09-22 准备快照（已被换文指令部分取代）
 

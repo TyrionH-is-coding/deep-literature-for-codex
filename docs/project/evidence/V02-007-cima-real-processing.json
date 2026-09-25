@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-09-25T04:34:37.713Z",
+  "pdf": {
+    "sha256": "c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804",
+    "pageCount": 25,
+    "title": "Chinese Immune Multi-Omics Atlas",
+    "doi": "10.1126/science.adt3130",
+    "sourceType": "manual"
+  },
+  "mineru": {
+    "secretSaved": true,
+    "store": "secure_store",
+    "parseStatus": "parsed_mineru",
+    "secretValueRecorded": false
+  },
+  "model": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "medium",
+    "boundSessionVerified": true
+  },
+  "taskId": "task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618",
+  "jobId": "job_13384b8d8eb7151f",
+  "firstModelAttempt": {
+    "status": "error",
+    "code": "CODEX_ERROR",
+    "message": "Reconnecting... 2/5",
+    "translatedOutputObserved": false
+  },
+  "approvedExtraRetry": {
+    "limit": 1,
+    "used": 1,
+    "retryKey": "v02-007-cima-user-approved-retry-1",
+    "rpcId": "82467073-96d4-45f9-8e16-7b1a9344865b",
+    "status": "running; no completed response observed at last check"
+  },
+  "requestedModelChange": {
+    "requested": "gpt-6-sol",
+    "result": "dsh_model-unavailable",
+    "current": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "medium"
+    },
+    "availableGPT": [
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-5.6-luna",
+      "gpt-5.5"
+    ]
+  },
+  "readerGenerated": false,
+  "automaticLoop": "ACTIVE only to follow existing task, no further failure retries",
+  "rawEvidenceRoot": "C:/tmp/v007/papers/requests/"
+}

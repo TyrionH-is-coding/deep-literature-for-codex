@@ -13,10 +13,10 @@
       "name": "Deep Literature v0.2 自动总控",
       "intervalMinutes": 10,
       "id": "deep-literature-v0-2",
-      "state": "PAUSED",
-      "lastVerifiedAt": "2026-09-22T01:53:11.6772821Z",
-      "pauseReason": "007 CIMA task waiting for PDF and MinerU configuration; GPT login completed; human content review remains pending",
-      "resumeCondition": "Resume authorized loop after user supplies real-use conditions; login and human quality gates remain explicit"
+      "state": "ACTIVE",
+      "lastVerifiedAt": "2026-09-25T04:42:09.254Z",
+      "pauseReason": null,
+      "resumeCondition": "User inputs supplied; follow current authorized model retry only, then normal stages on progress; pause on unresolved failure or human acceptance."
     },
     "lastReviewAt": "2026-09-22T02:14:17.7689614Z",
     "lastHeartbeatCompletedAt": "2026-09-22T01:53:11.6772821Z",
@@ -719,15 +719,13 @@
         "docs/project/evidence/V02-007-control-preparation.json",
         "docs/project/evidence/V02-007-handoff.md",
         "docs/project/evidence/V02-007-cima-selection.json",
-        "docs/project/evidence/V02-007-cima-generation-start.json"
+        "docs/project/evidence/V02-007-cima-generation-start.json",
+        "docs/project/evidence/V02-007-cima-real-processing.json"
       ],
-      "notes": "User requested HTML generation with our tool. Restarted same isolated instance, verified CLI/browser identity; CIMA ingested/moved/bound and submitted with runAgent=false. Actual task waiting_user/pdf_required. User completed GPT Pro login. Composer selected GPT-5.6-Sol; bound CIMA session selection still requires verification before dispatch. MinerU local unavailable/API not_configured. Publisher browser shows access challenge; PDF not obtained. No GPT/MinerU processing calls yet.",
+      "notes": "PDF attached and actual MinerU parsing passed; bound GPT-5.6-Sol/medium verified. First model attempt ended CODEX_ERROR Reconnecting... 2/5 with no translation. User approved one extra retry; dispatched original task, current response pending. User requested GPT-6-Sol; refreshed model list lacks it and selection returned dsh_model-unavailable, model unchanged. Preserve PDF and parsed outputs; no additional failure retries authorized. Bounded heartbeat follows this task only. HTML and human acceptance pending.",
       "risk": "R2",
-      "executionState": "waiting_for_pdf_and_mineru_configuration",
+      "executionState": "gpt_retry_running_after_connection_error",
       "blockedBy": [
-        "Actual CIMA full-text PDF (automatic acquisition returned pdf_required; publisher browser access challenge)",
-        "User-local MinerU API key configuration; local parser unavailable",
-        "Verify GPT model on bound CIMA session before dispatch",
         "Final human content-quality and record-edit feedback"
       ],
       "candidateSha256": "cb0d5a01b3cad6c6292aa10a7eaf1b9af76c244a069e856322fc7561d6c35044",
@@ -735,7 +733,7 @@
       "baseCommit": "7d53ab5b3c66fdee77820b64d94c8a49ea03ed97",
       "dispatchState": "preparation-delivered",
       "startedAt": "2026-09-22T01:56:15.3558841Z",
-      "nextCheckpointAt": null,
+      "nextCheckpointAt": "2026-09-25T06:04:37.709Z",
       "allowedPaths": [
         "scripts/v02-007-*",
         "scripts/fixtures/v02-007/",
@@ -747,7 +745,7 @@
       "userInput": {
         "title": "Chinese Immune Multi-Omics Atlas",
         "modelFamily": "GPT",
-        "exactModel": "GPT-5.6-Sol selected in new-session composer; bound CIMA session not yet verified",
+        "exactModel": "openai-codex / gpt-5.6-sol / medium; bound session API and browser verified",
         "scope": "This one selected paper; no automatic additional paid retry",
         "credentials": "user-local configuration only"
       },
@@ -760,10 +758,10 @@
         "title": "Chinese Immune Multi-Omics Atlas",
         "formalDoi": "10.1126/science.adt3130",
         "sampleDoi": "10.1126/science.adt3130",
-        "sampleVersion": "Science published article; full-text PDF not yet obtained",
+        "sampleVersion": "Science published PDF, 25 pages",
         "pmid": "41505528",
         "sourceRecord": "docs/project/evidence/V02-007-cima-selection.json",
-        "pdfSha256": null
+        "pdfSha256": "c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804"
       },
       "preparationIntegrationCommit": "a92f779c9f92c3e279f6e97452407d89bcc35d4f",
       "preparationAcceptedAt": "2026-09-22T02:14:17.5960902Z",
@@ -774,8 +772,8 @@
       "folderId": "folder_415f41ea96f1426e8db703e623823f76",
       "nativeSessionId": "session-250eee33-0d2a-4b53-9940-f5ca23485a73",
       "setupAgentState": "completed",
-      "modelOrMineruRequestsStarted": false,
-      "checkpointState": "Suspend active-execution checkpoint while waiting for user-local configuration; set next checkpoint on resumed execution",
+      "modelOrMineruRequestsStarted": true,
+      "checkpointState": "Active generation resumed; 90-minute review checkpoint",
       "previousSamples": [
         {
           "supersededOn": "2026-09-25",
@@ -801,7 +799,28 @@
       ],
       "fullReadTaskId": "task-ca0ffd78-671f-48b7-ab7d-5c61f82d9618",
       "parentJobId": "job_13384b8d8eb7151f",
-      "submitIdempotencyKey": "v02-007-cima-fullread-20260925-v1"
+      "submitIdempotencyKey": "v02-007-cima-fullread-20260925-v1",
+      "approvedExtraModelRetries": {
+        "limit": 1,
+        "used": 1,
+        "retryKey": "v02-007-cima-user-approved-retry-1",
+        "rpcId": "82467073-96d4-45f9-8e16-7b1a9344865b"
+      },
+      "requestedModelChange": {
+        "requested": "gpt-6-sol",
+        "result": "dsh_model-unavailable",
+        "current": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "medium"
+        },
+        "availableGPT": [
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-5.6-luna",
+          "gpt-5.5"
+        ]
+      }
     },
     {
       "id": "V02-008",

@@ -13,9 +13,9 @@
 
 ## 当前等待与下一项可见结果
 
-**007 的 CIMA 生成任务已建立，GPT 已登录；当前等待正文 PDF 和 MinerU 配置。** [007 任务卡](docs/project/tasks/V02-007.md)固定同一 dev.5 制品，目标为入库 → 获取 PDF → MinerU → 实际 GPT 模型 → Reader → 记录保存与重启读回。复用已有恢复和回归证据，不重复无变化源码全集。[当前交接](docs/project/evidence/V02-007-handoff.md)保存实例、论文和分类会话身份；007尚未通过。
+**007 的 CIMA 正文已完成真实 MinerU 解析；GPT 首次连接失败，正在跟踪用户批准的一次重试。** [007 任务卡](docs/project/tasks/V02-007.md)固定同一 dev.5 制品，目标为入库 → 获取 PDF → MinerU → 实际 GPT 模型 → Reader → 记录保存与重启读回。复用已有恢复和回归证据，不重复无变化源码全集。[当前交接](docs/project/evidence/V02-007-handoff.md)保存实例、论文和分类会话身份；007尚未通过。
 
-2026-09-25 用户改选 **Chinese Immune Multi-Omics Atlas**（Science，DOI `10.1126/science.adt3130`，PMID `41505528`）；[新来源记录](docs/project/evidence/V02-007-cima-selection.json)。模型仍用 GPT，只处理替换后的这一篇，不自动增加付费重试。CIMA 已入库并建立唯一精读任务，实际状态为 waiting_user/pdf_required。当前隔离工作台 `http://127.0.0.1:58657/`，身份已复核；用户已完成 GPT Pro 登录，新会话已选 GPT-5.6-Sol，绑定会话模型仍待核对。自动获取未取得 PDF，出版社出现访问验证；MinerU 本地不可用、API Key 未配置。等待用户补正文 PDF 和本地 Key 后继续原任务；尚未生成 HTML，也未调用 GPT/MinerU。上一篇仅保留历史，定时循环保持暂停。
+2026-09-25 用户改选 **Chinese Immune Multi-Omics Atlas**（Science，DOI `10.1126/science.adt3130`，PMID `41505528`）；[新来源记录](docs/project/evidence/V02-007-cima-selection.json)。模型仍用 GPT，只处理替换后的这一篇，不自动增加付费重试。CIMA 已入库、正文已附入原任务，真实 MinerU 解析通过，绑定模型为 GPT-5.6-Sol/medium。首次模型请求报 Reconnecting... 2/5；用户批准的一次额外重试已投递，尚未生成译文或 HTML。刷新模型列表并实际尝试 GPT-6-Sol 返回 model-unavailable，模型未改。当前隔离工作台 `http://127.0.0.1:58657/`。限定自动循环已恢复以跟踪现有请求，不再增加失败重试；成功后才继续正常阶段和用户验收。[本轮证据](docs/project/evidence/V02-007-cima-real-processing.json)。
 
 最终制品交付/发布归 008，依赖 007 结论。main 仍为 rc.6 文件树 `e7160eb`，用户安装未升级，v0.2 未发布。当前恢复证据不能推广为跨平台/跨版本迁移；桌面 Excel 编辑及自动选中行仍按实际验收范围说明。
 
