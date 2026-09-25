@@ -722,9 +722,10 @@
         "docs/project/evidence/V02-007-cima-generation-start.json",
         "docs/project/evidence/V02-007-cima-real-processing.json",
         "docs/project/evidence/V02-007-cima-stalled-retry.json",
-        "docs/project/evidence/V02-007-cima-direct.json"
+        "docs/project/evidence/V02-007-cima-direct.json",
+        "docs/project/evidence/V02-007-cima-close-reading.json"
       ],
-      "notes": "User requested direct Codex generation without DSH. Standalone CIMA HTML delivered with Chinese guide, 25 source pages and local notes. Supported cancel acknowledged; native session running=false at seq22. No extra model/MinerU request. Automatic cycle remains paused; DSH workflow and human scientific-quality acceptance still not passed.",
+      "notes": "User requested direct Codex generation without DSH. Standalone CIMA HTML delivered with Chinese guide, 25 source pages and local notes. Supported cancel acknowledged; native session running=false at seq22. No extra model/MinerU request. Automatic cycle remains paused; DSH workflow and human scientific-quality acceptance still not passed. Close-reading supplement delivered: paragraph-level main article and all six main figure captions translated; methods explained by section with original excerpts. Product/Human acceptance remains outstanding.",
       "risk": "R2",
       "executionState": "direct_html_delivered_dsh_stopped_acceptance_pending",
       "blockedBy": [
@@ -825,12 +826,18 @@
           "gpt-5.5"
         ]
       },
-      "lastCheckedAt": "2026-09-25T05:17:00.412471+00:00",
+      "lastCheckedAt": "2026-09-25T05:40:41.170579+00:00",
       "directArtifact": {
         "path": "C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html",
         "sha256": "c77e2a5b1d34dd0d6638014fe460dd4a7dcab93af50b1454cad8917bb720ed77",
         "evidence": "docs/project/evidence/V02-007-cima-direct.json",
         "kind": "standalone_codex_direct_not_dsh_reader"
+      },
+      "closeReadingArtifact": {
+        "path": "C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-细读.html",
+        "sha256": "96a653a038c0eb61d60fd16093304a8e074ba415d9831b7e645838c4c4dca04d",
+        "evidence": "docs/project/evidence/V02-007-cima-close-reading.json",
+        "kind": "standalone_codex_direct_close_reading"
       }
     },
     {

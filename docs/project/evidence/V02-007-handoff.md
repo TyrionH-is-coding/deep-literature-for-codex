@@ -2,6 +2,8 @@
 
 ## 当前：Codex直接交付，DSH任务已停止
 
+追加细读已完成：`C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-细读.html`，包含正文逐段译文、全部六幅主图图注翻译、分节方法解读与原文对照。[覆盖、SHA与实际验证](V02-007-cima-close-reading.json)。方法中文为解读，作者/参考文献/致谢未逐条翻译；产品验收与用户科学质量状态保持未通过。
+
 2026-09-25 用户要求不依赖DSH，由当前Codex完成。已交付 `C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html`：中文精读、6幅主图导览、25页原版图像和可检索英文原文、浏览器本地笔记。全部图像内嵌可离线阅读，中文部分不是逐句全文翻译；没有补充材料文件的独立核验。[SHA与实际验证](V02-007-cima-direct.json)。文件、HTTP内容一致；页面跳转、全文检索和笔记刷新读回已核对，测试笔记已清空。
 
 原任务通过受支持cancel入口停止：control acknowledged，随后session.list确认running=false，asOfSeq22。没有新模型/MinerU请求、没有改固定制品或伪造正式Reader完成状态。自动循环保持PAUSED；007主流程、用户科学质量、产品库内记录及重启门槛仍待验，不能推进008。用户可先阅读独立交付，再决定是否将直接Codex执行纳入产品路线；当前并未据此实施架构改造。

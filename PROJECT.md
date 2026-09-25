@@ -15,6 +15,8 @@
 
 **CIMA 的独立 HTML 精读已由当前 Codex 直接生成，已打开供用户阅读；DSH 自动主流程尚未通过。** 用户要求不依赖 DSH 后，复用已解析的同一篇正文，交付中文精读、六幅主图导览、25页原版图像/可搜索英文原文及浏览器本地笔记。它不是逐句全文中文翻译，也未写入项目正式 Reader 资产。文件：`C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-精读.html`。[交付与校验证据](docs/project/evidence/V02-007-cima-direct.json)。
 
+用户追加的**细读版也已交付**：`C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-细读.html`。正文逐段中英对照、六幅主图完整图注译文、分节方法解读，保留25页原图及搜索/笔记；方法解读不冒充逐字全文翻译。[细读证据](docs/project/evidence/V02-007-cima-close-reading.json)。
+
 已实际核对原 PDF SHA、HTML/HTTP SHA、图六跳转、IKZF4跨页搜索及笔记刷新读回，测试笔记已清空；用户科学内容质量反馈仍待收集。DSH 原任务已通过支持入口请求停止，control acknowledged，原生会话现为 running=false / seq22；没有追加付费请求或重跑 MinerU。自动循环保持暂停，007产品主流程及008发布门槛未关闭。[007任务卡](docs/project/tasks/V02-007.md)与[当前交接](docs/project/evidence/V02-007-handoff.md)保留具体缺口。
 
 论文为 Chinese Immune Multi-Omics Atlas（Science，DOI `10.1126/science.adt3130`，PMID `41505528`）。用户提供的PDF已完成真实MinerU解析；DSH GPT首请求失败，唯一批准的额外重试无进展后停止。固定制品不提供用户要求的GPT-6-Sol，未升级或擅自更换模型。[历史处理证据](docs/project/evidence/V02-007-cima-real-processing.json)、[停止前停点](docs/project/evidence/V02-007-cima-stalled-retry.json)。

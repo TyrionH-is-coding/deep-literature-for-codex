@@ -1,0 +1,85 @@
+{
+  "at": "2026-09-25T05:37:58.390690+00:00",
+  "artifact": "C:/Users/15694/Documents/ChatGPT/CIMA-reading/CIMA-细读.html",
+  "sha256": "96a653a038c0eb61d60fd16093304a8e074ba415d9831b7e645838c4c4dca04d",
+  "bytes": 18836294,
+  "sections": 72,
+  "blocks": 96,
+  "chineseCharacters": 32533,
+  "kinds": {
+    "translation": 38,
+    "caption": 6,
+    "method_note": 52
+  },
+  "validation": {
+    "sourceIdsKnown": true,
+    "pageReferencesValid": true,
+    "uniqueBlockAndSectionIds": true,
+    "allBlocksHaveEnglishAndChinese": true,
+    "durableCopyHashMatches": true,
+    "browserDefaultCloseView": true,
+    "browserBilingualToggle": true,
+    "browserSearchHEIDI": {
+      "matches": 1,
+      "total": 96
+    },
+    "browserPdfJump": 20,
+    "browserReturnPreservesSearch": true,
+    "browserClearSearchRestores96": true,
+    "browserBilingualLayoutScreenshotReviewed": true,
+    "httpShaMatches": true,
+    "contentCoverage": {
+      "at": "2026-09-25T05:37:57.103301+00:00",
+      "expectedMainTextBlocks": 44,
+      "coveredMainTextBlocks": 44,
+      "missingSourceIds": [],
+      "mainFigureCaptionsFound": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "numericReviewFlags": [],
+      "translationSections": 14,
+      "totalBlocks": 96,
+      "sourceIdsUnknown": []
+    },
+    "reviewCorrections": [
+      "Lead-variant wording",
+      "HEIDI heterogeneity interpretation",
+      "Best10 comparison not assumed prespecified",
+      "CPU hardware ambiguity retained"
+    ]
+  },
+  "limits": [
+    "Main article and main figure captions translated; methods explained section by section, not a complete literal methods translation",
+    "Independent supplementary materials not provided/reviewed",
+    "Original PDF page images and machine extracted English text retained",
+    "Not a DSH pipeline or user acceptance pass"
+  ],
+  "userRequest": "细读的也做一下",
+  "implementation": "Direct Codex content supplement to standalone CIMA HTML; no DSH/native model/MinerU request or product modification",
+  "sourcePdfSha256": "c198e63153bd83f2f6cf6b10a88216dc6f84eeed5848a4e0a8688e5829e91804",
+  "localContentEvidence": "C:/tmp/v007/codex-direct/close-reading/close-evidence.json",
+  "localCoverageCheck": "C:/tmp/v007/codex-direct/close-reading/content-check.json",
+  "inputSha256": {
+    "front.json": "7e38e87adc75a1687ce2020445094332da0fed151c3a3c836efb908e94007f7c",
+    "back-methods.json": "6689acf9325f7666f7e10037402e9688af2b26ff04e0b6aa65dc79d64d9a7e16"
+  },
+  "buildScriptSha256": "381197a18a0c9bc6233097dfb3adc1719df818a35bbfb3bb0bfddc8ab5f8746b",
+  "parallelScopes": [
+    "cima_close_front: main front article and figures 1/3/4",
+    "cima_close_back_methods: model/discussion, figures 2/5/6, section-level methods"
+  ],
+  "humanQualityAccepted": false,
+  "dshWorkflowAccepted": false,
+  "automation": "PAUSED",
+  "provenanceCorrections": [
+    "PDF-backed mixed-column reconstruction at P10/P12 and cross-page joins",
+    "Figure2 caption restored from actual PDF text layer",
+    "FOXP3 and reference61 OCR corrections",
+    "Distinguished cohort428, final genotype413, in-house GWAS378"
+  ]
+}
